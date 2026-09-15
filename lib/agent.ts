@@ -10,7 +10,7 @@ export async function runAgent(id:string,s:Session,message:string,emit:(e:any)=>
  const tools=new CartlyTools(s.state,s.verified);let modelEvent:Event|null=null;
  s.turns++;s.messages.push({role:'user',content:message});s.input.push({role:'user',content:message});emit({type:'message',data:{role:'user',content:message}});
  activity('context','Load conversation context',`${s.messages.length-1} previous messages · ${s.verified?'customer '+s.verified+' verified':'identity not verified'}`,{previous_messages:s.messages.length-1,tool_results:s.toolLog.length,verified_user:s.verified,memory:'Session history only. No long-term memory lookup.'});
- activity('policy','Include the full policy','Policy v0.6 and the reference date are included in this request.',{policy_version:'v0.6',prompt:'agent_v1.1',today:s.state.config.today,timezone:'IST',source:'Full system prompt; this is not a search_policy tool call.'});
+ activity('policy','Include the full policy',`Policy ${policy.version} and the reference date are included in this request.`,{policy_version:policy.version,prompt:'agent_v1.1',today:s.state.config.today,timezone:'IST',source:'Full system prompt; this is not a search_policy tool call.'});
  await persist(id,s);
  try{for(let round=0;round<20;round++){
   if(signal.aborted)throw Error('The connection was interrupted. Start a new conversation to continue.');
