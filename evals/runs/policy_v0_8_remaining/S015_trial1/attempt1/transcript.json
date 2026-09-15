@@ -1,0 +1,327 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I changed my mind about my kurta and wanted to check whether I can return it. Could you please let me know the return eligibility and process?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help check that. Please share your user ID and either your registered email or phone number, along with the order ID if you have it.\n\nFor a change-of-mind return, a kurta generally must be **unused and within 10 calendar days of delivery**, with the delivery date counted as day 0. Personalized items aren’t eligible.\n\nIf eligible, we arrange a pickup. The refund is the item price minus a **₹99 pickup fee**; shipping isn’t refunded. Once pickup is completed, the system refunds automatically to your original payment method—or Cartly Wallet for cash-on-delivery orders.\n\nIs the kurta unused?",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check and let me know whether the kurta is unused, as that’s required for a change-of-mind return. It also needs to be within 10 calendar days of delivery and not personalized.\n\nTo check your order’s return deadline and exact refund amount, please share your **user ID and registered email or phone number**, plus the order ID if available. I won’t initiate a return without your confirmation.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U022 and my registered email is customer022@example.com. The kurta has not been worn or used. I don’t have the order ID available.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_N1uYdIwwb6xgXcA03abP0p66",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_9uDsEBboJKvwGNjjJ1TQPVwX",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0015",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-08-30",
+          "promised_delivery_date": "2026-09-04",
+          "actual_delivery_date": "2026-09-04",
+          "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0049",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-06",
+          "promised_delivery_date": "2026-09-11",
+          "actual_delivery_date": "2026-09-11",
+          "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0083",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0117",
+          "user_id": "U022",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_Vz7aozqo3tHJXVvnYC9Ye8fE",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0015",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-08-30",
+        "promised_delivery_date": "2026-09-04",
+        "actual_delivery_date": "2026-09-04",
+        "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0015",
+          "order_id": "O0015",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0049"
+    },
+    "call_id": "call_dfh6Wq9TdTeOJIxePcB3w70G",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0049",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-09-06",
+        "promised_delivery_date": "2026-09-11",
+        "actual_delivery_date": "2026-09-11",
+        "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+        "payment_method": "Card",
+        "shipping_fee": 99,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0051",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        },
+        {
+          "item_id": "I0052",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0083"
+    },
+    "call_id": "call_1zpCVwVl9AmZPYsi7XEJhuYo",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0083",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-09-03",
+        "promised_delivery_date": "2026-09-08",
+        "actual_delivery_date": "2026-09-14",
+        "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0087",
+          "order_id": "O0083",
+          "product_name": "Ceramic serving bowl",
+          "category": "home",
+          "price": 899,
+          "quantity": 1,
+          "ordered_product_name": "Ceramic serving bowl",
+          "delivered_product_name": "Ceramic serving bowl",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks—your account is verified, and I found your **Cotton kurta in order O0015**.\n\n- **Delivered:** 4 September 2026\n- **Last eligible return date:** 14 September 2026\n- **Today:** 15 September 2026, day 11 after delivery\n\nAlthough the kurta is unused, the **10-day return window has closed**, so it’s no longer eligible for a change-of-mind return. I’m sorry, but I can’t arrange a return or refund for this reason.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 4
+  }
+]

@@ -1,0 +1,177 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I changed my mind about my kurta and would like to know whether I can return it. Could you please check the return options for me?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's supplied return request and does not introduce unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to check return options; no action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_03079d9b27443f15016aa967f4890087d2bf2afc411159aa7c",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests an order ID but does not ask which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent directly asks whether the kurta has been used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of a proposed action after explaining it."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the registered user ID and registered email or phone number for verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U022"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "customer022@example.com"
+      },
+      {
+        "question": "What is the order ID?",
+        "source_quote": "The order I am asking about is O0015 and the item is Cotton kurta."
+      },
+      {
+        "question": "Has the kurta been used?",
+        "source_quote": "The item has not been worn or used."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "No, the kurta has not been worn or used. My user ID is U022 and my registered email is customer022@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states the released condition fact and supplies credentials from the profile. It does not assert any unsupported order, delivery, return-eligibility, payment, or SMS details.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer answers the support question, but the return has not been approved or completed and further information or action is still needed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_05c9e35fb194881f016aa967ff224c87d2b0bc2681d8437567",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message states the order and item but does not ask which order or item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No confirmation is requested for a proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The delivery date and current date are stated, but the agent does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I understand. Is there any exception or alternative you can offer for returning the unused kurta?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply refers only to the supported fact that the kurta is unused and asks for an exception or alternative after the stated return refusal.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting an exception or alternative, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Accepting a proposal or requesting a next step must continue the conversation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_042d40e0d4dfec3c016aa968225cd087d2bfb1497eeb1bcf7f",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

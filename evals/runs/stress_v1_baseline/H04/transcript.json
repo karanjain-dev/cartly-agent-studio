@@ -1,0 +1,235 @@
+[
+  {
+    "role": "customer",
+    "content": "bhai size galat aaya, M mangaya tha L aaya. paise wallet mein nahi, bank mein chahiye.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "Samajh gaya bhai—M order kiya tha aur L mila, toh yeh **wrong-item claim** hai.\n\nCheck karne ke liye apna **user ID, registered email ya phone number, aur order ID** bhej do.\n\nRefund original payment method par hi hota hai. Agar order **Cash on Delivery** tha, toh policy ke mutabik refund **Cartly Wallet** mein milega, bank mein nahi.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "Bhai user ID U104 aur registered email faizan.ansari@example.com hai. Bank refund hi chahiye—please ek baar check kar lo ki original payment method par possible hai kya.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U104",
+      "email": "faizan.ansari@example.com",
+      "phone": null
+    },
+    "call_id": "call_wW3IeY8oNhTtFaeTsJYtTasq",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U104"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_HzfS1nVoYeTMr7sKbZHZMSRa",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O1005",
+          "user_id": "U104",
+          "status": "Delivered",
+          "placed_date": "2026-09-10",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T16:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 302, Gulmohar Apartments",
+            "line2": "12, Indiranagar 2nd Stage",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "pincode": "560001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O1005"
+    },
+    "call_id": "call_Rn4CJ0ZFshAcjQ9smzxjGmns",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O1005",
+        "user_id": "U104",
+        "status": "Delivered",
+        "placed_date": "2026-09-10",
+        "promised_delivery_date": "2026-09-14",
+        "actual_delivery_date": "2026-09-14",
+        "actual_delivery_at": "2026-09-14T16:00:00+05:30",
+        "payment_method": "COD",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 302, Gulmohar Apartments",
+          "line2": "12, Indiranagar 2nd Stage",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I1006",
+          "order_id": "O1005",
+          "product_name": "Cotton vest",
+          "category": "innerwear",
+          "price": 399,
+          "quantity": 1,
+          "ordered_product_name": "Cotton vest",
+          "delivered_product_name": "Cotton vest",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "L",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O1005"
+    },
+    "call_id": "call_r5Umrdtd2Hky6nI4EkCwuGNY",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Bhai, check kar liya: order **O1005 Cash on Delivery** tha, isliye refund bank mein ya cash mein nahi—**Cartly Wallet mein hi** ho sakta hai.\n\nM ki jagah L deliver hua hai aur claim 48 ghante ke andar hai. Aap **₹448 refund** ke eligible ho—₹399 item ke + ₹49 shipping. Item wapas dene ki zaroorat nahi hai.\n\nKya main **₹448 ka immediate refund Cartly Wallet mein issue kar doon?** Aapki haan ke bina refund issue nahi karunga.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Bhai bank refund hi chahiye—wallet mein nahi. Kya aap ek baar phir check kar sakte ho ki original payment method par possible hai?",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "search_policy",
+    "arguments": {
+      "query": "E7: refund method for Cash on Delivery (COD) orders; whether refund to bank or original payment method is allowed"
+    },
+    "call_id": "call_ht6Kb9LEdHMX5pWyUxRi6tQU",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "version": "v0.8",
+      "matches": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Samajh raha hoon bhai, aapko bank mein hi chahiye. Lekin **O1005 ka payment COD tha**, bank se nahi hua tha. COD orders ke liye original-payment refund rule ka exception hai: **refund sirf Cartly Wallet mein hota hai; bank transfer allowed nahi hai.**\n\nAvailable option **₹448 ka immediate wallet refund** hai, bina item return kiye. Aapne wallet refund mana kiya hai, isliye maine koi refund issue nahi kiya hai.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Theek hai bhai, bank refund possible nahi hai toh wallet refund hi issue kar do—₹448 Cartly Wallet mein.",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "issue_refund",
+    "arguments": {
+      "order_id": "O1005",
+      "item_id": "I1006",
+      "reason": "wrong_item",
+      "confirmed": true,
+      "amount": 448
+    },
+    "call_id": "call_CtmUlJ4rMEFeGTBBGHAk41Ms",
+    "turn": 4,
+    "changes": [
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "refund_id": "R0041"
+        },
+        "values": {
+          "refund_id": "R0041",
+          "order_id": "O1005",
+          "item_id": "I1006",
+          "user_id": "U104",
+          "amount": 448.0,
+          "shipping_refunded": true,
+          "reason": "wrong_item",
+          "date": "2026-09-15",
+          "status": "completed",
+          "method": "Cartly Wallet",
+          "authorized_by": "agent"
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "refund": {
+        "refund_id": "R0041",
+        "order_id": "O1005",
+        "item_id": "I1006",
+        "user_id": "U104",
+        "amount": 448.0,
+        "shipping_refunded": true,
+        "reason": "wrong_item",
+        "date": "2026-09-15",
+        "status": "completed",
+        "method": "Cartly Wallet",
+        "authorized_by": "agent"
+      }
+    }
+  },
+  {
+    "role": "support",
+    "content": "Ho gaya bhai—**₹448 ka refund Cartly Wallet mein complete ho gaya hai**: ₹399 item ke + ₹49 shipping.\n\nItem wapas karne ki zaroorat nahi hai.  \n**Refund ID:** R0041",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 5
+  }
+]

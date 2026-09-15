@@ -2,9 +2,17 @@
 
 A hosted demonstration of the existing Cartly support agent. Visitors chat as one of three synthetic customers and see actual policy inclusion, tool calls, results, session context, and database changes alongside the conversation.
 
+## Evaluation project
+
+The complete evaluation project is stored in [`evals/`](evals/README.md): policies, prompts, fictional world data, scenarios, simulator, reference calculator, tools, tests and saved transcripts. The guide explains how cases are created and how outcomes are checked.
+
+The newest suite is [`stress_v1`](evals/scenarios/stress_v1.json). Read its [separate accuracy report](evals/runs/stress_v1_baseline/REPORT.md), including precheck skips, observation-only cases, checker errors and transcript-reviewed results. These scores do not mix in the original dev or heldout cases.
+
+GitHub stores the evaluation source and evidence. It does not run paid evaluations automatically, and the website does not load hidden facts or expected answers. New evaluation fixtures do not modify the live demo's runtime database.
+
 ## What runs
 
-- The exact `agent_v1.1` prompt with policy v0.6, reference date from the original configuration, model `gpt-6-astra`, and high reasoning effort.
+- The exact `agent_v1.1` prompt with policy v0.8, reference date from the original configuration, model `gpt-6-astra`, and high reasoning effort.
 - All 13 callable tools from the policy table, in unguarded baseline mode. The TypeScript implementation is checked against the original Python implementation with 895 calls across 216 sequences.
 - A fresh synthetic world per conversation. SQLite stores each conversation behind an opaque, HttpOnly session cookie. Reset replaces that session's world, identity, history, and changes.
 - No simulator, scenario truth, heldout scenarios, grader, or reference calculator is loaded at runtime. The original project remains the evaluation source of truth.

@@ -1,0 +1,31 @@
+{
+  "sessions": 30,
+  "sessions_per_scenario": 1,
+  "customer_model": "gpt-5.6-luna",
+  "customer_reasoning_effort": "none",
+  "support_model": "gpt-6-astra",
+  "judge_model": "gpt-4.1-mini",
+  "scored_sessions": 30,
+  "outcome_passes": 25,
+  "communication_passes": 29,
+  "harmful_actions": 0,
+  "all_checks_passes": 23,
+  "initial_grading_errors": 2,
+  "recovered_grading_errors": 2,
+  "session_replays": 0,
+  "estimated_total_cost_usd": 3.6477489000000007,
+  "grading_review_cost_usd": 0.0027408,
+  "failed_scenarios": [
+    "S007",
+    "S015",
+    "S018",
+    "S031",
+    "S034"
+  ],
+  "outcome_accuracy": 0.8333333333333334,
+  "failure_types": {
+    "routing": 3,
+    "policy": 1,
+    "understanding": 1
+  }
+}

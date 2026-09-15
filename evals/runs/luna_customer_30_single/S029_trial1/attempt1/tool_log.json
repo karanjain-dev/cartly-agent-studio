@@ -1,0 +1,124 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U002",
+      "email": "customer002@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U002"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0087"
+    },
+    "ok": false,
+    "error": {
+      "message": "order or item unavailable for this session"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0054",
+          "user_id": "U002",
+          "status": "Delivered",
+          "placed_date": "2026-08-21",
+          "promised_delivery_date": "2026-08-26",
+          "actual_delivery_date": "2026-08-26",
+          "actual_delivery_at": "2026-08-26T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 102, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0055",
+          "user_id": "U002",
+          "status": "Delivered",
+          "placed_date": "2026-08-11",
+          "promised_delivery_date": "2026-08-16",
+          "actual_delivery_date": "2026-08-16",
+          "actual_delivery_at": "2026-08-16T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 102, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0056",
+          "user_id": "U002",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 102, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0088",
+          "user_id": "U002",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 102, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    },
+    "mode": "unguarded"
+  }
+]

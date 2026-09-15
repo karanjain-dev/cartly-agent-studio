@@ -1,0 +1,164 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests an order ID but does not ask which existing order or item the request concerns."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "The agent specifically asks whether a different product, size, color, or quantity was received versus the correct item not fitting or meeting preference, which asks what is wrong with the shirt."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email or phone number for identity/contact verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What’s wrong—did you receive a different product, size, color, or quantity from what you ordered, or is the correct item not fitting or meeting your preference?",
+        "source_quote": "I ordered a blue shirt but received a black shirt."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U114 and my registered email is pooja.joshi@example.com. I ordered a blue shirt but received a black shirt.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "problem"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the supplied credentials and the released fact that a blue shirt was ordered but a black shirt was received.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided requested information, but the issue has not yet been resolved.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_0d64ca581b41995e016aa97d556a9487d2a9d20adfb12fa7d6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message identifies the order and shirt but does not ask the customer which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please create the return with free pickup and refund ₹1,048 to my original UPI payment method.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "problem"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accepts the support agent’s stated return, free-pickup, and ₹1,048 refund proposal; it does not claim that the customer paid that amount.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer authorizes creation of the return, but support has not yet completed the action.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_0252e999f9ba02cf016aa97d75d89087d2901b71243eb3a2f7",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message confirms the return for order O1014 but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "problem",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker, which asserts no customer-specific facts. Support has completed the return creation and scheduled free pickup; the refund process is stated as automatic after pickup.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested return and free pickup were completed, with the refund process explained.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_0d7d4a1d64b61458016aa97d877a7087d29b9b95a7423cd355",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

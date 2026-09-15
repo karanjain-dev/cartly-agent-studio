@@ -1,0 +1,3 @@
+{"timestamp": "2026-09-15T12:00:00+05:30", "tool_name": "verify_user", "arguments": {"user_id": "U110", "email": "priya.sharma@example.com", "phone": null}, "ok": true, "result": {"verified": true, "user_id": "U110"}, "mode": "unguarded"}
+{"timestamp": "2026-09-15T12:00:00+05:30", "tool_name": "list_orders", "arguments": {}, "ok": true, "result": {"orders": []}, "mode": "unguarded"}
+{"timestamp": "2026-09-15T12:00:00+05:30", "tool_name": "get_order", "arguments": {"order_id": "O1011"}, "ok": false, "error": {"message": "order or item unavailable for this session"}, "mode": "unguarded"}

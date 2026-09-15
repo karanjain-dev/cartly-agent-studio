@@ -1,0 +1,910 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asks about the size received versus ordered but does not ask which order or item the request concerns."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent asks whether the kurta is unused, which asks about its use condition."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": null,
+    "reason": "None of the pending conditions are satisfied. The agent has not mentioned the ₹99 pickup fee, changed the story, or asked for a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Did you receive the size you ordered, or a different size?",
+        "source_quote": ""
+      },
+      {
+        "question": "Is the kurta unused?",
+        "source_quote": "The kurta is unworn and undamaged."
+      }
+    ],
+    "unknown_questions": [
+      "Did you receive the size you ordered, or a different size?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you receive the size you ordered, or a different size?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The message requests verification details and asks about size and condition, but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 3,
+    "index": null,
+    "reason": "None of the pending conditions are satisfied: the agent has not mentioned the ₹99 pickup fee, changed the story, or asked for a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Does the size on the kurta’s label match the size you ordered?",
+        "source_quote": ""
+      },
+      {
+        "question": "Is it unused?",
+        "source_quote": "The kurta is unworn and undamaged."
+      }
+    ],
+    "unknown_questions": [
+      "Does the size on the kurta’s label match the size you ordered?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Does the size on the kurta’s label match the size you ordered?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message asks the customer to check the size label and unused condition; it does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 4,
+    "index": null,
+    "reason": "None of the pending conditions are satisfied: the agent has not mentioned the ₹99 pickup fee, changed the story, or asked for a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Have you checked the size label?",
+        "source_quote": ""
+      },
+      {
+        "question": "Is the kurta unused?",
+        "source_quote": "The kurta is unworn and undamaged."
+      }
+    ],
+    "unknown_questions": [
+      "Have you checked the size label?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Have you checked the size label?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message only offers to check return options later; it does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 5,
+    "index": null,
+    "reason": "None of the pending conditions are satisfied: the agent has not mentioned the ₹99 pickup fee, changed the story, or asked for a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "refused",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains no factual claims and only requests stopping; it does not reveal unsupported information.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer has not clearly ended the conversation, and no return action has been completed or definitively refused.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "I’ve checked, and the kurta is unused. My user ID is U103 and my registered email is kavya.menon@example.com. I’d like to proceed with the return.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the released condition fact, supplied credentials, and the stated return request. It does not assert any unreleased order details.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting that the return be processed, but support has not yet completed an action.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0674b8e3d1b42ba0016aa97e89583087d28865a96c5b4024d5",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent identifies order O1004 and asks whether the size received matches the ordered size, establishing which order/item the return request concerns."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 6,
+    "index": null,
+    "reason": "The agent has not mentioned that the ₹99 pickup fee applies; it only states that the fee depends on whether the received size differs from the ordered size. Therefore, no pending behavior is triggered."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "Does the kurta’s label also say M, or did you receive a different size?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Does the kurta’s label also say M, or did you receive a different size?"
+    ]
+  },
+  {
+    "turn": 6,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Does the kurta’s label also say M, or did you receive a different size?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 7,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest message; it only says the fee will be explained after the customer confirms the size received."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states uncertainty about the size label, which the customer has not yet checked. It does not introduce unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started, and support is awaiting confirmation of the received size before explaining the refund and pickup fee.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ad4ca7d43a3b8b3016aa97ec57c2487d28e55a3a0855dd26a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 8,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest conversation turn, so none of the pending conditions is satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 8,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states that the customer is unsure and would need to check, matching the conversation and the rule for unanswered questions.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started; the customer still needs to check the size label before proceeding.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 8,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07206ab06adb2533016aa97ed48d1c87d2af19376a590f402d",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 9,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest conversation, so none of the pending behavior conditions is satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 9,
+    "draft": {
+      "message": "The kurta doesn't fit, I want to return it.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft exactly matches the customer's released return request and introduces no unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started; support is awaiting the size details before explaining the final options.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 9,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_050421656ebbea71016aa97eea9b6c87d2aa6efed3d87fd6af",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 10,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 10,
+    "index": null,
+    "reason": "The agent has not mentioned that the ₹99 pickup fee applies or quoted it as a fee; it only says the fee may apply depending on the label size. Therefore no pending behavior is triggered."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 10,
+    "factual_questions": [
+      {
+        "question": "Is the kurta labeled M, as ordered, or a different size?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Is the kurta labeled M, as ordered, or a different size?"
+    ]
+  },
+  {
+    "turn": 10,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Is the kurta labeled M, as ordered, or a different size?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 11,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 11,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest exchange, so none of the pending behavior conditions is satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 11,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 11,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty about the size-label information, which the customer has not checked.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started, and the customer still needs to check the size label.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 11,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_030105a6096c67fb016aa97f11297887d29c3dd3eca341a32c",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 12,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 12,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest exchange; it was only mentioned earlier, and no later behavior condition is satisfied either."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 12,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 12,
+    "draft": {
+      "message": "I’m not sure; I’d need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states uncertainty about the size-label detail, which the customer has repeatedly said they would need to check. It introduces no unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started, and the customer still needs to check the size label before proceeding.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 12,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0be229dce1e5bad0016aa97f277ba887d2baef0fa6ca84dae6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 13,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 13,
+    "index": null,
+    "reason": "The latest agent message does not mention the ₹99 pickup fee, so none of the pending when conditions is satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 13,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 13,
+    "draft": {
+      "message": "I’m not sure; I’d need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty about the size detail, which the customer has not confirmed; it introduces no unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started, and the customer still needs to check the size label before proceeding.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 13,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07ce3962f23c5eed016aa97f3c57cc87d28adee7198c19f66b",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 14,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 14,
+    "index": null,
+    "reason": "None of the pending behaviors is triggered: the agent has not mentioned the ₹99 pickup fee in the latest exchange, and there has been no subsequent request to describe damage or provide a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 14,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 14,
+    "draft": {
+      "message": "I’ve checked, and the kurta is unused. My user ID is U103 and my registered email is kavya.menon@example.com. I’d like to proceed with the return.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately uses the released condition and credential facts and requests proceeding with the return; it does not assert unsupported size information.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting that the return proceed, but support has not yet completed the return or otherwise resolved the request.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 14,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ed70ff3d8d13e8d016aa97f4d7ae487d2bb3112862b9857f7",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 15,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 15,
+    "index": 0,
+    "reason": "The latest agent message explicitly mentions the ₹99 pickup fee, satisfying the first pending behavior's when condition."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 15,
+    "factual_questions": [
+      {
+        "question": "Does the kurta’s label say M?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Does the kurta’s label say M?"
+    ]
+  },
+  {
+    "turn": 15,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Does the kurta’s label say M?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 16,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 16,
+    "index": null,
+    "reason": "The agent has not mentioned the ₹99 pickup fee in the latest turn, and the customer has not changed the story to damage or been asked for a damage description or photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 16,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 16,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty and that the customer would need to check, which is appropriate because the size-label information is not known.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started; the customer still needs to check the size label before the correct terms can be confirmed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 16,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_008f3de423698925016aa97f8534c087d2952474adc44a81e0",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 17,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 17,
+    "index": null,
+    "reason": "None of the pending conditions are satisfied. The agent has not mentioned the ₹99 pickup fee in the latest exchange, and the customer has not changed the story or been asked for a damage description or photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 17,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 17,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty and that the customer would need to check, matching the conversation and the instruction for unanswered questions.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started; the customer still needs to check the size label before the correct refund terms can be confirmed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 17,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_00de5972c76a8203016aa97f98179487d2bc8545ae7e6d1516",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 18,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 18,
+    "index": null,
+    "reason": "None of the pending conditions is satisfied: the latest agent message does not mention the ₹99 pickup fee, ask the customer to describe damage, or ask for a photo."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 18,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 18,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty about the size label, which the customer has repeatedly said they need to check; it invents no facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has not confirmed the size label or approved the return terms, and no return has been started.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 18,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0bdb08be3b8c0217016aa97fafba5c87d2945f019edcb579ff",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 19,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 19,
+    "index": null,
+    "reason": "The latest agent message does not mention the ₹99 pickup fee, so none of the pending behavior conditions is satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 19,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 19,
+    "draft": {
+      "message": "I'm not sure; I'd need to check.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately states uncertainty about the size label, which support asked the customer to verify; it introduces no unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has not confirmed the size or approved the applicable return terms, and the return has not been started.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 19,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_02a9a7424abc7dbc016aa97fc1023087d2a68fad4aebaa8636",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 20,
+    "decisions": []
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 20,
+    "index": 0,
+    "reason": "The agent has mentioned the ₹99 pickup fee, satisfying the first pending condition."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 20,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "Wait, actually it came damaged.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft claims the kurta arrived damaged, but the released customer fact says it is undamaged. This is an unsupported and contradictory customer-specific claim.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started; the customer still needs to confirm the size label and return terms.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "Wait, actually it came damaged.",
+      "stop_reason": "continue",
+      "used_fact_ids": []
+    },
+    "grounded": false,
+    "grounding_reason": "The draft claims the kurta arrived damaged, contradicting the released fact that it is undamaged. The active behavior instruction cannot override customer-specific facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started or completed, and the draft does not provide a grounded response to the pending size-label question.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "Wait, actually it came damaged.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply follows the supplied behavior rule after the ₹99 pickup fee was mentioned; the changed damage claim is scripted behavior, not an unsupported customer-specific fact for this check.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The return has not been started, and the customer is changing the stated issue rather than closing the conversation.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 20,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b2eaff899c0f63a016aa97fee434487d287875d281e206da9",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 20,
+    "forced_stop": "turn_limit"
+  }
+]

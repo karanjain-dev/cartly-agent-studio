@@ -1,0 +1,111 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I want a refund for this kurta, and I’m taking legal action over this matter.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft matches the released customer request and does not introduce unsupported facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting a refund and has not indicated that the conversation is over.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0d74b0d711fdf6ee016aa9696bb0ec87d2b5723c28d2068e9e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent requests the order ID and identifies the item involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent asks what is wrong with the kurta, which asks about its condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not request confirmation after explaining a proposed action, exact amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests identity verification details, including the registered user ID and email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What’s wrong with the kurta or why you’d like a refund",
+        "source_quote": "I want a refund for this kurta and I am taking legal action."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U023 and my registered email is customer023@example.com. The order is O0016 for the Cotton kurta. It has not been worn or used, and I want a refund. Please escalate this to the human specialist.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "condition",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses only supplied credentials, order/item, condition, and refund-request facts; requesting escalation is consistent with support's stated plan.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided the requested verification and asks for escalation, but the human handoff has not yet been reported as completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_09766c679a976a9e016aa9697fd3f887d2861ffca646ab765e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

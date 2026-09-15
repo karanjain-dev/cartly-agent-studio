@@ -1,0 +1,230 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which item the customer would like help with first, identifying the item the request concerns."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent states that both items arrived damaged but does not ask what is wrong."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": null,
+    "reason": "The agent has not proposed escalation; they only requested account, order, and item details to check refund eligibility."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U102"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "neeraj.sethi@example.com"
+      },
+      {
+        "question": "What is your order ID?",
+        "source_quote": ""
+      },
+      {
+        "question": "Which item would you like help with first?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your order ID?",
+      "Which item would you like help with first?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your order ID?",
+      "Which item would you like help with first?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message requests identity and contact details for verification; it does not ask what is wrong."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 3,
+    "index": null,
+    "reason": "The agent has not proposed escalation, so the pending behavior's when condition is not satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My user ID is U102 and my registered email is neeraj.sethi@example.com. Please help with the ceramic floor vase first.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied credentials and identifies the ceramic floor vase, which is listed in the released order facts. It does not assert any unsupported event or detail.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing verification details and requesting help with the first item; no refund or other action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ddf79a52cdbee8f016aa97db9e4e887d29e00176fe5dfcdb2",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message discusses return eligibility, refund details, and asks for consent to create the return; it does not ask what is wrong with the items."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 4,
+    "index": null,
+    "reason": "The agent has explained the return and refund process but has not proposed escalation or human review as an escalation option for the current request."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Yes, please create the vase return for the ₹2,849 refund to my original UPI payment method.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accepts the support agent's proposed vase return and ₹2,849 refund method; it does not claim that this amount was paid or that the return/refund is already completed. The referenced vase and order are supported by the released facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer is authorizing a proposed return/refund, but support has not yet stated that the return was created or that the refund was completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_060bcd83dcf27f0e016aa97dfc364087d2af4e2c494c33e4a7",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message confirms the return and refund details but does not ask what is wrong."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 5,
+    "index": null,
+    "reason": "The agent has completed the vase return and scheduled pickup, but has not proposed escalation. The cumulative refund review was mentioned as requiring human review, not as an actual escalation proposal."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker, which asserts no customer-specific facts. Support has explicitly completed creation of the vase return and scheduled pickup, satisfying the requested action for one item.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested vase return was created and pickup scheduled; the customer can end the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_098dd1c74acb39ad016aa97e224e2c87d29826914829a67b09",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

@@ -1,0 +1,228 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I’d like to move my delivery to my address in Shimla, please. Could you help arrange that?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help check whether your delivery address can be changed. Please share your user ID and either your registered email or phone number, along with the order ID if you have it.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U024 and my registered email is customer024@example.com. I don't have the order ID with me.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U024",
+      "email": "customer024@example.com",
+      "phone": null
+    },
+    "call_id": "call_BNJo08m3yDQ6HSB8zLqa7UTo",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U024"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_QogWsx9lowHqmnyjqSe5Aaua",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0017",
+          "user_id": "U024",
+          "status": "Delivered",
+          "placed_date": "2026-09-09",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0085",
+          "user_id": "U024",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0119",
+          "user_id": "U024",
+          "status": "Returned",
+          "placed_date": "2026-08-08",
+          "promised_delivery_date": "2026-08-13",
+          "actual_delivery_date": "2026-08-13",
+          "actual_delivery_at": "2026-08-13T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks, you’re verified. I found your upcoming order **O0085**, expected on **18 September**. It’s still in **Placed** status, so an address change is allowed.\n\nPlease share your full Shimla address, including the house/flat number, street or locality, state, and pincode. I’ll check serviceability and ask you to confirm the full address before updating it.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check and share the full Shimla address and pincode when you have them. I haven’t changed anything.\n\nAddress changes are only allowed while the order is still **Placed**, so we’ll need to recheck its status when you’re ready.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I’m not sure of the full address details right now; I’d need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—come back with the full address and pincode when you have them. Your current delivery address remains unchanged, and we can only update it while the order is still in **Placed** status.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "I’ve checked the details. The address to use is 12, Oakwood Lane, Near Ridge Road, Shimla, Himachal Pradesh 171001, India. Please update my delivery to this address.",
+    "turn": 5
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0085"
+    },
+    "call_id": "call_6XWToWA0aecARZJyH5jat2oM",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0085",
+        "user_id": "U024",
+        "status": "Placed",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 124, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Chandigarh",
+          "state": "Chandigarh",
+          "pincode": "160017",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0089",
+          "order_id": "O0085",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_serviceability",
+    "arguments": {
+      "pincode": "171001"
+    },
+    "call_id": "call_V3qMHwURHjvvbnBgKje6W8ds",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "pincode": "171001",
+      "serviceable": false
+    }
+  },
+  {
+    "role": "support",
+    "content": "Sorry, **pincode 171001 isn’t serviceable**, so I can’t move order **O0085** to this Shimla address. Your current delivery address remains unchanged.\n\nDo you have an alternative delivery address and pincode I can check?",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Please leave my delivery address unchanged.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "Understood—your delivery address for order **O0085** remains unchanged.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 7
+  }
+]

@@ -1,4 +1,4 @@
-"""Deterministic v0.5 oracle. No model, runtime tools, labels, or system clock.
+"""Deterministic v0.8 oracle. No model, runtime tools, labels, or system clock.
 
 calculate accepts normalized customer facts; normalize_facts supports the current
 fixture prose and fails closed to clarification for missing item/condition facts.
@@ -19,9 +19,12 @@ def normalize_facts(hidden_facts):
     facts = {f['fact_id']: f['fact'] for f in hidden_facts}
     request = facts.get('request', '').lower()
     refs = set(re.findall(r'\bO\d{4}\b', ' '.join(facts.values())))
-    if len(refs) != 1:
+    safety_or_legal = bool(facts.get('safety')) or 'legal action' in request
+    # G6 permits a safety handoff without an order when the customer cannot
+    # identify it. The order remains null: the calculator must never guess.
+    if len(refs) != 1 and not safety_or_legal:
         raise ValueError('Exactly one requested order reference is required')
-    result = {'order_id': refs.pop(), 'intent': 'uncovered'}
+    result = {'order_id': refs.pop() if len(refs) == 1 else None, 'intent': 'uncovered'}
     if any(w in request for w in ('exchange', 'instalment', 'installment', 'loyalty')):
         pass
     elif 'cancel' in request:
@@ -32,7 +35,7 @@ def normalize_facts(hidden_facts):
         result['intent'] = 'coupon'
     elif any(w in request for w in ('return', 'refund', 'money back')):
         result['intent'] = 'return'
-    result['safety_or_legal'] = bool(facts.get('safety')) or 'legal action' in request
+    result['safety_or_legal'] = safety_or_legal
     result['human_twice_after_refusal'] = any('human twice' in v.lower() for v in facts.values())
     condition = facts.get('condition', '').lower()
     result['is_unused'] = True if 'not been worn or used' in condition else False if 'has been used' in condition else None
@@ -67,9 +70,11 @@ def calculate(world, user_id, facts):
     def escalate(rule): return answer('escalate', escalation_rule=rule)
     def decline():
         return escalate('G2') if facts.get('human_twice_after_refusal') else answer('decline_no_change')
+    # G6: safety reports are escalated immediately. An unknown order stays
+    # unconfirmed in the escalation rather than being inferred from the world.
+    if facts.get('safety_or_legal') or facts.get('human_requests', 0) >= 2: return escalate('G2')
     order = next((o for o in world['orders'] if o['order_id'] == oid and o['user_id'] == user_id), None)
     if order is None: return decline()  # A2: same result for missing/foreign order.
-    if facts.get('safety_or_legal') or facts.get('human_requests', 0) >= 2: return escalate('G2')
     today = date.fromisoformat(world['config']['today'])
     refunds = [r for r in world['refunds'] if r['status'] == 'completed']
     prior = [r for r in refunds if r['order_id'] == oid]

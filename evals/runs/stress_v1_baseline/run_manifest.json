@@ -1,0 +1,25 @@
+{
+  "run_name": "stress_v1_baseline",
+  "order": [
+    "H01",
+    "H04",
+    "H07",
+    "H08",
+    "H08b",
+    "H09",
+    "H10",
+    "H11",
+    "H12",
+    "H02",
+    "H03"
+  ],
+  "cap_usd": 3.0,
+  "attempts_per_case": 1,
+  "heldout_run": false,
+  "dev_scorecard_modified": false,
+  "budget_includes": [
+    "agent",
+    "simulator",
+    "checker"
+  ]
+}

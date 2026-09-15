@@ -1,0 +1,264 @@
+[
+  {
+    "role": "customer",
+    "content": "The headphones arrived broken, and I’d like a refund, please.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry your headphones arrived broken. Please share your user ID and either your registered email or phone number so I can verify your account. If you have the order ID handy, please include it too.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U040 and my registered email is customer040@example.com. I don’t have the order ID handy.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U040",
+      "email": "customer040@example.com",
+      "phone": null
+    },
+    "call_id": "call_f20AK6bzHQaJBmNna0JgBOrm",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U040"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_c1ETAHd1noc8WDSzvlwar2wk",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0033",
+          "user_id": "U040",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0101",
+          "user_id": "U040",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 0,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0135",
+          "user_id": "U040",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0033"
+    },
+    "call_id": "call_TuMNkOfyaWz71JKv0uhCqSdY",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0033",
+        "user_id": "U040",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 140, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Chennai",
+          "state": "Tamil Nadu",
+          "pincode": "600001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0033",
+          "order_id": "O0033",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 2499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0033"
+    },
+    "call_id": "call_JHmqaHgNoxvgfRk6odE5IKYc",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0033",
+      "item_id": "I0033"
+    },
+    "call_id": "call_hO2sFUPpNeQZGxWCCr4bJ5cj",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0033",
+      "item_id": "I0033",
+      "evidence_photo_uploaded": false
+    }
+  },
+  {
+    "role": "support",
+    "content": "I found your wireless headphones in order **O0033**, delivered on 13 September. They’re within the 7-day electronics return window.\n\nPlease **upload a photo of the damage to the order** and let me know when it’s done. A photo is required before I can arrange this return.\n\nYour refund would be **₹2,548**—₹2,499 for the headphones plus ₹49 shipping—to your original UPI payment method. There’s no pickup fee, and the refund will be issued automatically once pickup is completed.\n\nOnce the photo is uploaded, I’ll ask for your confirmation before scheduling the return.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I haven’t uploaded a photo, and I’m unable to provide one during this conversation. I’d still like to proceed with the refund if there’s another way to verify the damage.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "I understand. Our policy requires an uploaded photo for damaged items valued above ₹2,000 and doesn’t specify another verification method. I can’t create the return without it, so I’ll refer your request to a human support agent for review. I can’t guarantee an exception or refund approval.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer reports wireless headphones arrived broken and requests a refund. They have not uploaded a photo, cannot provide one during this conversation, and ask whether damage can be verified another way.",
+      "facts_found": "User U040 verified using registered email. Order O0033 belongs to U040 and was delivered on 2026-09-13 at 12:00 IST. Today is 2026-09-15, day 2 of the 7-day electronics return window. Item I0033 is wireless headphones, quantity 1, database price ₹2,499. Shipping fee is ₹49; payment method is UPI. Potential refund is ₹2,548 including shipping, to the original UPI payment method, automatically after pickup with no pickup fee. check_evidence confirms no photo uploaded. Refund history shows zero qualifying refunds in the last 90 days and no prior refunds on this order, so the cumulative amount would be within ₹5,000. No return or refund has been created and no explicit confirmation of an action has been obtained.",
+      "rule_triggered": "E6 requires an uploaded evidence photo before creating a damaged-item return when item value exceeds ₹2,000. A3 requires escalation when policy does not cover a situation; no alternative evidence-verification method is specified. G3 requires a fact summary before handoff.",
+      "what_user_was_told": "An uploaded photo is required for damaged items valued above ₹2,000, and the policy does not specify another verification method. The return cannot be created without the photo, so the request is being referred to human support for review. No exception or refund approval is guaranteed. Previously disclosed the potential ₹2,548 refund to original UPI, automatically after pickup, with no pickup fee.",
+      "order_id": "O0033",
+      "item_id": "I0033"
+    },
+    "call_id": "call_owhQHiIhdsBEMzlneS8BMjk3",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U040",
+          "order_id": "O0033",
+          "item_id": "I0033",
+          "user_request": "Customer reports wireless headphones arrived broken and requests a refund. They have not uploaded a photo, cannot provide one during this conversation, and ask whether damage can be verified another way.",
+          "facts_found": "User U040 verified using registered email. Order O0033 belongs to U040 and was delivered on 2026-09-13 at 12:00 IST. Today is 2026-09-15, day 2 of the 7-day electronics return window. Item I0033 is wireless headphones, quantity 1, database price ₹2,499. Shipping fee is ₹49; payment method is UPI. Potential refund is ₹2,548 including shipping, to the original UPI payment method, automatically after pickup with no pickup fee. check_evidence confirms no photo uploaded. Refund history shows zero qualifying refunds in the last 90 days and no prior refunds on this order, so the cumulative amount would be within ₹5,000. No return or refund has been created and no explicit confirmation of an action has been obtained.",
+          "rule_triggered": "E6 requires an uploaded evidence photo before creating a damaged-item return when item value exceeds ₹2,000. A3 requires escalation when policy does not cover a situation; no alternative evidence-verification method is specified. G3 requires a fact summary before handoff.",
+          "what_user_was_told": "An uploaded photo is required for damaged items valued above ₹2,000, and the policy does not specify another verification method. The return cannot be created without the photo, so the request is being referred to human support for review. No exception or refund approval is guaranteed. Previously disclosed the potential ₹2,548 refund to original UPI, automatically after pickup, with no pickup fee."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U040",
+        "order_id": "O0033",
+        "item_id": "I0033",
+        "facts_found": "User U040 verified using registered email. Order O0033 belongs to U040 and was delivered on 2026-09-13 at 12:00 IST. Today is 2026-09-15, day 2 of the 7-day electronics return window. Item I0033 is wireless headphones, quantity 1, database price ₹2,499. Shipping fee is ₹49; payment method is UPI. Potential refund is ₹2,548 including shipping, to the original UPI payment method, automatically after pickup with no pickup fee. check_evidence confirms no photo uploaded. Refund history shows zero qualifying refunds in the last 90 days and no prior refunds on this order, so the cumulative amount would be within ₹5,000. No return or refund has been created and no explicit confirmation of an action has been obtained.",
+        "rule_triggered": "E6 requires an uploaded evidence photo before creating a damaged-item return when item value exceeds ₹2,000. A3 requires escalation when policy does not cover a situation; no alternative evidence-verification method is specified. G3 requires a fact summary before handoff.",
+        "what_user_was_told": "An uploaded photo is required for damaged items valued above ₹2,000, and the policy does not specify another verification method. The return cannot be created without the photo, so the request is being referred to human support for review. No exception or refund approval is guaranteed. Previously disclosed the potential ₹2,548 refund to original UPI, automatically after pickup, with no pickup fee."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your request has been queued for human support review under reference **H0001**. I’ve included your request for an alternative way to verify the damage.\n\nNo return has been scheduled or refund issued yet; an exception is not guaranteed.",
+    "turn": 3
+  }
+]

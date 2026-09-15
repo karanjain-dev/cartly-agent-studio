@@ -1,0 +1,235 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to return a kurta. It should look unused enough for the return, but please let me know what you need from me to start the process.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help check whether the kurta is eligible. Please share:\n\n- Your user ID and registered email address or phone number.\n- The order ID, if you have it.\n- Why you’d like to return it, and whether it has been worn or used.\n\nFor a change-of-mind return, the kurta must be unused—not just appear unused. I’ll check the delivery date and any applicable fees before asking you to confirm a return.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U019 and my registered email is customer019@example.com. I wore the kurta to a wedding, so it has been used. I’m not sure of the order ID; please let me know if you can locate the order with my account details.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U019",
+      "email": "customer019@example.com",
+      "phone": null
+    },
+    "call_id": "call_pBRyTjVD6mTZhV1zCQb3dE95",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U019"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_DpSp9AbFEROEF25lXE8nLdfv",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0012",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-31",
+          "promised_delivery_date": "2026-09-05",
+          "actual_delivery_date": "2026-09-05",
+          "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0046",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0080",
+          "user_id": "U019",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0114",
+          "user_id": "U019",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0148",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-24",
+          "promised_delivery_date": "2026-08-29",
+          "actual_delivery_date": "2026-08-29",
+          "actual_delivery_at": "2026-08-29T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0046"
+    },
+    "call_id": "call_IdNBLMEZo8cMFGe8BZiWuE7T",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0046",
+        "user_id": "U019",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 119, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0046",
+          "order_id": "O0046",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified, and I found a **blue cotton kurta, size M**, in order **O0046**, delivered on **13 September 2026**.\n\nThanks for clarifying that you wore it. Although it’s within the 10-day return window, it **isn’t eligible for a change-of-mind return** because those returns require the item to be unused.\n\nWas there a problem with the kurta, or are you returning it because you no longer want it?",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check and let me know the reason for the return and any issue you’ve noticed. I haven’t started a return.\n\nIf you simply no longer want the kurta, it won’t be eligible for return because it has been worn.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I’m returning it because I no longer want it. I understand it has been worn and may not be eligible, but please check whether any return option is available.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry, but there isn’t a return option under Cartly’s policy in this case. Returning an item because you no longer want it is a change-of-mind return, which requires it to be unused. Since the kurta was worn to a wedding, it isn’t eligible, even within the return window.\n\nI haven’t created a return or issued a refund.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 5
+  }
+]

@@ -1,0 +1,175 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "The other pair of headphones on my order also doesn’t work, and I’d like a refund for it. Please let me know what you need from me to process this.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released refund request and does not add unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting information about what is needed to process the refund; no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_039110b53f3aa465016aa96fcd734887d29b9d6c25185fb52e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks for the order ID and which item is faulty."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet asked for confirmation after explaining the action, amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent acknowledges a fault but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": true,
+        "reason": "The agent says they will determine whether a photo is needed, which is not a request for a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the Cartly user ID and registered email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your Cartly user ID?",
+        "source_quote": "user_id\": \"U022\""
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "email\": \"customer022@example.com\""
+      },
+      {
+        "question": "What is the order ID?",
+        "source_quote": ""
+      },
+      {
+        "question": "Which pair of headphones is faulty (item name or item ID)?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is the order ID?",
+      "Which pair of headphones is faulty (item name or item ID)?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is the order ID?",
+      "Which pair of headphones is faulty (item name or item ID)?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent requests identity and contact details, not information about whether the item was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action with an exact amount and payment method or asked for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent says it can help identify the faulty pair but does not ask what is wrong or whether it differs from the order."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My Cartly user ID is U022 and my registered email is customer022@example.com. The order is O0049, and the faulty item is the Wireless headphones. I’ve already uploaded a photo to the order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "photo"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states only the customer’s supplied credentials, order/item details, and uploaded-photo fact, all supported by the profile or released facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing requested verification and order information; no refund or other resolution has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "photo",
+      "request"
+    ],
+    "response_id": "resp_0fc4e247add14c61016aa96ffb1fd087d2b8dbf06f40b52a6f",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

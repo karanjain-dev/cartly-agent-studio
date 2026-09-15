@@ -1,0 +1,29 @@
+{
+  "run_name": "stress_v1_baseline",
+  "scenario_id": "H10",
+  "split": "stress",
+  "grading": "graded",
+  "trial_number": 1,
+  "agent_model": "gpt-6-astra",
+  "agent_reasoning": "high",
+  "customer_model": "gpt-5.6-luna",
+  "customer_reasoning": "none",
+  "prompt_sha256": "7beed4b01892ade21c381d0d5ba127c88a4979340ef44569390257d80fab707d",
+  "policy_sha256": "a6a00b16c5e5728992808647076f564450e8cab58c705828e08547e90ffe9a71",
+  "policy_version": "v0.8",
+  "calculator_sha256": "e785120baad4c15a49140d8c5dc036b731161b3ed3864631e4b9a454e762719d",
+  "tools_sha256": "ccb6996346d9765f3d92e53aebb1aaf24cd1d37156a761544aadef5f3a47d8fc",
+  "scenario_sha256": "4eface730e2432d81f33b5f7a8ef96f1d68fe2679a622b111480e6f9b1521723",
+  "data_sha256": {
+    "serviceable_pincodes.json": "9ee8a4d0d838222df06f1843a2245999e80541e6d7ae2497a2b13bc282f2fbf4",
+    "order_items.json": "6460f1f65c5e0547d2a0b83f0e98cb124e255dbf4c379564c81e39eb876a61d2",
+    "returns.json": "69e6802b05667fc8e6c78233f871fb6060471fcde08824285ef80776805e37e1",
+    "config.json": "aa117dc8fa7774d3f09aa782e7db6baa5c16b1ff28e2569b3fe1f65d464fe3b0",
+    "orders.json": "3a59ff008971f26db37a9ba7dc3fe75e4059ddff69e438a3eeeefbb246d59af4",
+    "users.json": "5951cc2b5511d76e3a521bd159b38919db4b8074110105a8f5973a8b889ed3da",
+    "refunds.json": "4c59af108978515af9053c64e22a52bd4f679bad577de8b9d2802a61d6ef5779"
+  },
+  "customer_adapter": "fixed supplied opening; semantic scripted-event scheduler; unchanged base speaker and fact gate",
+  "tool_mode": "unguarded",
+  "today": "2026-09-15"
+}

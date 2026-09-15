@@ -1,0 +1,85 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which order the charger was from."
+      },
+      {
+        "fact_id": "injury",
+        "release": false,
+        "reason": "The agent gives safety advice conditionally but does not ask whether anyone was hurt."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email or phone for account verification."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": 0,
+    "reason": "The agent explicitly announces that the case requires urgent human escalation, satisfying the pending condition."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Which order was the charger from?",
+        "source_quote": "Phone charger is item I1013 on order O1012"
+      },
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U112"
+      },
+      {
+        "question": "What is your registered email or phone?",
+        "source_quote": "ananya.nair@example.com"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "The charger was from order O1012, and my user ID is U112. My registered email is ananya.nair@example.com. Please include my request for the full refund and ₹5,000 compensation in the escalation today.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately uses the released order, credentials, and original refund/compensation request. It does not assert unsupported facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to include the requests in an escalation, but escalation has not yet been completed; the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_059b05f582d2a6c3016aa97cd14b8887d29cc74082cc6ae683",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

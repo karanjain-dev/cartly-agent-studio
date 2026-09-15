@@ -1,0 +1,25 @@
+{
+  "run_name": "luna_customer_30_single",
+  "scenario_id": "S012",
+  "scenario_split": "dev",
+  "trial_number": 1,
+  "agent_model_requested": "gpt-6-astra",
+  "agent_model": "gpt-6-astra",
+  "simulator_model_requested": "gpt-5.6-luna",
+  "simulator_reasoning_effort": "none",
+  "simulator_model": "gpt-5.6-luna",
+  "prompt_version": "agent_v1.1",
+  "policy_version": "v0.6",
+  "current_date": "2026-09-15",
+  "harness_version": "v3",
+  "harness_revision": "v3.2",
+  "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+  "tool_mode": "unguarded",
+  "reasoning_effort": "high",
+  "timestamp": "2026-09-15T12:00:00+05:30",
+  "judge_model": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "stop_reason": "customer_ended",
+  "error_origin": null
+}

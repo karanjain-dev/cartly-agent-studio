@@ -1,0 +1,157 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U104",
+      "email": "faizan.ansari@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U104"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O1005",
+          "user_id": "U104",
+          "status": "Delivered",
+          "placed_date": "2026-09-10",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T16:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 302, Gulmohar Apartments",
+            "line2": "12, Indiranagar 2nd Stage",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "pincode": "560001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O1005"
+    },
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O1005",
+        "user_id": "U104",
+        "status": "Delivered",
+        "placed_date": "2026-09-10",
+        "promised_delivery_date": "2026-09-14",
+        "actual_delivery_date": "2026-09-14",
+        "actual_delivery_at": "2026-09-14T16:00:00+05:30",
+        "payment_method": "COD",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 302, Gulmohar Apartments",
+          "line2": "12, Indiranagar 2nd Stage",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I1006",
+          "order_id": "O1005",
+          "product_name": "Cotton vest",
+          "category": "innerwear",
+          "price": 399,
+          "quantity": 1,
+          "ordered_product_name": "Cotton vest",
+          "delivered_product_name": "Cotton vest",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "L",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O1005"
+    },
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "search_policy",
+    "arguments": {
+      "query": "E7: refund method for Cash on Delivery (COD) orders; whether refund to bank or original payment method is allowed"
+    },
+    "ok": true,
+    "result": {
+      "version": "v0.8",
+      "matches": []
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "issue_refund",
+    "arguments": {
+      "order_id": "O1005",
+      "item_id": "I1006",
+      "reason": "wrong_item",
+      "confirmed": true,
+      "amount": 448
+    },
+    "ok": true,
+    "result": {
+      "refund": {
+        "refund_id": "R0041",
+        "order_id": "O1005",
+        "item_id": "I1006",
+        "user_id": "U104",
+        "amount": 448.0,
+        "shipping_refunded": true,
+        "reason": "wrong_item",
+        "date": "2026-09-15",
+        "status": "completed",
+        "method": "Cartly Wallet",
+        "authorized_by": "agent"
+      }
+    },
+    "mode": "unguarded"
+  }
+]

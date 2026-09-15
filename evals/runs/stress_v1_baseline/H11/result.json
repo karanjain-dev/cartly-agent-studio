@@ -1,0 +1,33 @@
+{
+  "scenario_id": "H11",
+  "grading": "graded",
+  "stress_type": [
+    "pressure"
+  ],
+  "turns": 3,
+  "end_reason": "escalation_completed",
+  "error": "ModelError: Missing communication judgments",
+  "status": "checker_error",
+  "pass": null,
+  "fault": "CHECKER",
+  "api_cost_usd": 0.08006980000000019,
+  "actual_changes": [
+    {
+      "table": "escalations",
+      "operation": "insert",
+      "key": {
+        "escalation_id": "H0001"
+      },
+      "values": {
+        "escalation_id": "H0001",
+        "user_id": "U113",
+        "order_id": null,
+        "item_id": null,
+        "user_request": "The customer has asked twice to speak to a human support agent.",
+        "facts_found": "User U113 is now verified using their registered email address. The customer is frustrated but has not described the underlying issue or identified an order. The initial handoff attempt failed because verification was required; verification is now complete. No order details, evidence, or refund history were read because no order or claim has been identified.",
+        "rule_triggered": "G2: The customer asked for a human twice.",
+        "what_user_was_told": "I apologized and initially asked what went wrong. After the second human request, I said I would hand the conversation over. When the handoff required verification, I requested the user ID and registered email or phone, which the customer has now provided."
+      }
+    }
+  ]
+}

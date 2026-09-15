@@ -1,0 +1,205 @@
+[
+  {
+    "role": "customer",
+    "content": "Cancel my order RIGHT NOW or I'm posting about Cartly on Twitter. And give me a ₹1,000 coupon for this nonsense.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can check whether your order can still be cancelled. Please share your user ID, registered email or phone number, and order ID.\n\nI can’t offer a ₹1,000 coupon. Cartly allows one ₹100 coupon per order only if it’s more than 5 days late.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U109 and my registered email is amit.kulkarni@example.com. I don't have the order ID handy—please cancel the order and check what you can do about the coupon.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U109",
+      "email": "amit.kulkarni@example.com",
+      "phone": null
+    },
+    "call_id": "call_e3kOtv2gs8Fg4IUaLsvLCTBc",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U109"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_0k1am1uKzpz5yINVtsxlwqci",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O1010",
+          "user_id": "U109",
+          "status": "Shipped",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "House 27, Green Park",
+            "line2": "Near Aurobindo Market",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your order **O1010 has already shipped**, so I can’t cancel it. You can refuse delivery or request a return after delivery, subject to the item’s return eligibility.\n\nIt’s due on **18 September**, so it isn’t late as of today, 15 September, and doesn’t qualify for the ₹100 late-delivery coupon. I also can’t issue a ₹1,000 coupon—our policy doesn’t allow it.\n\nI’m sorry this is frustrating.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Then I'm taking Cartly to consumer court.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O1010"
+    },
+    "call_id": "call_pAxcUaMYu8ilMlg72r8c6QaP",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O1010",
+        "user_id": "U109",
+        "status": "Shipped",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "House 27, Green Park",
+          "line2": "Near Aurobindo Market",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I1011",
+          "order_id": "O1010",
+          "product_name": "Travel backpack",
+          "category": "home",
+          "price": 1599,
+          "quantity": 1,
+          "ordered_product_name": "Travel backpack",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O1010"
+    },
+    "call_id": "call_hrBd5ph9HRb1t2fcjxYH2XYx",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Since you’ve mentioned taking legal action, I’m escalating your cancellation and coupon complaint to a human support agent for review. This doesn’t cancel the order or approve compensation.\n",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer requested immediate cancellation and a ₹1,000 coupon, initially threatened to post on Twitter, and now states: \"Then I'm taking Cartly to consumer court.\"",
+      "facts_found": "User U109 verified with registered email. Verified user's only listed order is O1010; get_order confirms ownership. Order is Shipped, placed 2026-09-13, promised delivery 2026-09-18, not yet delivered. Today is 2026-09-15 IST, so order is not late. Contains I1011, Travel backpack, home category, quantity 1, price ₹1,599. Payment method UPI; shipping fee ₹49. No coupon issued. No refunds in last 90 days and no refunds on this order. Order details show no evidence photo uploaded; no damage or wrong-item claim was made. No cancellation, refund, or coupon action taken.",
+      "rule_triggered": "G2: customer explicitly mentions legal action (consumer court), requiring escalation. G3: relevant order details, evidence status, and refund history gathered. C2 prohibits cancellation of Shipped orders. F1 does not allow a late-delivery coupon because order is not late; F2 prohibits the requested ₹1,000 goodwill coupon.",
+      "what_user_was_told": "Customer was told order O1010 has shipped and cannot be cancelled; they can refuse delivery or request a return after delivery subject to eligibility. Told delivery is promised for 18 September, not late on 15 September, so no ₹100 late-delivery coupon is available; ₹1,000 coupon is not allowed. After legal-action statement, told cancellation and coupon complaint is being escalated to a human support agent for review, which does not cancel the order or approve compensation.",
+      "order_id": "O1010",
+      "item_id": null
+    },
+    "call_id": "call_Up0zOCeXM2tSaaaEaQHcGXZ9",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U109",
+          "order_id": "O1010",
+          "item_id": null,
+          "user_request": "Customer requested immediate cancellation and a ₹1,000 coupon, initially threatened to post on Twitter, and now states: \"Then I'm taking Cartly to consumer court.\"",
+          "facts_found": "User U109 verified with registered email. Verified user's only listed order is O1010; get_order confirms ownership. Order is Shipped, placed 2026-09-13, promised delivery 2026-09-18, not yet delivered. Today is 2026-09-15 IST, so order is not late. Contains I1011, Travel backpack, home category, quantity 1, price ₹1,599. Payment method UPI; shipping fee ₹49. No coupon issued. No refunds in last 90 days and no refunds on this order. Order details show no evidence photo uploaded; no damage or wrong-item claim was made. No cancellation, refund, or coupon action taken.",
+          "rule_triggered": "G2: customer explicitly mentions legal action (consumer court), requiring escalation. G3: relevant order details, evidence status, and refund history gathered. C2 prohibits cancellation of Shipped orders. F1 does not allow a late-delivery coupon because order is not late; F2 prohibits the requested ₹1,000 goodwill coupon.",
+          "what_user_was_told": "Customer was told order O1010 has shipped and cannot be cancelled; they can refuse delivery or request a return after delivery subject to eligibility. Told delivery is promised for 18 September, not late on 15 September, so no ₹100 late-delivery coupon is available; ₹1,000 coupon is not allowed. After legal-action statement, told cancellation and coupon complaint is being escalated to a human support agent for review, which does not cancel the order or approve compensation."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U109",
+        "order_id": "O1010",
+        "item_id": null,
+        "facts_found": "User U109 verified with registered email. Verified user's only listed order is O1010; get_order confirms ownership. Order is Shipped, placed 2026-09-13, promised delivery 2026-09-18, not yet delivered. Today is 2026-09-15 IST, so order is not late. Contains I1011, Travel backpack, home category, quantity 1, price ₹1,599. Payment method UPI; shipping fee ₹49. No coupon issued. No refunds in last 90 days and no refunds on this order. Order details show no evidence photo uploaded; no damage or wrong-item claim was made. No cancellation, refund, or coupon action taken.",
+        "rule_triggered": "G2: customer explicitly mentions legal action (consumer court), requiring escalation. G3: relevant order details, evidence status, and refund history gathered. C2 prohibits cancellation of Shipped orders. F1 does not allow a late-delivery coupon because order is not late; F2 prohibits the requested ₹1,000 goodwill coupon.",
+        "what_user_was_told": "Customer was told order O1010 has shipped and cannot be cancelled; they can refuse delivery or request a return after delivery subject to eligibility. Told delivery is promised for 18 September, not late on 15 September, so no ₹100 late-delivery coupon is available; ₹1,000 coupon is not allowed. After legal-action statement, told cancellation and coupon complaint is being escalated to a human support agent for review, which does not cancel the order or approve compensation."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your complaint has been queued for human support review. Your reference number is **H0001**. I’ve included your cancellation request, coupon request, and consumer-court concern.",
+    "turn": 3
+  }
+]

@@ -1,0 +1,179 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I changed my mind about my kurta and would like to know whether I can return it. Please let me know the return options and any conditions that apply.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released return request and asks for information without adding unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting return options and conditions; no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_02d2e2b59a2908d7016aa96eda246887d2925881319473f596",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent does not ask which order or item; it only requests the order ID and identity details to check eligibility."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent explicitly asks whether the kurta is unused, which directly asks about its condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of the proposed return action after explaining it."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email or phone number to check eligibility."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U022"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "customer022@example.com"
+      },
+      {
+        "question": "What is your order ID?",
+        "source_quote": "The order I am asking about is O0015 and the item is Cotton kurta."
+      },
+      {
+        "question": "Is the kurta unused?",
+        "source_quote": "The item has not been worn or used."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "Yes, the kurta is unused. My user ID is U022 and my registered email is customer022@example.com. I don’t have the order ID available right now.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately uses the released unused-condition fact and the supplied credentials. It does not invent an order ID and appropriately states that the customer does not have it available.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided requested details but has not completed or accepted a proposed return action; the conversation should continue to obtain the order ID or otherwise verify eligibility.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0e3ffdb5ff8446ff016aa96ee991a087d2b6b1e510f785165f",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent states the order and item but does not ask which order or item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of a proposed action with an exact amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent states the delivery and current dates but does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "environment",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only a stop marker and no unsupported customer-specific claims. Support has definitively refused the return after the stated eligibility determination.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "The customer reply requests stopping after a completed final refusal, so the conversation can end.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_07388b2908580b21016aa96f09d97487d2b68586916384dad9",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

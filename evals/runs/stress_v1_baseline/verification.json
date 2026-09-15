@@ -1,0 +1,23 @@
+{
+  "reference_date": "2026-09-15",
+  "exported_focused_tests": {
+    "command": "python3 -m unittest tests.test_stress tests.test_reference_calculator",
+    "passed": 23,
+    "failed": 0
+  },
+  "final_data_validation": {
+    "violations": 0,
+    "users": 54,
+    "orders": 166,
+    "order_items": 171,
+    "refunds": 40,
+    "returns": 12
+  },
+  "historical_test_selection": {
+    "tests": 44,
+    "passed": 43,
+    "failed": 1,
+    "reason": "Old whole-data SHA assertion after explicitly authorized append; original baseline preserved."
+  },
+  "all_original_inputs_and_earlier_results_preserved": true
+}

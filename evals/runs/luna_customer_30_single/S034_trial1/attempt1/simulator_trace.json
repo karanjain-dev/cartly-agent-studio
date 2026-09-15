@@ -1,0 +1,166 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I’d like to return a kurta. Please tell me the return process and what condition it needs to be in so it qualifies as unused.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only uses the released request and asks for return-process information without asserting unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting information about the return process; no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0686d4fd95470f8f016aa969a7306087d2a93504ed10142cd5",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests an order ID only conditionally, but does not ask which order or item is being discussed."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent describes the unused requirement and asks the customer to report if it was damaged, defective, or different, but does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent explains the process and refund method but does not ask the customer to confirm the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent states a deadline but does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The condition fact is not releasable because the agent has not asked about condition."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email or phone number for verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "If it arrived damaged, defective, or different from what you ordered, please tell me, as different rules apply.",
+        "source_quote": ""
+      },
+      {
+        "question": "Please share your user ID and either your registered email or phone number.",
+        "source_quote": "\"user_id\": \"U019\""
+      },
+      {
+        "question": "Include the order ID if you’d also like me to check this kurta’s return eligibility.",
+        "source_quote": "The order I am asking about is O0012 and the item is Cotton kurta."
+      }
+    ],
+    "unknown_questions": [
+      "If it arrived damaged, defective, or different from what you ordered, please tell me, as different rules apply."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If it arrived damaged, defective, or different from what you ordered, please tell me, as different rules apply."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the kurta's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation of a proposed action after explaining its exact amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The agent did not ask about the kurta's condition or use, so the triggering condition has not occurred."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I’d like to proceed with the return. My user ID is U019 and my registered email is customer019@example.com. Please have a specialist clarify the unused-condition requirements and check the kurta’s eligibility.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied credentials and repeats the released return request. It does not assert any unsupported order, condition, delivery, or eligibility facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer requests specialist clarification and an eligibility check; no return or referral has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_03ff4780b3f8f496016aa969e8b8f887d2ad573f183012aa74",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

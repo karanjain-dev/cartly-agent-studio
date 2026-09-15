@@ -17,7 +17,7 @@ def api_key():
         path=ROOT/'.env'
         if path.exists():
             for line in path.read_text().splitlines():
-                if line.startswith('OPENAI_API_KEY=[REDACTED]
+                if line.startswith('OPENAI_API_KEY='):
                     key=line.split('=',1)[1].strip().strip('"').strip("'");break
     if not key:raise ModelError('OPENAI_API_KEY is missing. Set it in the environment or project .env.')
     return key
@@ -28,6 +28,8 @@ class ModelClient:
     def complete(self,instructions,payload,*,max_tokens=2400,response_schema=None):
         body={'model':self.model,'instructions':instructions,'input':'Return a JSON object.\n'+json.dumps(payload,ensure_ascii=False),
               'text':{'format':{'type':'json_object'}},'max_output_tokens':max_tokens,'store':False}
+        if self.model=='gpt-5.6-luna':
+            body['reasoning']={'effort':'none'}  # Keep the simulator's small JSON output budgets usable.
         if response_schema is not None:
             body['text']['format']={'type':'json_schema','name':'cartly_decision','schema':response_schema,'strict':True}
         request=Request('https://api.openai.com/v1/responses',data=json.dumps(body).encode(),

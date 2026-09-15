@@ -13,7 +13,7 @@ def render(folder):
     def num(v):return 'N/A' if v is None else f'{v:.4f}'
     rows=['# '+folder.name+' scorecard','', '| Metric | Result |','|---|---:|',
           f"| Valid trials | {o['valid_runs']}/{o['requested_trials']} |"]
-    for label,key in [('Invalid run rate (after retry)','invalid_run_rate'),('Invalid attempt rate','invalid_attempt_rate'),
+    for label,key in [('Invalid run rate (final attempt)','invalid_run_rate'),('Invalid attempt rate','invalid_attempt_rate'),
                       ('Outcome pass rate','pass_rate'),('Pass³','pass3'),('Harmful action rate','harmful_action_rate'),
                       ('Correct escalation rate','correct_escalation_rate'),('Unnecessary escalation rate','unnecessary_escalation_rate'),('Communication pass rate','communication_pass_rate')]:
         rows.append(f'| {label} | {pct(o[key])} |')

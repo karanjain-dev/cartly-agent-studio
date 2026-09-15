@@ -1,0 +1,236 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "My headphones gave me an electric shock while I was using them. This is dangerous—I need help with this immediately.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "safety"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft is supported by the released request and safety facts; it does not add unsupported customer-specific details.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting help with a safety issue, and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request",
+      "safety"
+    ],
+    "response_id": "resp_046d1e100625a1b6016aa96962924087d288c7fb4e61559fd6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining a proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent did not ask what is wrong; it only acknowledged the reported safety issue and gave advice."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent did not ask for a photo or other evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requested the Cartly user ID and registered email or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your Cartly user ID?",
+        "source_quote": "U008"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "customer008@example.com"
+      },
+      {
+        "question": "What is the order ID, if available?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is the order ID, if available?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is the order ID, if available?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent asks whether the headphones are being used and instructs the customer not to use or charge them."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation after explaining a proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent discusses a safety incident and asks about symptoms, but does not ask what is wrong with the item or whether it differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not ask for a photo or other evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Are you somewhere safe, and are you experiencing any symptoms or injuries?",
+        "source_quote": ""
+      },
+      {
+        "question": "Are you safe now, and do you have any symptoms or injuries?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Are you somewhere safe, and are you experiencing any symptoms or injuries?",
+      "Are you safe now, and do you have any symptoms or injuries?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Are you somewhere safe, and are you experiencing any symptoms or injuries?",
+      "Are you safe now, and do you have any symptoms or injuries?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message requests user ID and registered contact details, not which order or item is involved."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action, exact amount, or payment method is explained, and no confirmation is requested."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The message does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The message gives safety guidance but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The message does not ask for a photo or other evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "I’m not sure whether I’m safe or have symptoms; I’d need to check. I can provide my user ID U008 and registered email customer008@example.com for verification.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states uncertainty about safety/symptoms and uses the supplied user ID and registered email credentials.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The human-support handoff remains pending verification, and the customer is providing credentials to enable it; the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request",
+      "safety"
+    ],
+    "response_id": "resp_0e09d026a6aabf43016aa969ad524c87d2ba7a4d0561ddffcb",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

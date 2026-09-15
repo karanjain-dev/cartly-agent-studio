@@ -558,5 +558,201 @@
       "pincode": "600001",
       "country": "India"
     }
+  },
+  {
+    "user_id": "U101",
+    "name": "Arjun Mehta",
+    "email": "arjun.mehta@example.com",
+    "phone": "+919876500101",
+    "default_address": {
+      "line1": "Flat 302, Gulmohar Apartments",
+      "line2": "12, Indiranagar 2nd Stage",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U102",
+    "name": "Neeraj Sethi",
+    "email": "neeraj.sethi@example.com",
+    "phone": "+919876500102",
+    "default_address": {
+      "line1": "Flat 504, Sea View Residency",
+      "line2": "18, Dadar West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U103",
+    "name": "Kavya Menon",
+    "email": "kavya.menon@example.com",
+    "phone": "+919876500103",
+    "default_address": {
+      "line1": "House 27, Green Park",
+      "line2": "Near Aurobindo Market",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U104",
+    "name": "Faizan Ansari",
+    "email": "faizan.ansari@example.com",
+    "phone": "+919876500104",
+    "default_address": {
+      "line1": "Flat 302, Gulmohar Apartments",
+      "line2": "12, Indiranagar 2nd Stage",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U105",
+    "name": "Rohan Desai",
+    "email": "rohan.desai@example.com",
+    "phone": "+919876500105",
+    "default_address": {
+      "line1": "Flat 504, Sea View Residency",
+      "line2": "18, Dadar West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U106",
+    "name": "Meera Iyer",
+    "email": "meera.iyer@example.com",
+    "phone": "+919876500106",
+    "default_address": {
+      "line1": "House 27, Green Park",
+      "line2": "Near Aurobindo Market",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U107",
+    "name": "Vikram Bhat",
+    "email": "vikram.bhat@example.com",
+    "phone": "+919876500107",
+    "default_address": {
+      "line1": "Flat 302, Gulmohar Apartments",
+      "line2": "12, Indiranagar 2nd Stage",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U108",
+    "name": "Sanjay Rao",
+    "email": "sanjay.rao@example.com",
+    "phone": "+919876500108",
+    "default_address": {
+      "line1": "Flat 504, Sea View Residency",
+      "line2": "18, Dadar West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U109",
+    "name": "Amit Kulkarni",
+    "email": "amit.kulkarni@example.com",
+    "phone": "+919876500109",
+    "default_address": {
+      "line1": "House 27, Green Park",
+      "line2": "Near Aurobindo Market",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U110",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "phone": "+919876500110",
+    "default_address": {
+      "line1": "Flat 302, Gulmohar Apartments",
+      "line2": "12, Indiranagar 2nd Stage",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U111",
+    "name": "Rahul Sharma",
+    "email": "rahul.sharma@example.com",
+    "phone": "+919876500111",
+    "default_address": {
+      "line1": "Flat 504, Sea View Residency",
+      "line2": "18, Dadar West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U112",
+    "name": "Ananya Nair",
+    "email": "ananya.nair@example.com",
+    "phone": "+919876500112",
+    "default_address": {
+      "line1": "House 27, Green Park",
+      "line2": "Near Aurobindo Market",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U113",
+    "name": "Kunal Shah",
+    "email": "kunal.shah@example.com",
+    "phone": "+919876500113",
+    "default_address": {
+      "line1": "Flat 302, Gulmohar Apartments",
+      "line2": "12, Indiranagar 2nd Stage",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U114",
+    "name": "Pooja Joshi",
+    "email": "pooja.joshi@example.com",
+    "phone": "+919876500114",
+    "default_address": {
+      "line1": "Flat 504, Sea View Residency",
+      "line2": "18, Dadar West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
   }
 ]

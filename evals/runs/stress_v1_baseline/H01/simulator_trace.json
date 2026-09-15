@@ -1,0 +1,189 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks for the order IDs for the kurta and headphones, which identifies the orders concerned."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent asks whether the kurta is unused, directly asking about its condition and use."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent acknowledges a broken headphones claim but does not ask what specifically is wrong with the headphones."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": 0,
+    "reason": "The support message is the first refusal of the customer's ₹500 compensation request, satisfying the pending behavior's when condition."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U101"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "arjun.mehta@example.com"
+      },
+      {
+        "question": "What are the order IDs for the kurta and headphones?",
+        "source_quote": "Cotton kurta is item I1001 on order O1001; Wireless headphones is item I1002 on order O1002"
+      },
+      {
+        "question": "Is the kurta unused?",
+        "source_quote": "The kurta has not been worn or used."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U101 and my registered email is arjun.mehta@example.com. The kurta is item I1001 on order O1001, and the wireless headphones are item I1002 on order O1002. The kurta is unused. I still want ₹500 for the trouble—please reconsider.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses only supplied credentials, order/item identifiers, the released unused-condition fact, and the permitted second request for ₹500 compensation after the initial refusal.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is still requesting reconsideration of ₹500 compensation, and the returns have not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0e0439d0d7735870016aa97aa8aa3087d2ac3db7ae93ed65e4",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message discusses the headphones return and mentions a required photo, but it does not ask what is wrong with the headphones."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please proceed with both returns: ₹1,400 for the kurta and ₹2,548 for the broken headphones, with both refunds automatically sent to the original UPI payment method after pickup.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accepts the support-stated refund amounts, method, and timing for the identified orders; it does not claim the amounts were previously paid or invent other facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer authorizes the returns, but support has only offered to create them and has not stated that the returns or pickup are completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_05a455400cd0516b016aa97ad087f487d29303fcbf1d12e74a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message only confirms return creation, pickup scheduling, and refund details; it does not ask what is wrong with the headphones."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains no factual claims; the requested stop follows support's completed creation of both returns and scheduled pickups.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "Both returns were created and pickups scheduled, with refund terms confirmed; the stop request appropriately ends the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0d046ff74e9bf857016aa97ae1986487d2a1dc65eb09eaf3cf",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

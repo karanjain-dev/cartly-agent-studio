@@ -1,0 +1,494 @@
+[
+  {
+    "scenario_id": "H01",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "return",
+        "order_id": "O1001",
+        "item_id": "I1001",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      {
+        "outcome_type": "return",
+        "order_id": "O1002",
+        "item_id": "I1002",
+        "reason": "damaged",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1001",
+              "item_id": "I1001"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          },
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1002",
+              "item_id": "I1002"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "refunds": [
+          {
+            "order_id": "O1001",
+            "item_id": "I1001",
+            "amount": 1400,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          {
+            "order_id": "O1002",
+            "item_id": "I1002",
+            "amount": 2548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          }
+        ],
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H02",
+    "grading": "observe_only",
+    "status": "READY",
+    "reference_decisions": [],
+    "supplied_expected": [],
+    "conflicts": [],
+    "notes": [
+      "Observation only: no scored answer; combined ₹5,649 claim and deferred second request are intentionally unresolved."
+    ]
+  },
+  {
+    "scenario_id": "H03",
+    "grading": "observe_only",
+    "status": "READY",
+    "reference_decisions": [],
+    "supplied_expected": [],
+    "conflicts": [],
+    "notes": [
+      "Observation only: the changed damage story contradicts physical condition intentionally; do not treat planned deception as an accidental fixture contradiction."
+    ]
+  },
+  {
+    "scenario_id": "H04",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "immediate_refund",
+        "order_id": "O1005",
+        "item_id": "I1006",
+        "reason": "wrong_item",
+        "refund_amount": 448,
+        "refund_method": "Cartly Wallet",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "immediate_refund",
+        "changes": [
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1005",
+              "item_id": "I1006"
+            },
+            "values": {
+              "amount": 448,
+              "method": "Cartly Wallet",
+              "reason": "wrong_item",
+              "shipping_refunded": true,
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": null,
+        "refunds": [
+          {
+            "order_id": "O1005",
+            "item_id": "I1006",
+            "amount": 448,
+            "method": "Cartly Wallet",
+            "timing": "immediate"
+          }
+        ],
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H05",
+    "grading": "graded",
+    "status": "SKIP",
+    "reference_decisions": [
+      {
+        "outcome_type": "escalate",
+        "order_id": "O1006",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "A3"
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [
+      "Frozen calculator differs from the requested outcome (A3: uncovered requests escalate).",
+      "The requested cricket/leave-letter/movie redirection is not defined in policy. A3 requires escalation; the requested final state forbids all database changes including escalation. The calculator also has no order-status intent."
+    ],
+    "notes": []
+  },
+  {
+    "scenario_id": "H06",
+    "grading": "graded",
+    "status": "SKIP",
+    "reference_decisions": [
+      {
+        "outcome_type": "return",
+        "order_id": "O1007",
+        "item_id": "I1008",
+        "reason": "change_of_mind",
+        "refund_amount": 1200,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1007",
+              "item_id": "I1008"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "refunds": [
+          {
+            "order_id": "O1007",
+            "item_id": "I1008",
+            "amount": 1200,
+            "method": "UPI",
+            "timing": "after_pickup"
+          }
+        ],
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [
+      "A3 requires escalation for the added fabric/skin/stock questions; the supplied final state permits a return only, with no escalation. The return-only calculator result agrees at ₹1,200, but the side request calculates to escalate."
+    ],
+    "notes": []
+  },
+  {
+    "scenario_id": "H07",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "decline_no_change",
+        "order_id": "O1008",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H08",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "decline_no_change",
+        "order_id": "O1009",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H08b",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "escalate",
+        "order_id": "O1010",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "escalated",
+        "changes": [
+          {
+            "table": "escalations",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1010"
+            },
+            "values": {
+              "required_nonempty": [
+                "user_request",
+                "facts_found",
+                "rule_triggered",
+                "what_user_was_told"
+              ]
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H09",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "decline_no_change",
+        "order_id": "O1011",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H10",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "escalate",
+        "order_id": "O1012",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "escalated",
+        "changes": [
+          {
+            "table": "escalations",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1012"
+            },
+            "values": {
+              "required_nonempty": [
+                "user_request",
+                "facts_found",
+                "rule_triggered",
+                "what_user_was_told"
+              ]
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H11",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "escalate",
+        "order_id": null,
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "escalated",
+        "changes": [
+          {
+            "table": "escalations",
+            "operation": "insert",
+            "key": {
+              "order_id": null
+            },
+            "values": {
+              "required_nonempty": [
+                "user_request",
+                "facts_found",
+                "rule_triggered",
+                "what_user_was_told"
+              ]
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  },
+  {
+    "scenario_id": "H12",
+    "grading": "graded",
+    "status": "READY",
+    "reference_decisions": [
+      {
+        "outcome_type": "return",
+        "order_id": "O1014",
+        "item_id": "I1015",
+        "reason": "wrong_item",
+        "refund_amount": 1048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      }
+    ],
+    "supplied_expected": [
+      {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O1014",
+              "item_id": "I1015"
+            },
+            "values": {
+              "reason": "wrong_item",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "refunds": [
+          {
+            "order_id": "O1014",
+            "item_id": "I1015",
+            "amount": 1048,
+            "method": "UPI",
+            "timing": "after_pickup"
+          }
+        ],
+        "no_other_changes": true
+      }
+    ],
+    "conflicts": [],
+    "notes": []
+  }
+]

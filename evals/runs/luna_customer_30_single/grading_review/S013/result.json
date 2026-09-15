@@ -1,0 +1,60 @@
+{
+  "scenario_id": "S013",
+  "source_attempt": "S013_trial1/attempt1",
+  "review_type": "judge_only_no_session_replay",
+  "original_error": "Judge omitted or duplicated communication checks",
+  "review_cost_usd": 0.001448,
+  "outcome_pass": true,
+  "matching_acceptable_state": 0,
+  "harmful_action": false,
+  "harmful_details": [],
+  "escalated": true,
+  "expected_escalation": true,
+  "escalation_correct": true,
+  "unnecessary_escalation": false,
+  "communication_pass": true,
+  "communication_checks": {
+    "communication": [
+      {
+        "index": 0,
+        "pass": true,
+        "evidence": "I found your wireless headphones in order O0005, delivered on 7 September. Today is day 8 after delivery, just outside the 7-day electronics return window, so I need to refer your defective-item claim to a human support specialist.\n\nYour order already has a photo uploaded. I’ll pass that information along for review; I can’t approve the refund directly outside the return window."
+      }
+    ],
+    "authorization": [],
+    "clarification": []
+  },
+  "failure_type": null,
+  "unhandled_tool_errors": [],
+  "reference_outcome": {
+    "outcome_type": "escalate",
+    "order_id": "O0005",
+    "item_id": null,
+    "reason": null,
+    "refund_amount": null,
+    "refund_method": null,
+    "shipping_refunded": false,
+    "escalation_rule": "H1"
+  },
+  "actual_changes": [
+    {
+      "table": "escalations",
+      "operation": "insert",
+      "key": {
+        "escalation_id": "H0001"
+      },
+      "values": {
+        "escalation_id": "H0001",
+        "user_id": "U012",
+        "order_id": "O0005",
+        "item_id": "I0005",
+        "user_request": "Customer reports headphones were defective on arrival and requests a refund; did not have the order ID.",
+        "facts_found": "Verified U012 with registered email customer012@example.com. Located matching Wireless headphones, item I0005 in order O0005, owned by U012. Delivered 2026-09-07 at 12:00 IST; today 2026-09-15 is calendar day 8, outside inclusive 7-day electronics window. Item price ₹1,999, quantity 1, shipping_fee ₹49, original payment UPI. Potential full defective-item refund is ₹2,048 including shipping, subject to review; no refund has been approved or issued. Evidence photo is uploaded, confirmed via check_evidence. Refund history: zero qualifying refunds in last 90 days and no prior refunds on this order; shipping has not been refunded.",
+        "rule_triggered": "E1: electronics return window is 7 calendar days from delivery, delivery day 0. E13: defective items follow damaged-item rules. H1: damage/defect claims outside category return window must be escalated. G3: relevant order details, evidence status, and refund history gathered.",
+        "what_user_was_told": "Found headphones in order O0005, delivered 7 September. Today is day 8, just outside the 7-day electronics return window, so the defective-item claim needs human specialist review. Photo is already uploaded and information will be passed along. Agent cannot approve the refund directly outside the return window."
+      }
+    }
+  ],
+  "run_error": null,
+  "confirmation_checks": []
+}

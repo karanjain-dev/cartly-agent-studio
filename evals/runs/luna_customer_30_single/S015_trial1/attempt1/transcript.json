@@ -1,0 +1,282 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I changed my mind about my kurta and would like to know whether I can return it. Could you please check the return options for me?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can check that for you. Please share your user ID and either your registered email or phone number, plus the order ID if you have it.\n\nFor a change-of-mind return, the kurta must be unused and within 10 calendar days of delivery. A ₹99 pickup fee is deducted from the item value, and shipping isn’t refunded. Has the kurta been used?",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "No, the kurta has not been worn or used. My user ID is U022 and my registered email is customer022@example.com.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_ohik994Hff2BRsJHnhT1kc23",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_4uV17odZOWDhXHH1ifhmKNk0",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0015",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-08-30",
+          "promised_delivery_date": "2026-09-04",
+          "actual_delivery_date": "2026-09-04",
+          "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0049",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-06",
+          "promised_delivery_date": "2026-09-11",
+          "actual_delivery_date": "2026-09-11",
+          "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0083",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0117",
+          "user_id": "U022",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_KcIpfgPGS4eLOR24ool88J6F",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0015",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-08-30",
+        "promised_delivery_date": "2026-09-04",
+        "actual_delivery_date": "2026-09-04",
+        "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0015",
+          "order_id": "O0015",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_UA2liTxZhELZNCZlc94rOT8H",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "I found your **Cotton kurta in order O0015**, delivered on **4 September 2026**.\n\nClothing has a 10-day return window, with delivery counted as day 0. Your return window ended on **14 September**; today, 15 September, is day 11.\n\nI’m sorry, but the kurta is no longer eligible for a change-of-mind return, even though it’s unused. No return has been created.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Is there any exception or alternative you can offer for returning the unused kurta?",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "The policy doesn’t provide an exception or another return option for an unused kurta after the 10-day window. I’ll escalate your exception request to a human support agent for review, but I can’t guarantee approval.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer asks whether an exception or alternative is available to return an unused Cotton kurta after the change-of-mind return window.",
+      "facts_found": "User U022 verified using registered email. Order O0015 belongs to U022 and is Delivered. Item I0015 is a Cotton kurta, clothing category, price ₹1499, quantity 1. Delivered 2026-09-04 at 12:00 IST; today is 2026-09-15, day 11. Inclusive 10-day return window ended 2026-09-14. Customer confirms item is unworn and unused; reason is change of mind, not damage, defect, or wrong item. Shipping fee ₹49; payment method UPI. Refund history shows one qualifying refund in the last 90 days and no refunds on O0015. Order details show evidence photo uploaded, though evidence is not required for change of mind. Promised and actual delivery dates were both 2026-09-04, so order was not late. No return or refund has been created.",
+      "rule_triggered": "A3: Policy does not provide an exception process or alternative return option for this request. E1: Clothing return window is 10 calendar days from delivery, counting delivery as day 0; this request is outside the window.",
+      "what_user_was_told": "Customer was told the return window ended 14 September and the unused kurta is no longer eligible for a change-of-mind return. On requesting an exception, customer was told policy provides no exception or alternative return option after the window, and the request would be escalated for human review without any guarantee of approval.",
+      "order_id": "O0015",
+      "item_id": "I0015"
+    },
+    "call_id": "call_nbaau0M4e2Y13W8PlZSgVwYl",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U022",
+          "order_id": "O0015",
+          "item_id": "I0015",
+          "user_request": "Customer asks whether an exception or alternative is available to return an unused Cotton kurta after the change-of-mind return window.",
+          "facts_found": "User U022 verified using registered email. Order O0015 belongs to U022 and is Delivered. Item I0015 is a Cotton kurta, clothing category, price ₹1499, quantity 1. Delivered 2026-09-04 at 12:00 IST; today is 2026-09-15, day 11. Inclusive 10-day return window ended 2026-09-14. Customer confirms item is unworn and unused; reason is change of mind, not damage, defect, or wrong item. Shipping fee ₹49; payment method UPI. Refund history shows one qualifying refund in the last 90 days and no refunds on O0015. Order details show evidence photo uploaded, though evidence is not required for change of mind. Promised and actual delivery dates were both 2026-09-04, so order was not late. No return or refund has been created.",
+          "rule_triggered": "A3: Policy does not provide an exception process or alternative return option for this request. E1: Clothing return window is 10 calendar days from delivery, counting delivery as day 0; this request is outside the window.",
+          "what_user_was_told": "Customer was told the return window ended 14 September and the unused kurta is no longer eligible for a change-of-mind return. On requesting an exception, customer was told policy provides no exception or alternative return option after the window, and the request would be escalated for human review without any guarantee of approval."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U022",
+        "order_id": "O0015",
+        "item_id": "I0015",
+        "facts_found": "User U022 verified using registered email. Order O0015 belongs to U022 and is Delivered. Item I0015 is a Cotton kurta, clothing category, price ₹1499, quantity 1. Delivered 2026-09-04 at 12:00 IST; today is 2026-09-15, day 11. Inclusive 10-day return window ended 2026-09-14. Customer confirms item is unworn and unused; reason is change of mind, not damage, defect, or wrong item. Shipping fee ₹49; payment method UPI. Refund history shows one qualifying refund in the last 90 days and no refunds on O0015. Order details show evidence photo uploaded, though evidence is not required for change of mind. Promised and actual delivery dates were both 2026-09-04, so order was not late. No return or refund has been created.",
+        "rule_triggered": "A3: Policy does not provide an exception process or alternative return option for this request. E1: Clothing return window is 10 calendar days from delivery, counting delivery as day 0; this request is outside the window.",
+        "what_user_was_told": "Customer was told the return window ended 14 September and the unused kurta is no longer eligible for a change-of-mind return. On requesting an exception, customer was told policy provides no exception or alternative return option after the window, and the request would be escalated for human review without any guarantee of approval."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your exception request has been queued for human review under reference **H0001**. I’ve noted that the kurta is unused and the return window closed yesterday.\n\nNo return or refund has been approved yet.",
+    "turn": 3
+  }
+]

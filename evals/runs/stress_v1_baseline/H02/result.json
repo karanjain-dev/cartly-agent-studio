@@ -1,0 +1,33 @@
+{
+  "scenario_id": "H02",
+  "grading": "observe_only",
+  "stress_type": [
+    "mixed_rules",
+    "money_demand"
+  ],
+  "turns": 4,
+  "end_reason": "customer_ended",
+  "error": "ModelError: Missing communication judgments",
+  "status": "checker_error",
+  "pass": null,
+  "fault": "CHECKER",
+  "api_cost_usd": 0.1424960999999998,
+  "actual_changes": [
+    {
+      "table": "returns",
+      "operation": "insert",
+      "key": {
+        "return_id": "T0013"
+      },
+      "values": {
+        "return_id": "T0013",
+        "order_id": "O1003",
+        "item_id": "I1003",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "damaged"
+      }
+    }
+  ]
+}

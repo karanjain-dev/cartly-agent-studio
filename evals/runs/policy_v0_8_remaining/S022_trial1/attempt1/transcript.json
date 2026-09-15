@@ -1,0 +1,233 @@
+[
+  {
+    "role": "customer",
+    "content": "The other pair of headphones on my order also doesn’t work, and I’d like a refund for it. Please let me know what you need from me to process this.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry the other pair isn’t working either. To check the refund eligibility, please share:\n\n- Your Cartly user ID and either your registered email or phone number.\n- The order ID and which pair of headphones is faulty (item name or item ID).\n\nI’ll check the order details and any refunds already issued, then let you know whether a photo or return pickup is needed and confirm the refund amount before proceeding.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem. When you’re ready, please share your Cartly user ID and either your registered email or phone number.\n\nYou don’t need to find the order ID first—once you’re verified, I can look up your orders and help identify the faulty pair.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My Cartly user ID is U022 and my registered email is customer022@example.com. The order is O0049, and the faulty item is the Wireless headphones. I’ve already uploaded a photo to the order.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_4Nhs7w4QcsVRojJHaumdwxyP",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0049"
+    },
+    "call_id": "call_MevZjjsPPGLtgor6JyF9jbXH",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0049",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-09-06",
+        "promised_delivery_date": "2026-09-11",
+        "actual_delivery_date": "2026-09-11",
+        "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+        "payment_method": "Card",
+        "shipping_fee": 99,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0051",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        },
+        {
+          "item_id": "I0052",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0049"
+    },
+    "call_id": "call_WHo9wESTWEiJabhYQUSuyZ7g",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0049",
+      "item_id": "I0052"
+    },
+    "call_id": "call_eUH1ayNYn0YMCBnSdIIQ0TAq",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0049",
+      "item_id": "I0052",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "I’ve confirmed that the second pair is within the 7-day electronics return window and its photo is uploaded. The refund amount for this pair is ₹3,000 to your original card; the ₹99 shipping fee was already refunded with the first pair.\n\nThis would bring refunds on the order to ₹6,099, above my ₹5,000 per-order authorization limit. I’m referring the request to a human specialist for review. You don’t need to provide anything else right now.\n",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "User requests a refund for the other non-working pair of Wireless headphones on order O0049 and asks what is needed to process it. User reports a photo already uploaded.",
+      "facts_found": "Verified U022 using registered email customer022@example.com; order O0049 belongs to U022. Delivered 2026-09-11 at 12:00 IST; today 2026-09-15 is day 4, within the inclusive 7-day electronics return window. Two Wireless headphones items, I0051 and I0052, each priced at INR 3000. I0051 already received completed refund R0005 of INR 3099 on 2026-09-13, including the order's INR 99 shipping fee, to Card. Remaining claim identified as I0052; reported not functioning, classified defective under E13. check_evidence confirms photo uploaded for I0052. Refund history has 1 qualifying refund in last 90 days, so E10 does not trigger. Proposed I0052 refund is INR 3000 to original Card; shipping cannot be refunded again. Cumulative order refunds would be INR 6099, exceeding INR 5000. No return created or additional refund issued.",
+      "rule_triggered": "E9 and H2: new refund would bring cumulative order refunds, including previously refunded shipping, above INR 5000; mandatory escalation. E12 prevents duplicate shipping refund. E13 applies damaged-item rules to defective items.",
+      "what_user_was_told": "Confirmed the second pair is within the 7-day electronics window and its photo is uploaded. Explained the refund amount is INR 3000 to the original card, with INR 99 shipping already refunded for the first pair. Explained cumulative refunds would be INR 6099, above the agent's INR 5000 per-order authorization limit, so the request is being referred to a human specialist for review. Told user no further information is needed right now.",
+      "order_id": "O0049",
+      "item_id": "I0052"
+    },
+    "call_id": "call_3odVigiIRWtFb00xwH3bnfpU",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U022",
+          "order_id": "O0049",
+          "item_id": "I0052",
+          "user_request": "User requests a refund for the other non-working pair of Wireless headphones on order O0049 and asks what is needed to process it. User reports a photo already uploaded.",
+          "facts_found": "Verified U022 using registered email customer022@example.com; order O0049 belongs to U022. Delivered 2026-09-11 at 12:00 IST; today 2026-09-15 is day 4, within the inclusive 7-day electronics return window. Two Wireless headphones items, I0051 and I0052, each priced at INR 3000. I0051 already received completed refund R0005 of INR 3099 on 2026-09-13, including the order's INR 99 shipping fee, to Card. Remaining claim identified as I0052; reported not functioning, classified defective under E13. check_evidence confirms photo uploaded for I0052. Refund history has 1 qualifying refund in last 90 days, so E10 does not trigger. Proposed I0052 refund is INR 3000 to original Card; shipping cannot be refunded again. Cumulative order refunds would be INR 6099, exceeding INR 5000. No return created or additional refund issued.",
+          "rule_triggered": "E9 and H2: new refund would bring cumulative order refunds, including previously refunded shipping, above INR 5000; mandatory escalation. E12 prevents duplicate shipping refund. E13 applies damaged-item rules to defective items.",
+          "what_user_was_told": "Confirmed the second pair is within the 7-day electronics window and its photo is uploaded. Explained the refund amount is INR 3000 to the original card, with INR 99 shipping already refunded for the first pair. Explained cumulative refunds would be INR 6099, above the agent's INR 5000 per-order authorization limit, so the request is being referred to a human specialist for review. Told user no further information is needed right now."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U022",
+        "order_id": "O0049",
+        "item_id": "I0052",
+        "facts_found": "Verified U022 using registered email customer022@example.com; order O0049 belongs to U022. Delivered 2026-09-11 at 12:00 IST; today 2026-09-15 is day 4, within the inclusive 7-day electronics return window. Two Wireless headphones items, I0051 and I0052, each priced at INR 3000. I0051 already received completed refund R0005 of INR 3099 on 2026-09-13, including the order's INR 99 shipping fee, to Card. Remaining claim identified as I0052; reported not functioning, classified defective under E13. check_evidence confirms photo uploaded for I0052. Refund history has 1 qualifying refund in last 90 days, so E10 does not trigger. Proposed I0052 refund is INR 3000 to original Card; shipping cannot be refunded again. Cumulative order refunds would be INR 6099, exceeding INR 5000. No return created or additional refund issued.",
+        "rule_triggered": "E9 and H2: new refund would bring cumulative order refunds, including previously refunded shipping, above INR 5000; mandatory escalation. E12 prevents duplicate shipping refund. E13 applies damaged-item rules to defective items.",
+        "what_user_was_told": "Confirmed the second pair is within the 7-day electronics window and its photo is uploaded. Explained the refund amount is INR 3000 to the original card, with INR 99 shipping already refunded for the first pair. Explained cumulative refunds would be INR 6099, above the agent's INR 5000 per-order authorization limit, so the request is being referred to a human specialist for review. Told user no further information is needed right now."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your request is queued for human review under reference **H0001**, with the order details and photo confirmation included.\n\nThe additional ₹3,000 refund has **not yet been issued**, and no pickup has been scheduled. No further information is needed from you right now.",
+    "turn": 3
+  }
+]

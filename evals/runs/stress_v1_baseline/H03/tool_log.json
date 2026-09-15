@@ -1,0 +1,183 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U103",
+      "email": "kavya.menon@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U103"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O1004",
+          "user_id": "U103",
+          "status": "Delivered",
+          "placed_date": "2026-09-06",
+          "promised_delivery_date": "2026-09-10",
+          "actual_delivery_date": "2026-09-10",
+          "actual_delivery_at": "2026-09-10T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "House 27, Green Park",
+            "line2": "Near Aurobindo Market",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O1004"
+    },
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O1004",
+        "user_id": "U103",
+        "status": "Delivered",
+        "placed_date": "2026-09-06",
+        "promised_delivery_date": "2026-09-10",
+        "actual_delivery_date": "2026-09-10",
+        "actual_delivery_at": "2026-09-10T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "House 27, Green Park",
+          "line2": "Near Aurobindo Market",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I1005",
+          "order_id": "O1004",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O1004"
+    },
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O1004"
+    },
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O1004",
+        "user_id": "U103",
+        "status": "Delivered",
+        "placed_date": "2026-09-06",
+        "promised_delivery_date": "2026-09-10",
+        "actual_delivery_date": "2026-09-10",
+        "actual_delivery_at": "2026-09-10T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "House 27, Green Park",
+          "line2": "Near Aurobindo Market",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I1005",
+          "order_id": "O1004",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O1004"
+    },
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    },
+    "mode": "unguarded"
+  }
+]

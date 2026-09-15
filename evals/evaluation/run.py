@@ -4,6 +4,7 @@ import copy
 import hashlib
 import json
 import re
+from functools import partial
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from cartly.tools import CartlySession
@@ -58,12 +59,12 @@ class LoggedClient:
         return response
 
 
-def run_conversation(scenario,trial,folder,run_name,model):
+def run_conversation(scenario,trial,folder,run_name,model,*,customer_model='gpt-4.1-mini'):
     folder.mkdir(parents=True,exist_ok=False)
     session=CartlySession(guarded=False,log_dir=folder/'session_logs')  # __init__ resets a fresh data copy.
     before=session.state
     recorder=Recorder(folder,session.timestamp)
-    simulator=SimulatedCustomer(customer_profile(scenario),client=LoggedClient('simulator','gpt-4.1-mini',recorder),
+    simulator=SimulatedCustomer(customer_profile(scenario),client=LoggedClient('simulator',customer_model,recorder),
                                 environment=reference_environment(before['config']))
     policy=(ROOT/'policy.md').read_text()
     prompt=(ROOT/'prompts/agent_v1.1.md').read_text()
@@ -71,7 +72,8 @@ def run_conversation(scenario,trial,folder,run_name,model):
     agent=SupportAgent(session,prompt,model,recorder)
     transcript=[];error=None;stop_reason=None;stage='simulator';error_origin=None
     tags={'run_name':run_name,'scenario_id':scenario['scenario_id'],'scenario_split':scenario['split'],
-          'trial_number':trial,'agent_model_requested':model,'agent_model':None,'simulator_model_requested':'gpt-4.1-mini',
+          'trial_number':trial,'agent_model_requested':model,'agent_model':None,'simulator_model_requested':customer_model,
+          'simulator_reasoning_effort':'none' if customer_model=='gpt-5.6-luna' else None,
           'simulator_model':None,'prompt_version':'agent_v1.1','policy_version':policy_version(policy),
           'current_date':before['config']['today'],'harness_version':'v3','harness_revision':'v3.2',
           'data_version':data_version(),'tool_mode':'unguarded','reasoning_effort':'high','timestamp':session.timestamp}
@@ -133,11 +135,11 @@ def run_conversation(scenario,trial,folder,run_name,model):
     return result
 
 
-def run_trial(scenario,trial,folder,run_name,model,*,conversation_fn=run_conversation):
+def run_trial(scenario,trial,folder,run_name,model,*,conversation_fn=run_conversation,max_attempts=2):
     """One logical trial, at most two fresh attempts. Never reuse dirty state."""
     folder.mkdir(parents=True,exist_ok=False)
     attempts=[]
-    for attempt in [1,2]:
+    for attempt in range(1,max_attempts+1):
         attempt_folder=folder/f'attempt{attempt}'
         try:
             result=conversation_fn(scenario,trial,attempt_folder,run_name,model)
@@ -173,7 +175,10 @@ def main():
     p.add_argument('--run-name',required=True);p.add_argument('--scenarios',nargs='+')
     p.add_argument('--trials',type=int,default=3);p.add_argument('--heldout',action='store_true')
     p.add_argument('--workers',type=int,default=1,choices=range(1,5))
-    p.add_argument('--agent-model',default='gpt-6-astra');args=p.parse_args()
+    p.add_argument('--agent-model',default='gpt-6-astra')
+    p.add_argument('--customer-model',default='gpt-4.1-mini',choices=sorted(RATES))
+    p.add_argument('--max-attempts',type=int,default=2,choices=[1,2])
+    args=p.parse_args()
     if not re.fullmatch(r'[A-Za-z0-9_-]+',args.run_name):p.error('Use a simple run name')
     if args.trials<1:p.error('trials must be positive')
     scenarios=json.loads((ROOT/'scenarios/scenarios.json').read_text())
@@ -182,9 +187,11 @@ def main():
     available=json.loads((ROOT/'evaluation/available_models.json').read_text())['models']
     if args.agent_model not in available:p.error('Agent model is not in the API-key model inventory')
     if args.agent_model!='gpt-6-astra':p.error('This baseline pins gpt-6-astra; model changes need a separate baseline configuration')
+    if args.customer_model not in available:p.error('Customer model is not in the API-key model inventory')
     original=protected_hashes();out=ROOT/'runs'/args.run_name
     out.mkdir(parents=True,exist_ok=False)
     write(out/'manifest.json',{'run_name':args.run_name,'scenario_ids':[s['scenario_id'] for s in selected],
+          'customer_model':args.customer_model,'agent_model':args.agent_model,'max_attempts':args.max_attempts,
           'harness_version':'v3','harness_revision':'v3.2','workers':args.workers,'trials':args.trials,'heldout_explicit':args.heldout,'protected_files':original,'data_version':data_version(),
           'pricing_usd_per_million':RATES,'pricing_sources':SOURCES,'known_limitations':KNOWN_LIMITATIONS,
           'cost_note':'Token-usage estimate at standard API rates, not a billing invoice. Includes reported cache reads/writes and all observed simulator retries.'})
@@ -193,7 +200,8 @@ def main():
     def execute(job):
         s,trial=job
         print(f"Starting {s['scenario_id']} trial {trial}",flush=True)
-        return run_trial(s,trial,out/f"{s['scenario_id']}_trial{trial}",args.run_name,args.agent_model)
+        return run_trial(s,trial,out/f"{s['scenario_id']}_trial{trial}",args.run_name,args.agent_model,
+                         conversation_fn=partial(run_conversation,customer_model=args.customer_model),max_attempts=args.max_attempts)
     try:
         # Sessions, model histories and artifact folders are independent. Only
         # the coordinator writes aggregate results, so completed jobs cannot race.

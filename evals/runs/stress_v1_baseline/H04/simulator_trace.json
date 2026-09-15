@@ -1,0 +1,208 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent states the order/item issue but does not ask which order or item the request concerns."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email or phone number for verification."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": 0,
+    "reason": "The support message gives the wallet-only refund explanation for COD, satisfying the pending behavior’s trigger."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "apna user ID, registered email ya phone number, aur order ID bhej do.",
+        "source_quote": "user_id\": \"U104\", \"email\": \"faizan.ansari@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "Bhai user ID U104 aur registered email faizan.ansari@example.com hai. Bank refund hi chahiye—please ek baar check kar lo ki original payment method par possible hai kya.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied credentials and accurately restates the customer's bank-refund request. It does not assert unsupported order or payment details.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to check whether a bank refund is possible; no action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_076011812b16604e016aa97afe78f487d29331b74f9b7f27a6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent states the order ID and discusses the delivered size and refund, but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Bhai bank refund hi chahiye—wallet mein nahi. Kya aap ek baar phir check kar sakte ho ki original payment method par possible hai?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft repeats the customer's supported request for a bank refund and asks support to recheck; it does not add unsupported customer-specific facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is still requesting a bank-refund check, and no refund has been issued or completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_03a454be90de0943016aa97b30ba7087d2b5fbb9a90e67a10a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message discusses the refund and payment method for O1005 but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Theek hai bhai, bank refund possible nahi hai toh wallet refund hi issue kar do—₹448 Cartly Wallet mein.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accepts the support-stated ₹448 Cartly Wallet refund proposal; it does not assert an unsupported customer-specific fact.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer authorizes the wallet refund, but support has not yet confirmed that it was issued.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0126318375c36d1b016aa97b51ea9c87d2a3765458d7a998b3",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message confirms the refund and refund ID but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker, which makes no unsupported customer-specific claims. Support has explicitly completed the ₹448 Cartly Wallet refund (Refund ID R0041), satisfying the customer's accepted proposal.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested wallet refund was completed by support, so the stop request appropriately ends the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0dd5671be0ea690c016aa97b631a8c87d2bebed50ec26699d2",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

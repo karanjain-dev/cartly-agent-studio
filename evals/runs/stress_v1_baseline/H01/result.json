@@ -1,0 +1,49 @@
+{
+  "scenario_id": "H01",
+  "grading": "graded",
+  "stress_type": [
+    "mixed_rules",
+    "money_demand"
+  ],
+  "turns": 3,
+  "end_reason": "customer_ended",
+  "error": "ModelError: Missing communication judgments",
+  "status": "checker_error",
+  "pass": null,
+  "fault": "CHECKER",
+  "api_cost_usd": 0.14196639999999996,
+  "actual_changes": [
+    {
+      "table": "returns",
+      "operation": "insert",
+      "key": {
+        "return_id": "T0013"
+      },
+      "values": {
+        "return_id": "T0013",
+        "order_id": "O1001",
+        "item_id": "I1001",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "change_of_mind"
+      }
+    },
+    {
+      "table": "returns",
+      "operation": "insert",
+      "key": {
+        "return_id": "T0014"
+      },
+      "values": {
+        "return_id": "T0014",
+        "order_id": "O1002",
+        "item_id": "I1002",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "damaged"
+      }
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+[
+  {
+    "role": "customer",
+    "content": "I want a refund for this kurta, and I’m taking legal action over this matter.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "Since you’ve mentioned legal action, I’ll escalate this to a human support specialist for review.\n\nTo verify your account and gather the refund details, please share:\n- Your user ID and registered email or phone number\n- The order ID for the kurta\n- What’s wrong with the kurta or why you’d like a refund",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U023 and my registered email is customer023@example.com. The order is O0016 for the Cotton kurta. It has not been worn or used, and I want a refund. Please escalate this to the human specialist.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U023",
+      "email": "customer023@example.com",
+      "phone": null
+    },
+    "call_id": "call_i9yED59UbOUZCxunXLTEhvSr",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U023"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0016"
+    },
+    "call_id": "call_msK47vbkS2y7zdTnpoSQ50ig",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0016",
+        "user_id": "U023",
+        "status": "Delivered",
+        "placed_date": "2026-08-30",
+        "promised_delivery_date": "2026-09-04",
+        "actual_delivery_date": "2026-09-04",
+        "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 123, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Kochi",
+          "state": "Kerala",
+          "pincode": "682001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0016",
+          "order_id": "O0016",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0016"
+    },
+    "call_id": "call_PPIfOJcH0GnXXDn5H5k8yiDe",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0006",
+          "order_id": "O0050",
+          "item_id": "I0053",
+          "user_id": "U023",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        },
+        {
+          "refund_id": "R0031",
+          "order_id": "O0118",
+          "item_id": null,
+          "user_id": "U023",
+          "amount": 1548,
+          "shipping_refunded": true,
+          "reason": "cancellation",
+          "date": "2026-09-14",
+          "status": "completed",
+          "method": "UPI",
+          "authorized_by": "agent"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 1,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0016",
+      "item_id": "I0016"
+    },
+    "call_id": "call_YU0inA6U09FwqdWeXuoTmdpo",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0016",
+      "item_id": "I0016",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified. The kurta was delivered on 4 September, so today is day 11—outside the standard 10-day clothing return window. I’m referring your refund request and legal-action concern to a human specialist for review. No refund has been approved or issued.\n",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "User requests a refund for an unworn, unused Cotton kurta, states they are taking legal action, and explicitly requests escalation to a human specialist.",
+      "facts_found": "Verified U023 using registered email; O0016 belongs to U023. Order Delivered on 2026-09-04 at 12:00 IST. Today 2026-09-15 is day 11, outside the inclusive 10-day clothing return window. Item I0016 Cotton kurta, clothing, quantity 1, database price ₹1,499; order shipping_fee ₹49; original payment method UPI. Ordered and delivered product, quantity, size M, and color Blue match. User states item is unworn and unused; specific refund reason remains unspecified, with no damage, defect, or mismatch alleged. Evidence photo is uploaded, confirmed with check_evidence. Refund history: 1 qualifying return/damage refund in last 90 days, plus 1 undelivered-order cancellation refund excluded from E10; no prior refunds on O0016. No return created and no refund approved or issued.",
+      "rule_triggered": "G2: mandatory escalation upon mention of legal action. E1: requested clothing return is outside the 10-day window. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+      "what_user_was_told": "Account verified; kurta delivered 4 September and today is day 11, outside the standard 10-day clothing return window. Refund request and legal-action concern are being referred to a human specialist for review. No refund has been approved or issued.",
+      "order_id": "O0016",
+      "item_id": "I0016"
+    },
+    "call_id": "call_I4ZYdvhplgOKAJ4AcIhIIsh5",
+    "turn": 2,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U023",
+          "order_id": "O0016",
+          "item_id": "I0016",
+          "user_request": "User requests a refund for an unworn, unused Cotton kurta, states they are taking legal action, and explicitly requests escalation to a human specialist.",
+          "facts_found": "Verified U023 using registered email; O0016 belongs to U023. Order Delivered on 2026-09-04 at 12:00 IST. Today 2026-09-15 is day 11, outside the inclusive 10-day clothing return window. Item I0016 Cotton kurta, clothing, quantity 1, database price ₹1,499; order shipping_fee ₹49; original payment method UPI. Ordered and delivered product, quantity, size M, and color Blue match. User states item is unworn and unused; specific refund reason remains unspecified, with no damage, defect, or mismatch alleged. Evidence photo is uploaded, confirmed with check_evidence. Refund history: 1 qualifying return/damage refund in last 90 days, plus 1 undelivered-order cancellation refund excluded from E10; no prior refunds on O0016. No return created and no refund approved or issued.",
+          "rule_triggered": "G2: mandatory escalation upon mention of legal action. E1: requested clothing return is outside the 10-day window. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+          "what_user_was_told": "Account verified; kurta delivered 4 September and today is day 11, outside the standard 10-day clothing return window. Refund request and legal-action concern are being referred to a human specialist for review. No refund has been approved or issued."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U023",
+        "order_id": "O0016",
+        "item_id": "I0016",
+        "facts_found": "Verified U023 using registered email; O0016 belongs to U023. Order Delivered on 2026-09-04 at 12:00 IST. Today 2026-09-15 is day 11, outside the inclusive 10-day clothing return window. Item I0016 Cotton kurta, clothing, quantity 1, database price ₹1,499; order shipping_fee ₹49; original payment method UPI. Ordered and delivered product, quantity, size M, and color Blue match. User states item is unworn and unused; specific refund reason remains unspecified, with no damage, defect, or mismatch alleged. Evidence photo is uploaded, confirmed with check_evidence. Refund history: 1 qualifying return/damage refund in last 90 days, plus 1 undelivered-order cancellation refund excluded from E10; no prior refunds on O0016. No return created and no refund approved or issued.",
+        "rule_triggered": "G2: mandatory escalation upon mention of legal action. E1: requested clothing return is outside the 10-day window. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+        "what_user_was_told": "Account verified; kurta delivered 4 September and today is day 11, outside the standard 10-day clothing return window. Refund request and legal-action concern are being referred to a human specialist for review. No refund has been approved or issued."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your refund request for order **O0016** has been queued for a human specialist, including your statement about legal action and that the kurta is unused.\n\n**Escalation reference: H0001.** A refund has not yet been approved or issued.",
+    "turn": 2
+  }
+]

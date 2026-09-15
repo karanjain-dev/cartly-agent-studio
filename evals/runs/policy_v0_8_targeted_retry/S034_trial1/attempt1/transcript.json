@@ -1,0 +1,107 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to return this kurta. Please let me know the return process and whether its condition is acceptable for a return.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "Hi! For a change-of-mind return, the kurta must be unused and within 10 calendar days of delivery. A ₹99 pickup fee is deducted from the item value, and shipping isn’t refunded. Once pickup is completed, the system automatically refunds the original payment method—or Cartly Wallet for cash-on-delivery orders.\n\nTo check your kurta’s eligibility and condition, please share:\n- Your user ID and registered email or phone number\n- The order ID, if available\n- Why you’d like to return it and its current condition, including whether it’s been used or washed, or arrived damaged or defective",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U019 and my registered email is customer019@example.com. The order is O0012 for the Cotton kurta. I’d like to return it because it was only worn to a wedding and hasn’t been washed; it isn’t damaged or defective.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U019",
+      "email": "customer019@example.com",
+      "phone": null
+    },
+    "call_id": "call_JKUvwZtUZm7pV8ofBeQL657Y",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U019"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0012"
+    },
+    "call_id": "call_Lk9PSoxIoLyPAexGpNYVYTTs",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0012",
+        "user_id": "U019",
+        "status": "Delivered",
+        "placed_date": "2026-08-31",
+        "promised_delivery_date": "2026-09-05",
+        "actual_delivery_date": "2026-09-05",
+        "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 119, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0012",
+          "order_id": "O0012",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks for clarifying. Your kurta was delivered on 5 September, so today is the final day of its 10-day return window.\n\nHowever, change-of-mind returns must be **unused**. Wearing it to a wedding counts as use, even if it hasn’t been washed. Since it isn’t damaged or defective, it’s **not eligible for a return or refund**, and I’m unable to arrange a pickup.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Could you please make an exception and arrange the return anyway?",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry, but I can’t make an exception or arrange a return for a used kurta. Change-of-mind returns require the item to be unused, and wearing it to a wedding counts as use even if it hasn’t been washed.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Thanks for clarifying.",
+    "turn": 4
+  }
+]

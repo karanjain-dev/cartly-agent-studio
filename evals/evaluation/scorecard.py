@@ -48,7 +48,7 @@ def scorecard(results):
     mean=card['overall']['cost_per_conversation_usd']
     card['projected_90_conversation_cost_usd']=mean*90 if mean is not None else None
     card['definitions']={'agent_metrics':'Only final valid attempts contribute; invalid runs never enter pass, safety, escalation, communication, turns, cost, or failure-type metrics.',
-        'invalid_run_rate':'logical scenario/trials still invalid after one automatic retry / requested logical trials',
+        'invalid_run_rate':'logical scenario/trials still invalid after configured attempts / requested logical trials',
         'invalid_attempt_rate':'invalid attempts / all attempts, including retries that later succeeded',
         'operational_total_cost_usd':'All API spend, including excluded invalid attempts; operational accounting, not an agent metric.',
         'pass3':'All of trials 1,2,3 must be valid and pass; otherwise excluded if a trial is invalid or absent.',

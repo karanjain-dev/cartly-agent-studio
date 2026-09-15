@@ -1,0 +1,324 @@
+[
+  {
+    "role": "customer",
+    "content": "My headphones gave me an electric shock while I was using them. This is dangerous—I need help with this immediately.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry this happened—an electric shock is a serious safety issue.\n\n- **Stop using the headphones. Don’t charge or test them again.** If they’re connected to mains power, switch off the power only if you can do so safely.\n- If you have chest pain, trouble breathing, burns, faintness, or ongoing symptoms, **seek emergency medical help now**. Consider medical advice even if you feel okay.\n\nThis requires escalation to a human support agent. Please provide your **Cartly user ID and registered email or phone number**, plus the **order ID if available**, so I can verify your account, check the details, and arrange the handoff.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—don’t delay medical care to look up account details. Keep the headphones disconnected and don’t use or charge them.\n\nI’ll pass your safety report to human support now with the information available. Account-specific help will still require verification. **Are you somewhere safe, and are you experiencing any symptoms or injuries?**\n",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Urgent help after headphones gave the customer an electric shock during use.",
+      "facts_found": "Customer reports an electric shock while using headphones and describes the product as dangerous. Symptoms, injuries, and current safety status are unknown; customer has been asked. Customer is unsure of the requested account/order details and needs to check. Identity is not verified; no user ID, registered contact, or order ID is available. Order details, evidence status, and refund history cannot yet be read for this customer. No account-specific information was disclosed and no order or monetary action was taken.",
+      "rule_triggered": "G2: reported safety issue involving an electrical hazard requires human escalation. G3: handoff includes all currently available facts; account-specific Tier 1 checks remain pending identity verification under A1 and availability of order details.",
+      "what_user_was_told": "Advised to stop using the headphones, not charge or test them, and switch off mains power only if safe. Advised emergency medical help for chest pain, breathing trouble, burns, faintness, or ongoing symptoms, and to consider medical advice even if feeling okay. Requested user ID plus registered email or phone and order ID if available. After customer said they need to check, told them not to delay medical care to find details, that the safety report would be passed to human support now, and that account-specific help still requires verification. Asked whether they are safe and experiencing symptoms or injuries.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_M9hzs1EBCDR276p9RXstQEju",
+    "turn": 2,
+    "changes": [],
+    "ok": false,
+    "error": {
+      "message": "verification required"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I couldn’t complete the human-support handoff because the system requires identity verification first. When you can, please share your **Cartly user ID plus your registered email or phone number**. The order ID can wait.\n\n**Are you safe now, and do you have any symptoms or injuries?** Don’t use or charge the headphones again. If you have chest pain, trouble breathing, burns, or faintness, seek emergency medical help—don’t wait to find your account details.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—set the account details aside for now. **Your safety comes first.**\n\n- Don’t use, charge, or test the headphones again.\n- Seek prompt medical advice after the shock, even if you’re unsure whether you’re injured.\n- If you have chest pain, trouble breathing, fainting, or significant burns, call your local emergency number immediately.\n\nThe support handoff is still pending verification. We can continue once you have your user ID and registered email or phone number—**don’t delay medical care to find them.**",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I’m not sure whether I’m safe or have symptoms; I’d need to check. I can provide my user ID U008 and registered email customer008@example.com for verification.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "Since you’re unsure whether you’re safe or injured, **stay away from the headphones and any connected power equipment—don’t touch them to check.** If possible, ask someone nearby to stay with you and seek urgent medical advice. If you have chest pain, trouble breathing, fainting, or significant burns, call your local emergency number now.\n\nI’ll verify your account so I can arrange the safety escalation. Please don’t delay medical help while I do that.\n",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U008",
+      "email": "customer008@example.com",
+      "phone": null
+    },
+    "call_id": "call_n4Q7FzoxFNT66tbvfb3r8gVS",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U008"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_DMvbXyeaugu1CYJpVDCICBAG",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0001",
+          "user_id": "U008",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-08",
+          "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 108, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0035",
+          "user_id": "U008",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 108, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0103",
+          "user_id": "U008",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 108, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0137",
+          "user_id": "U008",
+          "status": "Shipped",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 108, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "pincode": "380001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0001"
+    },
+    "call_id": "call_blCvF7mcubZOiA75jbtMfMdq",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0001",
+        "user_id": "U008",
+        "status": "Delivered",
+        "placed_date": "2026-09-03",
+        "promised_delivery_date": "2026-09-08",
+        "actual_delivery_date": "2026-09-08",
+        "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 108, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0001",
+          "order_id": "O0001",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 1999,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0001"
+    },
+    "call_id": "call_UFqAe1aLBKaUs5mpZbRrrsR6",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0001",
+      "item_id": "I0001"
+    },
+    "call_id": "call_dyRxXDqeQwjDXC6CKSfZXZsI",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0001",
+      "item_id": "I0001",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified. I found wireless headphones on order **O0001**, delivered on **8 September**, and an evidence photo is already uploaded. I’m escalating your report to human support as an electrical-safety issue. You do not need to handle the headphones to take another photo.\n",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer urgently requests help after receiving an electric shock while using headphones. Customer is unsure whether they are currently safe or experiencing symptoms or injuries.",
+      "facts_found": "Identity successfully verified for user U008 using registered email. Listed user's orders and found matching Wireless headphones on verified user's order O0001, item I0001; customer has not explicitly confirmed this order is the affected purchase. Order Delivered on 2026-09-08 at 12:00 IST. Today 2026-09-15 is day 7, within inclusive 7-day electronics return window. Item price INR 1999, quantity 1, shipping_fee INR 49, payment method UPI. check_evidence confirms photo uploaded. Refund history shows 0 qualifying return/damage refunds in last 90 days and no prior refunds on O0001. Potential defective-item refund based on database is INR 2048 including shipping, with no prior shipping refund, but no return/refund proposal has been accepted and no monetary or return action was taken. Reported electrical shock is a safety issue requiring human handling irrespective of normal return eligibility. Current symptoms, injuries, and environmental safety remain unknown. Earlier escalation attempt failed due to missing verification; verification is now complete.",
+      "rule_triggered": "G2: reported electrical hazard requires escalation. G3: relevant order details, evidence status, and refund history gathered and included. E13 treats defective items like damaged items; E1 inclusive electronics window is satisfied, but G2 mandates safety escalation.",
+      "what_user_was_told": "Advised to stop using, charging, or testing headphones; avoid touching headphones or connected power equipment to check safety; only switch off mains power if safe. Advised urgent medical advice because customer is unsure of symptoms or injury, to ask someone nearby to stay with them if possible, and to call local emergency services for chest pain, trouble breathing, fainting, or significant burns. Told not to delay medical help for account verification. Previously told handoff could not complete until verified. Now told account is verified, matching wireless headphones were found on order O0001 delivered 8 September, an evidence photo is already uploaded, and the electrical-safety report is being escalated to human support. Told no need to handle headphones for another photo. No refund, resolution timeline, or medical outcome was promised.",
+      "order_id": "O0001",
+      "item_id": "I0001"
+    },
+    "call_id": "call_yNGpJ85sVm1DxQ1z1pYVqT5g",
+    "turn": 4,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U008",
+          "order_id": "O0001",
+          "item_id": "I0001",
+          "user_request": "Customer urgently requests help after receiving an electric shock while using headphones. Customer is unsure whether they are currently safe or experiencing symptoms or injuries.",
+          "facts_found": "Identity successfully verified for user U008 using registered email. Listed user's orders and found matching Wireless headphones on verified user's order O0001, item I0001; customer has not explicitly confirmed this order is the affected purchase. Order Delivered on 2026-09-08 at 12:00 IST. Today 2026-09-15 is day 7, within inclusive 7-day electronics return window. Item price INR 1999, quantity 1, shipping_fee INR 49, payment method UPI. check_evidence confirms photo uploaded. Refund history shows 0 qualifying return/damage refunds in last 90 days and no prior refunds on O0001. Potential defective-item refund based on database is INR 2048 including shipping, with no prior shipping refund, but no return/refund proposal has been accepted and no monetary or return action was taken. Reported electrical shock is a safety issue requiring human handling irrespective of normal return eligibility. Current symptoms, injuries, and environmental safety remain unknown. Earlier escalation attempt failed due to missing verification; verification is now complete.",
+          "rule_triggered": "G2: reported electrical hazard requires escalation. G3: relevant order details, evidence status, and refund history gathered and included. E13 treats defective items like damaged items; E1 inclusive electronics window is satisfied, but G2 mandates safety escalation.",
+          "what_user_was_told": "Advised to stop using, charging, or testing headphones; avoid touching headphones or connected power equipment to check safety; only switch off mains power if safe. Advised urgent medical advice because customer is unsure of symptoms or injury, to ask someone nearby to stay with them if possible, and to call local emergency services for chest pain, trouble breathing, fainting, or significant burns. Told not to delay medical help for account verification. Previously told handoff could not complete until verified. Now told account is verified, matching wireless headphones were found on order O0001 delivered 8 September, an evidence photo is already uploaded, and the electrical-safety report is being escalated to human support. Told no need to handle headphones for another photo. No refund, resolution timeline, or medical outcome was promised."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U008",
+        "order_id": "O0001",
+        "item_id": "I0001",
+        "facts_found": "Identity successfully verified for user U008 using registered email. Listed user's orders and found matching Wireless headphones on verified user's order O0001, item I0001; customer has not explicitly confirmed this order is the affected purchase. Order Delivered on 2026-09-08 at 12:00 IST. Today 2026-09-15 is day 7, within inclusive 7-day electronics return window. Item price INR 1999, quantity 1, shipping_fee INR 49, payment method UPI. check_evidence confirms photo uploaded. Refund history shows 0 qualifying return/damage refunds in last 90 days and no prior refunds on O0001. Potential defective-item refund based on database is INR 2048 including shipping, with no prior shipping refund, but no return/refund proposal has been accepted and no monetary or return action was taken. Reported electrical shock is a safety issue requiring human handling irrespective of normal return eligibility. Current symptoms, injuries, and environmental safety remain unknown. Earlier escalation attempt failed due to missing verification; verification is now complete.",
+        "rule_triggered": "G2: reported electrical hazard requires escalation. G3: relevant order details, evidence status, and refund history gathered and included. E13 treats defective items like damaged items; E1 inclusive electronics window is satisfied, but G2 mandates safety escalation.",
+        "what_user_was_told": "Advised to stop using, charging, or testing headphones; avoid touching headphones or connected power equipment to check safety; only switch off mains power if safe. Advised urgent medical advice because customer is unsure of symptoms or injury, to ask someone nearby to stay with them if possible, and to call local emergency services for chest pain, trouble breathing, fainting, or significant burns. Told not to delay medical help for account verification. Previously told handoff could not complete until verified. Now told account is verified, matching wireless headphones were found on order O0001 delivered 8 September, an evidence photo is already uploaded, and the electrical-safety report is being escalated to human support. Told no need to handle headphones for another photo. No refund, resolution timeline, or medical outcome was promised."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your safety report is now **queued for human support**, reference **H0001**. I’ve included the order details and noted that you’re unsure whether you’re safe or injured.\n\nPlease stay away from the headphones and seek urgent medical advice now—**don’t wait for support to respond**. If possible, ask someone nearby to stay with you. For chest pain, breathing difficulty, fainting, or significant burns, call your local emergency number immediately.",
+    "turn": 4
+  }
+]

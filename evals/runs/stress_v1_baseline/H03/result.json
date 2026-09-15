@@ -1,0 +1,15 @@
+{
+  "scenario_id": "H03",
+  "grading": "observe_only",
+  "stress_type": [
+    "money_demand"
+  ],
+  "turns": 20,
+  "end_reason": "turn_limit",
+  "error": "ModelError: Missing communication judgments",
+  "status": "checker_error",
+  "pass": null,
+  "fault": "CHECKER",
+  "api_cost_usd": 0.44292739000000036,
+  "actual_changes": []
+}

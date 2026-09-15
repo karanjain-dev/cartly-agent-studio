@@ -1,0 +1,309 @@
+[
+  {
+    "role": "customer",
+    "content": "I’d like my order sent to my new address. What details do you need from me?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "Please share:\n\n- Your **user ID** and either your **registered email address or phone number** for verification.\n- Your **order ID**.\n- Your **full new address**: house/flat number, street, area, city, state, pincode, and country.\n\nAddress changes are allowed only while the order is **Placed**. I’ll check the order status and whether we deliver to the new pincode, then ask you to confirm the full address before updating it.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time. When you’re ready, share your user ID and registered email or phone number so I can verify your account.\n\nIf you can’t find the order ID, I can help locate the order after verification. Have your full new address handy too; we can only change it while the order is still **Placed**.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U013 and my registered email is customer013@example.com. My new address is Flat 302, Lake View Apartments, Near the main post office, Bengaluru, Karnataka, 560001, India.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U013",
+      "email": "customer013@example.com",
+      "phone": null
+    },
+    "call_id": "call_6DUjNSznXIl3GFkAJTHrBMiM",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U013"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_yu6UovlEYHjs2esjXN8J3x8A",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0006",
+          "user_id": "U013",
+          "status": "Delivered",
+          "placed_date": "2026-09-02",
+          "promised_delivery_date": "2026-09-07",
+          "actual_delivery_date": "2026-09-07",
+          "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 113, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0040",
+          "user_id": "U013",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 113, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0074",
+          "user_id": "U013",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 113, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0108",
+          "user_id": "U013",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 113, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0142",
+          "user_id": "U013",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 113, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pincode": "400001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_serviceability",
+    "arguments": {
+      "pincode": "560001"
+    },
+    "call_id": "call_Xogku8bRG2wUvbvjjaqHB4ES",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "pincode": "560001",
+      "serviceable": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified, and we deliver to pincode **560001**.\n\nWhich order would you like to update?\n- **O0074** — Placed; address change allowed.\n- **O0142** — Placed; address change allowed.\n- **O0108** — Packed; the address can no longer be changed.\n\nOnce you select an eligible order, I’ll ask you to confirm the full new address before updating it.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Please update order O0074 for the wireless headphones.",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0074"
+    },
+    "call_id": "call_2fOGfJ8BNZbW5ja4ie09kzKO",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0074",
+        "user_id": "U013",
+        "status": "Placed",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "Card",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 113, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0078",
+          "order_id": "O0074",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 6499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Order **O0074 (Wireless headphones)** is still **Placed**, so its address can be changed.\n\nPlease confirm that I should update its delivery address to:\n\n**Flat 302, Lake View Apartments**  \nNear the main post office  \nBengaluru, Karnataka, 560001  \nIndia\n\nThis is an address-only update; no payment or refund will be processed. **Do you confirm?**",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "Yes, I confirm updating order O0074 to that address.",
+    "turn": 5
+  },
+  {
+    "role": "tool",
+    "tool_name": "update_address",
+    "arguments": {
+      "order_id": "O0074",
+      "address": {
+        "line1": "Flat 302, Lake View Apartments",
+        "line2": "Near the main post office",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560001",
+        "country": "India"
+      },
+      "confirmed": true
+    },
+    "call_id": "call_2w4X6r4tc0IISk6EWMx4ZJ3w",
+    "turn": 5,
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0074"
+        },
+        "values": {
+          "delivery_address": {
+            "line1": "Flat 302, Lake View Apartments",
+            "line2": "Near the main post office",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "pincode": "560001",
+            "country": "India"
+          }
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "order_id": "O0074",
+      "delivery_address": {
+        "line1": "Flat 302, Lake View Apartments",
+        "line2": "Near the main post office",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pincode": "560001",
+        "country": "India"
+      }
+    }
+  },
+  {
+    "role": "support",
+    "content": "The delivery address for **order O0074 (Wireless headphones)** has been updated to:\n\nFlat 302, Lake View Apartments  \nNear the main post office  \nBengaluru, Karnataka, 560001  \nIndia",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 6
+  }
+]

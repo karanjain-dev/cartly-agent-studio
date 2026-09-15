@@ -1,0 +1,228 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, the bowl arrived broken, and I’d like a refund, please.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry your bowl arrived broken. Please share your user ID, either your registered email or phone number, and the order ID so I can verify your account and check the refund options.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time. I’ll need your user ID and either your registered email or phone number to verify your account. If you can’t find the order ID, I can help locate the order after verification.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U003, my registered email is customer003@example.com, and the order ID is O0060. The Ceramic serving bowl arrived broken, and I’d like a refund, please.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U003",
+      "email": "customer003@example.com",
+      "phone": null
+    },
+    "call_id": "call_IrmtNTfFcURl1oA8AUmS3QMf",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U003"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0060"
+    },
+    "call_id": "call_HGeCTHDiFFpJP4TIDuUc4Dd9",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0060",
+        "user_id": "U003",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 103, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "pincode": "560001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0064",
+          "order_id": "O0060",
+          "product_name": "Ceramic serving bowl",
+          "category": "home",
+          "price": 399,
+          "quantity": 1,
+          "ordered_product_name": "Ceramic serving bowl",
+          "delivered_product_name": "Ceramic serving bowl",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0060"
+    },
+    "call_id": "call_HreIk4yYB14gRZ1ry7oH6Ojx",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0011",
+          "order_id": "O0057",
+          "item_id": "I0061",
+          "user_id": "U003",
+          "amount": 448,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-08-27",
+          "status": "completed",
+          "method": "UPI",
+          "authorized_by": "agent"
+        },
+        {
+          "refund_id": "R0012",
+          "order_id": "O0058",
+          "item_id": "I0062",
+          "user_id": "U003",
+          "amount": 448,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-08-17",
+          "status": "completed",
+          "method": "UPI",
+          "authorized_by": "agent"
+        },
+        {
+          "refund_id": "R0013",
+          "order_id": "O0059",
+          "item_id": "I0063",
+          "user_id": "U003",
+          "amount": 448,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-08-07",
+          "status": "completed",
+          "method": "UPI",
+          "authorized_by": "agent"
+        }
+      ],
+      "qualifying_count": 3,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0060",
+      "item_id": "I0064"
+    },
+    "call_id": "call_s17b2hhO6FcNV5WKHpN4AIHO",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0060",
+      "item_id": "I0064",
+      "evidence_photo_uploaded": false
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your refund amount would be ₹448—₹399 for the bowl plus ₹49 shipping—to your original UPI payment method. This request requires human review under our refund policy, so I’m forwarding the details to our support team. No refund has been issued yet.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer reports the Ceramic serving bowl arrived broken and requests a refund.",
+      "facts_found": "User U003 verified using registered email; order O0060 belongs to U003. Item I0064, Ceramic serving bowl, category home, price ₹399, quantity 1. Delivered 2026-09-13 at 12:00 IST; today 2026-09-15, day 2, within the 10-day return window. Order shipping_fee ₹49; original payment method UPI. No refunds already issued on this order; proposed full damage refund is ₹448 including shipping, within the cumulative ₹5,000 limit. Refund history shows 3 qualifying completed damage refunds in the last 90 days: R0011 on 2026-08-27, R0012 on 2026-08-17, R0013 on 2026-08-07; cancellation_count 0. Evidence check confirms no photo uploaded; photo is not required at this item's ₹399 value. Ordinarily E5 allows immediate refund with no return because damaged item value is under ₹500, but E10 mandates escalation. No refund or return action has been taken; no confirmation to issue the refund has been requested or obtained.",
+      "rule_triggered": "E10: 3 or more return or damage refunds in the last 90 days requires escalation of any new return or damage claim. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+      "what_user_was_told": "Your refund amount would be ₹448—₹399 for the bowl plus ₹49 shipping—to your original UPI payment method. This request requires human review under our refund policy, so I’m forwarding the details to our support team. No refund has been issued yet.",
+      "order_id": "O0060",
+      "item_id": "I0064"
+    },
+    "call_id": "call_JdgL5LDkLCCzL0keLoB1NO01",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U003",
+          "order_id": "O0060",
+          "item_id": "I0064",
+          "user_request": "Customer reports the Ceramic serving bowl arrived broken and requests a refund.",
+          "facts_found": "User U003 verified using registered email; order O0060 belongs to U003. Item I0064, Ceramic serving bowl, category home, price ₹399, quantity 1. Delivered 2026-09-13 at 12:00 IST; today 2026-09-15, day 2, within the 10-day return window. Order shipping_fee ₹49; original payment method UPI. No refunds already issued on this order; proposed full damage refund is ₹448 including shipping, within the cumulative ₹5,000 limit. Refund history shows 3 qualifying completed damage refunds in the last 90 days: R0011 on 2026-08-27, R0012 on 2026-08-17, R0013 on 2026-08-07; cancellation_count 0. Evidence check confirms no photo uploaded; photo is not required at this item's ₹399 value. Ordinarily E5 allows immediate refund with no return because damaged item value is under ₹500, but E10 mandates escalation. No refund or return action has been taken; no confirmation to issue the refund has been requested or obtained.",
+          "rule_triggered": "E10: 3 or more return or damage refunds in the last 90 days requires escalation of any new return or damage claim. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+          "what_user_was_told": "Your refund amount would be ₹448—₹399 for the bowl plus ₹49 shipping—to your original UPI payment method. This request requires human review under our refund policy, so I’m forwarding the details to our support team. No refund has been issued yet."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U003",
+        "order_id": "O0060",
+        "item_id": "I0064",
+        "facts_found": "User U003 verified using registered email; order O0060 belongs to U003. Item I0064, Ceramic serving bowl, category home, price ₹399, quantity 1. Delivered 2026-09-13 at 12:00 IST; today 2026-09-15, day 2, within the 10-day return window. Order shipping_fee ₹49; original payment method UPI. No refunds already issued on this order; proposed full damage refund is ₹448 including shipping, within the cumulative ₹5,000 limit. Refund history shows 3 qualifying completed damage refunds in the last 90 days: R0011 on 2026-08-27, R0012 on 2026-08-17, R0013 on 2026-08-07; cancellation_count 0. Evidence check confirms no photo uploaded; photo is not required at this item's ₹399 value. Ordinarily E5 allows immediate refund with no return because damaged item value is under ₹500, but E10 mandates escalation. No refund or return action has been taken; no confirmation to issue the refund has been requested or obtained.",
+        "rule_triggered": "E10: 3 or more return or damage refunds in the last 90 days requires escalation of any new return or damage claim. G3: relevant order details, evidence status, and refund history gathered before handoff.",
+        "what_user_was_told": "Your refund amount would be ₹448—₹399 for the bowl plus ₹49 shipping—to your original UPI payment method. This request requires human review under our refund policy, so I’m forwarding the details to our support team. No refund has been issued yet."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I’ve forwarded your ₹448 refund request to a human support agent for review. Your reference number is **H0001**. The refund is pending review and hasn’t been issued yet.",
+    "turn": 3
+  }
+]

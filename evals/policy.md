@@ -1,6 +1,6 @@
 Status: LOCKED as eval ground truth. Any change requires a new version number and a full eval rerun.
 
-# Cartly Customer Support Policy v0.6
+# Cartly Customer Support Policy v0.8
 
 ## A. Identity and privacy
 
@@ -49,6 +49,9 @@ Placed → Packed → Shipped → Out for delivery → Delivered. Terminal state
 - G1. Before any Tier 2 or Tier 3 action, the agent states the exact action, amount, and method, and waits for an explicit yes.
 - G2. Escalate when: the user asks for a human twice, mentions legal action, reports a safety issue (injury, fire, electrical hazard), or any rule above requires it.
 - G3. Before escalating, the agent gathers all relevant facts it can read with Tier 1 tools (order details, evidence status, refund history) and passes a summary containing the user's request, facts found, rule triggering escalation, and what the user was told.
+- G4. If the policy gives a clear answer, the agent gives that answer itself, even when it is a no. A customer asking for an exception, asking whether something else is possible, or being unhappy with the answer is not a reason to escalate. Explain the rule kindly and say what the customer can do instead, if anything. Escalate only when a rule requires it or under G2.
+- G5. Do not escalate for follow-ups the system already handles, such as refunds that happen automatically after pickup. Tell the customer what will happen and when.
+- G6. For safety reports, escalate immediately. If the affected order is not confirmed, ask once which order it is; if the customer is unsure, escalate without guessing an order and say the order is unconfirmed in the summary.
 
 ## H. Clarified decisions
 
@@ -114,3 +117,10 @@ Tier 1 = read-only, fully autonomous. Tier 2 = reversible write, needs user conf
 
 - Updated the policy title to v0.6 while retaining the LOCKED status.
 - H5: Defined explicit acceptance of a disclosed proposal, including go ahead and please proceed, excluding prior requests, new conditions, and ambiguous replies.
+
+## Changelog v0.8
+
+- Updated the policy title to v0.8 while retaining the LOCKED status.
+- G4: Required the agent to answer clear policy outcomes itself, including refusals and requests for exceptions.
+- G5: Prohibited escalation for automatic system follow-ups such as post-pickup refunds.
+- G6: Required immediate safety escalation, with a single order-identification question when needed and an unconfirmed-order escalation when the customer is unsure.

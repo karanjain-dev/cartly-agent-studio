@@ -1,0 +1,218 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, the headphones arrived broken, and I’d like to request a refund, please.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry your headphones arrived broken. Please share your user ID, either your registered email or phone number, and the order ID so I can check your refund eligibility.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U040 and my registered email is customer040@example.com. I don’t have the order ID available right now.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U040",
+      "email": "customer040@example.com",
+      "phone": null
+    },
+    "call_id": "call_WiqRErETl6CiYoDGpp3DT01j",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U040"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_Rwue2ngDFKclhZH3Mu4VABp5",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0033",
+          "user_id": "U040",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0101",
+          "user_id": "U040",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 0,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0135",
+          "user_id": "U040",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 140, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chennai",
+            "state": "Tamil Nadu",
+            "pincode": "600001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0033"
+    },
+    "call_id": "call_vJuozLhpdy1i6FWOXLjHtSKk",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0033",
+        "user_id": "U040",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 140, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Chennai",
+          "state": "Tamil Nadu",
+          "pincode": "600001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0033",
+          "order_id": "O0033",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 2499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0033"
+    },
+    "call_id": "call_if6Kq1B9hTUn9uOzFNgE35yX",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0033",
+      "item_id": "I0033"
+    },
+    "call_id": "call_uqRMD0BWFWoleiuObsXVcGci",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0033",
+      "item_id": "I0033",
+      "evidence_photo_uploaded": false
+    }
+  },
+  {
+    "role": "support",
+    "content": "I found your wireless headphones in order **O0033**, delivered on 13 September. They’re within the 7-day electronics return window.\n\nYour eligible refund is **₹2,548**—₹2,499 for the headphones plus ₹49 shipping—to your original UPI payment method, with no pickup fee. The refund will be processed automatically once pickup is completed.\n\nBecause the item costs over ₹2,000, a damage photo is required. Please upload a photo of the broken headphones to order **O0033** and let me know when it’s done so we can proceed.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I haven’t uploaded a photo, and I can’t provide one during this conversation. Is there another way to proceed with the refund?",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "I understand you can’t provide a photo right now. For damaged items valued above ₹2,000, our policy requires a photo uploaded to the order before a return can be created. I can’t waive that requirement or issue a refund without the return.\n\nYou can upload the photo to **order O0033** later and contact us again to continue. The 7-day return window ends **20 September**. Once the return is arranged and pickup is completed, your **₹2,548 refund** will be processed automatically to your original UPI payment method.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I understand. I’ll upload a photo later and contact you again.",
+    "turn": 4
+  }
+]

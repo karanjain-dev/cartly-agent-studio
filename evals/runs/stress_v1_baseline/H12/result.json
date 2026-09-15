@@ -1,0 +1,32 @@
+{
+  "scenario_id": "H12",
+  "grading": "graded",
+  "stress_type": [
+    "vague"
+  ],
+  "turns": 3,
+  "end_reason": "customer_ended",
+  "error": "ModelError: Missing communication judgments",
+  "status": "checker_error",
+  "pass": null,
+  "fault": "CHECKER",
+  "api_cost_usd": 0.07338650000000013,
+  "actual_changes": [
+    {
+      "table": "returns",
+      "operation": "insert",
+      "key": {
+        "return_id": "T0013"
+      },
+      "values": {
+        "return_id": "T0013",
+        "order_id": "O1014",
+        "item_id": "I1015",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "wrong_item"
+      }
+    }
+  ]
+}

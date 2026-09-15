@@ -1,0 +1,129 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "My headphones gave me an electric shock while I was using them. This is dangerous and unacceptable—please help me resolve this immediately.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "safety"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only repeats the customer's released request and safety concern; the statement that the situation is dangerous is supported by the reported electric shock, and no unsupported order, date, amount, or event is introduced.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting help and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request",
+      "safety"
+    ],
+    "response_id": "resp_0343f7ee6e3576ce016aa96f93ca5487d2b6047b79e611dd25",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent explicitly asks which order the headphones are from."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent gives safety instructions but does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not request confirmation after explaining a proposed action, exact amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent acknowledges the electric shock but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not ask for a photo or other evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user's ID and registered email or phone number for order access."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Which order are the headphones from?",
+        "source_quote": "The order I am asking about is O0035 and the item is Wireless headphones."
+      },
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U008"
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "customer008@example.com"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "The headphones are from order O0035. My user ID is U008, and my registered email is customer008@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply states the order ID and credentials, all of which are supplied in the profile or released facts and were requested by support.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer provided the requested details, but human escalation has not yet been reported as completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request",
+      "safety"
+    ],
+    "response_id": "resp_03c4cf11e4c376c5016aa96fad83a087d29b96ff7ea1a72da2",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

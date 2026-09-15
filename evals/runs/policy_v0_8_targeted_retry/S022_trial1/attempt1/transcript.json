@@ -1,0 +1,223 @@
+[
+  {
+    "role": "customer",
+    "content": "The other pair of headphones on my order also doesn’t work, and I’d like a refund for it, please.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry the other pair isn’t working either. Please share your user ID and either your registered email or phone number so I can verify your account. Also, provide the order ID and identify which pair of headphones you mean, if you can.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U022, and my registered email is customer022@example.com. The order ID is O0049, and I mean the other pair of wireless headphones on that order.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_JG5JzDqXarI3VEk8vs50x28K",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0049"
+    },
+    "call_id": "call_8Cg1Mv9eu8YwRgdjrwumWp9M",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0049",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-09-06",
+        "promised_delivery_date": "2026-09-11",
+        "actual_delivery_date": "2026-09-11",
+        "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+        "payment_method": "Card",
+        "shipping_fee": 99,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0051",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        },
+        {
+          "item_id": "I0052",
+          "order_id": "O0049",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 3000,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0049"
+    },
+    "call_id": "call_g4UydhEIxRMZYCqzmxREMIoN",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0049",
+      "item_id": "I0052"
+    },
+    "call_id": "call_IxZO1Q1mZ2wciRUH3WnMlT56",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0049",
+      "item_id": "I0052",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "The second pair is within the 7-day electronics return window, and its photo is already uploaded. Its refund amount is ₹3,000 to your original card; the ₹99 shipping fee was already refunded with the first pair.\n\nThat would bring total refunds on this order to ₹6,099, above my ₹5,000 authorization limit, so I need to refer this claim to a human support agent for review.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "User requests a refund for the other pair of wireless headphones on order O0049 because it does not work.",
+      "facts_found": "Verified U022 using registered email; order O0049 belongs to U022. Delivered 2026-09-11; today 2026-09-15 IST, day 4 within the 7-day electronics return window. Both headphones cost ₹3,000 each. First pair I0051 already had completed refund R0005 of ₹3,099 on 2026-09-13 to Card, including the order's ₹99 shipping fee. Remaining pair is I0052, reported defective; check_evidence confirms photo uploaded. Proposed refund for I0052 is ₹3,000 to original Card, no pickup fee, no additional shipping refund. Cumulative refunds would be ₹6,099. Refund history shows 1 qualifying refund in last 90 days, so E10 threshold is not met. No new return or refund created.",
+      "rule_triggered": "E9 and H2: proposed refund pushes cumulative order refunds including previously refunded shipping above ₹5,000; human escalation required. E13 applies damaged-item rules to defective claims; E12 prohibits refunding shipping twice.",
+      "what_user_was_told": "The second pair is within the 7-day electronics return window and its photo is uploaded. Its refund amount is ₹3,000 to the original card; ₹99 shipping was already refunded. Total order refunds would reach ₹6,099, exceeding the agent's ₹5,000 authority, so the claim must be referred to a human agent for review.",
+      "order_id": "O0049",
+      "item_id": "I0052"
+    },
+    "call_id": "call_WWPkrqcWiiwKYuz7005oi43f",
+    "turn": 2,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U022",
+          "order_id": "O0049",
+          "item_id": "I0052",
+          "user_request": "User requests a refund for the other pair of wireless headphones on order O0049 because it does not work.",
+          "facts_found": "Verified U022 using registered email; order O0049 belongs to U022. Delivered 2026-09-11; today 2026-09-15 IST, day 4 within the 7-day electronics return window. Both headphones cost ₹3,000 each. First pair I0051 already had completed refund R0005 of ₹3,099 on 2026-09-13 to Card, including the order's ₹99 shipping fee. Remaining pair is I0052, reported defective; check_evidence confirms photo uploaded. Proposed refund for I0052 is ₹3,000 to original Card, no pickup fee, no additional shipping refund. Cumulative refunds would be ₹6,099. Refund history shows 1 qualifying refund in last 90 days, so E10 threshold is not met. No new return or refund created.",
+          "rule_triggered": "E9 and H2: proposed refund pushes cumulative order refunds including previously refunded shipping above ₹5,000; human escalation required. E13 applies damaged-item rules to defective claims; E12 prohibits refunding shipping twice.",
+          "what_user_was_told": "The second pair is within the 7-day electronics return window and its photo is uploaded. Its refund amount is ₹3,000 to the original card; ₹99 shipping was already refunded. Total order refunds would reach ₹6,099, exceeding the agent's ₹5,000 authority, so the claim must be referred to a human agent for review."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U022",
+        "order_id": "O0049",
+        "item_id": "I0052",
+        "facts_found": "Verified U022 using registered email; order O0049 belongs to U022. Delivered 2026-09-11; today 2026-09-15 IST, day 4 within the 7-day electronics return window. Both headphones cost ₹3,000 each. First pair I0051 already had completed refund R0005 of ₹3,099 on 2026-09-13 to Card, including the order's ₹99 shipping fee. Remaining pair is I0052, reported defective; check_evidence confirms photo uploaded. Proposed refund for I0052 is ₹3,000 to original Card, no pickup fee, no additional shipping refund. Cumulative refunds would be ₹6,099. Refund history shows 1 qualifying refund in last 90 days, so E10 threshold is not met. No new return or refund created.",
+        "rule_triggered": "E9 and H2: proposed refund pushes cumulative order refunds including previously refunded shipping above ₹5,000; human escalation required. E13 applies damaged-item rules to defective claims; E12 prohibits refunding shipping twice.",
+        "what_user_was_told": "The second pair is within the 7-day electronics return window and its photo is uploaded. Its refund amount is ₹3,000 to the original card; ₹99 shipping was already refunded. Total order refunds would reach ₹6,099, exceeding the agent's ₹5,000 authority, so the claim must be referred to a human agent for review."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I’ve queued your ₹3,000 refund request for human review. Your reference is **H0001**. No new return or refund has been processed yet.",
+    "turn": 2
+  }
+]

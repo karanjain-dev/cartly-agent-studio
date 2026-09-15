@@ -1,0 +1,28 @@
+{
+  "today": "2026-09-15",
+  "added": {
+    "users": 14,
+    "orders": 16,
+    "order_items": 17
+  },
+  "case_ids": [
+    "H01",
+    "H02",
+    "H03",
+    "H04",
+    "H05",
+    "H06",
+    "H07",
+    "H08",
+    "H08b",
+    "H09",
+    "H10",
+    "H11",
+    "H12"
+  ],
+  "baseline_counts": {
+    "users": 40,
+    "orders": 150,
+    "order_items": 154
+  }
+}

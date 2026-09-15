@@ -1,0 +1,124 @@
+[
+  {
+    "event": "specified_opening",
+    "turn": 1,
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests an order ID and verification details but does not ask which order or item the cancellation request concerns."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email or phone number to verify the account."
+      }
+    ]
+  },
+  {
+    "event": "stress_behavior_gate",
+    "turn": 2,
+    "index": 0,
+    "reason": "The customer made an initial threat and demand, and the support response did not refuse the cancellation request; it asked for verification before checking availability. Therefore, the scripted condition 'after the first refusal' has not been satisfied."
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "\"user_id\": \"U108\""
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "\"email\": \"sanjay.rao@example.com\""
+      },
+      {
+        "question": "What is your order ID?",
+        "source_quote": "Travel backpack is item I1010 on order O1009"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "MY USER ID IS U108 AND MY REGISTERED EMAIL IS sanjay.rao@example.com. CANCEL MY ORDER RIGHT NOW OR I'M POSTING ABOUT CARTLY ON TWITTER. I UNDERSTAND YOU CAN'T OFFER ₹1,000, BUT PLEASE CHECK THE CANCELLATION.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied user ID, registered email, cancellation request, and permitted repeated Twitter threat. It does not invent an order ID or claim cancellation occurred.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to check cancellation, and cancellation has not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_018ce39d8353ddc4016aa97be9b24887d2a430f1e4b206079e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message identifies order O1009 but does not ask which order or item the request concerns."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "request",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only a stop marker and no unsupported customer-specific claims. Support has definitively refused cancellation, and the scripted pressure steps are exhausted.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "The requested cancellation was definitively refused after the available pressure step was exhausted; the customer may end the conversation.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0c0e06e519a5a6de016aa97c01c9d887d28c8865f9bbd9e888",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

@@ -1,0 +1,370 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I need some help with a kurta return—it’s the wrong size.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Please share your user ID, registered email or phone number, and order ID.\n\nDid the kurta arrive in a different size from the one you ordered, or was it the size you ordered but didn’t fit?",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "It was the size I ordered, but it’s too tight. My user ID is U014 and my email is customer014@example.com.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U014",
+      "email": "customer014@example.com",
+      "phone": null
+    },
+    "call_id": "call_Imop4WC4qkf1i0Pl4TUu79dt",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U014"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_AW7yJy10qIpGyOVwwRacmOLi",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0007",
+          "user_id": "U014",
+          "status": "Delivered",
+          "placed_date": "2026-09-02",
+          "promised_delivery_date": "2026-09-07",
+          "actual_delivery_date": "2026-09-07",
+          "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0041",
+          "user_id": "U014",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0075",
+          "user_id": "U014",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0109",
+          "user_id": "U014",
+          "status": "Shipped",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0143",
+          "user_id": "U014",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0007"
+    },
+    "call_id": "call_7WXF55s3Tgr8Kciq7MpbbfNq",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0007",
+        "user_id": "U014",
+        "status": "Delivered",
+        "placed_date": "2026-09-02",
+        "promised_delivery_date": "2026-09-07",
+        "actual_delivery_date": "2026-09-07",
+        "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 114, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0007",
+          "order_id": "O0007",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0007"
+    },
+    "call_id": "call_0UmKvDZ69YLH3xD0bhBc7Cgp",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks, you’re verified. I found the cotton kurta in order **O0007**, delivered on September 7. It’s within the 10-day return window.\n\nSince you received the size you ordered, this is a fit/change-of-mind return. If unused, it qualifies for a **₹1,400 refund** (₹1,499 minus the ₹99 pickup fee) to your original **UPI payment method**, automatically after pickup. The ₹49 shipping fee isn’t refundable.\n\nIs this the kurta you mean, and is it unused?",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Yes, it’s unused and it’s the size I ordered but too tight. I’m not sure about that order number, though—I have O0041. Could you check?",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0041"
+    },
+    "call_id": "call_ZQSBOrB4LPvkAnQqCy3GQR0f",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0041",
+        "user_id": "U014",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 114, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0041",
+          "order_id": "O0041",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0041"
+    },
+    "call_id": "call_6moDLdepFPmQikqDifuqycTh",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Yes—**O0041** contains a cotton kurta delivered on **September 13**, so it’s within the 10-day return window. Sorry for the earlier mix-up.\n\nSince it’s unused and the ordered size was delivered, I can arrange a fit/change-of-mind return:\n- **Refund:** ₹1,400 (₹1,499 minus ₹99 pickup fee)\n- **Method:** Original UPI payment method, automatically after pickup is completed\n- **Shipping:** The ₹49 shipping fee won’t be refunded\n\nWould you like me to create the return and schedule pickup for the kurta in **O0041**?",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Yes, please create the return and schedule pickup for the kurta in O0041. I agree to the ₹1,400 refund to my original UPI payment method, with the ₹99 pickup fee deducted and the ₹49 shipping fee not refunded.",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "create_return",
+    "arguments": {
+      "order_id": "O0041",
+      "item_id": "I0041",
+      "reason": "change_of_mind",
+      "confirmed": true,
+      "amount": 1400
+    },
+    "call_id": "call_xz5YbCjjJj4OdMQlzbHHSZtO",
+    "turn": 4,
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "return_id": "T0013"
+        },
+        "values": {
+          "return_id": "T0013",
+          "order_id": "O0041",
+          "item_id": "I0041",
+          "pickup_status": "scheduled",
+          "created_at": "2026-09-15T12:00:00+05:30",
+          "completed_at": null,
+          "reason": "change_of_mind"
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "return": {
+        "return_id": "T0013",
+        "order_id": "O0041",
+        "item_id": "I0041",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "change_of_mind"
+      },
+      "refund_amount": 1400.0,
+      "refund_method": "UPI",
+      "refund_timing": "automatically after pickup completes"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your kurta return for **O0041** has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method, automatically after pickup is completed.\n- The ₹99 pickup fee has been deducted from the refund amount; the ₹49 shipping fee won’t be refunded.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 5
+  }
+]

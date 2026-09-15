@@ -80,3 +80,11 @@ The full baseline selects only the 30 dev scenarios (90 logical trials). Concurr
 The simulator ends only after a model judgment identifies completed action, final refusal, or completed escalation (apart from the hard turn cap). A stop marker or customer agreement alone cannot terminate a pending proposal; such a draft is rephrased. Natural closings still work after a qualifying event.
 
 Known limitation: no prerequisite-fact check yet, so some passes may be lucky; these will be rescored later from saved transcripts.
+
+## Single-attempt Luna customer evaluation
+
+```sh
+python3 -B -m evaluation.run --run-name luna_customer_30_single --customer-model gpt-5.6-luna --trials 1 --max-attempts 1 --workers 3
+```
+
+Selects all 30 dev scenarios with one attempt each. The support agent remains GPT-6 Astra and the independent judge remains GPT-4.1 mini. Luna handles customer speech and customer fact/grounding checks, using reasoning effort `none` to fit the existing small JSON response budgets. Requested and resolved models are saved in each attempt.

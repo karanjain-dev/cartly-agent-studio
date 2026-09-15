@@ -1,0 +1,27 @@
+{
+  "cap_usd": 3.0,
+  "observed_cost_usd": 1.46840959,
+  "uncertain_reserved_usd": 0.0,
+  "remaining_conservative_usd": 1.53159041,
+  "rates": {
+    "gpt-5.6-luna": {
+      "input": 0.2,
+      "cached": 0.02,
+      "cache_write": 0.25,
+      "output": 1.2
+    },
+    "gpt-6-astra": {
+      "input": 10,
+      "cached": 1,
+      "cache_write": 12.5,
+      "output": 50
+    },
+    "gpt-4.1-mini": {
+      "input": 0.4,
+      "cached": 0.1,
+      "cache_write": 0.4,
+      "output": 1.6
+    }
+  },
+  "uses_system_clock": false
+}

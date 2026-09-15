@@ -1,0 +1,119 @@
+[
+  {
+    "role": "customer",
+    "content": "You're useless. Give me a human.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry this has been frustrating. Could you tell me what went wrong so I can help you with the next step?",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I said HUMAN.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "I’ll hand this over to a human support agent.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "The customer wants a human support agent and has requested one twice.",
+      "facts_found": "The customer is frustrated. No underlying issue, user ID, verification details, or order ID has been provided. Identity is unverified; no account-specific information was accessed.",
+      "rule_triggered": "G2: Escalate when the user asks for a human twice.",
+      "what_user_was_told": "I apologized for the frustration and asked what went wrong. After the second request, I told the customer I would hand this over to a human support agent.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_H5NvDwgY3SM8AP3KlsxxbG27",
+    "turn": 2,
+    "changes": [],
+    "ok": false,
+    "error": {
+      "message": "verification required"
+    }
+  },
+  {
+    "role": "support",
+    "content": "The handoff requires account verification before I can complete it. Please share your user ID and either your registered email address or phone number.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "U113, kunal.shah@example.com",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U113",
+      "email": "kunal.shah@example.com",
+      "phone": null
+    },
+    "call_id": "call_XjHHma3kMDw17DcEJda4u2Ry",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U113"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "The customer has asked twice to speak to a human support agent.",
+      "facts_found": "User U113 is now verified using their registered email address. The customer is frustrated but has not described the underlying issue or identified an order. The initial handoff attempt failed because verification was required; verification is now complete. No order details, evidence, or refund history were read because no order or claim has been identified.",
+      "rule_triggered": "G2: The customer asked for a human twice.",
+      "what_user_was_told": "I apologized and initially asked what went wrong. After the second human request, I said I would hand the conversation over. When the handoff required verification, I requested the user ID and registered email or phone, which the customer has now provided.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_kr7lxsIoo6zcttjibJaneTZb",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U113",
+          "order_id": null,
+          "item_id": null,
+          "user_request": "The customer has asked twice to speak to a human support agent.",
+          "facts_found": "User U113 is now verified using their registered email address. The customer is frustrated but has not described the underlying issue or identified an order. The initial handoff attempt failed because verification was required; verification is now complete. No order details, evidence, or refund history were read because no order or claim has been identified.",
+          "rule_triggered": "G2: The customer asked for a human twice.",
+          "what_user_was_told": "I apologized and initially asked what went wrong. After the second human request, I said I would hand the conversation over. When the handoff required verification, I requested the user ID and registered email or phone, which the customer has now provided."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U113",
+        "order_id": null,
+        "item_id": null,
+        "facts_found": "User U113 is now verified using their registered email address. The customer is frustrated but has not described the underlying issue or identified an order. The initial handoff attempt failed because verification was required; verification is now complete. No order details, evidence, or refund history were read because no order or claim has been identified.",
+        "rule_triggered": "G2: The customer asked for a human twice.",
+        "what_user_was_told": "I apologized and initially asked what went wrong. After the second human request, I said I would hand the conversation over. When the handoff required verification, I requested the user ID and registered email or phone, which the customer has now provided."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "You’re verified, and your request is now queued for a human support agent. Your reference number is **H0001**.",
+    "turn": 3
+  }
+]

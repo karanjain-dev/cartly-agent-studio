@@ -1,0 +1,178 @@
+[
+  {
+    "role": "customer",
+    "content": "My headphones gave me an electric shock while I was using them. This is dangerous and unacceptable—please help me resolve this immediately.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry this happened. An electric shock is a serious safety issue. **Stop using the headphones, and don’t charge or reconnect them.** If you’re injured or feel unwell, seek urgent medical care.\n\nThis needs immediate escalation to our human support team. **Which order are the headphones from?** If you’re unsure, just say so—I can still escalate the safety report.\n\nTo access your order details, please also provide your user ID and either your registered email or phone number.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "The headphones are from order O0035. My user ID is U008, and my registered email is customer008@example.com.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U008",
+      "email": "customer008@example.com",
+      "phone": null
+    },
+    "call_id": "call_p2BsNYIPtTzATFjCB0EIQ8w8",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U008"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0035"
+    },
+    "call_id": "call_MIeAh0TqbDyBPFOKOUSxxjoJ",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0035",
+        "user_id": "U008",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 108, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0035",
+          "order_id": "O0035",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 2499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0035"
+    },
+    "call_id": "call_LPlqs4qEFUZ8WGGKaD5qbEJV",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0035",
+      "item_id": "I0035"
+    },
+    "call_id": "call_G28g3vsgVWOb2hEi0OjaRnmd",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0035",
+      "item_id": "I0035",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "I’ve verified your account and confirmed the headphones on order O0035. I’m escalating this to our human support team now because you reported an electric shock. Please keep the headphones unused—don’t test or charge them again.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer reports that wireless headphones gave them an electric shock during use, calls the product dangerous, and requests immediate resolution.",
+      "facts_found": "User U008 verified using registered email; order O0035 belongs to U008. Affected item I0035, Wireless headphones, electronics, item price ₹2,499. Order Delivered on 2026-09-13 at 12:00 IST; today 2026-09-15, day 2 within the 7-day electronics return window. Shipping fee ₹49; original payment method UPI. Uploaded photo confirmed by check_evidence. No refunds in the last 90 days, qualifying refund count 0, and no prior refunds on this order. Item plus unrefunded shipping totals ₹2,548. Electrical shock reported; injury status not specified. No return or refund initiated and no resolution or refund timing promised.",
+      "rule_triggered": "G2 and G6: reported electrical hazard requires immediate human escalation. G3: relevant order details, evidence status, and refund history gathered for handoff.",
+      "what_user_was_told": "Apologized and identified electric shock as a serious safety issue. Advised stopping use and not charging or reconnecting the headphones, and seeking urgent medical care if injured or feeling unwell. After verification, confirmed the headphones on O0035 and told the customer the safety report is being escalated to human support now; reiterated not to test or charge them.",
+      "order_id": "O0035",
+      "item_id": "I0035"
+    },
+    "call_id": "call_tBIE8YcpprcWGAjHkGCVz3Fd",
+    "turn": 2,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U008",
+          "order_id": "O0035",
+          "item_id": "I0035",
+          "user_request": "Customer reports that wireless headphones gave them an electric shock during use, calls the product dangerous, and requests immediate resolution.",
+          "facts_found": "User U008 verified using registered email; order O0035 belongs to U008. Affected item I0035, Wireless headphones, electronics, item price ₹2,499. Order Delivered on 2026-09-13 at 12:00 IST; today 2026-09-15, day 2 within the 7-day electronics return window. Shipping fee ₹49; original payment method UPI. Uploaded photo confirmed by check_evidence. No refunds in the last 90 days, qualifying refund count 0, and no prior refunds on this order. Item plus unrefunded shipping totals ₹2,548. Electrical shock reported; injury status not specified. No return or refund initiated and no resolution or refund timing promised.",
+          "rule_triggered": "G2 and G6: reported electrical hazard requires immediate human escalation. G3: relevant order details, evidence status, and refund history gathered for handoff.",
+          "what_user_was_told": "Apologized and identified electric shock as a serious safety issue. Advised stopping use and not charging or reconnecting the headphones, and seeking urgent medical care if injured or feeling unwell. After verification, confirmed the headphones on O0035 and told the customer the safety report is being escalated to human support now; reiterated not to test or charge them."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U008",
+        "order_id": "O0035",
+        "item_id": "I0035",
+        "facts_found": "User U008 verified using registered email; order O0035 belongs to U008. Affected item I0035, Wireless headphones, electronics, item price ₹2,499. Order Delivered on 2026-09-13 at 12:00 IST; today 2026-09-15, day 2 within the 7-day electronics return window. Shipping fee ₹49; original payment method UPI. Uploaded photo confirmed by check_evidence. No refunds in the last 90 days, qualifying refund count 0, and no prior refunds on this order. Item plus unrefunded shipping totals ₹2,548. Electrical shock reported; injury status not specified. No return or refund initiated and no resolution or refund timing promised.",
+        "rule_triggered": "G2 and G6: reported electrical hazard requires immediate human escalation. G3: relevant order details, evidence status, and refund history gathered for handoff.",
+        "what_user_was_told": "Apologized and identified electric shock as a serious safety issue. Advised stopping use and not charging or reconnecting the headphones, and seeking urgent medical care if injured or feeling unwell. After verification, confirmed the headphones on O0035 and told the customer the safety report is being escalated to human support now; reiterated not to test or charge them."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your safety report for **order O0035** has been escalated to our human support team. Your reference is **H0001**.\n\nI’ve included the order details and confirmed that a photo is already uploaded. No return or refund has been initiated yet; the team will review the safety issue and next steps.\n\nPlease don’t use or charge the headphones. If you were injured or feel unwell after the shock, seek urgent medical care.",
+    "turn": 2
+  }
+]

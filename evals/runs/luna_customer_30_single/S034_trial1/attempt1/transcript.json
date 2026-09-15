@@ -1,0 +1,345 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to return a kurta. Please tell me the return process and what condition it needs to be in so it qualifies as unused.",
+    "turn": 1
+  },
+  {
+    "role": "tool",
+    "tool_name": "search_policy",
+    "arguments": {
+      "query": "Kurta change-of-mind return process and definition of unused: condition requirements, return window, pickup fee, refund timing and method"
+    },
+    "call_id": "call_rI1yDeF8EGxIWKG609poLBTH",
+    "turn": 1,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "version": "v0.6",
+      "matches": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "The policy requires a change-of-mind return to be **unused**, but it doesn’t define the detailed condition checks. I’ll refer that question to a support specialist rather than give you requirements that aren’t in the policy.",
+    "turn": 1
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "User wants the general return process for a kurta and the precise condition requirements for it to qualify as unused.",
+      "facts_found": "General policy inquiry; no user ID, order ID, delivery date, or item details provided or accessed. Policy E1 provides a 10-calendar-day return window for most categories, counting delivery as day 0. E4 requires change-of-mind items to be unused, deducts a ₹99 pickup fee from item value, and excludes shipping from the refund. E5 provides automatic refunds after pickup for such returns, and E7 specifies original payment method or Cartly Wallet for COD. Policy does not define detailed unused-condition criteria. A policy search for these requirements returned no matches. Order details, evidence, and refund history are not relevant to this general condition-definition inquiry.",
+      "rule_triggered": "A3: The policy does not cover the detailed definition of unused; do not invent a rule and escalate.",
+      "what_user_was_told": "The policy requires a change-of-mind return to be unused but does not define detailed condition checks; the condition question is being referred to a support specialist rather than supplying unsupported requirements.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_ExQw2qdlwncTX0Ruy6qmTvcE",
+    "turn": 1,
+    "changes": [],
+    "ok": false,
+    "error": {
+      "message": "verification required"
+    }
+  },
+  {
+    "role": "support",
+    "content": "For a **standard, non-personalized kurta returned for change of mind**, the process is:\n\n1. **Request the return within 10 calendar days of delivery**, with the delivery date counted as day 0.\n2. **The kurta must be unused.** Our policy doesn’t define the detailed condition checks, so I can’t reliably specify requirements for tags, packaging, or trying it on. A support specialist needs to clarify those.\n3. We check eligibility and explain the exact refund amount. **Pickup is arranged only after you confirm.**\n4. Your refund is the **item value minus a ₹99 pickup fee**; the original shipping fee isn’t refunded. The system refunds automatically after pickup to your original payment method—or **Cartly Wallet for cash-on-delivery orders**.\n\nIf it arrived damaged, defective, or different from what you ordered, please tell me, as different rules apply.\n\nI couldn’t complete the specialist referral without verification. To proceed, please share your **user ID and either your registered email or phone number**. Include the **order ID** if you’d also like me to check this kurta’s return eligibility.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—check when you can. Just keep the **10-calendar-day return window** in mind, with delivery day counted as day 0.\n\nWhen you have the details, I can help check your kurta’s eligibility. No return has been arranged yet.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I’d like to proceed with the return. My user ID is U019 and my registered email is customer019@example.com. Please have a specialist clarify the unused-condition requirements and check the kurta’s eligibility.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U019",
+      "email": "customer019@example.com",
+      "phone": null
+    },
+    "call_id": "call_xUJB3bycdgpxBoQEvkU0IhzO",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U019"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_Z3wdFEs3WxO9V5eaaALrLPD5",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0012",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-31",
+          "promised_delivery_date": "2026-09-05",
+          "actual_delivery_date": "2026-09-05",
+          "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0046",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0080",
+          "user_id": "U019",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0114",
+          "user_id": "U019",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0148",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-24",
+          "promised_delivery_date": "2026-08-29",
+          "actual_delivery_date": "2026-08-29",
+          "actual_delivery_at": "2026-08-29T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0012"
+    },
+    "call_id": "call_CDWgs8ebRq8q7lIB2jrlFuuO",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0012",
+        "user_id": "U019",
+        "status": "Delivered",
+        "placed_date": "2026-08-31",
+        "promised_delivery_date": "2026-09-05",
+        "actual_delivery_date": "2026-09-05",
+        "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 119, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0012",
+          "order_id": "O0012",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0012"
+    },
+    "call_id": "call_upEGhNfq24KJ8eg4uHsZYSOy",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0012",
+      "item_id": "I0012"
+    },
+    "call_id": "call_C5j22UIOALiFLCdIpenNuZZH",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0012",
+      "item_id": "I0012",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "support",
+    "content": "You’re verified. I found a cotton kurta in order **O0012**. It is still within its return window today. I’ll send the unused-condition question and eligibility details to a specialist; no return or refund will be initiated yet.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Verified user U019 wants to proceed with a kurta return and explicitly requests a specialist to clarify the unused-condition requirements and check eligibility.",
+      "facts_found": "User verified with user ID and registered email. Located Cotton kurta, item I0012, in user-owned order O0012; user has not explicitly confirmed this order ID. Delivered 2026-09-05 at 12:00 IST. Today is 2026-09-15 IST, day 10, within the inclusive 10-calendar-day clothing return window and its final day. Item category clothing, quantity 1, database price ₹1,499, shipping_fee ₹49, payment method UPI. Ordered and delivered product, size M, color Blue, and quantity match. User has not stated a specific return reason or described actual item use/condition. No personalized category is recorded. Evidence photo is uploaded, confirmed with check_evidence; photo content has not been assessed. Refund history has zero qualifying return/damage refunds in the last 90 days and no previous refunds on O0012. If eligible as an unused change-of-mind return, refund quote is ₹1,499 minus ₹99 pickup fee = ₹1,400 to original UPI, automatically after pickup; ₹49 shipping is excluded. This is within cumulative ₹5,000 authority. Policy E4 requires unused condition but does not define detailed criteria, and the earlier policy search returned no matches. No return or refund has been created. The user's request to proceed is not consent to a disclosed exact return/refund proposal under G1/H5.",
+      "rule_triggered": "A3: Policy does not define detailed unused-condition requirements; escalate rather than invent criteria. G3: Relevant order details, evidence status, and refund history gathered for handoff. E1: Today is the final day of the category return window. Final eligibility remains subject to return reason and unused-condition clarification.",
+      "what_user_was_told": "User was given the general 10-day window, unused requirement, ₹99 change-of-mind pickup deduction, exclusion of shipping, and automatic refund after pickup. They were told the detailed unused criteria are not defined and require specialist clarification. After successful verification, they were told a cotton kurta was found in O0012, it is still within its return window today, and the unused-condition question and eligibility details are being sent to a specialist, without initiating a return or refund.",
+      "order_id": "O0012",
+      "item_id": "I0012"
+    },
+    "call_id": "call_exUmEn2ZH3V318SBCUi5e0cO",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U019",
+          "order_id": "O0012",
+          "item_id": "I0012",
+          "user_request": "Verified user U019 wants to proceed with a kurta return and explicitly requests a specialist to clarify the unused-condition requirements and check eligibility.",
+          "facts_found": "User verified with user ID and registered email. Located Cotton kurta, item I0012, in user-owned order O0012; user has not explicitly confirmed this order ID. Delivered 2026-09-05 at 12:00 IST. Today is 2026-09-15 IST, day 10, within the inclusive 10-calendar-day clothing return window and its final day. Item category clothing, quantity 1, database price ₹1,499, shipping_fee ₹49, payment method UPI. Ordered and delivered product, size M, color Blue, and quantity match. User has not stated a specific return reason or described actual item use/condition. No personalized category is recorded. Evidence photo is uploaded, confirmed with check_evidence; photo content has not been assessed. Refund history has zero qualifying return/damage refunds in the last 90 days and no previous refunds on O0012. If eligible as an unused change-of-mind return, refund quote is ₹1,499 minus ₹99 pickup fee = ₹1,400 to original UPI, automatically after pickup; ₹49 shipping is excluded. This is within cumulative ₹5,000 authority. Policy E4 requires unused condition but does not define detailed criteria, and the earlier policy search returned no matches. No return or refund has been created. The user's request to proceed is not consent to a disclosed exact return/refund proposal under G1/H5.",
+          "rule_triggered": "A3: Policy does not define detailed unused-condition requirements; escalate rather than invent criteria. G3: Relevant order details, evidence status, and refund history gathered for handoff. E1: Today is the final day of the category return window. Final eligibility remains subject to return reason and unused-condition clarification.",
+          "what_user_was_told": "User was given the general 10-day window, unused requirement, ₹99 change-of-mind pickup deduction, exclusion of shipping, and automatic refund after pickup. They were told the detailed unused criteria are not defined and require specialist clarification. After successful verification, they were told a cotton kurta was found in O0012, it is still within its return window today, and the unused-condition question and eligibility details are being sent to a specialist, without initiating a return or refund."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U019",
+        "order_id": "O0012",
+        "item_id": "I0012",
+        "facts_found": "User verified with user ID and registered email. Located Cotton kurta, item I0012, in user-owned order O0012; user has not explicitly confirmed this order ID. Delivered 2026-09-05 at 12:00 IST. Today is 2026-09-15 IST, day 10, within the inclusive 10-calendar-day clothing return window and its final day. Item category clothing, quantity 1, database price ₹1,499, shipping_fee ₹49, payment method UPI. Ordered and delivered product, size M, color Blue, and quantity match. User has not stated a specific return reason or described actual item use/condition. No personalized category is recorded. Evidence photo is uploaded, confirmed with check_evidence; photo content has not been assessed. Refund history has zero qualifying return/damage refunds in the last 90 days and no previous refunds on O0012. If eligible as an unused change-of-mind return, refund quote is ₹1,499 minus ₹99 pickup fee = ₹1,400 to original UPI, automatically after pickup; ₹49 shipping is excluded. This is within cumulative ₹5,000 authority. Policy E4 requires unused condition but does not define detailed criteria, and the earlier policy search returned no matches. No return or refund has been created. The user's request to proceed is not consent to a disclosed exact return/refund proposal under G1/H5.",
+        "rule_triggered": "A3: Policy does not define detailed unused-condition requirements; escalate rather than invent criteria. G3: Relevant order details, evidence status, and refund history gathered for handoff. E1: Today is the final day of the category return window. Final eligibility remains subject to return reason and unused-condition clarification.",
+        "what_user_was_told": "User was given the general 10-day window, unused requirement, ₹99 change-of-mind pickup deduction, exclusion of shipping, and automatic refund after pickup. They were told the detailed unused criteria are not defined and require specialist clarification. After successful verification, they were told a cotton kurta was found in O0012, it is still within its return window today, and the unused-condition question and eligibility details are being sent to a specialist, without initiating a return or refund."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your specialist request is queued. **Reference: H0001.**\n\nFor the **Cotton kurta in order O0012**:\n- **Return window:** Delivered on 5 September. Today, **15 September, is day 10—the final day of its standard return window**.\n- **Condition eligibility:** Still pending clarification. The specialist will need to clarify what qualifies as “unused” and confirm whether your kurta meets that requirement.\n- **If eligible for a change-of-mind return:** The refund would be **₹1,400** (₹1,499 minus ₹99 pickup fee), automatically refunded to your original **UPI payment method after pickup**. The ₹49 shipping fee would not be refunded.\n\nI included today’s deadline in the handoff. **No pickup has been booked or refund issued.** If O0012 isn’t the kurta you meant, please let me know.",
+    "turn": 3
+  }
+]

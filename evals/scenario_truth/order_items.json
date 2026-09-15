@@ -1432,5 +1432,73 @@
     "claim_reported_at": null,
     "user_request": null,
     "edge_case": []
+  },
+  {
+    "item_id": "I1001",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1002",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1003",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1004",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1005",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1006",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1007",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1008",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1009",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1010",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1011",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1012",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1013",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1014",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1015",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1016",
+    "edge_case": []
+  },
+  {
+    "item_id": "I1017",
+    "edge_case": []
   }
 ]
