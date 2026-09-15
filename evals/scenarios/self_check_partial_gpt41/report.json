@@ -1,0 +1,927 @@
+{
+  "scenario_sha256": "fac4906e8cb37fc44a9d351e2c2cfd39bbe275563203454917e0284883104704",
+  "policy_version": "v0.5",
+  "model": "gpt-4.1",
+  "required_calls": 80,
+  "completed_calls": 10,
+  "error_count": 70,
+  "errors": [
+    {
+      "scenario_id": "S004",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28993, Requested 4489. Please try again in 6.964s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S005",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28986, Requested 4581. Please try again in 7.134s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S005",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28854, Requested 4581. Please try again in 6.87s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S006",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28929, Requested 4355. Please try again in 6.568s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S006",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28560, Requested 4355. Please try again in 5.83s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S007",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28554, Requested 4600. Please try again in 6.308s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S007",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28350, Requested 4600. Please try again in 5.9s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S008",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 28294, Requested 4651. Please try again in 5.89s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S008",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27771, Requested 4651. Please try again in 4.844s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S009",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27429, Requested 4520. Please try again in 3.898s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S009",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27415, Requested 4520. Please try again in 3.87s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S010",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27679, Requested 4051. Please try again in 3.46s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S010",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27176, Requested 4051. Please try again in 2.454s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S011",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27240, Requested 4523. Please try again in 3.526s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S011",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26970, Requested 4523. Please try again in 2.986s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S012",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 27011, Requested 4289. Please try again in 2.6s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S012",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26765, Requested 4289. Please try again in 2.108s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S013",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26808, Requested 4588. Please try again in 2.792s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S013",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26490, Requested 4588. Please try again in 2.156s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S014",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26442, Requested 4506. Please try again in 1.896s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S014",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26248, Requested 4506. Please try again in 1.508s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S015",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26151, Requested 4519. Please try again in 1.34s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S015",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26033, Requested 4519. Please try again in 1.104s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S016",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 26049, Requested 4207. Please try again in 512ms. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S018",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 29402, Requested 3997. Please try again in 6.798s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S018",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 3997. Please try again in 7.994s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S019",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4187. Please try again in 8.374s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S019",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4187. Please try again in 8.374s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S020",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4945. Please try again in 9.89s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S020",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4945. Please try again in 9.89s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S021",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4259. Please try again in 8.518s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S021",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4259. Please try again in 8.518s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S022",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4611. Please try again in 9.222s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S022",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4611. Please try again in 9.222s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S023",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4613. Please try again in 9.226s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S023",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4613. Please try again in 9.226s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S024",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4511. Please try again in 9.022s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S024",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4511. Please try again in 9.022s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S025",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4520. Please try again in 9.04s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S025",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4520. Please try again in 9.04s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S026",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4407. Please try again in 8.814s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S026",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4407. Please try again in 8.814s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S027",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4197. Please try again in 8.394s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S027",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4197. Please try again in 8.394s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S028",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4742. Please try again in 9.484s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S028",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4742. Please try again in 9.484s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S029",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4538. Please try again in 9.076s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S029",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4538. Please try again in 9.076s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S030",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4467. Please try again in 8.934s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S030",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4467. Please try again in 8.934s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S031",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4324. Please try again in 8.648s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S031",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4324. Please try again in 8.648s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S032",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4602. Please try again in 9.204s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S032",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4602. Please try again in 9.204s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S033",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4665. Please try again in 9.33s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S033",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4665. Please try again in 9.33s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S034",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4556. Please try again in 9.112s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S034",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4556. Please try again in 9.112s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S035",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4565. Please try again in 9.13s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S035",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4565. Please try again in 9.13s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S036",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4530. Please try again in 9.06s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S036",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4530. Please try again in 9.06s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S037",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4185. Please try again in 8.37s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S037",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4185. Please try again in 8.37s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S038",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4500. Please try again in 9s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S038",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4500. Please try again in 9s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S039",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4468. Please try again in 8.936s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S039",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4468. Please try again in 8.936s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S040",
+      "pass": 1,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4316. Please try again in 8.632s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    },
+    {
+      "scenario_id": "S040",
+      "pass": 2,
+      "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4316. Please try again in 8.632s. Visit https://platform.openai.com/account/rate-limits to learn more."
+    }
+  ],
+  "disagreeing_scenarios": [
+    "S001",
+    "S002",
+    "S003",
+    "S017"
+  ],
+  "disagreement_count": 8,
+  "disagreements": [
+    {
+      "scenario_id": "S001",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0011",
+                "item_id": "I0011"
+              },
+              "values": {
+                "reason": "change_of_mind",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1400,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0011",
+              "item_id": "I0011"
+            },
+            "values": {
+              "reason": "change of mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "You are requesting to return the Cotton kurta from order O0011. The item was delivered on 2026-09-05 and your request is on 2026-09-15, within the 10-day return window for clothing. You stated the item is unused, which is required for a change-of-mind return. The refund will be ₹1,400 (item price ₹1,499 minus a ₹99 pickup fee), to your original UPI payment method, after pickup. Shipping is not refunded for change-of-mind returns.",
+        "rules": [
+          "E1",
+          "E4",
+          "E5",
+          "E7",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S001",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0011",
+                "item_id": "I0011"
+              },
+              "values": {
+                "reason": "change_of_mind",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1400,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0011",
+              "item_id": "I0011"
+            },
+            "values": {
+              "reason": "change of mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "Return is eligible (delivered 2026-09-05; contacted within 10-day window for clothing). The item is unused, so a change-of-mind return is allowed. Refund will be ₹1400 (₹1499 item price minus ₹99 pickup fee; shipping not refunded) to original payment method (UPI) after pickup. No policy violations or escalation needed.",
+        "rules": [
+          "E1",
+          "E4",
+          "E7",
+          "E8"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0073"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0073",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 6548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 6548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0073"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0073",
+              "item_id": null
+            },
+            "values": {
+              "reason": "Order cancelled by customer before shipment",
+              "amount": 6499,
+              "shipping_refunded": true,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 6499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Your order O0073 (Wireless headphones) is still in Placed status, so it can be cancelled for a full refund of ₹6,499 (including shipping), refunded to your Card. If you confirm, I will proceed with cancellation and refund.",
+        "rules": [
+          "C1",
+          "E12",
+          "E7",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0073"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0073",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 6548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 6548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0073"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0073",
+              "item_id": null
+            },
+            "values": {
+              "reason": "Order cancelled in Placed state",
+              "amount": 6499,
+              "shipping_refunded": true,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 6499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Your order O0073 (Wireless headphones) is in Placed state and can be cancelled for a full refund (₹6499 including shipping) to your Card. This action is taken after your explicit confirmation.",
+        "rules": [
+          "C1",
+          "E12",
+          "E7",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S003",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0075"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0075",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 2548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0075"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0075",
+              "item_id": null
+            },
+            "values": {
+              "reason": "Order cancelled by customer before shipping",
+              "amount": 2499,
+              "shipping_refunded": true,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 2499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0075 is in Packed status and can be cancelled with a full refund of ₹2,499 (including shipping) to your card payment method. No other fees or actions apply.",
+        "rules": [
+          "C1",
+          "E12",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S003",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0075"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0075",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 2548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0075"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0075",
+              "item_id": null
+            },
+            "values": {
+              "reason": "Order cancelled by customer before shipment",
+              "amount": 2499,
+              "shipping_refunded": true,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 2499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0075 is in Packed state and qualifies for full cancellation and refund, including shipping, to the original payment method (Card).",
+        "rules": [
+          "C1",
+          "E7",
+          "E12",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0019",
+              "item_id": "I0019"
+            },
+            "values": {
+              "reason": "Damaged item reported within 10-day return window",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 748,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The item (Cotton vest) in your order O0019 is eligible for return as a damaged item reported within the 10-day window (reported on day 3 after delivery, with photo evidence uploaded). A full refund of ₹699 (item value) plus ₹49 (shipping fee), totaling ₹748, will be processed to your original payment method (UPI) after the item is picked up.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0019",
+              "item_id": "I0019"
+            },
+            "values": {
+              "reason": "Damaged item (torn vest)",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 748,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "Your damaged vest is eligible for a full return and refund. The return will be scheduled for pickup. Once the item is picked up, you will be refunded ₹748 (₹699 item price + ₹49 shipping) to your original UPI payment method, as required by policy for damaged items within the return window. You have already uploaded the required photo evidence.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "H4"
+        ]
+      }
+    }
+  ],
+  "comparison": "Exact canonical business changes; generated IDs/timestamps excluded. No expected outcome was sent to either model call."
+}

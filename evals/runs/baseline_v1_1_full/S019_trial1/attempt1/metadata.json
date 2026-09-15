@@ -1,0 +1,19 @@
+{
+  "run_name": "baseline_v1_1_full",
+  "scenario_id": "S019",
+  "scenario_split": "dev",
+  "trial_number": 1,
+  "agent_model_requested": "gpt-6-astra",
+  "agent_model": null,
+  "simulator_model_requested": "gpt-4.1-mini",
+  "simulator_model": null,
+  "prompt_version": "agent_v1.1",
+  "policy_version": "v0.6",
+  "current_date": "2026-09-15",
+  "harness_version": "v3",
+  "harness_revision": "v3.2",
+  "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+  "tool_mode": "unguarded",
+  "reasoning_effort": "high",
+  "timestamp": "2026-09-15T12:00:00+05:30"
+}

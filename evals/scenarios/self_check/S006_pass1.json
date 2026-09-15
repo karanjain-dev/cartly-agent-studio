@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S006",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "5e7e0a9998c73297100b864fc5774f3dae232865941363202f3e4d57005c2a75",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0036",
+          "item_id": "I0036"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The headphones from order O0036 are defective, delivered 2 days ago within the 7-day electronics return window. A photo was uploaded as required for item value above ₹2000. According to policy, a return is scheduled for pickup and refund issued automatically after return completion. The refund will be full including shipping but is not issued immediately.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E7",
+      "E9",
+      "E12",
+      "E13",
+      "H1"
+    ]
+  },
+  "response_id": "resp_05f19dd98ab8951d016aa90d57114887d2a197aac48819683a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4357,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 228,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4585
+  }
+}

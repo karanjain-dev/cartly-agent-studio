@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S033",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "f6f44040ccea10b5c7dde8e1e65115ce2854c5a9b9a04a1b3677cb2ee44cad8c",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0079 is in 'Out for delivery' status and cannot be cancelled per policy C2. User can refuse delivery or return after receiving the item. User's request for cancellation is declined. User asked for a human, escalation is needed if requested twice, user has asked once so far.",
+    "rules": [
+      "C2",
+      "G2"
+    ]
+  },
+  "response_id": "resp_05bb46590bab55c1016aa90d8dcf5087d29ab5b25f1a24d097",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4667,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 92,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4759
+  }
+}

@@ -1,0 +1,2028 @@
+{
+  "schema_fields": [
+    "outcome_type",
+    "order_id",
+    "item_id",
+    "reason",
+    "refund_amount",
+    "refund_method",
+    "shipping_refunded",
+    "escalation_rule"
+  ],
+  "completed_calls": 80,
+  "scenario_sha256": "fac4906e8cb37fc44a9d351e2c2cfd39bbe275563203454917e0284883104704",
+  "bucket_counts": {
+    "MATCH": {
+      "dev": 12,
+      "heldout": 4
+    },
+    "SCENARIO_SUSPECT": {
+      "dev": 9,
+      "heldout": 5
+    },
+    "POLICY_AMBIGUOUS": {
+      "dev": 0,
+      "heldout": 0
+    },
+    "MODEL_ERROR": {
+      "dev": 9,
+      "heldout": 1
+    }
+  },
+  "coverage": {
+    "distinct_users": 23,
+    "distinct_orders": 37,
+    "orders_used_more_than_twice": []
+  },
+  "classification_precedence": "Both acceptable = MATCH; identical nonmatching decisions = SCENARIO_SUSPECT; otherwise verified factual/math or output-field mistakes = MODEL_ERROR; otherwise primary-field disagreement = POLICY_AMBIGUOUS. Remaining secondary-field disagreements are MODEL_ERROR per user clarification.",
+  "expected_projection": "Existing end states projected without modification. Order reference comes from hidden facts; escalation trigger alternatives come from existing rules_tested metadata because the original end states did not constrain that value. Null non-applicable fields, false no-shipping; return amounts describe the planned refund.",
+  "scenarios": [
+    {
+      "scenario_id": "S001",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0011",
+          "item_id": "I0011",
+          "reason": "change_of_mind",
+          "refund_amount": 1400,
+          "refund_method": "UPI",
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "cancel",
+          "order_id": "O0073",
+          "item_id": null,
+          "reason": "cancellation",
+          "refund_amount": 6548,
+          "refund_method": "Card",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "cancel",
+        "order_id": "O0073",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 6499,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "cancel",
+        "order_id": "O0073",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 6548,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database order item total plus shipping is ₹6548, not 6499 (C1/E12/H4)."
+          }
+        ],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S003",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "cancel",
+          "order_id": "O0075",
+          "item_id": null,
+          "reason": "cancellation",
+          "refund_amount": 2548,
+          "refund_method": "Card",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "cancel",
+        "order_id": "O0075",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 2499,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "cancel",
+        "order_id": "O0075",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 2499,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database order item total plus shipping is ₹2548, not 2499 (C1/E12/H4)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database order item total plus shipping is ₹2548, not 2499 (C1/E12/H4)."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S004",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "address_update",
+          "order_id": "O0074",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "address_update",
+        "order_id": "O0074",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "address_update",
+        "order_id": "O0074",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S005",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "immediate_refund",
+          "order_id": "O0037",
+          "item_id": "I0037",
+          "reason": "damaged",
+          "refund_amount": 448,
+          "refund_method": "Cartly Wallet",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "escalate",
+        "order_id": "O0037",
+        "item_id": "I0037",
+        "reason": "damaged",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0037",
+        "item_id": "I0037",
+        "reason": "damaged",
+        "refund_amount": 399,
+        "refund_method": "Cartly Wallet",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          },
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0037 has value ₹399 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹399; shipping newly refundable ₹49; reason damaged gives ₹448, not 399 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S006",
+      "split": "heldout",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0036",
+          "item_id": "I0036",
+          "reason": "defective",
+          "refund_amount": 2548,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0036",
+        "item_id": "I0036",
+        "reason": "defective",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0036",
+        "item_id": "I0036",
+        "reason": "defective",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S007",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0039",
+          "item_id": "I0039",
+          "reason": "wrong_item",
+          "refund_amount": 1548,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "escalate",
+        "order_id": "O0039",
+        "item_id": "I0039",
+        "reason": "wrong_item",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "run_2": {
+        "outcome_type": "escalate",
+        "order_id": "O0039",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          },
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0039 has value ₹1499 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0039 has value ₹1499 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S008",
+      "split": "heldout",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0043",
+          "item_id": "I0043",
+          "reason": "wrong_item",
+          "refund_amount": 1548,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "escalate",
+        "order_id": "O0043",
+        "item_id": "I0043",
+        "reason": "wrong_item",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "run_2": {
+        "outcome_type": "escalate",
+        "order_id": "O0043",
+        "item_id": "I0043",
+        "reason": "wrong_item",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          },
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0043 has value ₹1499 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          },
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0043 has value ₹1499 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S009",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "coupon",
+          "order_id": "O0083",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        },
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0083",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "coupon",
+        "order_id": "O0083",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "coupon",
+        "order_id": "O0083",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S010",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "coupon",
+          "order_id": "O0092",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        },
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0092",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "coupon",
+        "order_id": "O0092",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "coupon",
+        "order_id": "O0092",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S011",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0077",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0077",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0077",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S012",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0001",
+          "item_id": "I0001",
+          "reason": "defective",
+          "refund_amount": 2048,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0001",
+        "item_id": "I0001",
+        "reason": "defective",
+        "refund_amount": 2048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0001",
+        "item_id": "I0001",
+        "reason": "defective",
+        "refund_amount": 2048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S013",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0005",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "H1"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0005",
+        "item_id": "I0005",
+        "reason": "defective",
+        "refund_amount": 2048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0005",
+        "item_id": "I0005",
+        "reason": "defective",
+        "refund_amount": 2048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database dates give age 8 calendar days, greater than 7-day electronics window (E1/H1)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database dates give age 8 calendar days, greater than 7-day electronics window (E1/H1)."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S014",
+      "split": "heldout",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0012",
+          "item_id": "I0012",
+          "reason": "change_of_mind",
+          "refund_amount": 1400,
+          "refund_method": "UPI",
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0012",
+        "item_id": "I0012",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0012",
+        "item_id": "I0012",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S015",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0015",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0015",
+        "item_id": "I0015",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0015",
+        "item_id": "I0015",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database dates give age 11 calendar days, greater than 10-day clothing window (E1/H1)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database dates give age 11 calendar days, greater than 10-day clothing window (E1/H1)."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S016",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0017",
+          "item_id": "I0017",
+          "reason": "damaged",
+          "refund_amount": 748,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0017",
+        "item_id": "I0017",
+        "reason": "damaged",
+        "refund_amount": 748,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0017",
+        "item_id": "I0017",
+        "reason": "damaged",
+        "refund_amount": 748,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0019",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0019",
+        "item_id": "I0019",
+        "reason": "damaged",
+        "refund_amount": 748,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0019",
+        "item_id": "I0019",
+        "reason": "damaged",
+        "refund_amount": 748,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database category innerwear, elapsed 72 hours, claim damaged: E2 exception does not apply."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database category innerwear, elapsed 72 hours, claim damaged: E2 exception does not apply."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S018",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0033",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0033",
+        "item_id": "I0033",
+        "reason": "damaged",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0033",
+        "item_id": "I0033",
+        "reason": "damaged",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "I0033 has value ₹2499, no uploaded photo, and customer fact: I have not uploaded a photo and cannot provide one during this conversation. (E6)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "I0033 has value ₹2499, no uploaded photo, and customer fact: I have not uploaded a photo and cannot provide one during this conversation. (E6)."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S019",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0030",
+          "item_id": "I0030",
+          "reason": "defective",
+          "refund_amount": 2048,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "escalate",
+        "order_id": "O0030",
+        "item_id": "I0030",
+        "reason": "defective",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "E6"
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0030",
+        "item_id": "I0030",
+        "reason": "defective",
+        "refund_amount": 2048,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          },
+          {
+            "field": "escalation_rule",
+            "evidence": "Database item I0030 has value ₹1999 and evidence_photo_uploaded=False; E6 does not require missing evidence here."
+          }
+        ],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S020",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0081",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "coupon",
+        "order_id": "O0081",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": 100,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "coupon",
+        "order_id": "O0081",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": 100,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Output-field mistake: no refund is proposed, so this field must be null."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database promised/actual dates give 5 days late; F1 requires more than 5."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Output-field mistake: no refund is proposed, so this field must be null."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database promised/actual dates give 5 days late; F1 requires more than 5."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S021",
+      "split": "heldout",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0106",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0106",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0106",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S022",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0049",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "E9"
+        },
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0049",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "H2"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0049",
+        "item_id": "I0052",
+        "reason": "defective",
+        "refund_amount": 3099,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0049",
+        "item_id": "I0052",
+        "reason": "defective",
+        "refund_amount": 3099,
+        "refund_method": "Card",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹3000; shipping newly refundable ₹0; reason defective gives ₹3000, not 3099 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "shipping_refunded",
+            "evidence": "Database shipping/history imply shipping included=False for defective (E12)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Completed order refunds plus proposed refund = ₹6099, above ₹5,000 (H2)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹3000; shipping newly refundable ₹0; reason defective gives ₹3000, not 3099 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "shipping_refunded",
+            "evidence": "Database shipping/history imply shipping included=False for defective (E12)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Completed order refunds plus proposed refund = ₹6099, above ₹5,000 (H2)."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S023",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0060",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "E10"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0060",
+        "item_id": "I0064",
+        "reason": "damaged",
+        "refund_amount": 448,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "escalate",
+        "order_id": "O0060",
+        "item_id": "I0064",
+        "reason": "damaged",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "H6"
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database contains 3 qualifying refunds in 90 days (E10)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S024",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "immediate_refund",
+          "order_id": "O0068",
+          "item_id": "I0072",
+          "reason": "damaged",
+          "refund_amount": 448,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0068",
+        "item_id": "I0072",
+        "reason": "damaged",
+        "refund_amount": 399,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0068",
+        "item_id": "I0072",
+        "reason": "damaged",
+        "refund_amount": 448,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹399; shipping newly refundable ₹49; reason damaged gives ₹448, not 399 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S025",
+      "split": "heldout",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "immediate_refund",
+          "order_id": "O0053",
+          "item_id": "I0057",
+          "reason": "damaged",
+          "refund_amount": 448,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "immediate_refund",
+        "order_id": "O0053",
+        "item_id": "I0057",
+        "reason": "damaged",
+        "refund_amount": 448,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "immediate_refund",
+        "order_id": "O0053",
+        "item_id": "I0057",
+        "reason": "damaged",
+        "refund_amount": 448,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S026",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "immediate_refund",
+          "order_id": "O0038",
+          "item_id": "I0038",
+          "reason": "damaged",
+          "refund_amount": 448,
+          "refund_method": "Cartly Wallet",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0038",
+        "item_id": "I0038",
+        "reason": "damaged",
+        "refund_amount": 399,
+        "refund_method": "Cartly Wallet",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0038",
+        "item_id": "I0038",
+        "reason": "damaged",
+        "refund_amount": 399,
+        "refund_method": "Cartly Wallet",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹399; shipping newly refundable ₹49; reason damaged gives ₹448, not 399 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database item value ₹399; shipping newly refundable ₹49; reason damaged gives ₹448, not 399 (E3/E4/E12/H4)."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹399 is below ₹500 and the claim is damaged, satisfying E5 immediate-refund conditions."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S027",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0085",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0085",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0085",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S028",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0011",
+          "item_id": "I0011",
+          "reason": "change_of_mind",
+          "refund_amount": 1400,
+          "refund_method": "UPI",
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S029",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0087",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0087",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0087",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S030",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "cancel",
+          "order_id": "O0076",
+          "item_id": null,
+          "reason": "cancellation",
+          "refund_amount": 2548,
+          "refund_method": "Card",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "cancel",
+        "order_id": "O0076",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 2499,
+        "refund_method": "Card",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "cancel",
+        "order_id": "O0076",
+        "item_id": null,
+        "reason": "cancellation",
+        "refund_amount": 2499,
+        "refund_method": "Card",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database order item total plus shipping is ₹2548, not 2499 (C1/E12/H4)."
+          },
+          {
+            "field": "shipping_refunded",
+            "evidence": "Cancellation shipping inclusion must be True."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "refund_amount",
+            "evidence": "Database order item total plus shipping is ₹2548, not 2499 (C1/E12/H4)."
+          },
+          {
+            "field": "shipping_refunded",
+            "evidence": "Cancellation shipping inclusion must be True."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S031",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0035",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "G2"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "immediate_refund",
+        "order_id": "O0035",
+        "item_id": "I0035",
+        "reason": "defective",
+        "refund_amount": 2548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "escalate",
+        "order_id": "O0035",
+        "item_id": "I0035",
+        "reason": "defective",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database item value ₹2499 and claim defective do not satisfy E5 immediate-refund conditions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Hidden problem fact identifies damaged: The item arrived broken."
+          },
+          {
+            "field": "outcome_type",
+            "evidence": "Hidden facts explicitly contain an electric-shock safety incident (G2)."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S032",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0016",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "G2"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "escalate",
+        "order_id": "O0016",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      },
+      "run_2": {
+        "outcome_type": "escalate",
+        "order_id": "O0016",
+        "item_id": "I0016",
+        "reason": "change_of_mind",
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": "G2"
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          },
+          {
+            "field": "reason",
+            "evidence": "Output-field mistake: reason must be null when no return/refund/cancellation is proposed."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S033",
+      "split": "heldout",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0079",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "G2"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0079",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0079",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S034",
+      "split": "dev",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0012",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0012",
+        "item_id": "I0012",
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0012",
+        "item_id": "I0012",
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S035",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0040",
+          "item_id": "I0040",
+          "reason": "wrong_item",
+          "refund_amount": 1548,
+          "refund_method": "UPI",
+          "shipping_refunded": true,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0040",
+        "item_id": "I0040",
+        "reason": "wrong_item",
+        "refund_amount": 1548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0040",
+        "item_id": "I0040",
+        "reason": "wrong_item",
+        "refund_amount": 1548,
+        "refund_method": "UPI",
+        "shipping_refunded": true,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S036",
+      "split": "dev",
+      "bucket": "MATCH",
+      "expected": [
+        {
+          "outcome_type": "return",
+          "order_id": "O0041",
+          "item_id": "I0041",
+          "reason": "change_of_mind",
+          "refund_amount": 1400,
+          "refund_method": "UPI",
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0041",
+        "item_id": "I0041",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0041",
+        "item_id": "I0041",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S037",
+      "split": "heldout",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "decline_no_change",
+          "order_id": "O0017",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": null
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0017",
+        "item_id": "I0017",
+        "reason": "change_of_mind",
+        "refund_amount": 600,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0017",
+        "item_id": "I0017",
+        "reason": "change_of_mind",
+        "refund_amount": 600,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database category innerwear, elapsed 24 hours, claim change_of_mind: E2 exception does not apply."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "Database category innerwear, elapsed 24 hours, claim change_of_mind: E2 exception does not apply."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S038",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0003",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "A3"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0003",
+        "item_id": "I0003",
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0003",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "item_id",
+            "evidence": "Output-field mistake: item_id must be null for this non-item-mutation outcome under the shared eight-field conventions."
+          }
+        ],
+        "run_2": []
+      }
+    },
+    {
+      "scenario_id": "S039",
+      "split": "dev",
+      "bucket": "MODEL_ERROR",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0007",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "A3"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "decline_no_change",
+        "order_id": "O0007",
+        "item_id": null,
+        "reason": null,
+        "refund_amount": null,
+        "refund_method": null,
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0007",
+        "item_id": "I0007",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "The hidden customer-request fact asks for a different service, not a return/refund: Convert the payment for my order into monthly instalments."
+          }
+        ]
+      }
+    },
+    {
+      "scenario_id": "S040",
+      "split": "heldout",
+      "bucket": "SCENARIO_SUSPECT",
+      "expected": [
+        {
+          "outcome_type": "escalate",
+          "order_id": "O0004",
+          "item_id": null,
+          "reason": null,
+          "refund_amount": null,
+          "refund_method": null,
+          "shipping_refunded": false,
+          "escalation_rule": "A3"
+        }
+      ],
+      "run_1": {
+        "outcome_type": "return",
+        "order_id": "O0004",
+        "item_id": "I0004",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "run_2": {
+        "outcome_type": "return",
+        "order_id": "O0004",
+        "item_id": "I0004",
+        "reason": "change_of_mind",
+        "refund_amount": 1400,
+        "refund_method": "UPI",
+        "shipping_refunded": false,
+        "escalation_rule": null
+      },
+      "verified_model_errors": {
+        "run_1": [
+          {
+            "field": "outcome_type",
+            "evidence": "The hidden customer-request fact asks for a different service, not a return/refund: Transfer the loyalty points from this purchase to my sister."
+          }
+        ],
+        "run_2": [
+          {
+            "field": "outcome_type",
+            "evidence": "The hidden customer-request fact asks for a different service, not a return/refund: Transfer the loyalty points from this purchase to my sister."
+          }
+        ]
+      }
+    }
+  ]
+}

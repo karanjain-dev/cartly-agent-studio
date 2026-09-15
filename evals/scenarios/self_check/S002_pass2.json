@@ -1,0 +1,65 @@
+{
+  "scenario_id": "S002",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "79bd146674e0318cfec9e7154932ff596bd5bd9c0ec6c51ea5151d4d7f340915",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "cancelled",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0073"
+        },
+        "values": {
+          "status": "Cancelled"
+        }
+      },
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0073",
+          "item_id": null
+        },
+        "values": {
+          "reason": "cancellation",
+          "amount": 6499,
+          "shipping_refunded": false,
+          "method": "Card",
+          "status": "completed"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 6499,
+      "method": "Card",
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "Order O0073 is in Placed status, so per policy C1 it can be cancelled with full refund to the original payment method. The item price is 6499 and shipping fee 49 is not refunded as per policy. User is informed of exact refund and asked for explicit yes.",
+    "rules": [
+      "C1",
+      "C2",
+      "E7",
+      "H4"
+    ]
+  },
+  "response_id": "resp_0e5b1b1584b7682d016aa90d4e24b887d2a6879a45b83c8a30",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4437,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 286,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4723
+  }
+}

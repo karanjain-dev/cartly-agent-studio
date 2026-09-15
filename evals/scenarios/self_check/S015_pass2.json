@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S015",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "a28a6fe10f36f73b1d3224ca2f50fc4b37f6f56ae3d2d0a762ec08ada8821686",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0015",
+          "item_id": "I0015"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The kurta was delivered on 2026-09-04 and today is 2026-09-15, which is within the 10-day return window. The user has changed their mind and the item is unused. A return pickup is scheduled with refund after pickup minus ₹99 pickup fee, no shipping refunded for change of mind. Refund is to original payment method UPI.",
+    "rules": [
+      "E1",
+      "E4",
+      "E7",
+      "E8",
+      "G1",
+      "H4"
+    ]
+  },
+  "response_id": "resp_0981333c17b12f05016aa90d69c0e487d2a6fe25b8f008bfe6",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4521,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 251,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4772
+  }
+}

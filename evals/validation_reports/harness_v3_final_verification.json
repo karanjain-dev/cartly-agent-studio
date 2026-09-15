@@ -1,0 +1,12 @@
+{
+  "unit_tests_passed": 124,
+  "validator_tests_passed": 16,
+  "data_violations": 0,
+  "live_regressions_passed": 9,
+  "live_regressions_total": 9,
+  "data_scenarios_calculator_unchanged": true,
+  "live_regression_sources": [
+    "validation_reports/harness_v3_live_4/results.json",
+    "validation_reports/harness_v3_live_5/results.json"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "scenario_id": "S007",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "ed528c738d9ee8e8205309c8523892b0374f31ddfd81f7e4227d53570e86d1a1",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "escalated",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The customer reports a wrong size received (size L instead of ordered size M) on a Cotton kurta worth ₹1499 delivered on 2026-09-13, with no photo evidence uploaded. Policy E6 requires a photo for wrong item claims over ₹2000 but this item is below that threshold, so no photo is mandatory strictly. However, the customer has no photo and cannot provide one. Also note the customer has no returns/refunds yet, no policy limits obstruct. Given no photo is uploaded and customer cannot provide one, to avoid a wrong refund we must escalate for human review, as the customer claims a wrong item but no evidence is provided and the item value is significant (₹1499). Escalation is per A3 since policy does not clearly allow a return without evidence for wrong item of this value when customer cannot provide photo now. The user will be asked about the action in escalation. This also complies with policy for clarity.",
+    "rules": [
+      "A3",
+      "E6",
+      "E11",
+      "E9"
+    ]
+  },
+  "response_id": "resp_0eba0af82e86ea1f016aa90d5af6ac87d2bb0262f7bbdd999a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4602,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 250,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4852
+  }
+}

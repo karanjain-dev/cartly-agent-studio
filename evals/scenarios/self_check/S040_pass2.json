@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S040",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "daa4495f76cc201a17f65d0d22b6105abff8cee8cb7e55773eb10b14c1f416f0",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0004",
+          "item_id": "I0004"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The Cotton kurta from order O0004 was delivered 7 days ago, within the return window. It is unused, so eligible for change of mind return with a refund of item price (1499) minus 99 pickup fee = 1400. Shipping fee is not refunded. Return pickup is scheduled; refund will be issued after pickup automatically.",
+    "rules": [
+      "E1",
+      "E4",
+      "E5",
+      "E7",
+      "H4"
+    ]
+  },
+  "response_id": "resp_072148c4f085d7a6016aa90d989b5487d292570cc897bae175",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4318,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 239,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4557
+  }
+}

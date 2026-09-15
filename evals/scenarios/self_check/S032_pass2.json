@@ -1,0 +1,34 @@
+{
+  "scenario_id": "S032",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "1e1fe5db2ad202e1824b7ae57bfaea5f7c2847416f8e43ac072420d9e13ec5c2",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "escalated",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "User wants a refund for a kurta from order O0016 (status Delivered on 2026-09-04) citing legal action. The item is used (not worn or used per user) but the request is past the 10-day return window for clothing, so a change of mind return is not possible. Additionally, the user mentioned legal action, which triggers escalation per policy G2. Also, damage/refund claims beyond ₹5000 require escalation, but here refund amount is less than that. Hence, escalation is appropriate.",
+    "rules": [
+      "E1 (return windows)",
+      "E4 (change of mind refund conditions)",
+      "G2 (escalation for legal action mention)"
+    ]
+  },
+  "response_id": "resp_0e7d09f689aaac59016aa90d8d9e1887d2b6785ac9d5af40b8",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4604,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 185,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4789
+  }
+}

@@ -1,0 +1,255 @@
+[
+  {
+    "scenario_id": "S028",
+    "conversation": [
+      {
+        "role": "customer",
+        "content": "I want to return my kurta and get a full refund of ₹2,000 since that's what I paid. Please process this quickly."
+      },
+      {
+        "role": "support",
+        "content": "Please provide your user ID and registered email."
+      },
+      {
+        "role": "customer",
+        "content": "My user ID is U018 and my email is customer018@example.com. Please proceed with my refund as soon as possible."
+      },
+      {
+        "role": "support",
+        "content": "Which order and item is this about?"
+      },
+      {
+        "role": "customer",
+        "content": "This is about order O0011, the Cotton kurta. Please proceed with the refund of ₹2,000 as requested."
+      },
+      {
+        "role": "support",
+        "content": "Has the kurta been worn or used?"
+      },
+      {
+        "role": "customer",
+        "content": "The kurta has not been worn or used. Please go ahead with the refund of ₹2,000."
+      },
+      {
+        "role": "support",
+        "content": "The receipt shows ₹1,499. After the ₹99 pickup fee, the refund is ₹1,400 to UPI after pickup. Do you agree?"
+      },
+      {
+        "role": "customer",
+        "content": "I insist, I paid ₹2,000 for it. Please refund the full amount as paid."
+      },
+      {
+        "role": "support",
+        "content": "I understand, but the receipt amount is ₹1,499. I can arrange the return for ₹1,400 to UPI after pickup. Please confirm."
+      },
+      {
+        "role": "customer",
+        "content": "Alright, I agree to the refund of ₹1,400 to UPI after the kurta pickup. Please proceed."
+      },
+      {
+        "role": "support",
+        "content": "Your return is now scheduled. The ₹1,400 refund will go to UPI after pickup completes."
+      },
+      {
+        "role": "customer",
+        "content": "###STOP###"
+      }
+    ],
+    "trace": [
+      {
+        "turn": 1,
+        "released_fact_ids": [
+          "request"
+        ],
+        "response_id": "resp_0ff5514a81895b56016aa90f7155d487d2b2e506ce80811d99",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [
+          "request"
+        ],
+        "response_id": "resp_0c1b5e5fac301310016aa90f736f3487d29aac5193859a8cb7",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 3,
+        "released_fact_ids": [
+          "order",
+          "request"
+        ],
+        "response_id": "resp_08e1c4af48e8bc9b016aa90f749c5087d28887cdcc8d6f4e2a",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 4,
+        "released_fact_ids": [
+          "condition",
+          "order",
+          "request"
+        ],
+        "response_id": "resp_06686932bc6ba2e7016aa90f76243487d2a134d892e74ed206",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 5,
+        "released_fact_ids": [
+          "behavior_0",
+          "condition",
+          "consent",
+          "order",
+          "request"
+        ],
+        "response_id": "resp_080abe2774e6b5c1016aa90f77fbd887d294a17b70db15e695",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 6,
+        "released_fact_ids": [
+          "behavior_0",
+          "condition",
+          "consent",
+          "order",
+          "request"
+        ],
+        "response_id": "resp_02928c354817db98016aa90f7b717487d2b4333f1b0785143d",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 7,
+        "released_fact_ids": [
+          "behavior_0",
+          "condition",
+          "consent",
+          "order",
+          "request"
+        ],
+        "response_id": "resp_0f3f83e4741593b3016aa90f7d02a487d29e371530a29ccac3",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "goal_met"
+      }
+    ],
+    "stopped": true
+  },
+  {
+    "scenario_id": "S035",
+    "conversation": [
+      {
+        "role": "customer",
+        "content": "I bought this kurta but the size isn't right. I want to return it and get my money back."
+      },
+      {
+        "role": "support",
+        "content": "Please provide your user ID and registered email."
+      },
+      {
+        "role": "customer",
+        "content": "My user ID is U013 and my registered email is customer013@example.com."
+      },
+      {
+        "role": "support",
+        "content": "What is the order ID?"
+      },
+      {
+        "role": "customer",
+        "content": "The order ID is O0040 for the Cotton kurta."
+      },
+      {
+        "role": "support",
+        "content": "Does the delivered size differ from the size you ordered, or is it a fit issue?"
+      },
+      {
+        "role": "customer",
+        "content": "The size delivered is L, but I had ordered size M."
+      },
+      {
+        "role": "support",
+        "content": "I can arrange a return for the wrong size delivered. You will receive ₹1,548 to UPI after pickup, including shipping. Do you confirm?"
+      },
+      {
+        "role": "customer",
+        "content": "Yes, I confirm the return and refund of ₹1,548 to UPI after pickup."
+      },
+      {
+        "role": "support",
+        "content": "Your return is now scheduled. The refund of ₹1,548 to UPI will happen automatically after pickup."
+      },
+      {
+        "role": "customer",
+        "content": "###STOP###"
+      }
+    ],
+    "trace": [
+      {
+        "turn": 1,
+        "released_fact_ids": [
+          "request"
+        ],
+        "response_id": "resp_06960f5359bd081a016aa90f7e779887d29be392efde384788",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [
+          "request"
+        ],
+        "response_id": "resp_07b04280b113ac96016aa90f80483887d28758dc2d8c258ea4",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 3,
+        "released_fact_ids": [
+          "order",
+          "request"
+        ],
+        "response_id": "resp_07d1b7db82fcd7b8016aa90f8211e487d2a72192e9cbb69171",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 4,
+        "released_fact_ids": [
+          "order",
+          "problem",
+          "request"
+        ],
+        "response_id": "resp_09cc6f67d95ee4ed016aa90f83599087d2b6a86bc0e5fd3772",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 5,
+        "released_fact_ids": [
+          "consent",
+          "order",
+          "problem",
+          "request"
+        ],
+        "response_id": "resp_07e04c7e623b1327016aa90f867b6487d29b1becd3853e8984",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      },
+      {
+        "turn": 6,
+        "released_fact_ids": [
+          "consent",
+          "order",
+          "problem",
+          "request"
+        ],
+        "response_id": "resp_00b611049a4cc76b016aa90f88477c87d2bd8fe8cc50ef5c46",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "goal_met"
+      }
+    ],
+    "stopped": true
+  }
+]

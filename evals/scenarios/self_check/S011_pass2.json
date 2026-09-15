@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S011",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "4345d410e647a6d91faad10f6cde7851702f92fe70a42368f31d6ea242c7c9fd",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0077 is in Shipped status and therefore cannot be cancelled. The policy states that only orders in Placed or Packed status can be cancelled with a full refund.",
+    "rules": [
+      "C2"
+    ]
+  },
+  "response_id": "resp_0b7db6be497e56e1016aa90d622d1c87d28ff7593d5aa881ac",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4525,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 79,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4604
+  }
+}

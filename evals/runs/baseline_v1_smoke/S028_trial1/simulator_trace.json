@@ -1,0 +1,62 @@
+[
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_03d9961b8bd4fbf8016aa91b71654487d29960510f439605df",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0d361b2cd6645c91016aa91b78ba0887d2aa6070c6c8b51315",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "consent",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0a2193075dfb080c016aa91b9e936087d294eaaba60864cd68",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "consent",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_06cf09a269ad88f6016aa91bad5a4087d2a871cfb9072f6523",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "consent",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0dc2b756fb0444c2016aa91bb7106c87d293beb9eb1ea803e2",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

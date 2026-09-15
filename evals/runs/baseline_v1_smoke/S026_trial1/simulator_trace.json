@@ -1,0 +1,46 @@
+[
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0960b24ca96b1a62016aa91b3969bc87d29bff12dc00fe1997",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_08f6e0a7bc1a4de7016aa91b3f6cc087d2ac4b4aeae1316fa9",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "consent",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_03972ff07b789a32016aa91b6275cc87d28d359b1e72d09d76",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_003b6545360497f7016aa91b6ae22087d2b8842d2cbd49818b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

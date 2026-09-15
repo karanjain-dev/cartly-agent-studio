@@ -1,0 +1,184 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_078f45c91ed3ae17016aa921bb7d2087d287d236861a59864c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not explicitly ask which order or item, only asked to share user ID and order ID."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "Agent explicitly asks about the condition and use of the kurta."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet explained the proposed action, amount, or payment method to request confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask about item arrival or problem reporting time."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No amount discussion or firm explanation of receipt amount has occurred yet."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requested user ID or registered email/phone to verify identity."
+      }
+    ]
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0466b9c0e08c6368016aa921c230f087d2a7c973652c881c86",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest agent message does not ask about the order or item identity specifically."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet asked for explicit confirmation after explaining the proposed action and refund amount."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent has not asked when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "Customer insisted on paying ₹2,000 and the agent explained the correct amount firmly; this matches reveal condition 'after amount'."
+      }
+    ]
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_008492266f2e6435016aa921dbc79087d29de2158f2144b911",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent does not ask which order or item; order is already cited but no direct question about order/item identification."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent asks for reason of return, not for confirmation of proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent does not ask when item arrived or when problem was reported."
+      }
+    ]
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_03f1bd7e72071ce1016aa921eb5b2c87d2a865f3098c34b347",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item to confirm; order O0045 was mentioned but no direct question asked."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "Agent explicitly explained the refund amount, pickup, and payment method and asked for an explicit yes to proceed, matching the consent reveal condition."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent mentioned delivery date as 2026-09-13 and asked for today's date, but did not ask about actual arrival date or when the problem was reported as per the reveal condition."
+      }
+    ]
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "consent",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0d5af7aa9d2f86dd016aa9220eee0487d2ad075f900420d7cf",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent never asks which order or item is being discussed; the conversation identifies order O0045, not O0011, so the fact is irrelevant and unrelated to the current order."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported; the conversation refers to delivery on 2026-09-13 and contact date of 2026-09-20, not dates in this fact, so it is not relevant."
+      }
+    ]
+  }
+]

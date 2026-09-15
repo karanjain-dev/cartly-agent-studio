@@ -1,0 +1,57 @@
+{
+  "scenario_id": "S017",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "dad03e36839d124ae7a11eb65d6d7512150f1459eabc21146a779bb5d201ed02",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0019",
+          "item_id": "I0019"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": null,
+      "method": null,
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The vest (innerwear) is non-returnable normally unless damaged or wrong. It arrived torn (damaged), reported within 48 hours, with photo evidence uploaded. The delivery date was 3 days ago, within the 10-day return window. The policy requires scheduling a return pickup first, then auto refund after pickup. Immediate refund is only for wrong items under ₹500, not applicable here. Await your explicit confirmation before proceeding.",
+    "rules": [
+      "E1",
+      "E2",
+      "E3",
+      "E5",
+      "E6",
+      "E12",
+      "E13",
+      "H1",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0a965026a80a3dfa016aa90d6c949887d2822c61bda79a09f6",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 3744,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 270,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4014
+  }
+}

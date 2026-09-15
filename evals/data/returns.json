@@ -1,0 +1,98 @@
+[
+  {
+    "return_id": "T0001",
+    "order_id": "O0047",
+    "item_id": "I0047",
+    "pickup_status": "completed",
+    "created_at": "2026-09-05T12:00:00+05:30",
+    "completed_at": "2026-09-06T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0002",
+    "order_id": "O0047",
+    "item_id": "I0048",
+    "pickup_status": "completed",
+    "created_at": "2026-09-06T12:00:00+05:30",
+    "completed_at": "2026-09-07T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0003",
+    "order_id": "O0048",
+    "item_id": "I0049",
+    "pickup_status": "completed",
+    "created_at": "2026-09-05T12:00:00+05:30",
+    "completed_at": "2026-09-06T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0004",
+    "order_id": "O0048",
+    "item_id": "I0050",
+    "pickup_status": "completed",
+    "created_at": "2026-09-06T12:00:00+05:30",
+    "completed_at": "2026-09-07T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0005",
+    "order_id": "O0049",
+    "item_id": "I0051",
+    "pickup_status": "completed",
+    "created_at": "2026-09-12T12:00:00+05:30",
+    "completed_at": "2026-09-13T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0006",
+    "order_id": "O0050",
+    "item_id": "I0053",
+    "pickup_status": "completed",
+    "created_at": "2026-09-12T12:00:00+05:30",
+    "completed_at": "2026-09-13T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0007",
+    "order_id": "O0105",
+    "item_id": "I0109",
+    "pickup_status": "completed",
+    "created_at": "2026-08-28T12:00:00+05:30",
+    "completed_at": "2026-08-29T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0008",
+    "order_id": "O0112",
+    "item_id": "I0116",
+    "pickup_status": "completed",
+    "created_at": "2026-08-21T12:00:00+05:30",
+    "completed_at": "2026-08-22T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0009",
+    "order_id": "O0119",
+    "item_id": "I0123",
+    "pickup_status": "completed",
+    "created_at": "2026-08-14T12:00:00+05:30",
+    "completed_at": "2026-08-15T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0010",
+    "order_id": "O0126",
+    "item_id": "I0130",
+    "pickup_status": "completed",
+    "created_at": "2026-08-07T12:00:00+05:30",
+    "completed_at": "2026-08-08T12:00:00+05:30"
+  },
+  {
+    "return_id": "T0011",
+    "order_id": "O0127",
+    "item_id": "I0131",
+    "pickup_status": "scheduled",
+    "created_at": "2026-09-15T12:00:00+05:30",
+    "completed_at": null
+  },
+  {
+    "return_id": "T0012",
+    "order_id": "O0147",
+    "item_id": "I0151",
+    "pickup_status": "completed",
+    "created_at": "2026-08-31T12:00:00+05:30",
+    "completed_at": "2026-09-01T12:00:00+05:30"
+  }
+]

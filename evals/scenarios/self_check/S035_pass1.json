@@ -1,0 +1,50 @@
+{
+  "scenario_id": "S035",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "98253fc4ec45c0b2ed9b4b8e89390f33ff10a6f9d6c206a7013ceecd7f14df81",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0040",
+          "item_id": "I0040"
+        },
+        "values": {
+          "reason": "wrong_item",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "User received wrong size item (ordered M, received L), which qualifies as wrong item under policy. Return window is valid (delivery 2026-09-13, today 2026-09-15 within 7 days for clothing). Photo evidence not uploaded but item price is 1499 INR, below 2000 threshold for mandatory photo, so return scheduled and refund after pickup. Awaiting user confirmation of this action and refund amount before proceeding.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E11",
+      "G1"
+    ]
+  },
+  "response_id": "resp_064c68830fa2c411016aa90d8fcf6487d28306a0fe4c72e1cf",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4567,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 236,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4803
+  }
+}

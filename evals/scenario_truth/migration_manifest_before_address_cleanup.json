@@ -1,0 +1,17 @@
+{
+  "policy_sha256": "d4126991d8edd59509bf80fd8e193bec9d79723f61be19d68a3e968fb513ae99",
+  "original_combined_sha256": {
+    "users": "4e18657f58a83dd7f627f44e89bae761abdf1072cf91b63453c8f42e31ad90c1",
+    "orders": "4b377503437038c12e2833025fcb99b17c3cb01c4ca6784fe6bf22391119f182",
+    "order_items": "83ec594ce36d293e6f1e3bd568863f4688b1167eacc9c051dca39e256b26dc2c",
+    "refunds": "7a4deff28f62120534491bf3174da73552acfae6107bc87d37fca6d91cd79fd5",
+    "returns": "00475a20a8b3469cf1b392a958a3d223011a76d75a7353833019d555c5e0b912"
+  },
+  "world_sha256": {
+    "users": "36039454cf2cd10963cd3f688cba2fd560bf15b0322b9c47fa685f4f57eaa74c",
+    "orders": "191cbb74409dd3a58dd28b84831abfd6aaa3c0d4d63e8146514ca69c5dfcd486",
+    "order_items": "1ca9f2992aa7242f6933fdbaf55dac0bafc8d8079ee1c81c2c80d6ee2ec3672f",
+    "refunds": "227a857d779592fe6a7785db88943d29bb0f6cf3cbae7f565d373d12c1ff9a1f",
+    "returns": "8fcc04537d4b94392b205096ee61a540df4ef901ed8ebf8167b2149a924a3289"
+  }
+}

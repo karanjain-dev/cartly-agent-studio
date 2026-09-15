@@ -1,0 +1,24 @@
+{
+  "all_unchanged": true,
+  "files": [
+    "data/serviceable_pincodes.json",
+    "data/order_items.json",
+    "data/returns.json",
+    "data/config.json",
+    "data/orders.json",
+    "data/users.json",
+    "data/refunds.json",
+    "scenarios/scenarios.json",
+    "scenario_truth/order_items.json",
+    "scenario_truth/returns.json",
+    "scenario_truth/config.json",
+    "scenario_truth/orders.json",
+    "scenario_truth/migration_manifest.json",
+    "scenario_truth/users.json",
+    "scenario_truth/README.md",
+    "scenario_truth/migration_manifest_before_address_cleanup.json",
+    "scenario_truth/refunds.json",
+    "simulation/reference_calculator.py",
+    "prompts/agent_v1.md"
+  ]
+}

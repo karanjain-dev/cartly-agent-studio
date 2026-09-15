@@ -1,0 +1,273 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I would like to cancel my order as I no longer need it. Could you please assist me with the cancellation process? Thank you.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the released fact that the customer no longer needs the order and wants to cancel it.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is initiating a cancellation request and asking for assistance, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0be9f6e8f00e6979016aa932f4f30887d2a6be24f9e6fa78f9",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item specifically, only requested user ID and order ID for verification."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the condition or usage of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for explicit confirmation after explaining a proposed action with amount and payment details."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asked to verify identity by requesting registered user ID or contact details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID, either your registered email address or phone number, and the order ID you’d like to cancel.",
+        "source_quote": "\"user_id\": \"U014\", \"email\": \"customer014@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U014 and my registered email is customer014@example.com. However, I do not have the order ID with me right now. Could you please check using my user ID or email?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses only the allowed credentials facts: user ID and registered email, and does not assert any unsupported facts about the order or cancellation.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0444956de0476586016aa932ff75a887d28f6969af52c93352",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The latest agent message explicitly asks which order the customer wants to cancel, directly fulfilling the reveal condition to release the order fact."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent message does not ask about the item's condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained the proposed action, amount, or payment method yet, nor asked for explicit confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Which order would you like to cancel?",
+        "source_quote": "The order I am asking about is O0075 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Please cancel my order O0075 for the Wireless headphones. Thank you.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses only information explicitly provided by the customer in the profile and released facts, specifically the order ID O0075 and item Wireless headphones, aligning with the customer's initial request to cancel the order.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_09f3d5de6a512e5e016aa9331a729087d2b24553aa14e1a6ab",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or use, so the condition fact is not relevant or requested."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explicitly asked for confirmation after explaining the proposed cancellation, refund amount, and payment method, matching the reveal condition."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Please confirm: shall I cancel order **O0075 (Wireless headphones)** and refund **₹2,548**, including ₹49 shipping, to your **original payment card**?",
+        "source_quote": "The order I am asking about is O0075 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Yes, please proceed with cancelling order O0075 and refunding ₹2,548 to my original payment card. Thank you.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "consent",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately references the order ID O0075, the requested cancellation, and the refund amount ₹2,548 as confirmed by support in the conversation. The customer consents explicitly as per profile instruction.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer agrees to the proposed cancellation and refund, but the action still needs to be completed by support.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_071a1faa88843f87016aa933252e5887d2987aa041808c6e2a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's message confirms cancellation and refund but does not ask about the item's condition or use."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "Thank you for confirming. I appreciate your help in cancelling my order and processing the refund.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order",
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses facts confirmed by the customer, including the order ID O0075, the refund amount ₹2,548, and the confirmation to proceed with cancellation and refund to the original payment card.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "Customer expresses thanks and acknowledges completion of cancellation and refund, thus ending the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0e0ea2cb05485c4b016aa93334b04487d28a260e1e0d896e23",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "customer_ended"
+  }
+]

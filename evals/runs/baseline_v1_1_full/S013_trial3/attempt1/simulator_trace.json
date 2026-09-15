@@ -1,0 +1,186 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I received the headphones but noticed they were defective upon arrival. Could you please process a refund for me? Thank you for your assistance.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer message is consistent with the released request fact about defective headphones and refund request.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0d84b7e6ba7f9472016aa93721a0e487d2ad2a9ce81e632c96",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asked for user ID and registered contact information, not which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation after explaining the proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent acknowledged the item is defective but did not ask what is wrong or how it differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent did not ask for a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requested user ID and registered email or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID and either your registered email address or phone number so I can verify your account.",
+        "source_quote": "\"user_id\": \"U012\", \"email\": \"customer012@example.com\""
+      },
+      {
+        "question": "If you have the order ID handy, please include it too so I can check the refund options.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "If you have the order ID handy, please include it too so I can check the refund options."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If you have the order ID handy, please include it too so I can check the refund options."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not specifically ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "Agent asked when the headphones were delivered."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent did not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "\"user_id\": \"U012\""
+      },
+      {
+        "question": "What is your registered email or phone number?",
+        "source_quote": "\"email\": \"customer012@example.com\""
+      },
+      {
+        "question": "When were the headphones delivered?",
+        "source_quote": "The item arrived on 2026-09-07."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "The headphones were delivered on 2026-09-07. My user ID is U012 and my registered email is customer012@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "delivery"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses facts from the customer profile including the delivery date (2026-09-07) and the user's credentials (user ID U012 and registered email).",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "delivery",
+      "request"
+    ],
+    "response_id": "resp_00ed48de4221554a016aa93735af4087d2979cc9eb7f9cd417",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  }
+]

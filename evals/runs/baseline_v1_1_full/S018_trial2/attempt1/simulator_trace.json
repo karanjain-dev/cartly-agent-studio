@@ -1,0 +1,371 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I received the headphones I ordered, but unfortunately, they arrived broken. I would like to request a refund for this item. Please let me know the next steps to proceed. Thank you!",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message is consistent with the customer's opening message and stated request about broken headphones and seeking a refund, using only allowed facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_05dd4318abd6c844016aa9389852f487d2b20e6bbf4f7b953b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not specifically ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent acknowledged the item arrived broken, effectively asking about the problem."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent mentioned a photo may be required later but did not ask for a photo now."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent explicitly asked for user ID and registered email or phone for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Your user ID?",
+        "source_quote": "\"user_id\": \"U040\""
+      },
+      {
+        "question": "Your registered email address or phone number?",
+        "source_quote": "\"email\": \"customer040@example.com\""
+      },
+      {
+        "question": "The order ID, if available?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "The order ID, if available?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "The order ID, if available?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item yet."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked about when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent has not asked for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Can you provide your user ID?",
+        "source_quote": "\"user_id\": \"U040\""
+      },
+      {
+        "question": "Can you provide your registered email?",
+        "source_quote": "\"email\": \"customer040@example.com\""
+      },
+      {
+        "question": "Can you provide your registered phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Can you provide your registered phone number?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Can you provide your registered phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when item arrived or when problem was reported."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent asked which order or item, but did not directly ask in the latest message; instead, the message asks which detail the customer is unsure about (user ID, email/phone, or order ID). This is closer to credential verification rather than explicitly requesting order details."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the condition or use of the item in the latest message."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining a proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "Which detail are you unsure about—your user ID, registered email or phone number, or order ID?",
+        "source_quote": "\"user_id\": \"U040\", \"email\": \"customer040@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "My user ID is U040 and my registered email address is customer040@example.com. Could you please check my order and tell me the next steps for the refund?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply uses only customer credentials (user ID and registered email) which are supplied by the customer profile and released facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_0109e0148b18e22b016aa938bde40887d2b6d6731dbb8603db",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent asked which order or item; the response provides order ID and product."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or usage of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet asked for explicit confirmation after explaining action and amounts."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "Agent provided exact delivery date after being implicitly asked about order and refund timing."
+      },
+      {
+        "fact_id": "photo",
+        "release": true,
+        "reason": "Agent requested upload of photo showing damage; thus photo fact is relevant and revealed."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "Have you uploaded a photo showing the damage to the order?",
+        "source_quote": "I have not uploaded a photo and cannot provide one during this conversation."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "Thank you for verifying my details. Since I cannot upload a photo right now, could you please guide me on how to upload the photo of the broken headphones so we can proceed with the refund?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "delivery",
+        "problem",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft correctly reflects the customer's inability to upload a photo currently, matching the released fact 'photo' and appropriately requests instructions on how to upload the photo for the refund process, consistent with the conversation context.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "credentials",
+      "delivery",
+      "order",
+      "photo",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_06ac3f69e8a8b972016aa938d8534887d28fef050e42569962",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  }
+]

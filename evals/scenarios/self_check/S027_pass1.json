@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S027",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "87149c31f26213736103c0ee0e799b60907ee75be139b914e84180c8b3ddebcc",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The new address in Shimla (pincode 171001) is unserviceable per Cartly's serviceability data. Address changes are allowed only in Placed status and must pass serviceability. Therefore, the address update cannot be granted.",
+    "rules": [
+      "D1",
+      "D2"
+    ]
+  },
+  "response_id": "resp_0619ccd6713d3e28016aa90d85140087d285ccd4617c833a05",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4199,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 2944
+    },
+    "output_tokens": 97,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4296
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S008",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "9ba52a4c15b71d850fd52e100a40b6321d412bd7365e45bd1f06e41715cebe3d",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "escalated",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The user reports a wrong item (color difference) worth ₹1499 with no photo evidence uploaded. Since the item value exceeds ₹2,000 requires photo evidence before return creation per policy E6, and no evidence is provided, we must escalate following policy E6 and G2.",
+    "rules": [
+      "E6",
+      "G2"
+    ]
+  },
+  "response_id": "resp_0650454f129f5540016aa90d5c36b087d2b74cbb88edf9a3e7",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4653,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 111,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4764
+  }
+}

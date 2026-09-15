@@ -1,0 +1,55 @@
+{
+  "scenario_id": "S025",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "ae64ff9af7839a33941e5f023108269408b6a094be332d79d45d6804dfdc90f2",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0053",
+          "item_id": "I0057"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 399,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The Ceramic serving bowl from order O0053 was delivered broken and reported within the 10-day return window. It is a damaged item under the value of ₹500, but a photo was not uploaded as required for items over ₹2000, which does not apply here because item price is ₹399. Per policy, returns for damaged items require a pickup scheduled for refund after pickup completion. The refund amount is full item price plus shipping (₹399 + ₹49 = ₹448). The user must confirm to proceed.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E12",
+      "G1",
+      "H1"
+    ]
+  },
+  "response_id": "resp_058970660755d64a016aa90d7e036c87d28cab3040453b8fa3",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4522,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 279,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4801
+  }
+}

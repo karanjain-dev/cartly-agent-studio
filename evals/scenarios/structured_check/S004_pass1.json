@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S004",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "48dc149a3b8bd28a9bdf77e955562703fe94e873bb96852d1f8c1ac134508577",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "outcome_type": "address_update",
+    "order_id": "O0074",
+    "item_id": null,
+    "reason": null,
+    "refund_amount": null,
+    "refund_method": null,
+    "shipping_refunded": false,
+    "escalation_rule": null
+  },
+  "response_id": "resp_040a054c58b176d1016aa910c438f487d2a0129468cb599baf",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4615,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 48,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4663
+  }
+}

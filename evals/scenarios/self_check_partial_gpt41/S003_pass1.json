@@ -1,0 +1,64 @@
+{
+  "scenario_id": "S003",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "89161dd1c059972c6f3802161764a88c4677d541bdecb80cb887be9c911cbf3e",
+  "requested_model": "gpt-4.1",
+  "status": "completed",
+  "decision": {
+    "resolution": "cancelled",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0075"
+        },
+        "values": {
+          "status": "Cancelled"
+        }
+      },
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0075",
+          "item_id": null
+        },
+        "values": {
+          "reason": "Order cancelled by customer before shipping",
+          "amount": 2499,
+          "shipping_refunded": true,
+          "method": "Card",
+          "status": "completed"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 2499,
+      "method": "Card",
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "Order O0075 is in Packed status and can be cancelled with a full refund of ₹2,499 (including shipping) to your card payment method. No other fees or actions apply.",
+    "rules": [
+      "C1",
+      "E12",
+      "H4"
+    ]
+  },
+  "response_id": "resp_06dbe7a5d3788c71016aa90c745c2087d2b273ac3b7082cc86",
+  "model": "gpt-4.1-2025-04-14",
+  "usage": {
+    "input_tokens": 4388,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 264,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4652
+  }
+}

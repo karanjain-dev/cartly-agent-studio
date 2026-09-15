@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S009",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "420cd3b85a79ed1c756561ff3cc9d1679d56268a0cdc3d61f39e271320f4ea0e",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "coupon_issued",
+    "changes": [
+      {
+        "table": "coupons",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0083"
+        },
+        "values": {
+          "amount": 100
+        }
+      },
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0083"
+        },
+        "values": {
+          "coupon_issued": true,
+          "coupon_amount": 100
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0083 was delivered late (actual 2026-09-14, promised 2026-09-08), making it eligible for a one-time ₹100 coupon as per policy F1. No refund is applicable since the customer did not request a return or report damage.",
+    "rules": [
+      "F1"
+    ]
+  },
+  "response_id": "resp_04916663daca6609016aa90d5d188487d28d71af8207854667",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4522,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 213,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4735
+  }
+}

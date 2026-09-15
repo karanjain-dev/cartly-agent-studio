@@ -1,0 +1,36 @@
+{
+  "error_origin": "simulator",
+  "reason": "Simulator ending judge misclassified acceptance of a pending action as a completed goal.",
+  "evidence": {
+    "agent_proposal": "I found your ceramic serving bowl in order **O0038**, delivered on 13 September. It qualifies for an immediate refund, with no return or photo required.\n\nThe refund is **₹448**—₹399 for the bowl plus ₹49 shipping. Since you paid cash on delivery, it will go to your **Cartly Wallet**.\n\nWould you like me to issue this refund now?",
+    "customer_draft": {
+      "message": "Yes, please go ahead and issue the refund to my Cartly Wallet now.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "delivery",
+        "request"
+      ]
+    },
+    "original_judgment": {
+      "event": "customer_reply_check",
+      "turn": 3,
+      "draft": {
+        "message": "Yes, please go ahead and issue the refund to my Cartly Wallet now.",
+        "stop_reason": "continue",
+        "used_fact_ids": [
+          "credentials",
+          "order",
+          "delivery",
+          "request"
+        ]
+      },
+      "grounded": true,
+      "grounding_reason": "The reply 'Yes, please go ahead and issue the refund to my Cartly Wallet now.' is consistent with the customer's profile stating they consent to refund after action explanation, and with the conversation context providing the refund details and payment method.",
+      "end_reason": "goal_met",
+      "ending_reason": "The customer explicitly agrees to the proposed refund action, indicating the refund process can proceed, meeting the customer's goal."
+    },
+    "finding": "The agent asked whether to act. The customer asked the agent to proceed; the action was not completed and there was no farewell. Ending here was a simulator malfunction."
+  }
+}

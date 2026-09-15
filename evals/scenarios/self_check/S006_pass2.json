@@ -1,0 +1,50 @@
+{
+  "scenario_id": "S006",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "5e7e0a9998c73297100b864fc5774f3dae232865941363202f3e4d57005c2a75",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0036",
+          "item_id": "I0036"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The wireless headphones from order O0036 were delivered on 2026-09-13 and reported defective within the 7-day electronics return window. The item value is above ₹2,000 and photo evidence is uploaded, so a return pickup is scheduled per policy E1, E3, E5, E6, E13. Refund will be processed automatically after pickup. Awaiting your explicit confirmation of this exact action.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E13",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0c1ea12182da161f016aa90d5826dc87d2ae386624f3cda368",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4357,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 221,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4578
+  }
+}

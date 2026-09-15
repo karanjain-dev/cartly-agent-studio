@@ -1,0 +1,361 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I placed an order some time ago and it still has not arrived. Could you please let me know what can be done about this delay? I would appreciate something to compensate for the inconvenience.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft response is consistent with the released fact that the order has not arrived and the customer's request for compensation due to the delay.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0a2b2522d8c24c66016aa93598d73887d2828b562f03c16f91",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item yet."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining proposed action."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asked to verify identity and requested registered contact details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID and either your registered email or phone number, along with the order ID if you have it.",
+        "source_quote": "\"user_id\": \"U031\", \"email\": \"customer031@example.com\""
+      },
+      {
+        "question": "If not, I can find the order after verifying your account.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "If not, I can find the order after verifying your account."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If not, I can find the order after verifying your account."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked for specific order ID or item details yet, only requested user ID and contact info."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about item condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not explained any proposed action or requested confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "\"user_id\": \"U031\""
+      },
+      {
+        "question": "What is your registered email?",
+        "source_quote": "\"email\": \"customer031@example.com\""
+      },
+      {
+        "question": "What is your registered phone number?",
+        "source_quote": ""
+      },
+      {
+        "question": "Is your order still undelivered more than 5 days after its promised delivery date?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your registered phone number?",
+      "Is your order still undelivered more than 5 days after its promised delivery date?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your registered phone number?",
+      "Is your order still undelivered more than 5 days after its promised delivery date?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which specific order or item they are referring to."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet explained a proposed action, amount, or payment method, nor requested explicit confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Do you have your user ID?",
+        "source_quote": "\"user_id\": \"U031\""
+      },
+      {
+        "question": "Do you have your registered email or phone number?",
+        "source_quote": "\"email\": \"customer031@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "My user ID is U031 and my registered email is customer031@example.com. Please check the order status and let me know if I qualify for the delay compensation.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply uses user ID and email from the profile credentials and references the original delay compensation request from the released facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0e3b13767bd35653016aa935b348dc87d2b51c2b8d24ac902c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent explicitly named the order ID O0092 and the item Wireless headphones in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the condition or usage of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent asked if customer wants the coupon issued, but has not yet explained the exact amount and payment method or requested explicit confirmation from customer."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "turn": 5,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent mentioned issuing the coupon but did not explicitly ask for confirmation after explaining the action, amount, and payment method; the customer only said they need to check."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "Yes, please issue the ₹100 Cartly coupon to my account. Thank you for your assistance.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply 'Yes, please issue the ₹100 Cartly coupon to my account. Thank you for your assistance.' appropriately confirms acceptance of the proposed action explicitly described by support (issuance of a ₹100 Cartly coupon) and uses information consistent with the known user ID and order.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 6,
+    "reason": ""
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_067e0ca330cedc18016aa935cace0c87d2a57482305cbc54be",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explained the proposed action, exact amount, and coupon payment method, and the customer explicitly said yes to issue the coupon."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "Thank you for issuing the ₹100 Cartly coupon to my account. I appreciate your help with this matter.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "consent",
+        "credentials",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply thanks the support agent for issuing the ₹100 Cartly coupon for order O0092 as done in the conversation; it is consistent with the customer's profile and revealed facts.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "Customer acknowledges completed coupon issuance and expresses appreciation, meeting the conversation goal.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_059f27816164d97c016aa935d579b887d2b39804563dbe72ff",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "customer_ended"
+  }
+]

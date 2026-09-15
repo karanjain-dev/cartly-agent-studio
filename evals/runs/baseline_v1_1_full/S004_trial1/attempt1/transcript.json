@@ -1,0 +1,277 @@
+[
+  {
+    "role": "customer",
+    "content": "I would like to update the delivery address for my order. Could you please assist me in sending my order to my new address?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Please share your user ID, registered email or phone number, and order ID.\n\nAddress changes are only available while the order is in the **Placed** state. Once I verify your details and check the order, I’ll ask for your new address.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U013 and my registered email is customer013@example.com. The order ID is O0074.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U013",
+      "email": "customer013@example.com",
+      "phone": null
+    },
+    "call_id": "call_Mb3mZEiBuh0IqyQanl8AfLry",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U013"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0074"
+    },
+    "call_id": "call_KlWTLfb1WpaWU7fNeOZ2zHTO",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0074",
+        "user_id": "U013",
+        "status": "Placed",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "Card",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 113, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Mumbai",
+          "state": "Maharashtra",
+          "pincode": "400001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0078",
+          "order_id": "O0074",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 6499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your identity is verified, and order **O0074** is in the **Placed** state, so it’s eligible for an address change.\n\nPlease send your full new address, including:\n- Flat/house number, building, and street\n- Area or landmark, if applicable\n- City and state\n- Pincode and country\n\nI’ll check serviceability and ask you to confirm the full address before updating it.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check and share the full new address when you’re ready. I haven’t made any changes. The address can only be updated while your order remains in the **Placed** state.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "Of course—take your time to check. When you have the full new address, send it here. Your order’s address is unchanged.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 5
+  },
+  {
+    "role": "support",
+    "content": "No problem. There’s nothing else you need to provide right now—just message me when you have the new address.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "Understood. I’ll leave the address unchanged. Let me know when you have the new details.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 7
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—no changes have been made. We can continue when you have the new address.",
+    "turn": 7
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 8
+  },
+  {
+    "role": "support",
+    "content": "No problem—you don’t need to reply until you’ve checked the new address.",
+    "turn": 8
+  },
+  {
+    "role": "customer",
+    "content": "I understand. I'll wait for you to check and share the full new address when you're ready.",
+    "turn": 9
+  },
+  {
+    "role": "support",
+    "content": "Sorry for the confusion—you’ll need to provide your new delivery address; I can’t look it up for you. Once you share it, I can check serviceability and ask for your confirmation before updating the order, provided it’s still in the **Placed** state.",
+    "turn": 9
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 10
+  },
+  {
+    "role": "support",
+    "content": "No problem—send your new address once you’ve checked it. Your current delivery address remains unchanged.",
+    "turn": 10
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 11
+  },
+  {
+    "role": "support",
+    "content": "Understood. We can pause here until you have the new address.",
+    "turn": 11
+  },
+  {
+    "role": "customer",
+    "content": "I’ll check my address and get back to you with the full new address soon. Thank you for your patience.",
+    "turn": 12
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Send the full address when you’re ready. No changes have been made, and we can update it only while your order is still in the **Placed** state.",
+    "turn": 12
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 13
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—we can pause here. Send the new address when you have it; no changes have been made.",
+    "turn": 13
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 14
+  },
+  {
+    "role": "support",
+    "content": "No problem. You don’t need to reply until you have the new address ready.",
+    "turn": 14
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 15
+  },
+  {
+    "role": "support",
+    "content": "Understood—we’ll leave the address unchanged. Let me know when you’re ready to continue.",
+    "turn": 15
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 16
+  },
+  {
+    "role": "support",
+    "content": "That’s fine—we can pause here until you’ve checked.",
+    "turn": 16
+  },
+  {
+    "role": "customer",
+    "content": "I need some time to check my new address and will share the full details with you once I have confirmed them. Thank you for your patience.",
+    "turn": 17
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Send the full address when you’re ready, and I’ll recheck whether the order is still eligible for an update. No changes have been made.",
+    "turn": 17
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 18
+  },
+  {
+    "role": "support",
+    "content": "No problem—we can pause here until you have the new address.",
+    "turn": 18
+  },
+  {
+    "role": "customer",
+    "content": "I appreciate your patience. Once I have the full new address, I will confirm the serviceability and update your order O0074 to be delivered to that address, assuming it is still in the Placed state. Please share the full new address when you're ready.",
+    "turn": 19
+  },
+  {
+    "role": "support",
+    "content": "Just to clarify: **you’ll need to provide the new address**. I’ll then check serviceability and the order’s status, and ask you to confirm the full address before making any changes.",
+    "turn": 19
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 20
+  },
+  {
+    "role": "support",
+    "content": "No problem—we can pause until you’ve checked. Your delivery address remains unchanged.",
+    "turn": 20
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 20
+  }
+]

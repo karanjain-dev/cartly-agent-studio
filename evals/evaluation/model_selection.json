@@ -1,0 +1,10 @@
+{
+  "available_model_count": 134,
+  "agent_requested": "gpt-6-astra",
+  "agent_resolved": "gpt-6-astra",
+  "selection_basis": "Strongest general-purpose model listed by this API key, according to the official model catalog.",
+  "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "resolved_name_source": "model field on every agent response in baseline_v1_smoke",
+  "simulator_requested": "gpt-4.1-mini",
+  "simulator_resolved": "gpt-4.1-mini-2025-04-14"
+}

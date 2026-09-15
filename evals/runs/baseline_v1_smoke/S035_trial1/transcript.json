@@ -1,0 +1,12 @@
+[
+  {
+    "role": "customer",
+    "content": "I received the kurta, but the size doesn't seem right. I want to return it and get my money back.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help check your return eligibility. Please share your user ID, either your registered email or phone number, and the order ID.\n\nWas the kurta’s size different from the size you ordered, or did you receive the ordered size but the fit isn’t right? If it’s a fit issue, is the kurta unused?",
+    "turn": 1
+  }
+]

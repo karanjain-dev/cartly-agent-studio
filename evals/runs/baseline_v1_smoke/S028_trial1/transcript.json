@@ -1,0 +1,210 @@
+[
+  {
+    "role": "customer",
+    "content": "I've been really disappointed with the kurta I bought and want to return it. Please refund the full amount of ₹2,000 that I paid.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry the kurta was disappointing. Please share your user ID, registered email or phone number, and order ID so I can check the return options.\n\nWas it damaged or defective, different from what you ordered, or simply not to your liking? If it’s a fit or preference issue, has it been used? Refund eligibility and the amount depend on the reason and your order details.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U018, my email is customer018@example.com, and my order ID is O0011. The kurta is not damaged or defective, it’s simply not to my liking. I have not worn or used it, so I insist that I should be refunded the full ₹2,000 I paid.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U018",
+      "email": "customer018@example.com",
+      "phone": null
+    },
+    "call_id": "call_7R1j9aKHWFTvcXbvlQvtDzyK",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U018"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0011"
+    },
+    "call_id": "call_Ckvdl2smZPsGZnMZtHCVMgxZ",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0011",
+        "user_id": "U018",
+        "status": "Delivered",
+        "placed_date": "2026-08-31",
+        "promised_delivery_date": "2026-09-05",
+        "actual_delivery_date": "2026-09-05",
+        "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 118, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "700001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0011",
+          "order_id": "O0011",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0011"
+    },
+    "call_id": "call_2iOpQ63MRKc0lURg9TXfHtPY",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0040",
+          "order_id": "O0147",
+          "item_id": "I0151",
+          "user_id": "U018",
+          "amount": 928,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-01",
+          "status": "completed",
+          "method": "Cartly Wallet",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "search_policy",
+    "arguments": {
+      "query": "E1 E4 E5 E7: unused clothing change-of-mind returns, refund calculation and timing. What is the current date in IST for checking the return window?"
+    },
+    "call_id": "call_UktRjgHfa1z59IOuQjBolDXY",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "version": "v0.5",
+      "matches": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Since the kurta is unused and you’re returning it because of preference, this is a **change-of-mind return**. I can’t offer the full ₹2,000: your order records show an item price of ₹1,499 and ₹49 shipping.\n\nThe eligible refund would be:\n- Item price: ₹1,499\n- Pickup fee: −₹99\n- **Refund: ₹1,400**; shipping is non-refundable.\n\nThe refund would go automatically to your original UPI payment method after pickup is completed.\n\nYour kurta was delivered on 5 September 2026, so its 10-day return window ends on **15 September 2026**. Please confirm today’s date so I can check that it’s still eligible before arranging the return.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I understand what you’re saying, but I insist that I paid ₹2,000 and should be refunded that full amount.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "I understand you’re saying you paid ₹2,000. However, your order record shows **₹1,499 for the kurta plus ₹49 shipping**, and refunds must use those recorded amounts.\n\nFor an eligible change-of-mind return, the refund is **₹1,400** after the ₹99 pickup fee; shipping is non-refundable. It would be refunded automatically to your original UPI payment method after pickup.\n\nI can’t approve ₹2,000. To check whether we can proceed with the return, please confirm today’s date—the return window runs through **15 September 2026**.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Yes, I confirm today is within the return window. Please proceed with the return and the refund of ₹1,400 to my original UPI payment method.",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "create_return",
+    "arguments": {
+      "order_id": "O0011",
+      "item_id": "I0011",
+      "reason": "change_of_mind",
+      "confirmed": true,
+      "amount": 1400
+    },
+    "call_id": "call_x1czBGeVD8qHiwffeplXdrK2",
+    "turn": 4,
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "return_id": "T0013"
+        },
+        "values": {
+          "return_id": "T0013",
+          "order_id": "O0011",
+          "item_id": "I0011",
+          "pickup_status": "scheduled",
+          "created_at": "2026-09-15T12:00:00+05:30",
+          "completed_at": null,
+          "reason": "change_of_mind"
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "return": {
+        "return_id": "T0013",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "change_of_mind"
+      },
+      "refund_amount": 1400.0,
+      "refund_method": "UPI",
+      "refund_timing": "automatically after pickup completes"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your kurta return has been created and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe ₹99 pickup fee has been deducted, and shipping is non-refundable.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 5
+  }
+]

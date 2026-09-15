@@ -1,0 +1,222 @@
+[
+  {
+    "order_id": "O0092",
+    "before": {
+      "order_id": "O0092",
+      "user_id": "U031",
+      "status": "Delivered",
+      "placed_date": "2026-09-04",
+      "promised_delivery_date": "2026-09-09",
+      "actual_delivery_date": "2026-09-09",
+      "actual_delivery_at": "2026-09-09T12:00:00+05:30",
+      "payment_method": "Card",
+      "shipping_fee": 29,
+      "delivery_address": {
+        "line1": "Flat 131, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "pincode": "411001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U031",
+      "user_request": null,
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": []
+    },
+    "after": {
+      "order_id": "O0092",
+      "user_id": "U031",
+      "status": "Shipped",
+      "placed_date": "2026-09-04",
+      "promised_delivery_date": "2026-09-09",
+      "actual_delivery_date": null,
+      "actual_delivery_at": null,
+      "payment_method": "Card",
+      "shipping_fee": 29,
+      "delivery_address": {
+        "line1": "Flat 131, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "pincode": "411001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U031",
+      "user_request": "My order has not arrived. It is past the promised date.",
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": [
+        "F1_undelivered_over_5_days_late"
+      ]
+    }
+  },
+  {
+    "order_id": "O0099",
+    "before": {
+      "order_id": "O0099",
+      "user_id": "U038",
+      "status": "Delivered",
+      "placed_date": "2026-08-28",
+      "promised_delivery_date": "2026-09-02",
+      "actual_delivery_date": "2026-09-02",
+      "actual_delivery_at": "2026-09-02T12:00:00+05:30",
+      "payment_method": "COD",
+      "shipping_fee": 79,
+      "delivery_address": {
+        "line1": "Flat 138, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "pincode": "110001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U038",
+      "user_request": null,
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": []
+    },
+    "after": {
+      "order_id": "O0099",
+      "user_id": "U038",
+      "status": "Out for delivery",
+      "placed_date": "2026-09-03",
+      "promised_delivery_date": "2026-09-08",
+      "actual_delivery_date": null,
+      "actual_delivery_at": null,
+      "payment_method": "COD",
+      "shipping_fee": 79,
+      "delivery_address": {
+        "line1": "Flat 138, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "New Delhi",
+        "state": "Delhi",
+        "pincode": "110001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U038",
+      "user_request": "My order has not arrived. It is past the promised date.",
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": [
+        "F1_undelivered_over_5_days_late"
+      ]
+    }
+  },
+  {
+    "order_id": "O0106",
+    "before": {
+      "order_id": "O0106",
+      "user_id": "U011",
+      "status": "Delivered",
+      "placed_date": "2026-08-21",
+      "promised_delivery_date": "2026-08-26",
+      "actual_delivery_date": "2026-08-26",
+      "actual_delivery_at": "2026-08-26T12:00:00+05:30",
+      "payment_method": "UPI",
+      "shipping_fee": 0,
+      "delivery_address": {
+        "line1": "Flat 111, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Kochi",
+        "state": "Kerala",
+        "pincode": "682001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U011",
+      "user_request": null,
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": []
+    },
+    "after": {
+      "order_id": "O0106",
+      "user_id": "U011",
+      "status": "Shipped",
+      "placed_date": "2026-09-05",
+      "promised_delivery_date": "2026-09-10",
+      "actual_delivery_date": null,
+      "actual_delivery_at": null,
+      "payment_method": "UPI",
+      "shipping_fee": 0,
+      "delivery_address": {
+        "line1": "Flat 111, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Kochi",
+        "state": "Kerala",
+        "pincode": "682001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U011",
+      "user_request": "My order has not arrived. It is past the promised date.",
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": [
+        "F1_undelivered_exactly_5_days_late"
+      ]
+    }
+  },
+  {
+    "order_id": "O0113",
+    "before": {
+      "order_id": "O0113",
+      "user_id": "U018",
+      "status": "Delivered",
+      "placed_date": "2026-08-14",
+      "promised_delivery_date": "2026-08-19",
+      "actual_delivery_date": "2026-08-19",
+      "actual_delivery_at": "2026-08-19T12:00:00+05:30",
+      "payment_method": "Card",
+      "shipping_fee": 49,
+      "delivery_address": {
+        "line1": "Flat 118, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "700001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U018",
+      "user_request": null,
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": []
+    },
+    "after": {
+      "order_id": "O0113",
+      "user_id": "U018",
+      "status": "Out for delivery",
+      "placed_date": "2026-09-05",
+      "promised_delivery_date": "2026-09-10",
+      "actual_delivery_date": null,
+      "actual_delivery_at": null,
+      "payment_method": "Card",
+      "shipping_fee": 49,
+      "delivery_address": {
+        "line1": "Flat 118, Sample Residency",
+        "line2": "Synthetic address for evaluation",
+        "city": "Kolkata",
+        "state": "West Bengal",
+        "pincode": "700001",
+        "country": "India"
+      },
+      "requested_delivery_address": null,
+      "requesting_user_id": "U018",
+      "user_request": "My order has not arrived. It is past the promised date.",
+      "coupon_issued": false,
+      "coupon_amount": 0,
+      "edge_case": [
+        "F1_undelivered_exactly_5_days_late"
+      ]
+    }
+  }
+]

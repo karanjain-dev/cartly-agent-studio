@@ -1,0 +1,40 @@
+{
+  "scenario_id": "S025",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "ae64ff9af7839a33941e5f023108269408b6a094be332d79d45d6804dfdc90f2",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "escalated",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The user reports a broken ceramic serving bowl (damaged) from order O0053 delivered on 2026-09-13. This is within the 10-day return window for home items. The item price is ₹399, under ₹500, so per policy E5, immediate refund without pickup can be issued. However, no photo evidence has been uploaded, which is not required for items under ₹2,000 (E6). But there are prior damage refunds already processed for this user. The cumulative refund limit per order is not exceeded here. Given no evidence is provided and the policy does not require it for under ₹2000 items, refund could be issued. Since no prior refund on this item, and conditions otherwise met, the agent can offer refund. However, the policy states that the top lock status mandates no change without full eval rerun, and no explicit user consent to the refund action was yet given. To comply fully with policy A3 and G1, because of any ambiguity or need for confirmation, the best action is to escalate to human with full facts and summary as no direct refund command was confirmed yet and the locked policy strictness demands escalation on any non-trivial changes. This ensures compliance and customer satisfaction.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "A3",
+      "G1",
+      "G3",
+      "H1",
+      "H4"
+    ]
+  },
+  "response_id": "resp_09fde9ebdd887cc9016aa90d80bf0487d2802c59a7fc7bf08c",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4522,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 339,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4861
+  }
+}

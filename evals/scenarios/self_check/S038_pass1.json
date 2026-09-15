@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S038",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "a102604cc1a9eb5d526f165bf78ed64f4b500e16a1c5d491fbd454df43a87701",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Exchange is not covered by Cartly's policy. The policy only allows returns with refund or order cancellation; it does not support direct exchanges.",
+    "rules": [
+      "A3"
+    ]
+  },
+  "response_id": "resp_0eb0fa1edccc71bc016aa90d94ffb487d2979858f615ca3268",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4502,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 3968
+    },
+    "output_tokens": 72,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4574
+  }
+}

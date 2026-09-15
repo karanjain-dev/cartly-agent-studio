@@ -1,0 +1,11 @@
+[
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_08003914fa2fc3f1016aa91bbf66e887d286f40247714ddc98",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  }
+]

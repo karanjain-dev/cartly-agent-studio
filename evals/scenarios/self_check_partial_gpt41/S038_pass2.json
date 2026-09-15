@@ -1,0 +1,9 @@
+{
+  "scenario_id": "S038",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "18fdf438481f9c8f23d1bbbcf097ddb088c8495d607b7367d944aca42f1d83d3",
+  "requested_model": "gpt-4.1",
+  "status": "error",
+  "error": "OpenAI API HTTP 429: Rate limit reached for gpt-4.1 in organization org-wROe44AlFQQxA2UP84H945oh on tokens per min (TPM): Limit 30000, Used 30000, Requested 4500. Please try again in 9s. Visit https://platform.openai.com/account/rate-limits to learn more."
+}

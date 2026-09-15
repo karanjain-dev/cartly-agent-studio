@@ -1,0 +1,296 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I received the headphones I ordered, but unfortunately, they arrived broken. I would like to request a refund for this order. Could you please guide me through the refund process?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only states the known fact that the headphones arrived broken and requests a refund, consistent with the released facts and profile.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_09e2a8d4d042df93016aa938b664cc87d28e0f30edc29349d0",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asks to verify identity and order ID but does not specifically ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the condition or use of the item yet."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained refund details or asked for explicit confirmation yet."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent acknowledges the problem but does not ask what is wrong in detail or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent mentions checking if a photo is needed but does not ask the customer to provide one yet."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests user ID, registered email or phone number, and order ID to verify identity."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your Cartly user ID",
+        "source_quote": "\"user_id\": \"U040\""
+      },
+      {
+        "question": "Please share your registered email address or phone number",
+        "source_quote": "\"email\": \"customer040@example.com\""
+      },
+      {
+        "question": "Please share the order ID, if you have it",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Please share the order ID, if you have it"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please share the order ID, if you have it"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent did not ask what is wrong or if the item differed from the order; only stated the refund window and photo requirement."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence, only explained photo requirement if item value is above ₹2,000."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for explicit confirmation after explaining action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent has not asked specifically what is wrong or about differences from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent has not asked for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Do you have your Cartly user ID?",
+        "source_quote": "\"user_id\": \"U040\""
+      },
+      {
+        "question": "Do you have your registered email address?",
+        "source_quote": "\"email\": \"customer040@example.com\""
+      },
+      {
+        "question": "Do you have your registered phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Do you have your registered phone number?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Do you have your registered phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining a proposed action with details."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent has not asked what is wrong or whether the item differs from what was ordered."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent has not asked for a photo or other evidence during the conversation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "I understand the need to check. Please let me know once you have your Cartly user ID and registered email or phone number ready, so I can assist you further with your refund request for the broken headphones.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses only the facts from the customer profile and released facts, acknowledging the customer's repeated need to check and prompting them to provide the required verification info before proceeding.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "customer needs to provide verification details before support can proceed",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0b525eb960de9072016aa938dfe89487d289caf3512c43ebae",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  }
+]

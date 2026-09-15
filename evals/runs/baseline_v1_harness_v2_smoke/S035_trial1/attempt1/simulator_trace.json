@@ -1,0 +1,140 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0ca863853cdc2628016aa922d964e487d2abf901633634f43a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not explicitly ask which specific order or item it was, only general questions about size and fit."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "Agent asked if the kurta is unused, directly asking about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation of a proposed action, amount, or payment method yet."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask about arrival date or when problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent asked if the size label is different from the size ordered or if it is a fit issue, directly inquiring about what is wrong or difference from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent explicitly requested user ID, registered email or phone number for verification."
+      }
+    ]
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_053c281b445dd9cc016aa922e37ae887d2aae14b7e7b76aad8",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent explicitly mentions order O0040 and confirms ordered versus received size, meeting condition asking about which order or item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent requests explicit confirmation after explaining proposed action, exact amount and payment method, but customer has not yet responded with explicit yes."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "Agent refers to the delivery date 13 September 2026, thus asking about delivery timing, matching reveal condition."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent does not ask for any photo or evidence in their message."
+      }
+    ]
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_033659cd6818e90a016aa9230c370487d282fe4f9ce9f74347",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The customer explicitly confirmed proceeding with the free pickup and refund after the agent explained the action, amount, and payment method."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent never asked for a photo or evidence during the conversation."
+      }
+    ]
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "condition",
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_061b1991d7a78ac5016aa92315c69087d28102e7a94b416393",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

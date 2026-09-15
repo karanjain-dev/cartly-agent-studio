@@ -1,0 +1,2964 @@
+{
+  "scenario_sha256": "fac4906e8cb37fc44a9d351e2c2cfd39bbe275563203454917e0284883104704",
+  "policy_version": "v0.5",
+  "model": "gpt-4.1-mini",
+  "required_calls": 80,
+  "completed_calls": 80,
+  "error_count": 0,
+  "errors": [],
+  "disagreeing_scenarios": [
+    "S002",
+    "S005",
+    "S006",
+    "S007",
+    "S008",
+    "S011",
+    "S012",
+    "S013",
+    "S014",
+    "S015",
+    "S016",
+    "S017",
+    "S018",
+    "S019",
+    "S020",
+    "S022",
+    "S023",
+    "S024",
+    "S025",
+    "S026",
+    "S029",
+    "S030",
+    "S031",
+    "S032",
+    "S033",
+    "S035",
+    "S038",
+    "S039",
+    "S040"
+  ],
+  "disagreement_count": 54,
+  "disagreements": [
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0073"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0073",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 6548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 6548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0073"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0073",
+              "item_id": null
+            },
+            "values": {
+              "reason": "cancellation",
+              "amount": 6499,
+              "shipping_refunded": false,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 6499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0073 is in Placed state, so it can be cancelled with a full refund to original payment method (Card). The headphone price is ₹6499, and shipping fee is not refunded on cancellations by policy. User consent to proceed is expected before final action.",
+        "rules": [
+          "C1",
+          "E7",
+          "E12",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0073"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0073",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 6548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 6548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0073"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0073",
+              "item_id": null
+            },
+            "values": {
+              "reason": "cancellation",
+              "amount": 6499,
+              "shipping_refunded": false,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 6499,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0073 is in Placed status, so per policy C1 it can be cancelled with full refund to the original payment method. The item price is 6499 and shipping fee 49 is not refunded as per policy. User is informed of exact refund and asked for explicit yes.",
+        "rules": [
+          "C1",
+          "C2",
+          "E7",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S005",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0037",
+                "item_id": "I0037"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "Cartly Wallet",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "Cartly Wallet",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0037",
+              "item_id": "I0037"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The ceramic serving bowl from order O0037 was received broken (damaged) and is reported within the 7- or 10-day return window. Despite no photo evidence being provided (and it being above the 2000 INR threshold is not relevant since item price is 399), the item price is under 500, so immediate refund without return is allowed only for wrong items under 500 (E5), but this is damaged. Damaged items require pickup (E5). Hence, a return is scheduled with no immediate refund. Refund will be made automatically after pickup completion per policy. User confirmation will be sought before taking irrevocable actions on refund or return. Since the policy is LOCKED and refund over 5000 is not relevant, no escalation. Presented action for user confirmation.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E7",
+          "E9",
+          "E12",
+          "G1",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S005",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0037",
+                "item_id": "I0037"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "Cartly Wallet",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "Cartly Wallet",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0037",
+              "item_id": "I0037"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The ceramic serving bowl from order O0037 was delivered broken (damaged). It is within the 10-day return window for home category items. The item price is ₹399, under ₹500, but since no photo evidence is provided as required for items over ₹2,000 only, this is fine. As damaged item refund requires a return pickup scheduled first (E5), return is scheduled. Refund will be processed automatically after pickup completion. User will be asked for explicit confirmation for this action.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E9",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S006",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0036",
+                "item_id": "I0036"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0036",
+              "item_id": "I0036"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The headphones from order O0036 are defective, delivered 2 days ago within the 7-day electronics return window. A photo was uploaded as required for item value above ₹2000. According to policy, a return is scheduled for pickup and refund issued automatically after return completion. The refund will be full including shipping but is not issued immediately.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E9",
+          "E12",
+          "E13",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S006",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0036",
+                "item_id": "I0036"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0036",
+              "item_id": "I0036"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The wireless headphones from order O0036 were delivered on 2026-09-13 and reported defective within the 7-day electronics return window. The item value is above ₹2,000 and photo evidence is uploaded, so a return pickup is scheduled per policy E1, E3, E5, E6, E13. Refund will be processed automatically after pickup. Awaiting your explicit confirmation of this exact action.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S007",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0039",
+                "item_id": "I0039"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0039",
+              "item_id": "I0039"
+            },
+            "values": {
+              "reason": "wrong_item",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": null,
+          "method": null,
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "User received a wrong item (size L instead of M). It is within the 10-day return window since delivery on 2026-09-13, reported on 2026-09-15. No photo evidence was uploaded, but it is required for items over ₹2,000 (price ₹1,499, so no evidence required). Refund to the original payment method after pickup. User confirmed item unused (eligible for return).",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E11"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S007",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0039",
+                "item_id": "I0039"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The customer reports a wrong size received (size L instead of ordered size M) on a Cotton kurta worth ₹1499 delivered on 2026-09-13, with no photo evidence uploaded. Policy E6 requires a photo for wrong item claims over ₹2000 but this item is below that threshold, so no photo is mandatory strictly. However, the customer has no photo and cannot provide one. Also note the customer has no returns/refunds yet, no policy limits obstruct. Given no photo is uploaded and customer cannot provide one, to avoid a wrong refund we must escalate for human review, as the customer claims a wrong item but no evidence is provided and the item value is significant (₹1499). Escalation is per A3 since policy does not clearly allow a return without evidence for wrong item of this value when customer cannot provide photo now. The user will be asked about the action in escalation. This also complies with policy for clarity.",
+        "rules": [
+          "A3",
+          "E6",
+          "E11",
+          "E9"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S008",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0043",
+                "item_id": "I0043"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The user claims a wrong item received (color differs), order O0043 delivered on 2026-09-13 and reported on 2026-09-15, thus within the 10-day return window for clothing. The item price is 1499 (above ₹2000 threshold is false), so no photo evidence is required by policy E6. However, the user has not uploaded any photo and cannot provide one now. Refund history was not shown but there is no reason to escalate for history. Agent can proceed with return and refund if no photo is required. However, the user did not confirm explicitly any action or refund yet (per policy G1). The agent must first clarify the exact action, amount, and method and get explicit confirmation before issuing refund or return. Since it is a wrong item case with item price 1499, full refund including shipping (₹49) to original payment method (UPI) applies. Pending user's explicit confirmation, the next step is to offer return and refund. Since user has expressed the request and problem, policy requires no photo for items below ₹2000, so no escalation needed for evidence. Thus now we wait for user confirmation. Since request is clear, no ambiguity. No immediate refund as item price is above ₹500, so return must be created first. Hence no change done now. The proper next step is to state the refund amount (1499 plus 49 shipping = 1548 INR) to be refunded by UPI after return pickup is scheduled and wait for user consent. Without that, action cannot proceed. So for this adjudication, escalate with rule G1 to wait for user confirmation.",
+        "rules": [
+          "E1 (return window for clothing 10 days)",
+          "E2 (not non-returnable category)",
+          "E3 (full refund for wrong item including shipping)",
+          "E5 (refund after pickup since item value > ₹500)",
+          "E6 (photo evidence required only if item value > ₹2000; here not required)",
+          "E7 (refund method original payment method)",
+          "E11 (wrong item definition applies since color differs)",
+          "G1 (explicit confirmation required before Tier 2/3 actions)"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S008",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0043",
+                "item_id": "I0043"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The user reports a wrong item (color difference) worth ₹1499 with no photo evidence uploaded. Since the item value exceeds ₹2,000 requires photo evidence before return creation per policy E6, and no evidence is provided, we must escalate following policy E6 and G2.",
+        "rules": [
+          "E6",
+          "G2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S011",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": {
+          "amount": 0,
+          "method": null,
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0077 is in Shipped status and cannot be cancelled as per policy C2. User can refuse delivery or return after delivery.",
+        "rules": [
+          "C2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S012",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0001",
+                "item_id": "I0001"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2048,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0001",
+              "item_id": "I0001"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 0,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "Wireless headphones (electronics) are defective, reported within 7 days return window. Photo evidence uploaded. A return pickup is scheduled; refund will be issued after pickup as item price is above ₹500. Refund includes full item value and shipping fee.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "E13"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S012",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0001",
+                "item_id": "I0001"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2048,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0001",
+              "item_id": "I0001"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The Wireless headphones from order O0001 are defective (do not function as described). The item was delivered 7 days ago, so it is within the 7-day return window for electronics. Evidence photo is uploaded and item value is 1999 INR under 5000 INR limit. A return pickup is scheduled; refund will be processed automatically after pickup. User must confirm this action to proceed.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E9",
+          "E13",
+          "H1",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S013",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0005"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0005",
+              "item_id": "I0005"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The Wireless headphones order O0005 is defective and within the 7-day electronics return window. A photo evidence is uploaded as required. Return pickup is scheduled; refund will process after pickup completion as per policy E5.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S013",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0005"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0005",
+              "item_id": "I0005"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The defective headphones from order O0005 are eligible for return within the 7-day electronics return window. A return pickup is scheduled; refund will be processed automatically after pickup completion as per policy E5. Evidence photo is present so no escalation needed.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S014",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0012",
+                "item_id": "I0012"
+              },
+              "values": {
+                "reason": "change_of_mind",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1400,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0012",
+              "item_id": "I0012"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1499,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The kurta from order O0012 was delivered on 2026-09-05, within the 10-day return window. The item is unused and the return is a change-of-mind case. A return pickup is scheduled. Refund will be item value minus ₹99 pickup fee; shipping fee is not refunded for change of mind. Refund is after pickup completion via UPI as per payment method.",
+        "rules": [
+          "E1",
+          "E4",
+          "E7",
+          "E8",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S015",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0015",
+              "item_id": "I0015"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The kurta from order O0015 is eligible for change of mind return as it is unused and within the 10-day return window. A return pickup is scheduled with a refund of item price minus ₹99 pickup fee, paid to the original UPI method after pickup.",
+        "rules": [
+          "E1",
+          "E4",
+          "E7",
+          "G1",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S015",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0015",
+              "item_id": "I0015"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The kurta was delivered on 2026-09-04 and today is 2026-09-15, which is within the 10-day return window. The user has changed their mind and the item is unused. A return pickup is scheduled with refund after pickup minus ₹99 pickup fee, no shipping refunded for change of mind. Refund is to original payment method UPI.",
+        "rules": [
+          "E1",
+          "E4",
+          "E7",
+          "E8",
+          "G1",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S016",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0017",
+                "item_id": "I0017"
+              },
+              "values": {
+                "reason": "damaged",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 748,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0017",
+              "item_id": "I0017"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The item is damaged, reported within the 10-day return window, with photo evidence uploaded. A return pickup will be scheduled and refund will be processed after pickup as per policy E3 and E5.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E13"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S016",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0017",
+                "item_id": "I0017"
+              },
+              "values": {
+                "reason": "damaged",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 748,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0017",
+              "item_id": "I0017"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 699,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The cotton vest is innerwear, but damaged items are refundable with return pickup scheduled. Return window and photo evidence conditions are met. Refund will occur after pickup; shipping is refunded once per order already and this order has no prior refunded shipping.",
+        "rules": [
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E12",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0019",
+              "item_id": "I0019"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The customer reported a damaged innerwear item (cotton vest) within 48 hours of delivery, with photo evidence uploaded. Innerwear is usually non-returnable except when damaged or wrong. Return window is valid (day 3 after delivery). Refund will be issued automatically after pickup completion as per policy. No immediate refund is issued because the item price is over ₹500.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E9",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0019",
+              "item_id": "I0019"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": null,
+          "method": null,
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The vest (innerwear) is non-returnable normally unless damaged or wrong. It arrived torn (damaged), reported within 48 hours, with photo evidence uploaded. The delivery date was 3 days ago, within the 10-day return window. The policy requires scheduling a return pickup first, then auto refund after pickup. Immediate refund is only for wrong items under ₹500, not applicable here. Await your explicit confirmation before proceeding.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E12",
+          "E13",
+          "H1",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S018",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0033",
+              "item_id": "I0033"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 2548,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The headphones were delivered 2 days ago and are damaged. The return window for electronics is 7 days, so the item is eligible for a return. Item price is ₹2499 plus shipping ₹49 for total ₹2548 refund after pickup. Photo evidence is not mandatory as item value is above ₹2000 but no photo was uploaded, still the policy allows return scheduling here with refund after pickup. The refund is to original payment method UPI. Return scheduled; refund will process after pickup completion.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "E13",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S018",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0033",
+              "item_id": "I0033"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": null,
+          "method": null,
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The wireless headphones were delivered broken, reported within the 7-day electronics return window. Per policy E3 and E5, a full refund including shipping can be issued, but since the item price is above ₹500 and no photo evidence was provided (requirement E6 applies for price > ₹2000, but this item is ₹2499 so evidence photo is required), photo evidence is missing and cannot be uploaded now. Without evidence, we cannot proceed with an immediate refund. Hence, per policy, we schedule a return pickup first and refund will be processed after pickup completion. User consent for scheduling return and refund is needed before proceeding.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S019",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0030",
+                "item_id": "I0030"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2048,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0030",
+              "item_id": "I0030"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The wireless headphones are defective, reported within 2 days of delivery and within the 7-day electronics return window. Photo evidence is not required for items under ₹2,000. Return pickup is scheduled; refund will be processed after pickup automatically as per policy E5.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S019",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0030",
+                "item_id": "I0030"
+              },
+              "values": {
+                "reason": "defective",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2048,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0030",
+              "item_id": "I0030"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The wireless headphones from order O0030 delivered on 2026-09-13 are defective. The item is electronics with a 7-day return window; today is day 2, so return is allowed. The item price is ₹1999, above ₹2000 threshold for photo evidence but no photo was provided, so refund cannot be immediate. The agent schedules a return pickup per policy E3,E5. Refund will happen after pickup. User must confirm this action and refund.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S020",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "coupon_issued",
+        "changes": [
+          {
+            "table": "coupons",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0081"
+            },
+            "values": {
+              "amount": 100
+            }
+          },
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0081"
+            },
+            "values": {
+              "coupon_issued": true,
+              "coupon_amount": 100
+            }
+          }
+        ],
+        "refund": {
+          "amount": 100,
+          "method": "Cartly Wallet",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "The order O0081 was delivered one day late (delivered on 2026-09-14, promised on 2026-09-09) qualifying for one ₹100 coupon per late order as per policy section F1. Coupon granted immediately as goodwill credit.",
+        "rules": [
+          "F1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S020",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "coupon_issued",
+        "changes": [
+          {
+            "table": "coupons",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0081"
+            },
+            "values": {
+              "amount": 100
+            }
+          },
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0081"
+            },
+            "values": {
+              "coupon_issued": true,
+              "coupon_amount": 100
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "Order O0081 was delivered late (promised 2026-09-09, delivered 2026-09-14) so a one-time ₹100 coupon is allowed per policy F1 for a late order. Coupon issued for order O0081.",
+        "rules": [
+          "F1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S022",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0049"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "refunded",
+        "changes": [
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0049",
+              "item_id": "I0052"
+            },
+            "values": {
+              "reason": "defective",
+              "amount": 3099,
+              "shipping_refunded": false,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 3099,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "The user requests a refund for the second pair of defective headphones (item I0052) from order O0049. The item is electronics, valued at ₹3000, delivered within 7-day return window, with photo evidence uploaded. Refund includes full item price plus shipping ₹99 previously refunded only once (shipping refunded only once per order). Since item price is over ₹500 and damaged/defective, refund is immediate as refund for defective items under ₹500 is immediate but over ₹500 requires return process normally; however, since the other identical item has already been refunded with pickup, and the user demands refund now, and both items are identical and delivered same day, policy directs creation of a return with refund after pickup. But here, damage refund already issued for the first item. The policy (E9, H2) does not allow exceeding ₹5000 cap per order with damage refunds and shipping fees. One headphone refund was ₹3099 including shipping; a second will be ₹3000 value without shipping refill per E12. Total 6099 exceeds ₹5000 refund limit, so escalation is required. However, since the user is explicitly asking for a refund for the second headphone and has evidence, we must escalate due to refund amount exceeding agent limit. But given the prompt, issue immediate refund only if under ₹500, so for ₹3000 item this is not immediate refund. The previous refund was after pickup system refund. So for this new damaged item refund, escalate due to exceeding limit (over ₹5000 cumulative). So we must escalate, not refund immediately.",
+        "rules": [
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E9",
+          "E10",
+          "E12",
+          "E13",
+          "H2",
+          "G2",
+          "G3"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S022",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0049"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "refunded",
+        "changes": [
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0049",
+              "item_id": "I0052"
+            },
+            "values": {
+              "reason": "defective",
+              "amount": 3099,
+              "shipping_refunded": false,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 3099,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Item Wireless headphones is defective, within 7-day window, photo evidence uploaded, and refund amount is item price (3000) as per database plus no shipping refund as refunded once already; refund is immediate per policy.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "E13",
+          "H2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S023",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0060"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0060",
+              "item_id": "I0064"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The ceramic serving bowl in order O0060 was delivered broken (damaged) on 2026-09-13 and reported within the 10-day return window. As the item price is ₹399 (under ₹500) but the policy requires immediate refund only for wrong items under ₹500, and for damaged items scheduled return is required, we will schedule a return pickup. The user has not uploaded photo evidence (required only if item price > ₹2000). The refund will be processed automatically after pickup completion.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E13"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S023",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0060"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0060",
+              "item_id": "I0064"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The item was delivered 2 days ago, which is within the 10-day return window for home category items. The item arrived broken, so it qualifies as damaged. A return pickup is scheduled per policy E3 and E5, since the item value (₹399) is above ₹500, no immediate refund is issued. No photo evidence is required as the item value is under ₹2000 per E6. The user will get a full refund including shipping after pickup completion. User consent for return pickup scheduling is needed before proceeding.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S024",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0068",
+                "item_id": "I0072"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "UPI",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "UPI",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0068",
+              "item_id": "I0072"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The item was delivered on 2026-09-13 and reported broken within the 10-day return window for home categories, so it qualifies for a full refund with shipping after return pickup. Photo evidence is not required for items priced below ₹2,000. Return pickup is scheduled; refund will process after pickup completion.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E12",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S024",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0068",
+                "item_id": "I0072"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "UPI",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "UPI",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0068",
+              "item_id": "I0072"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The item 'Ceramic serving bowl' in order O0068 was delivered broken on 2026-09-13, and the return window for this home category item is 10 days, so it is eligible for return and full refund including shipping. The item price is ₹399, under the ₹500 immediate refund threshold. However, no photo evidence was uploaded or can be provided, which is not required for items below ₹2,000 value. The agent schedules a return pickup; refund will be processed automatically after pickup completion as per policy E5. Awaiting your explicit confirmation to proceed with scheduling the return pickup.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E6",
+          "E9",
+          "E12",
+          "H1",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S025",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0053",
+                "item_id": "I0057"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "UPI",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "UPI",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0053",
+              "item_id": "I0057"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 399,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The Ceramic serving bowl from order O0053 was delivered broken and reported within the 10-day return window. It is a damaged item under the value of ₹500, but a photo was not uploaded as required for items over ₹2000, which does not apply here because item price is ₹399. Per policy, returns for damaged items require a pickup scheduled for refund after pickup completion. The refund amount is full item price plus shipping (₹399 + ₹49 = ₹448). The user must confirm to proceed.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E12",
+          "G1",
+          "H1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S025",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0053",
+                "item_id": "I0057"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "UPI",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "UPI",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The user reports a broken ceramic serving bowl (damaged) from order O0053 delivered on 2026-09-13. This is within the 10-day return window for home items. The item price is ₹399, under ₹500, so per policy E5, immediate refund without pickup can be issued. However, no photo evidence has been uploaded, which is not required for items under ₹2,000 (E6). But there are prior damage refunds already processed for this user. The cumulative refund limit per order is not exceeded here. Given no evidence is provided and the policy does not require it for under ₹2000 items, refund could be issued. Since no prior refund on this item, and conditions otherwise met, the agent can offer refund. However, the policy states that the top lock status mandates no change without full eval rerun, and no explicit user consent to the refund action was yet given. To comply fully with policy A3 and G1, because of any ambiguity or need for confirmation, the best action is to escalate to human with full facts and summary as no direct refund command was confirmed yet and the locked policy strictness demands escalation on any non-trivial changes. This ensures compliance and customer satisfaction.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "A3",
+          "G1",
+          "G3",
+          "H1",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S026",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0038",
+                "item_id": "I0038"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "Cartly Wallet",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "Cartly Wallet",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The item is a Ceramic serving bowl (category: home) delivered on 2026-09-13, reported broken on 2026-09-15. The claim is for damaged item, which requires photo evidence for item value above ₹2000 (this item costs ₹399, so evidence is not mandatory). However, the return window for most categories is 10 days from delivery day 0; the request is within window. But the payment was COD; shipping is not refunded. Agent can create return for pickup and refund. However, no prior return or refund exists for this order. The user says the item arrived broken, so this is a damaged item. Thus, a full refund including shipping applies, but shipping fee (₹49) is refunded only once per order and does not count now, but for COD shipping refunds go to Cartly Wallet. The refund amount is ₹399 (price) plus ₹49 shipping, total ₹448, refunded to Cartly Wallet after return. After explaining this, user confirmation is needed. But user states no photo available, which is acceptable below ₹2000. No problem with refund authority. So the agent can create a return and refund. However, the user has not yet explicitly confirmed. Since the user asked outright for refund without confirmation yet, the next step is to restate the exact action, amount and payment method and ask for explicit yes. Until then, no change is made. Hence resolution is decline (no change) now, waiting for confirmation.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E7",
+          "E9",
+          "E12",
+          "G1",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S026",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "refunded",
+          "changes": [
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0038",
+                "item_id": "I0038"
+              },
+              "values": {
+                "reason": "damaged",
+                "amount": 448,
+                "shipping_refunded": true,
+                "method": "Cartly Wallet",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 448,
+            "method": "Cartly Wallet",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0038",
+              "item_id": "I0038"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The user reports the ceramic serving bowl (order O0038, COD payment) arrived broken. The item was delivered 2 days ago, within the 10-day return window for home goods. It is a damaged item so a full refund including shipping applies. The item price (₹399) is below ₹500, so an immediate refund is allowed, but the user has no photo evidence uploaded which is not required for items under ₹2000. Since the payment was COD, refund is to Cartly Wallet. Immediate refund requires agent confirmation. If agent proceeds with return scheduling instead (usual process), the refund happens after pickup per policy E5; immediate refund is also allowed for damaged items under ₹500. The agent must explain and get user confirmation of refund via Cartly Wallet of ₹399 plus ₹49 shipping fee. The user agreed to confirm after explanation. User also has not uploaded photo evidence, but it is not mandatory under ₹2000 value.",
+        "rules": [
+          "E1",
+          "E2",
+          "E3",
+          "E5",
+          "E7",
+          "E9",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S029",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "declined",
+          "changes": [],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "explanation": "Order O0087 does not exist in the user's orders. The closest order with the requested item (Cotton kurta) is O0088. The user states O0087 belongs to another person, so we cannot provide information or act on that order per policy A2.",
+        "no_other_changes": true,
+        "rules": [
+          "A2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S030",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "cancelled",
+          "changes": [
+            {
+              "table": "orders",
+              "operation": "update",
+              "key": {
+                "order_id": "O0076"
+              },
+              "values": {
+                "status": "Cancelled"
+              }
+            },
+            {
+              "table": "refunds",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0076",
+                "item_id": null
+              },
+              "values": {
+                "reason": "cancellation",
+                "amount": 2548,
+                "shipping_refunded": true,
+                "method": "Card",
+                "status": "completed"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 2548,
+            "method": "Card",
+            "timing": "immediate"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "cancelled",
+        "changes": [
+          {
+            "table": "orders",
+            "operation": "update",
+            "key": {
+              "order_id": "O0076"
+            },
+            "values": {
+              "status": "Cancelled"
+            }
+          },
+          {
+            "table": "refunds",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0076",
+              "item_id": null
+            },
+            "values": {
+              "reason": "cancellation",
+              "amount": 2499,
+              "shipping_refunded": true,
+              "method": "Card",
+              "status": "completed"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 2548,
+          "method": "Card",
+          "timing": "immediate"
+        },
+        "no_other_changes": true,
+        "explanation": "Order O0076 is in Packed state and can be cancelled fully with refund to Card including shipping. The item price is ₹2499 plus shipping ₹49.",
+        "rules": [
+          "C1",
+          "E7",
+          "E12",
+          "C1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S031",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0035"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0035",
+              "item_id": "I0035"
+            },
+            "values": {
+              "reason": "damaged",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The headphones were delivered on 2026-09-13 and reported damaged on 2026-09-15, within the 7-day electronics return window. The item value is above ₹2,000 and evidence photo is uploaded. As per policy, a return pickup is scheduled and refund will be automatic after the pickup. The electric shock confirms the item is defective/damaged. User must confirm the pickup scheduling to proceed.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E9",
+          "E13",
+          "H1",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S031",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0035"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0035",
+              "item_id": "I0035"
+            },
+            "values": {
+              "reason": "defective",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The headphones from order O0035 delivered 2 days ago are defective and caused electric shock, reported within 48 hours, photo evidence is uploaded, so a return pickup is scheduled per policy. Refund will be issued after pickup.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E10",
+          "E13",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S032",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0016"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The user is requesting a refund with legal action mentioned, which requires escalation per policy G2. Also, the delivery was on 2026-09-04, and today is 2026-09-15, which is 11 days after delivery, exceeding the 10-day return window for clothing items per E1 and H1. Thus, damage or return claims are outside window and require escalation.",
+        "rules": [
+          "E1",
+          "H1",
+          "G2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S032",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0016"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "escalated",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "User wants a refund for a kurta from order O0016 (status Delivered on 2026-09-04) citing legal action. The item is used (not worn or used per user) but the request is past the 10-day return window for clothing, so a change of mind return is not possible. Additionally, the user mentioned legal action, which triggers escalation per policy G2. Also, damage/refund claims beyond ₹5000 require escalation, but here refund amount is less than that. Hence, escalation is appropriate.",
+        "rules": [
+          "E1 (return windows)",
+          "E4 (change of mind refund conditions)",
+          "G2 (escalation for legal action mention)"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S033",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0079"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "Order O0079 is in 'Out for delivery' status and cannot be cancelled per policy C2. User can refuse delivery or return after receiving the item. User's request for cancellation is declined. User asked for a human, escalation is needed if requested twice, user has asked once so far.",
+        "rules": [
+          "C2",
+          "G2"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S033",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0079"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "Order O0079 is Out for delivery and not eligible for cancellation per policy C2. User can refuse delivery or return after delivery. User was offered to return or refuse delivery. Cancellation is declined.",
+        "rules": [
+          "C2",
+          "G3"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S035",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0040",
+                "item_id": "I0040"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0040",
+              "item_id": "I0040"
+            },
+            "values": {
+              "reason": "wrong_item",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "User received wrong size item (ordered M, received L), which qualifies as wrong item under policy. Return window is valid (delivery 2026-09-13, today 2026-09-15 within 7 days for clothing). Photo evidence not uploaded but item price is 1499 INR, below 2000 threshold for mandatory photo, so return scheduled and refund after pickup. Awaiting user confirmation of this action and refund amount before proceeding.",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E11",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S035",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "return_scheduled",
+          "changes": [
+            {
+              "table": "returns",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0040",
+                "item_id": "I0040"
+              },
+              "values": {
+                "reason": "wrong_item",
+                "pickup_status": "scheduled"
+              }
+            }
+          ],
+          "refund": {
+            "amount": 1548,
+            "method": "UPI",
+            "timing": "after_pickup"
+          },
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0040",
+              "item_id": "I0040"
+            },
+            "values": {
+              "reason": "wrong_item",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1499,
+          "method": "UPI",
+          "timing": "after_pickup",
+          "shipping_refunded": false
+        },
+        "no_other_changes": true,
+        "explanation": "The Cotton kurta was delivered in the wrong size (L instead of ordered M), qualifying as a wrong item claim under policy section E11 and E3. It is within the 10-day return window (delivered on 2026-09-13, today is 2026-09-15). The item price is ₹1499 which is over ₹500, so refund will be processed after pickup. Photo evidence is required for wrong items above ₹2000 only, so no evidence required here. User must confirm to proceed with scheduled return pickup and refund via original UPI payment method, amount ₹1499 (full item price, no shipping refunded as per policy E12 since wrong item rules include shipping refund but only after pickup).",
+        "rules": [
+          "E1",
+          "E3",
+          "E5",
+          "E6",
+          "E7",
+          "E11",
+          "H4"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S038",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0003"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "Exchange is not covered by Cartly's policy. The policy only allows returns with refund or order cancellation; it does not support direct exchanges.",
+        "rules": [
+          "A3"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S038",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0003"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The policy does not provide for direct exchanges. Only returns or refunds are allowed. For change of mind returns, the item must be unused, and a return can be scheduled followed by a refund. The user explicitly rejected refund or repurchase. Since such an exchange is not covered by policy, it is declined.",
+        "rules": [
+          "E11"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S039",
+      "split": "dev",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0007"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The policy does not allow converting payments into monthly instalments; no such action is covered. This request must be escalated if user insists.",
+        "rules": [
+          "A3"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S039",
+      "split": "dev",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0007"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "declined",
+        "changes": [],
+        "refund": null,
+        "no_other_changes": true,
+        "explanation": "The policy does not support converting payments into monthly instalments. Such a request is outside the scope and must be escalated or declined. Since the user has not explicitly asked twice for a human or legal action, and no policy covers payment plan changes, no action is taken.",
+        "rules": [
+          "A3"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S040",
+      "split": "heldout",
+      "pass": 1,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0004"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0004",
+              "item_id": "I0004"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The item Cotton kurta was delivered 7 days ago and is unused, eligible for change of mind return with a refund of item price minus ₹99 pickup fee. Refund will be processed after pickup completion by policy E4 and E5.",
+        "rules": [
+          "E1",
+          "E4",
+          "E5",
+          "E7",
+          "G1"
+        ]
+      }
+    },
+    {
+      "scenario_id": "S040",
+      "split": "heldout",
+      "pass": 2,
+      "expected": [
+        {
+          "resolution": "escalated",
+          "changes": [
+            {
+              "table": "escalations",
+              "operation": "insert",
+              "key": {
+                "order_id": "O0004"
+              },
+              "values": {
+                "required_nonempty": [
+                  "user_request",
+                  "facts_found",
+                  "rule_triggered",
+                  "what_user_was_told"
+                ]
+              }
+            }
+          ],
+          "refund": null,
+          "no_other_changes": true
+        }
+      ],
+      "decision": {
+        "resolution": "return_scheduled",
+        "changes": [
+          {
+            "table": "returns",
+            "operation": "insert",
+            "key": {
+              "order_id": "O0004",
+              "item_id": "I0004"
+            },
+            "values": {
+              "reason": "change_of_mind",
+              "pickup_status": "scheduled"
+            }
+          }
+        ],
+        "refund": {
+          "amount": 1400,
+          "method": "UPI",
+          "timing": "after_pickup"
+        },
+        "no_other_changes": true,
+        "explanation": "The Cotton kurta from order O0004 was delivered 7 days ago, within the return window. It is unused, so eligible for change of mind return with a refund of item price (1499) minus 99 pickup fee = 1400. Shipping fee is not refunded. Return pickup is scheduled; refund will be issued after pickup automatically.",
+        "rules": [
+          "E1",
+          "E4",
+          "E5",
+          "E7",
+          "H4"
+        ]
+      }
+    }
+  ],
+  "comparison": "Exact canonical business changes; generated IDs/timestamps excluded. No expected outcome was sent to either model call."
+}

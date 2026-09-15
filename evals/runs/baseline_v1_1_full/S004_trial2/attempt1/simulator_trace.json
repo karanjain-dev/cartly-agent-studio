@@ -1,0 +1,768 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I would like to update the delivery address for my order. Please send it to my new address.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message matches the customer's revealed request to send the order to the new address as per the profile's initial fact.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_09320d81bff48451016aa9333f55e887d2abfab1dcd25358a1",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent asks for order ID and item details to verify the order."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for explicit confirmation after explaining an action."
+      },
+      {
+        "fact_id": "address",
+        "release": true,
+        "reason": "Agent specifically requests the full new delivery address."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asks for user ID and registered email or phone to verify identity."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID and either your registered email or phone number so I can verify your account.",
+        "source_quote": "\"user_id\": \"U013\", \"email\": \"customer013@example.com\""
+      },
+      {
+        "question": "Also include: Your order ID",
+        "source_quote": ""
+      },
+      {
+        "question": "Also include: The full new delivery address, including city, state, pincode, and country",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "Also include: Your order ID",
+      "Also include: The full new delivery address, including city, state, pincode, and country"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Also include: Your order ID",
+      "Also include: The full new delivery address, including city, state, pincode, and country"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not explain any proposed action, amount, or payment method, nor did they ask for confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Do you have your user ID and either your registered email or phone number to verify your account?",
+        "source_quote": "\"user_id\": \"U013\", \"email\": \"customer013@example.com\""
+      },
+      {
+        "question": "Do you have your full new delivery address ready?",
+        "source_quote": "\"fact\": \"My new delivery address is {\\\"line1\\\": \\\"Flat 302, Lake View Apartments\\\", \\\"line2\\\": \\\"Near the main post office\\\", \\\"city\\\": \\\"Bengaluru\\\", \\\"state\\\": \\\"Karnataka\\\", \\\"pincode\\\": \\\"560001\\\", \\\"country\\\": \\\"India\\\"}\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My user ID is U013, and my registered email is customer013@example.com. My order ID is O0074. The new delivery address is Flat 302, Lake View Apartments, Near the main post office, Bengaluru, Karnataka, 560001, India. Please check if the order is eligible for address update and confirm before proceeding.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "address"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer reply uses only the profile and released facts for user ID, email, order ID, and new address as provided.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "address",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_09c2c8ddfeda9e4e016aa93354f61c87d2b85e70673c186074",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent asked for explicit confirmation after explaining the proposed action and that no payment or refund is involved."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Please confirm that I should update the delivery address to:",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "Please confirm that I should update the delivery address to:"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please confirm that I should update the delivery address to:"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's message does not inquire about the item's condition or usage."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "Once you’re sure, confirm the address above or send any corrections.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Once you’re sure, confirm the address above or send any corrections."
+    ]
+  },
+  {
+    "turn": 5,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Once you’re sure, confirm the address above or send any corrections."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's message does not ask about the item's condition or usage; it only states that no changes have been made and prompts the customer to check and confirm later."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": "\"pincode\": \"560001\""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 6,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use; the messages focus only on address update procedures."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "I understand the importance of ensuring my order goes to the correct place. Please hold that update for now; I need a little more time to verify my new address before confirming the change. I'll get back to you as soon as I'm sure.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "address",
+        "credentials",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply correctly reflects the customer's uncertain stance on confirming the address update and references the new address as per the allowed facts in the profile and released facts.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "Customer indicates needing more time and does not confirm update or request new action yet.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "address",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0e46f368890ea9cf016aa9339517e087d2ac983ba2172d8cde",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the item's condition or usage; it only discusses address update confirmation and order status."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 8,
+    "draft": {
+      "message": "Thank you for keeping the option open. I will check my new address details soon and get back to you with confirmation to update the delivery address for order O0074.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "address",
+        "credentials",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message correctly references facts released: the order ID O0074, the new address as provided by the customer, and acknowledges the customer's intent to check before confirming, consistent with the conversation and profile.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The customer is indicating they need more time to verify and will respond later; the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 8,
+    "released_fact_ids": [
+      "address",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0473c5f32685e122016aa9339db26887d2935c67f1959dba1b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest agent message does not ask about the condition or use of the item, so the reveal condition is not met."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 9,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 10,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the item's condition or use; it only discusses the delivery address update status."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 10,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 10,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 11,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the item's condition or use; it only concerns verifying the address and readiness to continue."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 11,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 11,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 12,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent message does not ask about the item's condition or use; it only addresses the delivery address update status."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 12,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 12,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 13,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the item's condition or use; it only refers to the address being unchanged and offers help checking address details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 13,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 13,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 14,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's message does not ask about the item's condition or usage; it only addresses address confirmation status."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 14,
+    "factual_questions": [
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": "\"pincode\": \"560001\""
+      }
+    ],
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 14,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 15,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the condition or use of the item; it only confirms that no update will be made without the customer's confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 15,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 15,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 16,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the condition or usage of the item; it addresses the address update timing and confirmation only."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 16,
+    "factual_questions": [
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": "\"pincode\": \"560001\""
+      }
+    ],
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 16,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 17,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent message does not ask about the item's condition or use; it only addresses the delivery address update status."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 17,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 17,
+    "draft": {
+      "message": "Yes, please update the delivery address for my order O0074 to:\n\nFlat 302, Lake View Apartments\nNear the main post office\nBengaluru, Karnataka - 560001\nIndia",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "address",
+        "consent",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft aligns with the customer's provided new delivery address and their consent rule to explicitly say 'Yes' after agent explains the proposed action, amount, and no payment involved is consistent with previous conversation.",
+    "support_action_status": "none",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer is explicitly accepting the proposal to update the address, but the action still needs to happen, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 17,
+    "reason": "The customer is explicitly accepting the proposal to update the address, but the action still needs to happen, so the conversation should continue."
+  },
+  {
+    "turn": 17,
+    "released_fact_ids": [
+      "address",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_02bb7404c675097d016aa933dcfab487d2bbeaf26605ed7578",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 18,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest agent message does not ask about the item's condition or use, so the reveal condition is not satisfied."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 18,
+    "factual_questions": [
+      {
+        "question": "Should I change the delivery address to:\n\nFlat 302, Lake View Apartments  \nNear the main post office  \nBengaluru, Karnataka – 560001  \nIndia?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "Should I change the delivery address to:\n\nFlat 302, Lake View Apartments  \nNear the main post office  \nBengaluru, Karnataka – 560001  \nIndia?"
+    ]
+  },
+  {
+    "turn": 18,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Should I change the delivery address to:\n\nFlat 302, Lake View Apartments  \nNear the main post office  \nBengaluru, Karnataka – 560001  \nIndia?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 19,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent's latest message does not ask about the condition or use of the item; it only discusses the order status and address update."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 19,
+    "factual_questions": [
+      {
+        "question": "Have you checked the order status?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Have you checked the order status?"
+    ]
+  },
+  {
+    "turn": 19,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Have you checked the order status?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 20,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the condition or use of the item; the customer never addressed item condition or use."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 20,
+    "factual_questions": [
+      {
+        "question": "What is your new address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new address?"
+    ]
+  },
+  {
+    "turn": 20,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new address?"
+    ]
+  },
+  {
+    "turn": 20,
+    "forced_stop": "turn_limit"
+  }
+]

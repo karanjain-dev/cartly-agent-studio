@@ -1,0 +1,55 @@
+{
+  "scenario_id": "S017",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "66840acf61786e5c9d459b254c0b04ccea888a1a3ab639bd3d20860e54744e6a",
+  "requested_model": "gpt-4.1",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0019",
+          "item_id": "I0019"
+        },
+        "values": {
+          "reason": "Damaged item reported within 10-day return window",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 748,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The item (Cotton vest) in your order O0019 is eligible for return as a damaged item reported within the 10-day window (reported on day 3 after delivery, with photo evidence uploaded). A full refund of ₹699 (item value) plus ₹49 (shipping fee), totaling ₹748, will be processed to your original payment method (UPI) after the item is picked up.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E7",
+      "E12",
+      "H1"
+    ]
+  },
+  "response_id": "resp_0c92a121160bdcbb016aa90c7dc97487d2bb9c8f49ea1d5495",
+  "model": "gpt-4.1-2025-04-14",
+  "usage": {
+    "input_tokens": 3723,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 2432
+    },
+    "output_tokens": 265,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 3988
+  }
+}

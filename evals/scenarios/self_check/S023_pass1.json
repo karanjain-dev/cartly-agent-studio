@@ -1,0 +1,49 @@
+{
+  "scenario_id": "S023",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "ed29e003954dd0edaa78e2f486d413c1716236e9b0a843700eaf5623c631920e",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0060",
+          "item_id": "I0064"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The ceramic serving bowl in order O0060 was delivered broken (damaged) on 2026-09-13 and reported within the 10-day return window. As the item price is ₹399 (under ₹500) but the policy requires immediate refund only for wrong items under ₹500, and for damaged items scheduled return is required, we will schedule a return pickup. The user has not uploaded photo evidence (required only if item price > ₹2000). The refund will be processed automatically after pickup completion.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E13"
+    ]
+  },
+  "response_id": "resp_08f0778faf4003f9016aa90d79771487d29fca97840868b44a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4615,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 184,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4799
+  }
+}

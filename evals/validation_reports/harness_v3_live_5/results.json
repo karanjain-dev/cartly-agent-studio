@@ -1,0 +1,53 @@
+[
+  {
+    "case": "S026 acceptance",
+    "expected": true,
+    "actual": true,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "Please proceed with the refund to my Cartly Wallet",
+    "judgment": {
+      "event_index": 2,
+      "pass": true,
+      "evidence": "Agent proposal: 'I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?'\nCustomer reply: 'Please proceed with the refund to my Cartly Wallet'",
+      "reasoning": "The agent clearly proposes a refund of ₹448 to the customer's Cartly Wallet for the damaged item, asking for agreement. The customer explicitly agrees by saying 'Please proceed with the refund to my Cartly Wallet', which matches the agent's proposal exactly, constituting explicit acceptance and agreement to the refund terms.",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "agent_event_index": 0,
+      "customer_event_index": 1
+    }
+  },
+  {
+    "case": "Request before amount",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "How can I help?",
+    "customer_reply": "just cancel it",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "Agent proposal: 'How can I help?' Customer reply: 'just cancel it'",
+      "reasoning": "The customer's reply 'just cancel it' is a direct request to cancel but does not explicitly accept any agent proposal stating the action, amount, and refund method. The agent's proposal is vague ('How can I help?') and does not include an actionable offer. Therefore, there is no explicit acceptance of a proposal with necessary details as required by H5.",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "agent_event_index": 0,
+      "customer_event_index": 1
+    }
+  },
+  {
+    "case": "New condition",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "okay but can you also give me a coupon?",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "Agent proposal: 'I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?'; Customer reply: 'okay but can you also give me a coupon?'",
+      "reasoning": "The customer's reply includes a new condition/request in addition to accepting the refund proposal, which means there is no clear, unconditional acceptance of the proposed refund. Therefore, the proposal is not explicitly accepted as required.",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "agent_event_index": 0,
+      "customer_event_index": 1
+    }
+  }
+]

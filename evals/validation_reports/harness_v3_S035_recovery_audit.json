@@ -1,0 +1,36 @@
+{
+  "error_origin": "simulator",
+  "reason": "Simulator ending judge misclassified acceptance of a pending action as a completed goal.",
+  "evidence": {
+    "agent_proposal": "I confirmed that order O0040 shows size M ordered but size L delivered, so this qualifies as a wrong-item return.\n\nI can arrange a pickup at no charge. Once pickup is completed, the system will automatically refund **₹1,548**—₹1,499 for the kurta plus ₹49 shipping—to your original UPI payment method.\n\nWould you like me to create this return?",
+    "customer_draft": {
+      "message": "Yes, please create the return and arrange the pickup.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order",
+        "problem",
+        "credentials"
+      ]
+    },
+    "original_judgment": {
+      "event": "customer_reply_check",
+      "turn": 3,
+      "draft": {
+        "message": "Yes, please create the return and arrange the pickup.",
+        "stop_reason": "goal_met",
+        "used_fact_ids": [
+          "request",
+          "order",
+          "problem",
+          "credentials"
+        ]
+      },
+      "grounded": true,
+      "grounding_reason": "The reply aligns with the customer's stated issue about the wrong kurta size, their user ID and email, and agrees to the proposed return and pickup arrangement with the specified refund amount and method as explained by support in the conversation.",
+      "end_reason": "goal_met",
+      "ending_reason": "The customer agrees clearly to proceed with the return and pickup arrangement, which satisfies their stated goal of getting their money back for the wrong-sized kurta."
+    },
+    "finding": "The agent asked whether to act. The customer asked the agent to proceed; the action was not completed and there was no farewell. Ending here was a simulator malfunction."
+  }
+}

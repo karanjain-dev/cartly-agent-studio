@@ -1,0 +1,65 @@
+{
+  "scenario_id": "S002",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "2069b6fbb22b9647e3813aa4023d9a9d9640578473b7755f1b8886154c05a2b1",
+  "requested_model": "gpt-4.1",
+  "status": "completed",
+  "decision": {
+    "resolution": "cancelled",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0073"
+        },
+        "values": {
+          "status": "Cancelled"
+        }
+      },
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0073",
+          "item_id": null
+        },
+        "values": {
+          "reason": "Order cancelled in Placed state",
+          "amount": 6499,
+          "shipping_refunded": true,
+          "method": "Card",
+          "status": "completed"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 6499,
+      "method": "Card",
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "Your order O0073 (Wireless headphones) is in Placed state and can be cancelled for a full refund (₹6499 including shipping) to your Card. This action is taken after your explicit confirmation.",
+    "rules": [
+      "C1",
+      "E12",
+      "E7",
+      "H4"
+    ]
+  },
+  "response_id": "resp_00e3796bf76b1de9016aa90c71a40487d29e3bd50f779cf79e",
+  "model": "gpt-4.1-2025-04-14",
+  "usage": {
+    "input_tokens": 4416,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 4224
+    },
+    "output_tokens": 273,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4689
+  }
+}

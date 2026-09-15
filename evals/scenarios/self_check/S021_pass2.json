@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S021",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "aabe1ffc410af30d5b9185cfb23fb30463e4cd201e16381066234eb7c9e9ff87",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0106 containing Fresh fruit box is in Shipped state and still missing. Customer asked for a coupon due to waiting. The order is not yet delivered and not late as the promised delivery date was 2026-09-10 and today is 2026-09-15. According to the policy, lateness is defined as delivered more than 5 days after promised date or undelivered and today more than 5 days after promised date. Here, 5 days after promised date is 2026-09-15, so the order is just on the borderline. The policy does not explicitly say a coupon must be issued or denied. However, strict reading says the lateness condition is met today at noon, so a coupon may be offered. But since the user requests a coupon, I would explain the eligibility first and ask for explicit confirmation to issue a ₹100 coupon as per F1. Since the user request is to just give a coupon now and no explicit confirmation was given, no action is taken now. No refund or other changes apply as no damage or return or cancellation requested. So decline direct coupon issue until confirmed.",
+    "rules": [
+      "F1",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0fe8045eca128a5a016aa90d76095487d297a28873d06c6ff5",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4261,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 280,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4541
+  }
+}

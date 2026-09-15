@@ -1,0 +1,1063 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I would like to request the cancellation of my order immediately. Please confirm once the cancellation has been processed.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message aligns with the customer's initial cancellation request as revealed in the released facts and customer profile.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0b7de5e0bd02fa24016aa935d51e9087d28994c86a38722447",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask specifically which order or item; they requested user ID and order ID generally."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for explicit confirmation after explaining proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No refusal has occurred yet to trigger release."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asked user to provide user ID, registered email or phone number to verify identity."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID, either your registered email or phone number, and the order ID.",
+        "source_quote": "\"user_id\": \"U016\", \"email\": \"customer016@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U016, and my registered email is customer016@example.com. Could you please proceed with checking the order cancellation? I would also appreciate confirmation once the cancellation and refund details are finalized.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the user's registered email and user ID from the profile credentials as requested by support, and asks the agent to check the order cancellation, which aligns with the user's cancellation request.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0018d9d314186403016aa935ddbfa887d2b345665c6220761a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which order the customer wants to cancel, directly requesting identification of the order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet explained the proposed action, amount, or payment method, nor asked for explicit confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The agent has informed the customer that cancellation is not possible now; no clear indication that the customer has accepted this yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Which order did you want to cancel?",
+        "source_quote": "The order I am asking about is O0077 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I want to cancel order O0077, the Wireless headphones. Please let me know the next steps for refusing delivery or returning the product after it arrives.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer is referencing the order O0077 and the item Wireless headphones, consistent with the profile and released facts. They request instructions on refusing delivery or returning, which aligns with the support message indicating cancellation is not possible but refusal or return is an option.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is seeking further instructions and clarification before making a decision, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_04812a75d8659611016aa935f0144887d2b04cc1709e1dc7c0",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "Agent's message explains the item must be unused for change-of-mind returns, satisfying the condition reveal when asking about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for explicit confirmation or consent after explaining the action, amount, and payment method."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "Agent clearly explained that order O0077 cannot be cancelled as it is shipped, so the refusal is effectively communicated after one explanation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's message explains the actions and refund policies but does not ask the customer to explicitly confirm or consent to proceed with any action, so the consent fact is not triggered for release."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "Have you accepted delivery of the item?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      },
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Have you accepted delivery of the item?",
+      "What is your delivery pincode?",
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "turn": 5,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Have you accepted delivery of the item?",
+      "What is your delivery pincode?",
+      "Did you get a confirmation SMS?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet asked the customer to explicitly confirm an action with details; the message only asks the customer to check and confirm when ready."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 6,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for the customer's explicit confirmation after explaining the action, amount, and payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "I understand the order O0077 for the Wireless headphones has already been shipped and cannot be cancelled now. I will consider refusing delivery or returning the item after delivery as the next steps. Thank you for the information.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects that order O0077 for the Wireless headphones has been shipped and cannot be cancelled now, matching the provided facts and instructions in the profile and released facts. The customer references refusing delivery or returning after delivery, which is consistent with support's explanation.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges the situation but does not explicitly accept a proposal or end the conversation; they are considering next steps, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 7,
+    "reason": "The customer acknowledges the situation but does not explicitly accept a proposal or end the conversation; they are considering next steps, so the conversation should continue."
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_00ce08bdf68a451c016aa9361bcac487d29d9c78e006357293",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message provides information about return procedures but does not ask for explicit confirmation of an action, amount, or payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 8,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation of any action, amount, or refund method, so the reveal condition is not satisfied."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 9,
+    "draft": {
+      "message": "I understand that the order O0077 for the Wireless headphones has already been shipped and cannot be cancelled now. I will consider refusing delivery or returning the item after delivery as you advised. Thank you for the detailed explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply accurately reflects the customer's knowledge gained from the conversation and uses only facts revealed in the profile and released facts, including order O0077 details and the condition that the item is unused, as well as acknowledging the refusal of cancellation after support's explanation as per behavior rule.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "Customer has acknowledged refusal and alternatives but has not yet accepted an action or closed the conversation.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 9,
+    "reason": "Customer has acknowledged refusal and alternatives but has not yet accepted an action or closed the conversation."
+  },
+  {
+    "turn": 9,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0e8d1972cf7ec78b016aa9362b3b2087d282f6d9f51d84bf82",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 10,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The latest agent message does not ask for the customer's explicit confirmation or consent after explaining the proposed action, amount, or refund method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 10,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 10,
+    "draft": {
+      "message": "Thank you for the clear explanation. I understand now that the order O0077 cannot be cancelled since it has already been shipped. I will consider refusing the delivery or initiating a return after receiving the item as you suggested. I appreciate your help.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately reflects the known facts from the profile and conversation, including that order O0077 (Wireless headphones) has shipped and cannot be cancelled, and the customer acknowledges understanding this and considering the suggested refusal or return options. No unsupported details are introduced.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer's message acknowledges understanding and considers next steps, but does not explicitly confirm closure or completion; conversation can continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 10,
+    "reason": "The customer's message acknowledges understanding and considers next steps, but does not explicitly confirm closure or completion; conversation can continue."
+  },
+  {
+    "turn": 10,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_022130cb1bebf23d016aa93636400887d29b27e3d0fcb65529",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 11,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation of the cancellation, return, or refund action after explaining the details in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 11,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 11,
+    "draft": {
+      "message": "I understand that order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. I will consider refusing the delivery or returning the item after delivery as you advised. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the released facts and customer profile behavior: the order O0077 for Wireless headphones has been shipped and cannot be cancelled, and the customer acknowledges considering refusal of delivery or return after delivery as the next steps.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges understanding the inability to cancel the shipped order and will consider the advised next steps, effectively meeting the conversation goal and closing the interaction.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 11,
+    "reason": "The customer acknowledges understanding the inability to cancel the shipped order and will consider the advised next steps, effectively meeting the conversation goal and closing the interaction."
+  },
+  {
+    "turn": 11,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0a52e39f0f4a2631016aa9363f3c9087d28518cb09bb443ca7",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 12,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for the customer's explicit confirmation after explaining the proposed action, amount, and payment method in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 12,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 12,
+    "draft": {
+      "message": "Thank you for your assistance and clear explanations. I understand that the order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. I will consider refusing the delivery or returning the item after delivery as you advised.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply accurately reflects the customer's understanding as per the revealed facts: the order O0077 for Wireless headphones has been shipped and cannot be cancelled now, and the customer states they will consider refusing delivery or returning after delivery, consistent with the information provided by support and the behavior rule about accepting no cancellation after refusal.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges the situation and has accepted the explanation, effectively concluding the issue as per the profile's behavior rules and conversation context.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 12,
+    "reason": "The customer acknowledges the situation and has accepted the explanation, effectively concluding the issue as per the profile's behavior rules and conversation context."
+  },
+  {
+    "turn": 12,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0f3d56eab0d88cb9016aa93648be5487d29e3d27e392b7964e",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 13,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for explicit confirmation after explaining the action, amount, and payment method; it only reiterates no action has been taken and offers help if needed."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 13,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 13,
+    "draft": {
+      "message": "I understand that the order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. I will consider refusing the delivery or returning the item after delivery as you advised. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply is consistent with the revealed facts about the order O0077, its shipped status, and the accepted inability to cancel. The phrasing closely matches the accepted behavior after refusal in the profile.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer acknowledges the refusal and repeats understanding but does not explicitly close or thank to end the conversation definitively.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 13,
+    "reason": "Customer acknowledges the refusal and repeats understanding but does not explicitly close or thank to end the conversation definitively."
+  },
+  {
+    "turn": 13,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0448f074c8a41634016aa93651217887d2a4bb38254e56977c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 14,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation after explaining the action, amount, and payment method; no explicit consent request is made."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 14,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 14,
+    "draft": {
+      "message": "Thank you for clarifying. I acknowledge that cancellation is not possible now since the order O0077 has already been shipped. I will follow your advice to either refuse delivery or initiate a return after delivery.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply reiterates their understanding of the shipping status of order O0077 and their acceptance of refusal or return options as explained by support. This aligns with the profile and released facts without adding any unsupported claims.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges the final refusal of cancellation and indicates acceptance of the alternative options, effectively concluding their cancellation request.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 14,
+    "reason": "The customer acknowledges the final refusal of cancellation and indicates acceptance of the alternative options, effectively concluding their cancellation request."
+  },
+  {
+    "turn": 14,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0d2a696ddd40ffba016aa9365a6c7c87d28a7e3553f4c7bb4a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 15,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation to proceed with any action involving an exact amount and payment method; therefore, the consent fact is not triggered for release."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 15,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 15,
+    "draft": {
+      "message": "Thank you for confirming. I acknowledge that cancellation of order O0077 is not possible now since it has already been shipped. I will proceed with refusing the delivery or initiating a return after delivery as you advised. I appreciate your help and clear instructions.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "behavior_0",
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply correctly acknowledges that cancellation is not possible now as the order O0077 has already been shipped, which aligns with the provided profile and conversation facts.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer clearly acknowledges that cancellation is impossible now and agrees to the alternatives provided; thus the goal is met and conversation can end.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 15,
+    "reason": "The customer clearly acknowledges that cancellation is impossible now and agrees to the alternatives provided; thus the goal is met and conversation can end."
+  },
+  {
+    "turn": 15,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07a94c11a6d2bea0016aa93662f02c87d2a88a722492d2a05c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 16,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's message provides information about the status and options for order O0077 but does not ask for explicit confirmation of a proposed action, exact amount, or payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 16,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 16,
+    "draft": {
+      "message": "I understand that the order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. I will consider refusing the delivery or returning the item after delivery as you advised. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately reflects the known facts from the profile and released facts: order O0077 for Wireless headphones cannot be cancelled as it has been shipped; the customer acknowledges the suggested next steps of refusing delivery or returning after delivery, consistent with the provided information.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer acknowledges the impossibility of cancellation now and indicates acceptance of next steps; this fulfills the original goal and ends the conversation.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 16,
+    "reason": "Customer acknowledges the impossibility of cancellation now and indicates acceptance of next steps; this fulfills the original goal and ends the conversation."
+  },
+  {
+    "turn": 16,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0a3b8b8463adb2d6016aa93671458c87d291cd62f7384a167c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 17,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation of an action, amount, or payment method; it is a closing statement inviting future contact."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 17,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 17,
+    "draft": {
+      "message": "I understand that my order O0077 for the Wireless headphones cannot be cancelled now since it has already been shipped. Thank you for the clear information. I will consider refusing delivery or returning the item after delivery as you advised.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message restates the provided released facts about order O0077 being shipped and the impossibility of cancellation now, and the customer's stated intention to consider refusing delivery or returning the item after delivery, all consistent with the conversation and profile facts.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges understanding that cancellation is not possible for order O0077 as it has shipped and accepts the suggested alternatives, effectively meeting the goal and closing the issue.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 17,
+    "reason": "The customer acknowledges understanding that cancellation is not possible for order O0077 as it has shipped and accepts the suggested alternatives, effectively meeting the goal and closing the issue."
+  },
+  {
+    "turn": 17,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0696334461811bc1016aa9367b80c087d2ab3704d442ad3634",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 18,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for explicit confirmation or consent to an action; it is an offer of help if needed."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 18,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 18,
+    "draft": {
+      "message": "I understand that the order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply correctly reflects the released and allowed facts: the order O0077 (Wireless headphones) has already been shipped and cannot be cancelled; the customer acknowledges this as per their behavior rule to accept after one clear explanation and shows understanding without adding unsupported claims.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The reply acknowledges the explanation but does not explicitly close the conversation or end with a farewell; conversation can continue if needed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 18,
+    "reason": "The reply acknowledges the explanation but does not explicitly close the conversation or end with a farewell; conversation can continue if needed."
+  },
+  {
+    "turn": 18,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ebc97f38d6c27d4016aa93683d2f887d2ad2502761ed93593",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 19,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation after explaining the proposed action, exact amount, or payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 19,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 19,
+    "draft": {
+      "message": "I understand that the order O0077 for the Wireless headphones has already been shipped and cannot be cancelled now. I will consider refusing the delivery or returning the item after delivery as you advised. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply accurately acknowledges that order O0077 for the Wireless headphones cannot be cancelled since it has already been shipped, and states they will consider refusing delivery or returning the item, which matches the revealed facts and previous support explanations.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer acknowledges the refusal to cancel and indicates considering next steps, but does not explicitly end the conversation or accept a resolution yet.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 19,
+    "reason": "Customer acknowledges the refusal to cancel and indicates considering next steps, but does not explicitly end the conversation or accept a resolution yet."
+  },
+  {
+    "turn": 19,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0cc347e12e185396016aa9368b944887d2b9bdcbb48f33608b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 20,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation or consent after explaining the proposed action, amount, and refund method in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 20,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "I understand that my order O0077 for the Wireless headphones cannot be cancelled now as it has already been shipped. I will consider refusing the delivery or returning the item after delivery as you advised. Thank you for your help and explanation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's reply accurately reflects the provided profile and released facts: the order O0077 cannot be cancelled as it has been shipped, and the customer acknowledges the options of refusing delivery or returning the item after delivery. The message uses allowed facts and adheres to the behavior rules and persona tone.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 20,
+    "reason": ""
+  },
+  {
+    "turn": 20,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07731f375df645ef016aa93693f5f487d28ead74c460d254e1",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 20,
+    "forced_stop": "turn_limit"
+  }
+]

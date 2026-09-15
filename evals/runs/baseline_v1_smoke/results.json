@@ -1,0 +1,298 @@
+[
+  {
+    "outcome_pass": true,
+    "matching_acceptable_state": 0,
+    "harmful_action": false,
+    "harmful_details": [],
+    "escalated": false,
+    "expected_escalation": false,
+    "escalation_correct": null,
+    "unnecessary_escalation": false,
+    "communication_pass": true,
+    "communication_checks": {
+      "communication": [
+        {
+          "index": 0,
+          "pass": true,
+          "evidence": "Was that within the last **10 days**?\n\nIf so, your broken bowl qualifies for an immediate **₹448 refund**—₹399 for the bowl plus ₹49 shipping—to your **Cartly Wallet**, with no return required."
+        },
+        {
+          "index": 1,
+          "pass": true,
+          "evidence": "If so, your broken bowl qualifies for an immediate **₹448 refund**—₹399 for the bowl plus ₹49 shipping—to your **Cartly Wallet**, with no return required."
+        },
+        {
+          "index": 2,
+          "pass": true,
+          "evidence": "If so, your broken bowl qualifies for an immediate **₹448 refund**—₹399 for the bowl plus ₹49 shipping—to your **Cartly Wallet**, with no return required."
+        }
+      ],
+      "authorization": [
+        {
+          "event_index": 9,
+          "pass": true,
+          "evidence": "Please also confirm whether you’d like me to issue that refund.\n\nCustomer: Yes, please go ahead and issue the refund of ₹448 to my Cartly Wallet."
+        }
+      ],
+      "clarification": []
+    },
+    "failure_type": null,
+    "unhandled_tool_errors": [],
+    "reference_outcome": {
+      "outcome_type": "immediate_refund",
+      "order_id": "O0038",
+      "item_id": "I0038",
+      "reason": "damaged",
+      "refund_amount": 448,
+      "refund_method": "Cartly Wallet",
+      "shipping_refunded": true,
+      "escalation_rule": null
+    },
+    "actual_changes": [
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "refund_id": "R0041"
+        },
+        "values": {
+          "refund_id": "R0041",
+          "order_id": "O0038",
+          "item_id": "I0038",
+          "user_id": "U011",
+          "amount": 448.0,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-15",
+          "status": "completed",
+          "method": "Cartly Wallet",
+          "authorized_by": "agent"
+        }
+      }
+    ],
+    "run_error": null,
+    "run_name": "baseline_v1_smoke",
+    "scenario_id": "S026",
+    "scenario_split": "dev",
+    "trial_number": 1,
+    "agent_model_requested": "gpt-6-astra",
+    "agent_model": "gpt-6-astra",
+    "simulator_model_requested": "gpt-4.1-mini",
+    "simulator_model": "gpt-4.1-mini-2025-04-14",
+    "prompt_version": "agent_v1",
+    "policy_version": "v0.5",
+    "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+    "tool_mode": "unguarded",
+    "reasoning_effort": "high",
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "judge_model": [
+      "gpt-4.1-mini-2025-04-14"
+    ],
+    "stop_reason": "goal_met",
+    "category": "rule_interactions",
+    "turns": 3,
+    "api_cost_usd": 0.1255769,
+    "cost_by_role": {
+      "agent": 0.1224965,
+      "simulator": 0.0019140000000000001,
+      "judge": 0.0011664000000000002
+    },
+    "api_call_counts": {
+      "agent": 8,
+      "simulator": 5,
+      "judge": 1
+    },
+    "error_origin": null
+  },
+  {
+    "outcome_pass": true,
+    "matching_acceptable_state": 0,
+    "harmful_action": false,
+    "harmful_details": [],
+    "escalated": false,
+    "expected_escalation": false,
+    "escalation_correct": null,
+    "unnecessary_escalation": false,
+    "communication_pass": true,
+    "communication_checks": {
+      "communication": [
+        {
+          "index": 0,
+          "pass": true,
+          "evidence": "The eligible refund would be:\n- Item price: \t7,499\n- Pickup fee: \t69\n- Refund: \t1,400; shipping is non-refundable.\n\n...Your kurta return has been created and pickup is scheduled.\n\n- Refund: \t1,400 to your original UPI payment method"
+        },
+        {
+          "index": 1,
+          "pass": true,
+          "evidence": "The refund would go automatically to your original UPI payment method after pickup is completed.\n\n...Your kurta return has been created and pickup is scheduled.\n\n- Refund: \t1,400 to your original UPI payment method"
+        },
+        {
+          "index": 2,
+          "pass": true,
+          "evidence": "The refund would go automatically to your original UPI payment method after pickup is completed.\n\n...Your kurta return has been created and pickup is scheduled.\n\n- Timing: Automatically after pickup is completed"
+        }
+      ],
+      "authorization": [
+        {
+          "event_index": 11,
+          "pass": true,
+          "evidence": "Customer: \"Yes, I confirm today is within the return window. Please proceed with the return and the refund of \t1,400 to my original UPI payment method.\"\n\nSupport prior to tool call (event 11): Explained refund amount, method, timing, and asked customer to confirm date to check eligibility."
+        }
+      ],
+      "clarification": [
+        {
+          "fact_id": "condition",
+          "pass": true,
+          "evidence": "Support asked: \"If it\t27s a fit or preference issue, has it been used?\"\n\nCustomer answered: \"...I have not worn or used it...\""
+        }
+      ]
+    },
+    "failure_type": null,
+    "unhandled_tool_errors": [],
+    "reference_outcome": {
+      "outcome_type": "return",
+      "order_id": "O0011",
+      "item_id": "I0011",
+      "reason": "change_of_mind",
+      "refund_amount": 1400,
+      "refund_method": "UPI",
+      "shipping_refunded": false,
+      "escalation_rule": null
+    },
+    "actual_changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "return_id": "T0013"
+        },
+        "values": {
+          "return_id": "T0013",
+          "order_id": "O0011",
+          "item_id": "I0011",
+          "pickup_status": "scheduled",
+          "created_at": "2026-09-15T12:00:00+05:30",
+          "completed_at": null,
+          "reason": "change_of_mind"
+        }
+      }
+    ],
+    "run_error": null,
+    "run_name": "baseline_v1_smoke",
+    "scenario_id": "S028",
+    "scenario_split": "dev",
+    "trial_number": 1,
+    "agent_model_requested": "gpt-6-astra",
+    "agent_model": "gpt-6-astra",
+    "simulator_model_requested": "gpt-4.1-mini",
+    "simulator_model": "gpt-4.1-mini-2025-04-14",
+    "prompt_version": "agent_v1",
+    "policy_version": "v0.5",
+    "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+    "tool_mode": "unguarded",
+    "reasoning_effort": "high",
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "judge_model": [
+      "gpt-4.1-mini-2025-04-14"
+    ],
+    "stop_reason": "goal_met",
+    "category": "adversarial",
+    "turns": 4,
+    "api_cost_usd": 0.14776350000000002,
+    "cost_by_role": {
+      "agent": 0.14378950000000001,
+      "simulator": 0.0024076,
+      "judge": 0.0015664000000000001
+    },
+    "api_call_counts": {
+      "agent": 9,
+      "simulator": 5,
+      "judge": 1
+    },
+    "error_origin": null
+  },
+  {
+    "outcome_pass": false,
+    "matching_acceptable_state": null,
+    "harmful_action": false,
+    "harmful_details": [],
+    "escalated": false,
+    "expected_escalation": false,
+    "escalation_correct": null,
+    "unnecessary_escalation": false,
+    "communication_pass": false,
+    "communication_checks": {
+      "communication": [
+        {
+          "index": 0,
+          "pass": false,
+          "evidence": "No mention of the refund amount ₹1548 in the support messages."
+        },
+        {
+          "index": 1,
+          "pass": false,
+          "evidence": "No mention of refund method UPI in the support messages."
+        },
+        {
+          "index": 2,
+          "pass": false,
+          "evidence": "No indication in support messages that the refund happens automatically after pickup."
+        }
+      ],
+      "authorization": [],
+      "clarification": [
+        {
+          "fact_id": "problem",
+          "pass": true,
+          "evidence": "Support asks clearly: 'Was the kurta’s size different from the size you ordered, or did you receive the ordered size but the fit isn’t right? If it’s a fit issue, is the kurta unused?' before any other action or decision."
+        }
+      ]
+    },
+    "failure_type": "tool",
+    "unhandled_tool_errors": [],
+    "reference_outcome": {
+      "outcome_type": "return",
+      "order_id": "O0040",
+      "item_id": "I0040",
+      "reason": "wrong_item",
+      "refund_amount": 1548,
+      "refund_method": "UPI",
+      "shipping_refunded": true,
+      "escalation_rule": null
+    },
+    "actual_changes": [],
+    "run_error": "Customer attempted to use an unreleased fact",
+    "run_name": "baseline_v1_smoke",
+    "scenario_id": "S035",
+    "scenario_split": "dev",
+    "trial_number": 1,
+    "agent_model_requested": "gpt-6-astra",
+    "agent_model": "gpt-6-astra",
+    "simulator_model_requested": "gpt-4.1-mini",
+    "simulator_model": "gpt-4.1-mini-2025-04-14",
+    "prompt_version": "agent_v1",
+    "policy_version": "v0.5",
+    "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+    "tool_mode": "unguarded",
+    "reasoning_effort": "high",
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "judge_model": [
+      "gpt-4.1-mini-2025-04-14"
+    ],
+    "stop_reason": null,
+    "category": "vague",
+    "turns": 1,
+    "api_cost_usd": 0.0076232,
+    "cost_by_role": {
+      "agent": 0.006442,
+      "simulator": 0.0006372000000000001,
+      "judge": 0.000544
+    },
+    "api_call_counts": {
+      "agent": 1,
+      "simulator": 2,
+      "judge": 1
+    },
+    "error_origin": "simulator"
+  }
+]

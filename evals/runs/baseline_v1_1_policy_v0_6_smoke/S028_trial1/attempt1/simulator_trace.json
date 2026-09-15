@@ -1,0 +1,193 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I'm really upset because the kurta I bought is not what I expected, and I want to return it immediately. I paid ₹2,000 for it, so I expect a full refund of that amount. Please confirm when this will be arranged.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the customer's stated goal and the released fact that the customer wants to return the kurta and expects a refund of ₹2,000, as per the request fact.",
+    "end_reason": "continue",
+    "ending_reason": "The draft asserts the customer's intent and amount but does not confirm resolution or closure, so conversation should continue."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0bf4e288e4546243016aa927ecba9887d284f5d29d57417eda",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent explicitly asks for order ID and item information to identify the purchase."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "Agent asks about whether the item is unused or its condition."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet explained proposed action, exact amount, and payment method to request explicit confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No agent explanation or discussion about the amount has occurred yet."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asks for user ID and registered email or phone number to verify identity."
+      }
+    ]
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "I have already mentioned I paid ₹2,000 for the kurta. My user ID is U018 and my email is customer018@example.com. The order ID is O0011 and it is a Cotton kurta. The item is unused and unworn. Please proceed with arranging the refund based on this information.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "condition",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message uses only facts from the released facts and the profile, such as the paid amount ₹2,000, user ID U018, email, order ID O0011, item as Cotton kurta, and that the item is unused as per the revealed facts and allowed fact IDs.",
+    "end_reason": "continue",
+    "ending_reason": "The customer provides all requested details but does not confirm acceptance of refund or closure, so the conversation should continue for the agent to respond or confirm next steps."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0d9ed8c5873eb360016aa927fa410087d2bfae26527e784962",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent requested explicit confirmation of the proposed refund and method, but the customer has not yet given explicit consent."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "The agent mentioned the delivery date and return window, referencing the date of delivery and current date as in the fact, fulfilling the reveal condition."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "The customer insisted once that they paid ₹2,000, and the agent firmly explained the correct price and refund amount, so the fact about this behavior can be released after amount explanation."
+      }
+    ]
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I received the exact blue, size M Cotton kurta I ordered, but I just don’t like the fit. Please go ahead with the refund of ₹1,400 as you explained. Confirm when the pickup and refund will happen.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply correctly reveals the 'order' and 'condition' facts in response to the agent's questions, and follows the 'behavior_0' rule by accepting the correct refund amount of ₹1,400 after the agent's firm explanation that the original price was ₹1,499 and the refund would be adjusted accordingly.",
+    "end_reason": "continue",
+    "ending_reason": "The reply accepts the refund amount and asks for confirmation of the pickup and refund schedule but does not explicitly close the conversation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0f0382769107fd9a016aa92816d12887d2be2d86104ee5ed7f",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explained the refund amount, method, and return details, and the customer explicitly approved proceeding with the refund and return."
+      }
+    ]
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Yes, please proceed with the refund of ₹1,400 to my original UPI payment method as explained. I confirm and expect the pickup and refund arrangement to be completed promptly.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "consent",
+        "request",
+        "order",
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply aligns with the profile's consent fact, accepting the refund amount of ₹1,400 as explained by the agent, confirming the refund and pickup arrangement as requested after clarifications on order details, condition, and refund amount were provided.",
+    "end_reason": "goal_met",
+    "ending_reason": "The customer explicitly confirms acceptance of the refund amount and requests completion of the pickup and refund process, thereby meeting the stated goal of returning the kurta and receiving the refund."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "behavior_0",
+      "condition",
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b0e26d7a2314174016aa92825cf3487d2a3ad021af9e1d3df",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I received the headphones I ordered, but unfortunately, they arrived broken. I would like to request a refund for this order. Could you please guide me through the refund process?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry your headphones arrived broken. I can check their refund eligibility and guide you through the next steps.\n\nPlease share:\n- Your Cartly user ID\n- Your registered email address or phone number\n- The order ID, if you have it\n\nOnce you’re verified, I’ll check the order and confirm the refund amount, whether a photo or return pickup is needed, and where the refund will go.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time. You may find your user ID in your Cartly profile and the order ID in your order history or confirmation email. If you can’t find the order ID, I can look up your orders after verifying your user ID and registered email or phone number.\n\nFor broken headphones, the electronics return window is **7 calendar days after delivery**, with delivery counted as day 0. A photo uploaded to the order is required if the item’s value is above ₹2,000. The exact refund process depends on the order details.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—come back when you have your Cartly user ID and either your registered email address or phone number. I’ll need those to verify your account before checking the order.\n\nPlease check soon, as broken headphones generally need to be reported within 7 calendar days after delivery.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "No problem—we can pause here. When you’ve had a chance to check, message me and I’ll help you with the next steps.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "I understand the need to check. Please let me know once you have your Cartly user ID and registered email or phone number ready, so I can assist you further with your refund request for the broken headphones.",
+    "turn": 5
+  },
+  {
+    "role": "support",
+    "content": "Just to clarify, I’m the Cartly support assistant—the verification details need to be yours. When you’re ready, share your Cartly user ID and either your registered email or phone number so I can check your order and refund options.",
+    "turn": 5
+  }
+]

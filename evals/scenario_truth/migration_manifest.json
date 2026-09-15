@@ -1,0 +1,18 @@
+{
+  "policy_sha256": "d4126991d8edd59509bf80fd8e193bec9d79723f61be19d68a3e968fb513ae99",
+  "original_combined_sha256": {
+    "users": "c54a8b50050b4f2306240029c5278cfbde1fb85481be538bd48977922d83e3ed",
+    "orders": "2ac391f372b2ed829e57569f0f897a8385fcb45a6e62bf0bc0fc811117e7be0e",
+    "order_items": "83ec594ce36d293e6f1e3bd568863f4688b1167eacc9c051dca39e256b26dc2c",
+    "refunds": "7a4deff28f62120534491bf3174da73552acfae6107bc87d37fca6d91cd79fd5",
+    "returns": "00475a20a8b3469cf1b392a958a3d223011a76d75a7353833019d555c5e0b912"
+  },
+  "world_sha256": {
+    "users": "0a2e397387dcc7ba693bf66ef7ee3aee7855b5a59b906a51951b124ae58803d0",
+    "orders": "83069ca0fd956c8443c7538207124551d54dbd08b9c1e5d01f594da0f75bbaad",
+    "order_items": "1ca9f2992aa7242f6933fdbaf55dac0bafc8d8079ee1c81c2c80d6ee2ec3672f",
+    "refunds": "227a857d779592fe6a7785db88943d29bb0f6cf3cbae7f565d373d12c1ff9a1f",
+    "returns": "8fcc04537d4b94392b205096ee61a540df4ef901ed8ebf8167b2149a924a3289"
+  },
+  "baseline_note": "Updated only for user-authorized address/fixture-word cleanup; previous hashes archived."
+}

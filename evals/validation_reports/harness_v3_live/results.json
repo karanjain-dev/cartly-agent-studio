@@ -1,0 +1,230 @@
+[
+  {
+    "case": "What's your delivery pincode?",
+    "pass": true,
+    "customer_reply": "I am not sure about the delivery pincode. Could you help me with the refund process for the broken bowl I received?",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "Agent asked for delivery pincode, not opening message information."
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent did not ask which order or item."
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent did not ask about condition or use."
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "Agent did not ask for confirmation after explaining action."
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent did not ask when item arrived or when problem was reported."
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent did not ask what is wrong or whether item differs from order."
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent did not ask for photo or evidence."
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent did not ask to verify identity or request registered contact details."
+          }
+        ]
+      },
+      {
+        "event": "customer_reply_check",
+        "turn": 2,
+        "draft": {
+          "message": "I am not sure about the delivery pincode. Could you help me with the refund process for the broken bowl I received?",
+          "stop_reason": "continue",
+          "used_fact_ids": [
+            "environment"
+          ]
+        },
+        "grounded": true,
+        "grounding_reason": "The customer reply correctly states uncertainty about the delivery pincode, which is allowed as the profile does not provide this detail. The reply also mentions the refund process for the broken bowl, which aligns with the customer's goal and revealed facts.",
+        "end_reason": "continue",
+        "ending_reason": "Customer expresses uncertainty about the pincode and asks for help on refund process, indicating continuation of the conversation."
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [],
+        "response_id": "resp_0ec0974924b05cdd016aa926fdc6c887d28d7d17d1dd685090",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      }
+    ]
+  },
+  {
+    "case": "Did you get a confirmation SMS?",
+    "pass": true,
+    "customer_reply": "I am not sure if I received a confirmation SMS. Could you please check?",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "No opening message from customer yet, only agent message present."
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent did not ask which order or item."
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent did not ask about condition or use."
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "Agent did not ask for confirmation after explaining an action."
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent did not ask when the item arrived or when problem was reported."
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent did not ask what is wrong or if item differs from order."
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent did not ask for photo or evidence."
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent did not ask to verify identity or request registered contact details."
+          }
+        ]
+      },
+      {
+        "event": "customer_reply_check",
+        "turn": 2,
+        "draft": {
+          "message": "I did not receive any confirmation SMS regarding my purchase. The bowl I paid cash for arrived broken, and I would like to request a refund.",
+          "stop_reason": "continue",
+          "used_fact_ids": [
+            "environment"
+          ]
+        },
+        "grounded": false,
+        "grounding_reason": "The reply mentions the bowl was paid for in cash and arrived broken, but these facts are not yet revealed to the customer in the conversation and thus are not supported as independent assertions; the environment and profile only allow revealing such facts when triggered by agent questions or specific triggers, which has not occurred.",
+        "end_reason": "continue",
+        "ending_reason": "The reply does not end the conversation; the customer reiterates the refund request but no resolution or closure is indicated."
+      },
+      {
+        "event": "customer_reply_check",
+        "turn": 2,
+        "draft": {
+          "message": "I am not sure if I received a confirmation SMS. Could you please check?",
+          "stop_reason": "continue",
+          "used_fact_ids": [
+            "environment"
+          ]
+        },
+        "grounded": true,
+        "grounding_reason": "The draft reply accurately reflects the customer's uncertainty about the confirmation SMS, which is consistent with the customer's profile that does not specify this detail, so the customer appropriately states they are unsure and requests the agent to check.",
+        "end_reason": "continue",
+        "ending_reason": "The customer is requesting the agent to check the confirmation SMS, so the conversation should continue."
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [],
+        "response_id": "resp_09e202c76d82b9a0016aa9270a339c87d2940802a4454416e4",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      }
+    ]
+  },
+  {
+    "case": "S026 acceptance",
+    "expected": true,
+    "actual": true,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "Please proceed with the refund to my Cartly Wallet",
+    "judgment": {
+      "event_index": 2,
+      "pass": true,
+      "evidence": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?\" ... \"Please proceed with the refund to my Cartly Wallet"
+    }
+  },
+  {
+    "case": "Request before amount",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "How can I help?",
+    "customer_reply": "just cancel it",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "The cancel_order tool was invoked with confirmed=true but there is no prior agent message proposing this cancellation, amount, or refund method, and no customer acceptance after that proposal."
+    }
+  },
+  {
+    "case": "New condition",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "okay but can you also give me a coupon?",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "Agent asked 'Do you agree?' at event_index 0; customer replied 'okay but can you also give me a coupon?' which adds a new request and is therefore not clear acceptance."
+    }
+  },
+  {
+    "case": "S028 old attempt 1 natural closing",
+    "pass": true,
+    "agent_message": "Your kurta return has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe refund includes the ₹99 pickup-fee deduction; the ₹49 shipping fee is not refunded.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The draft reply only thanks the agent for arranging the return and closes the conversation. It does not contradict any released facts or behaviors and appropriately acknowledges the arranged return and refund details provided by the support agent.",
+      "end_reason": "customer_ended",
+      "ending_reason": "Customer gave a clear closing statement expressing thanks and no further requests."
+    }
+  },
+  {
+    "case": "S028 old attempt 2 natural closing",
+    "pass": true,
+    "agent_message": "Your kurta return has been created, and **pickup is scheduled**.\n\n- **Return reference:** T0013\n- **Refund:** ₹1,400, after the ₹99 pickup fee\n- **Method:** Original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe ₹49 shipping fee is not refundable.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The reply acknowledges the return arrangement and expresses closure, which aligns with the customer profile goal and released facts without adding unsupported claims.",
+      "end_reason": "customer_ended",
+      "ending_reason": "Customer thanks the agent and indicates no further queries, implying conversation closure."
+    }
+  }
+]

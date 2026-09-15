@@ -1,0 +1,4 @@
+{
+  "edge_case_format": "array of rule-prefixed tags; empty for unplanted records",
+  "claim_fields": "Embedded on order_items; claim_reported_at is the reporting timestamp. user_request is synthetic customer input, not database pricing authority."
+}

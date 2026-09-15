@@ -1,0 +1,538 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I have a problem with my headphones as they do not function. I would like to request a refund for them, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message is consistent with the customer's initial request as per the profile and released facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is clearly requesting a refund and no action has yet been taken by support.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_077c916780a7583f016aa936923e2487d2ba0848e3302dc4b0",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not explain proposed action or ask for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when it arrived or when problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent did not ask what is wrong or whether the item differs from order; customer provided problem unsolicited."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requested user ID and registered email or phone number, which is verification of identity and registered contact details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID.",
+        "source_quote": "\"user_id\": \"U008\""
+      },
+      {
+        "question": "Please share your registered email or phone number.",
+        "source_quote": "\"email\": \"customer008@example.com\""
+      },
+      {
+        "question": "Please share the order ID if you have it.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Please share the order ID if you have it."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please share the order ID if you have it."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about condition or use in the latest message."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining a proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when it arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent did not ask what is wrong or whether the item differs from the order; they only requested user ID and contact info for verification."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent did not ask for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID.",
+        "source_quote": "\"user_id\": \"U008\""
+      },
+      {
+        "question": "Please share your registered email or phone number.",
+        "source_quote": "\"email\": \"customer008@example.com\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My user ID is U008 and my registered email is customer008@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only reveals user ID and email from the allowed credentials, consistent with the customer's profile and conversation facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0738cdcfd6672b89016aa936a6cb9887d29879a3540a4bdec0",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent identifies the order and item by stating order O0001 and wireless headphones."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent does not ask about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent offers to proceed but does not yet ask for explicit confirmation after explaining the full action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "Agent states the delivery date as 8 September, fulfilling request about when it arrived."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent references the item is not working, implicitly addressing the problem the customer described."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent does not ask for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not asked the customer to explicitly confirm the refund action, amount, or payment method."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent has not asked for a photo or any evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "Yes, please proceed with the return and refund using the original UPI payment method.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "delivery",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply agrees to proceed with the return and refund as previously explained by support, matching the user's profile intent after support detailed the refund amount, method, and conditions.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer agrees to a proposed action that still needs to be executed by support, so the conversation continues until confirmation of completion.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 5,
+    "reason": "The customer agrees to a proposed action that still needs to be executed by support, so the conversation continues until confirmation of completion."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_02ea5b527e9f40e1016aa936c5f08887d2831502627ce38e1f",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent message does not ask about item condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent asks for confirmation after explaining the exact action, refund amount, and payment method, matching the consent reveal condition."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent message does not ask for a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "Shall I create the return on these terms?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Shall I create the return on these terms?"
+    ]
+  },
+  {
+    "turn": 6,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Shall I create the return on these terms?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the condition or usage of the item."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent has not requested a photo or any evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "Yes, I confirm. Please create the return and proceed with the refund of ₹2,048 to my original UPI payment method as explained.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "consent",
+        "credentials",
+        "order",
+        "delivery",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer reply confirms acceptance of the proposed return and refund amount and method exactly as explained by the agent, which is supported by the customer's revealed consent fact and matches the ongoing conversation.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 7,
+    "reason": ""
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_01ec8d094de96fc6016aa936db821487d28a2429df3cd6c268",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or usage."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent has not requested a photo or any evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [
+      {
+        "question": "Which order or item is the refund request about?",
+        "source_quote": "The order I am asking about is O0001 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 8,
+    "draft": {
+      "message": "Yes, I confirm. Please submit the return now as you summarized.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "consent",
+        "credentials",
+        "order",
+        "delivery",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply aligns with the customer's explicit consent and references the order ID, refund amount, and payment method as provided in the released facts and conversation.",
+    "support_action_status": "none",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer confirms and requests submission, but support has not yet stated completion of the return or refund action.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 8,
+    "reason": "The customer confirms and requests submission, but support has not yet stated completion of the return or refund action."
+  },
+  {
+    "turn": 8,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_03d6ba638a84ffc8016aa936f64a4487d293fbb2712df5e697",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent message does not ask about item condition or use."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent message does not request a photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 9,
+    "draft": {
+      "message": "Thank you for confirming. I look forward to receiving the refund after the pickup is completed.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "consent",
+        "credentials",
+        "order",
+        "delivery"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the confirmed details given by the customer and support's final confirmation: the return is created, pickup scheduled, and refund of ₹2,048 will be automatic after pickup, all using known order and payment details without introducing unsupported facts.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The customer acknowledges the completed creation of the return and looks forward to the refund, indicating the resolution of the issue and closing of the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 9,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_01774e6bae806d30016aa93703e8bc87d285a3a6df0da8037e",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "customer_ended"
+  }
+]

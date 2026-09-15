@@ -1,0 +1,233 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I would like to cancel my order as I no longer need it. Could you please assist me with the cancellation process?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the customer's initial request to cancel their order as stated in the released fact 'I no longer need my order. Please cancel it.'",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0252c3ea286663ca016aa92eb4c36c87d2901550e1447bfc32",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not yet asked which order or item specifically."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No request for confirmation after explanation of action, amount, or payment method."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requests user ID or registered email/phone to verify identity."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID, either your registered email address or phone number.",
+        "source_quote": "\"user_id\": \"U014\", \"email\": \"customer014@example.com\""
+      },
+      {
+        "question": "Please share your order ID you’d like to cancel.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Please share your order ID you’d like to cancel."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please share your order ID you’d like to cancel."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask specifically which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No agent request for confirmation of action, amount, or payment method was made."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?",
+        "source_quote": "You can usually find your user ID in your account profile and your order ID in your order history or confirmation email."
+      }
+    ],
+    "unknown_questions": [
+      "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If you can’t find the order ID, can I look up your orders after verifying your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item; agent only asked for user ID and contact info for verification."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not explain a proposed action, amount, or payment method, nor did they ask for explicit confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Do you have your user ID and registered email or phone number?",
+        "source_quote": "user ID and registered email or phone number"
+      }
+    ],
+    "unknown_questions": [
+      "Do you have your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Do you have your user ID and registered email or phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining the proposed action."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "Which order or item are you referring to?",
+        "source_quote": "The order I am asking about is O0075 and the item is Wireless headphones."
+      },
+      {
+        "question": "Has the item been worn or used?",
+        "source_quote": "The item has not been worn or used."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "I understand. Please let me know once you have the order ID or any details ready, and I will assist you further with the cancellation.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only restates the customer's need to provide order details for cancellation assistance, which aligns with the released and allowed facts without adding unsupported information.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0011a6eda76a38f8016aa92ed394f087d2951238e1f356c4fe",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  }
+]

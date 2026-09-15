@@ -1,0 +1,1248 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Could you please let me know if the kurta was purchased recently and if it is in its original condition? This information will help me provide you with the accurate return policy details.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft asks about purchase recency and condition which are hidden facts not yet revealed; replying with these assertions is not grounded in the current allowed facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Could you please tell me when you purchased the kurta and if it is in its original condition? That will help me check the return options for you.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft asks for purchase date and condition, but these facts are in hidden_facts and not revealed yet, so the draft introduces unsupported facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Could you please let me know when you purchased the kurta and its current condition? This will help me check if a return is possible under the store's policy.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft message requests information on purchase date and item condition, but these details are not yet revealed according to the profile's reveal conditions and are not in the released facts or environment; thus the draft includes unsupported assertions.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "continue for obtaining missing required info",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "safe_fallback",
+    "turn": 1,
+    "reason": "The draft message requests information on purchase date and item condition, but these details are not yet revealed according to the profile's reveal conditions and are not in the released facts or environment; thus the draft includes unsupported assertions."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_00ee3b2439f6cfe2016aa9375938d487d2bde07bc27f093c41",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when item arrived or when problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": false,
+        "reason": "Agent did not ask to verify identity or request registered contact details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "Yes, you can return the kurta if you have changed your mind. Please ensure it meets our return policy conditions such as being in original condition and within the return period. Let me know if you would like help initiating the return process.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft references return policy conditions not supported by the allowed or revealed facts and invents policy details without grounding.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The draft prematurely concludes goal_met without sufficient grounding in provided facts and does not reflect customer's last message indicating uncertainty.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "I changed my mind about my kurta. Can I return it?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply uses the customer's initial question 'I changed my mind about my kurta. Can I return it?' from the released facts and does not add any unauthorized information.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0277c9582711010c016aa9376a82c087d28cb34fed9d5b5668",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not yet asked specifically about which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent explicitly asks if the kurta is unused, matching the condition reveal criteria."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No request for explicit confirmation after explaining action, amount, and payment method is made yet."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent has not asked about when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests user ID, registered email or phone number, matching the credentials reveal condition."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID, registered email or phone number, and order ID.",
+        "source_quote": "\"user_id\": \"U022\", \"email\": \"customer022@example.com\""
+      },
+      {
+        "question": "Is the kurta unused?",
+        "source_quote": "\"The item has not been worn or used.\""
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, the kurta has not been worn or used.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "condition"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer confirms the kurta has not been worn or used, consistent with the released fact about the item's condition.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_03ce00f5f54468d2016aa93774618487d2b033e740fe620815",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item yet, only requested credentials for verification."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for explicit confirmation after explaining an action, amount, or payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask about arrival date or problem report date."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID.",
+        "source_quote": "\"user_id\": \"U022\""
+      },
+      {
+        "question": "Please share your registered email or phone number.",
+        "source_quote": "\"email\": \"customer022@example.com\""
+      },
+      {
+        "question": "If you have the order ID, please include it too.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "If you have the order ID, please include it too."
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If you have the order ID, please include it too."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not asked which specific order or item the customer is referring to."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not yet explained any proposed action, exact amount, or payment method to request explicit confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent has not asked about the arrival date or the date the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [
+      {
+        "question": "When did the item arrive?",
+        "source_quote": "The item arrived on 2026-09-04."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "My user ID is U022 and my registered email is customer022@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply states the user ID and registered email from the allowed credentials in the profile; no unsupported facts are included.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_02afcf719f67c3e3016aa93785947087d28293bd011f67ffe6",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent identified the order ID O0015 and the item cotton kurta, which matches the reveal condition of agent asking which order or item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining the proposed action, amount, and payment method in the latest message."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "The agent stated the delivery date (4 September) and current date (15 September) relevant to return eligibility, satisfying the condition for revealing arrival date or report date."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [
+      {
+        "question": "When did the item arrive?",
+        "source_quote": "The item arrived on 2026-09-04."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "Thank you for verifying. I understand the kurta is unused but the 10-day return period has just ended yesterday, so I’m sorry it cannot be accepted for a change-of-mind return now.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "order",
+        "delivery",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately summarizes the released facts: the item (Cotton kurta) is unused, the order ID is O0015, the item was delivered on 2026-09-04, the customer contacted on 2026-09-15, and the 10-day return window has expired on 2026-09-14.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 6,
+    "reason": ""
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_036f4109409441d1016aa9379cfca887d2ba931f989818e1ee",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation of any action; it only acknowledges the customer's understanding."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 7,
+    "draft": {
+      "message": "Thank you for explaining. I understand that since the 10-day return window ended yesterday, my unused kurta cannot be returned for a change of mind. I appreciate your help in verifying this.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer reply correctly references the return window ending yesterday, the item being unused, and the verified order and delivery dates as provided in the conversation and profile facts.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer acknowledges and accepts the final information that the return cannot be processed as the return window ended yesterday, thus meeting the goal.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 7,
+    "reason": "Customer acknowledges and accepts the final information that the return cannot be processed as the return window ended yesterday, thus meeting the goal."
+  },
+  {
+    "turn": 7,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0f353dce2def3371016aa937a5189087d2b1a53431be0e08cd",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for explicit confirmation after explaining an action, amount, and payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 8,
+    "draft": {
+      "message": "Thank you for confirming everything. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "order",
+        "delivery",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply is a polite closing message that accurately reflects the customer's acknowledgment of the return policy as explained by support; it uses facts revealed and acknowledged in the conversation, such as the kurta condition, return window, and order details.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer expresses understanding and appreciation after support clarifies return policy; conversation goal reached.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 8,
+    "reason": "Customer expresses understanding and appreciation after support clarifies return policy; conversation goal reached."
+  },
+  {
+    "turn": 8,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07d39f23f5a9fafe016aa937ace98887d2b716653bcaa90f7e",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation of a proposed action with exact amount and payment method in the latest message or prior messages; the latest agent message is a polite closing statement unrelated to requesting consent."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 9,
+    "draft": {
+      "message": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft response accurately reflects the known facts from the conversation and customer profile: the item is unused, the order ID and delivery date correspond to the query, and the customer acceptance and understanding of the return policy and timing have been expressed.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer's reply acknowledges understanding and acceptance of the return policy after verification, signaling goal completion and readiness to close the conversation.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 9,
+    "reason": "The customer's reply acknowledges understanding and acceptance of the return policy after verification, signaling goal completion and readiness to close the conversation."
+  },
+  {
+    "turn": 9,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b5e2e48737979a3016aa937b76a5487d2af061c275d4ca129",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 10,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message is a polite closing statement and does not ask for confirmation after explaining an action with exact amount and payment method, so the consent fact condition is not met."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 10,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 10,
+    "draft": {
+      "message": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "order",
+        "delivery",
+        "credentials",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply is consistent with the released facts and profile: the kurta is unused, order O0015, delivery on 2026-09-04, current date 2026-09-15, and the 10-day return window ended on 2026-09-14 as explained by support. The customer is acknowledging understanding of the return policy and appreciating support's help.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer is confirming understanding after support explained the ineligibility for return due to expired return window, indicating the goal is met and conversation can end.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 10,
+    "reason": "The customer is confirming understanding after support explained the ineligibility for return due to expired return window, indicating the goal is met and conversation can end."
+  },
+  {
+    "turn": 10,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0e2b2cb815e82e0a016aa937bfc2e887d2b8cf0d5f309e68d5",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 11,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message is a polite closing statement and does not ask for confirmation after explaining a proposed action, amount, or payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 11,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 11,
+    "draft": {
+      "message": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "order",
+        "delivery",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply correctly summarizes the return policy explained by support regarding the unused kurta and the 10-day return window which ended the day before, all details confirmed in the released facts and conversation.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges understanding the policy and expresses appreciation, indicating the goal is met and closing the conversation.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 11,
+    "reason": "The customer acknowledges understanding the policy and expresses appreciation, indicating the goal is met and closing the conversation."
+  },
+  {
+    "turn": 11,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ebadf8ca38a2eb5016aa937cc1acc87d291cafeb79e2b77bd",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 12,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for explicit confirmation of a proposed action, amount, or payment method; it is a closing acknowledgment."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 12,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 12,
+    "draft": {
+      "message": "Thank you for your assistance and confirmation. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately reflects the facts supplied in the profile and released facts: the kurta is unused, the order is O0015, it was delivered on 2026-09-04, and the customer understands the 10-day return window ended on 2026-09-14, so the return is not possible now.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer confirms understanding of the return policy and expresses appreciation, indicating the goal has been met and the conversation can end.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 12,
+    "reason": "Customer confirms understanding of the return policy and expresses appreciation, indicating the goal has been met and the conversation can end."
+  },
+  {
+    "turn": 12,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_05dfa916d41412f7016aa937d4fe8c87d29c76819d26b4620d",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 13,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation after explaining a proposed action, exact amount, and payment method; the conversation focused on verifying return eligibility and explaining the return policy, without requesting consent for a specific action."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 13,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 13,
+    "draft": {
+      "message": "Thank you for your assistance and confirmation. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message references only facts confirmed in the profile and conversation: unused kurta, 10-day return window ended yesterday (2026-09-14), and appreciation for policy clarification; no unsupported facts are asserted.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer clearly acknowledges and accepts the final policy explanation; no further questions or requests remain.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 13,
+    "reason": "Customer clearly acknowledges and accepts the final policy explanation; no further questions or requests remain."
+  },
+  {
+    "turn": 13,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_05242c29ff7be2d7016aa937de7e9887d2928dbfe92487b602",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 14,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent's latest message does not ask for confirmation after explaining a proposed action, amount, or payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 14,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 14,
+    "draft": {
+      "message": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the customer's understanding of and appreciation for the return policy as explained by support, based on the allowed known facts and conversation history.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "customer acknowledges resolution and indicates closure of the issue.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 14,
+    "reason": "customer acknowledges resolution and indicates closure of the issue."
+  },
+  {
+    "turn": 14,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_000859822f5dea9c016aa937e787f887d2923211a3d17babe2",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 15,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation or consent for an action with details of amount and payment method in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 15,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 15,
+    "draft": {
+      "message": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply appropriately references the confirmed facts from the profile and released facts about the unused condition of the item, the order details, the return window ending on 14 September 2026, and aligns with the current date of 15 September 2026.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges understanding of the return policy and appreciation of support confirmation, thereby effectively closing the issue.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 15,
+    "reason": "The customer acknowledges understanding of the return policy and appreciation of support confirmation, thereby effectively closing the issue."
+  },
+  {
+    "turn": 15,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0fa4025c3f25b04f016aa937f04acc87d2a81eba384ede00c9",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 16,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation of an action, amount, or payment method to trigger release of this fact."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 16,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 16,
+    "draft": {
+      "message": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's message reflects understanding of the return policy explained by support, referencing the unused condition of the kurta and the expired 10-day return window, all information present in the released facts and conversation.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "Customer acknowledges understanding and appreciation after support confirmed the return policy, fulfilling the original goal.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 16,
+    "reason": "Customer acknowledges understanding and appreciation after support confirmed the return policy, fulfilling the original goal."
+  },
+  {
+    "turn": 16,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_04f45ca95980f3e4016aa937f7a6f487d2a2b79862ee91e7f5",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 17,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask the customer for explicit confirmation of the proposed action, exact amount, or payment method in the latest message or prior messages before 'You're welcome!'."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 17,
+    "factual_questions": [
+      {
+        "question": "Which order number is the kurta from?",
+        "source_quote": "The order I am asking about is O0015 and the item is Cotton kurta."
+      },
+      {
+        "question": "Has the item been worn or used?",
+        "source_quote": "The item has not been worn or used."
+      },
+      {
+        "question": "When did the item arrive?",
+        "source_quote": "The item arrived on 2026-09-04."
+      },
+      {
+        "question": "When are you contacting us?",
+        "source_quote": "I am contacting you on 2026-09-15."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 17,
+    "draft": {
+      "message": "Thank you for confirming the return policy with me. I appreciate your help and patience.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order",
+        "request",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the customer's acknowledgments and appreciation of the return policy based on the verified facts and conversation history without adding unsupported information.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer expresses understanding and appreciation for the return policy and the support provided, which aligns with meeting their goal and closing the conversation.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 17,
+    "reason": "The customer expresses understanding and appreciation for the return policy and the support provided, which aligns with meeting their goal and closing the conversation."
+  },
+  {
+    "turn": 17,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0f2bac5f833179bc016aa93801227487d2b932572a78ac8c48",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 18,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not asked the customer to confirm an action that includes the exact amount and payment method; the conversation only includes policy explanation and verification stages, but no explicit request for consent to proceed with a specified action."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 18,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 18,
+    "draft": {
+      "message": "Thank you for your understanding and assistance. I appreciate your help in clarifying the return policy for my kurta.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only acknowledges and thanks the support for clarifying the return policy, consistent with the customer's stated facts: the kurta is unused, the order is O0015, it arrived on 2026-09-04, and the 10-day return window ended on 2026-09-14, with the current date 2026-09-15. No unsupported facts are asserted.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 18,
+    "reason": ""
+  },
+  {
+    "turn": 18,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0032d0e154d43ff6016aa9380957e887d2bd95b5976cb7fa4d",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 19,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for explicit confirmation for a proposed action, amount, or payment method after explaining it."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 19,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 19,
+    "draft": {
+      "message": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply uses only information authorized by the provided customer profile and released facts, including acknowledgment of the return policy clarified by support based on the unused item and the 10-day return window ending the day before the current date.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer expresses understanding and appreciation for the return policy confirmation, indicating the goal of understanding the return eligibility has been met and closing the conversation.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 19,
+    "reason": "The customer expresses understanding and appreciation for the return policy confirmation, indicating the goal of understanding the return eligibility has been met and closing the conversation."
+  },
+  {
+    "turn": 19,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0889b8fccf16ff6f016aa93811d08c87d2aad4eb704951be0a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 20,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining the proposed action, amount, and payment method in the latest message or prior messages; therefore, no explicit consent was requested."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 20,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "credentials",
+        "delivery",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer's message repeats their understanding of the return policy as previously explained and confirmed by support, which aligns with the allowed facts about the unused kurta and the expired return window ending on 14 September 2026. No new unsupported facts are introduced.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "customer expresses clear understanding and appreciation after support confirmed the policy, signaling completion of the return inquiry.",
+    "proposed_end_reason": "goal_met",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 20,
+    "reason": "customer expresses clear understanding and appreciation after support confirmed the policy, signaling completion of the return inquiry."
+  },
+  {
+    "turn": 20,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "delivery",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0d5ecefbffc1daa5016aa9381aa2d087d2a95866188f776c2d",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 20,
+    "forced_stop": "turn_limit"
+  }
+]

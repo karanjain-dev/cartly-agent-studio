@@ -1,0 +1,8 @@
+{
+  "passed": 3,
+  "total": 6,
+  "cost_usd": 0.0060668000000000015,
+  "resolved_models": [
+    "gpt-4.1-mini-2025-04-14"
+  ]
+}

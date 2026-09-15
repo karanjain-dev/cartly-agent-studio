@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S016",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "b494da0950f1b718157244c53abc379f3c1963ebb005e842f17d354fc52f1d60",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0017",
+          "item_id": "I0017"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 699,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The cotton vest is innerwear, but damaged items are refundable with return pickup scheduled. Return window and photo evidence conditions are met. Refund will occur after pickup; shipping is refunded once per order already and this order has no prior refunded shipping.",
+    "rules": [
+      "E2",
+      "E3",
+      "E5",
+      "E6",
+      "E12",
+      "H1"
+    ]
+  },
+  "response_id": "resp_04e771b9e0e57959016aa90d6a677887d29c90d5fb88686615",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4209,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 218,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4427
+  }
+}

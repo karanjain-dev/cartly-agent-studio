@@ -1,0 +1,206 @@
+[
+  {
+    "case": "What's your delivery pincode?",
+    "pass": true,
+    "customer_reply": "I'm not sure; I'd need to check.",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "No opening message from customer yet, only agent's question."
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent has not asked which order or item yet."
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent has not asked about condition or use."
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "Agent has not explained action and asked for confirmation yet."
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent has not asked when item arrived or when problem was reported."
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent has not asked what is wrong or if item differs from the order."
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent has not asked for photo or evidence."
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent has not asked for identity verification or registered contact details."
+          }
+        ]
+      },
+      {
+        "event": "customer_answerability",
+        "turn": 2,
+        "factual_questions": [
+          {
+            "question": "What is your delivery pincode?",
+            "source_quote": ""
+          }
+        ],
+        "unknown_questions": [
+          "What is your delivery pincode?"
+        ]
+      },
+      {
+        "turn": 2,
+        "stop_reason": "continue",
+        "unknown_questions": [
+          "What is your delivery pincode?"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "Did you get a confirmation SMS?",
+    "pass": true,
+    "customer_reply": "I'm not sure; I'd need to check.",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "No opening message from customer has been provided in the conversation."
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent did not ask which order or item."
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent did not ask about condition or use."
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "Agent did not ask for confirmation after explaining the proposed action and payment details."
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent did not ask when the item arrived or when the problem was reported."
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent did not ask what is wrong or whether the item differs from the order; only asked if confirmation SMS was received."
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent did not ask for a photo or other evidence."
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent did not ask to verify identity or request registered contact details."
+          }
+        ]
+      },
+      {
+        "event": "customer_answerability",
+        "turn": 2,
+        "factual_questions": [
+          {
+            "question": "Did you get a confirmation SMS?",
+            "source_quote": ""
+          }
+        ],
+        "unknown_questions": [
+          "Did you get a confirmation SMS?"
+        ]
+      },
+      {
+        "turn": 2,
+        "stop_reason": "continue",
+        "unknown_questions": [
+          "Did you get a confirmation SMS?"
+        ]
+      }
+    ]
+  },
+  {
+    "case": "S028 old attempt 1 natural closing",
+    "pass": true,
+    "agent_message": "Your kurta return has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe refund includes the ₹99 pickup-fee deduction; the ₹49 shipping fee is not refunded.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The customer thanks the agent for arranging the return, which aligns with the support message confirming the return and refund details. No unsupported facts are introduced.",
+      "support_action_status": "completed",
+      "customer_intent": "close",
+      "end_reason": "customer_ended",
+      "ending_reason": "The customer acknowledges the completion of the return arrangement but does not explicitly close the conversation or use a clear closing phrase.",
+      "proposed_end_reason": "continue",
+      "ending_override_reason": "A clear customer closing is sufficient; no stop marker is required."
+    }
+  },
+  {
+    "case": "S028 old attempt 2 natural closing",
+    "pass": true,
+    "agent_message": "Your kurta return has been created, and **pickup is scheduled**.\n\n- **Return reference:** T0013\n- **Refund:** ₹1,400, after the ₹99 pickup fee\n- **Method:** Original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe ₹49 shipping fee is not refundable.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The reply thanks for the arranged return and ends the conversation without contradicting any known facts. The refund amount is understood as clarified by support; the customer does not dispute it here.",
+      "support_action_status": "completed",
+      "customer_intent": "close",
+      "end_reason": "customer_ended",
+      "ending_reason": "Customer expresses thanks and indicates no further queries or requests, effectively closing the conversation.",
+      "proposed_end_reason": "customer_ended",
+      "ending_override_reason": "A clear customer closing is sufficient; no stop marker is required."
+    }
+  },
+  {
+    "case": "S026 acceptance must continue",
+    "pass": true,
+    "customer_reply": "Yes, please go ahead and issue the refund to my Cartly Wallet now.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The customer response accepts the refund proposal and payment method previously explained by support, consistent with the released facts about the order, problem, refund amount, and payment method.",
+      "support_action_status": "offered_or_pending",
+      "customer_intent": "accept_proposal",
+      "end_reason": "continue",
+      "ending_reason": ""
+    }
+  },
+  {
+    "case": "S035 acceptance must continue",
+    "pass": true,
+    "customer_reply": "Yes, please create the return and arrange the pickup.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The customer's reply aligns with the confirmed order details (O0040), the problem with size discrepancy, and consents to the proposed action (creating the return and arranging pickup) as required by their consent condition.",
+      "support_action_status": "offered_or_pending",
+      "customer_intent": "accept_proposal",
+      "end_reason": "continue",
+      "ending_reason": ""
+    }
+  }
+]

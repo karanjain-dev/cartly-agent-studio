@@ -1,0 +1,562 @@
+[
+  {
+    "user_id": "U001",
+    "name": "Aarav Sharma",
+    "email": "customer001@example.com",
+    "phone": "+919000000001",
+    "default_address": {
+      "line1": "Flat 101, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U002",
+    "name": "Aarav Sharrma",
+    "email": "customer002@example.com",
+    "phone": "+919000000002",
+    "default_address": {
+      "line1": "Flat 102, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U003",
+    "name": "Ananya Iyer",
+    "email": "customer003@example.com",
+    "phone": "+919000000003",
+    "default_address": {
+      "line1": "Flat 103, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U004",
+    "name": "Vivaan Mehta",
+    "email": "customer004@example.com",
+    "phone": "+919000000004",
+    "default_address": {
+      "line1": "Flat 104, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U005",
+    "name": "Diya Nair",
+    "email": "customer005@example.com",
+    "phone": "+919000000005",
+    "default_address": {
+      "line1": "Flat 105, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U006",
+    "name": "Arjun Rao",
+    "email": "customer006@example.com",
+    "phone": "+919000000006",
+    "default_address": {
+      "line1": "Flat 106, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pincode": "700001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U007",
+    "name": "Ishita Shah",
+    "email": "customer007@example.com",
+    "phone": "+919000000007",
+    "default_address": {
+      "line1": "Flat 107, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "pincode": "411001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U008",
+    "name": "Kabir Kapoor",
+    "email": "customer008@example.com",
+    "phone": "+919000000008",
+    "default_address": {
+      "line1": "Flat 108, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "pincode": "380001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U009",
+    "name": "Meera Menon",
+    "email": "customer009@example.com",
+    "phone": "+919000000009",
+    "default_address": {
+      "line1": "Flat 109, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "pincode": "302001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U010",
+    "name": "Rohan Gupta",
+    "email": "customer010@example.com",
+    "phone": "+919000000010",
+    "default_address": {
+      "line1": "Flat 110, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "pincode": "226001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U011",
+    "name": "Sana Khan",
+    "email": "customer011@example.com",
+    "phone": "+919000000011",
+    "default_address": {
+      "line1": "Flat 111, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U012",
+    "name": "Aditya Joshi",
+    "email": "customer012@example.com",
+    "phone": "+919000000012",
+    "default_address": {
+      "line1": "Flat 112, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "pincode": "160017",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U013",
+    "name": "Kavya Reddy",
+    "email": "customer013@example.com",
+    "phone": "+919000000013",
+    "default_address": {
+      "line1": "Flat 113, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U014",
+    "name": "Dev Patel",
+    "email": "customer014@example.com",
+    "phone": "+919000000014",
+    "default_address": {
+      "line1": "Flat 114, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U015",
+    "name": "Nisha Verma",
+    "email": "customer015@example.com",
+    "phone": "+919000000015",
+    "default_address": {
+      "line1": "Flat 115, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U016",
+    "name": "Rahul Das",
+    "email": "customer016@example.com",
+    "phone": "+919000000016",
+    "default_address": {
+      "line1": "Flat 116, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U017",
+    "name": "Priya Kulkarni",
+    "email": "customer017@example.com",
+    "phone": "+919000000017",
+    "default_address": {
+      "line1": "Flat 117, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U018",
+    "name": "Siddharth Jain",
+    "email": "customer018@example.com",
+    "phone": "+919000000018",
+    "default_address": {
+      "line1": "Flat 118, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pincode": "700001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U019",
+    "name": "Aditi Singh",
+    "email": "customer019@example.com",
+    "phone": "+919000000019",
+    "default_address": {
+      "line1": "Flat 119, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "pincode": "411001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U020",
+    "name": "Neha Bhat",
+    "email": "customer020@example.com",
+    "phone": "+919000000020",
+    "default_address": {
+      "line1": "Flat 120, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "pincode": "380001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U021",
+    "name": "Kunal Sethi",
+    "email": "customer021@example.com",
+    "phone": "+919000000021",
+    "default_address": {
+      "line1": "Flat 121, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "pincode": "302001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U022",
+    "name": "Pooja Malhotra",
+    "email": "customer022@example.com",
+    "phone": "+919000000022",
+    "default_address": {
+      "line1": "Flat 122, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "pincode": "226001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U023",
+    "name": "Vikram Pillai",
+    "email": "customer023@example.com",
+    "phone": "+919000000023",
+    "default_address": {
+      "line1": "Flat 123, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U024",
+    "name": "Sneha Ghosh",
+    "email": "customer024@example.com",
+    "phone": "+919000000024",
+    "default_address": {
+      "line1": "Flat 124, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "pincode": "160017",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U025",
+    "name": "Ritika Bose",
+    "email": "customer025@example.com",
+    "phone": "+919000000025",
+    "default_address": {
+      "line1": "Flat 125, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U026",
+    "name": "Manav Chawla",
+    "email": "customer026@example.com",
+    "phone": "+919000000026",
+    "default_address": {
+      "line1": "Flat 126, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U027",
+    "name": "Fatima Sheikh",
+    "email": "customer027@example.com",
+    "phone": "+919000000027",
+    "default_address": {
+      "line1": "Flat 127, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U028",
+    "name": "Varun Nambiar",
+    "email": "customer028@example.com",
+    "phone": "+919000000028",
+    "default_address": {
+      "line1": "Flat 128, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U029",
+    "name": "Tanvi Desai",
+    "email": "customer029@example.com",
+    "phone": "+919000000029",
+    "default_address": {
+      "line1": "Flat 129, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "pincode": "500001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U030",
+    "name": "Akash Mishra",
+    "email": "customer030@example.com",
+    "phone": "+919000000030",
+    "default_address": {
+      "line1": "Flat 130, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "pincode": "700001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U031",
+    "name": "Simran Kaur",
+    "email": "customer031@example.com",
+    "phone": "+919000000031",
+    "default_address": {
+      "line1": "Flat 131, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "pincode": "411001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U032",
+    "name": "Sanjay Yadav",
+    "email": "customer032@example.com",
+    "phone": "+919000000032",
+    "default_address": {
+      "line1": "Flat 132, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "pincode": "380001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U033",
+    "name": "Leela Krishnan",
+    "email": "customer033@example.com",
+    "phone": "+919000000033",
+    "default_address": {
+      "line1": "Flat 133, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "pincode": "302001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U034",
+    "name": "Nikhil Saxena",
+    "email": "customer034@example.com",
+    "phone": "+919000000034",
+    "default_address": {
+      "line1": "Flat 134, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "pincode": "226001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U035",
+    "name": "Zoya Ansari",
+    "email": "customer035@example.com",
+    "phone": "+919000000035",
+    "default_address": {
+      "line1": "Flat 135, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Kochi",
+      "state": "Kerala",
+      "pincode": "682001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U036",
+    "name": "Harsh Agarwal",
+    "email": "customer036@example.com",
+    "phone": "+919000000036",
+    "default_address": {
+      "line1": "Flat 136, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "pincode": "160017",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U037",
+    "name": "Rhea Dutta",
+    "email": "customer037@example.com",
+    "phone": "+919000000037",
+    "default_address": {
+      "line1": "Flat 137, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U038",
+    "name": "Pranav Naik",
+    "email": "customer038@example.com",
+    "phone": "+919000000038",
+    "default_address": {
+      "line1": "Flat 138, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U039",
+    "name": "Shreya Banerjee",
+    "email": "customer039@example.com",
+    "phone": "+919000000039",
+    "default_address": {
+      "line1": "Flat 139, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "pincode": "560001",
+      "country": "India"
+    }
+  },
+  {
+    "user_id": "U040",
+    "name": "Imran Qureshi",
+    "email": "customer040@example.com",
+    "phone": "+919000000040",
+    "default_address": {
+      "line1": "Flat 140, Ashoka Residency",
+      "line2": "Near the main post office",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "pincode": "600001",
+      "country": "India"
+    }
+  }
+]

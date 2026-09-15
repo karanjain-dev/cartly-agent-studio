@@ -1,0 +1,135 @@
+{
+  "scenario_id": "S035",
+  "timestamp": "2026-09-15T12:00:00+05:30",
+  "model": "gpt-4.1-mini",
+  "turns": 7,
+  "conversation": [
+    {
+      "role": "customer",
+      "content": "I received a kurta that doesn't fit properly, and I would like to request a refund."
+    },
+    {
+      "role": "support",
+      "content": "when did you order?"
+    },
+    {
+      "role": "customer",
+      "content": "I ordered the kurta recently, but I don't remember the exact date. The order number is O0040."
+    },
+    {
+      "role": "support",
+      "content": "ok, its been more than 15 days"
+    },
+    {
+      "role": "customer",
+      "content": "I see. Since it's been more than 15 days, can you please tell me what options are available for the refund?"
+    },
+    {
+      "role": "support",
+      "content": "no refund"
+    },
+    {
+      "role": "customer",
+      "content": "If a refund is not possible, what alternative options do I have to resolve this issue with the kurta?"
+    },
+    {
+      "role": "support",
+      "content": "sorry we cant help further with this request"
+    },
+    {
+      "role": "customer",
+      "content": "I understand the refund is not possible, but is there any way to exchange the kurta for the correct size or get any store credit?"
+    },
+    {
+      "role": "support",
+      "content": "let me check that"
+    },
+    {
+      "role": "customer",
+      "content": "Please confirm if you found any alternatives like an exchange or store credit for my kurta, since a refund is not possible."
+    },
+    {
+      "role": "support",
+      "content": "we cant refund or exchange at all"
+    },
+    {
+      "role": "customer",
+      "content": "So, just to confirm, there’s no refund and no exchange option at all for my kurta, right?"
+    },
+    {
+      "role": "support",
+      "content": "nope"
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "released_fact_ids": [
+        "request"
+      ],
+      "response_id": "resp_08e37fb9ce736e44016aa912a3bc0087d28d8e47d0de20248f",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 2,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_09f77e449d7c055d016aa912ad01f087d2ad6947e659a59c28",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 3,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_0aaf68431b195905016aa912b8b6b487d2bdd73861555f44a6",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 4,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_01f0f29ffbe1e9e8016aa912bf4d2487d2854620ccb08744a9",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 5,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_0c3cf945bed11288016aa912ce83cc87d2b26bf744c397fd98",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 6,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_0601897bc79f2786016aa912d5f7c487d2afcd150cbe3a02de",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    },
+    {
+      "turn": 7,
+      "released_fact_ids": [
+        "order",
+        "request"
+      ],
+      "response_id": "resp_0ff8366b5b0061b2016aa912e8abb087d2b5b29a293673dd18",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "stop_reason": "continue"
+    }
+  ]
+}

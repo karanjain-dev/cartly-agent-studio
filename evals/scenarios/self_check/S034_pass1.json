@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S034",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "6351ed5ec5ee1f1a468c69966a3dd0ef388dbc105c2c61755a15b2ca7f82d73f",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The kurta was used (worn to a wedding), so it does not qualify for a change-of-mind unused item return. It is not eligible for damage or wrong item refund either. Hence, return or refund is declined per policy.",
+    "rules": [
+      "E4",
+      "E11"
+    ]
+  },
+  "response_id": "resp_07290e005703e572016aa90d8df6e087d29b76a5bac3d95947",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4558,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 97,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4655
+  }
+}

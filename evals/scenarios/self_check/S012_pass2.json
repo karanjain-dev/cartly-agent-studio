@@ -1,0 +1,52 @@
+{
+  "scenario_id": "S012",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "b1458bcd219c25634d2922dccb8f1efebe45eaaf1f89abfeee5c231a75f0fac1",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0001",
+          "item_id": "I0001"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The Wireless headphones from order O0001 are defective (do not function as described). The item was delivered 7 days ago, so it is within the 7-day return window for electronics. Evidence photo is uploaded and item value is 1999 INR under 5000 INR limit. A return pickup is scheduled; refund will be processed automatically after pickup. User must confirm this action to proceed.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E9",
+      "E13",
+      "H1",
+      "G1"
+    ]
+  },
+  "response_id": "resp_06b03ddb51f1e11a016aa90d63c75c87d2a4201e9dae311df7",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4291,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 234,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4525
+  }
+}

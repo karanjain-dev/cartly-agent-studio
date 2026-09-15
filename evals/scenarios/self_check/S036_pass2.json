@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S036",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "957f0708f88f14512d189835e1a53d80a90eb6a4a51d1e7dbfea69ab79e305cc",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0041",
+          "item_id": "I0041"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The user has received the correct item (M size kurta) but wants to return it due to fit issues, which is change of mind. The item is unused and within the 10-day return window. A return pickup is scheduled and refund is item price minus ₹99 pickup fee = ₹1499 - ₹99 = ₹1400, refunded to the original UPI payment method after pickup completion as per policy E4 and E5.",
+    "rules": [
+      "E1",
+      "E4",
+      "E5",
+      "E11",
+      "H4"
+    ]
+  },
+  "response_id": "resp_0fb50795818e99ac016aa90d91fe4c87d2aed53a6465f0e3e1",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4532,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 257,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4789
+  }
+}

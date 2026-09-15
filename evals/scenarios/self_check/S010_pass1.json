@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S010",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "f36a4ff9961d26c9b59ad9c4bbccf5e7338856a15ec204d8b7431236f0c4d58e",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "coupon_issued",
+    "changes": [
+      {
+        "table": "coupons",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0092"
+        },
+        "values": {
+          "amount": 100
+        }
+      },
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0092"
+        },
+        "values": {
+          "coupon_issued": true,
+          "coupon_amount": 100
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0092 is late as it has not been delivered by 2026-09-15, which is more than 5 days after promised delivery date 2026-09-09. As per policy F1, a ₹100 coupon can be issued for this late order.",
+    "rules": [
+      "F1"
+    ]
+  },
+  "response_id": "resp_0e33ae9f18b089ed016aa90d5f977087d296b170692554a5a6",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4053,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 213,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4266
+  }
+}

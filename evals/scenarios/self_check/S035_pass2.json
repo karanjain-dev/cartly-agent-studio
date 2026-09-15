@@ -1,0 +1,56 @@
+{
+  "scenario_id": "S035",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "98253fc4ec45c0b2ed9b4b8e89390f33ff10a6f9d6c206a7013ceecd7f14df81",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0040",
+          "item_id": "I0040"
+        },
+        "values": {
+          "reason": "wrong_item",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1499,
+      "method": "UPI",
+      "timing": "after_pickup",
+      "shipping_refunded": false
+    },
+    "no_other_changes": true,
+    "explanation": "The Cotton kurta was delivered in the wrong size (L instead of ordered M), qualifying as a wrong item claim under policy section E11 and E3. It is within the 10-day return window (delivered on 2026-09-13, today is 2026-09-15). The item price is ₹1499 which is over ₹500, so refund will be processed after pickup. Photo evidence is required for wrong items above ₹2000 only, so no evidence required here. User must confirm to proceed with scheduled return pickup and refund via original UPI payment method, amount ₹1499 (full item price, no shipping refunded as per policy E12 since wrong item rules include shipping refund but only after pickup).",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E7",
+      "E11",
+      "H4"
+    ]
+  },
+  "response_id": "resp_079d791430453e35016aa90d8ff03487d2b69e3572deff15a6",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4567,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 335,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4902
+  }
+}

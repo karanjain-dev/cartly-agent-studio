@@ -1,0 +1,49 @@
+{
+  "scenario_id": "S019",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "2305a025d3e31042fb8ea4944ab19a30884e0fe57d8d80b59483c6d2c69f785a",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0030",
+          "item_id": "I0030"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The wireless headphones are defective, reported within 2 days of delivery and within the 7-day electronics return window. Photo evidence is not required for items under ₹2,000. Return pickup is scheduled; refund will be processed after pickup automatically as per policy E5.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E13"
+    ]
+  },
+  "response_id": "resp_04b052d1e0a38503016aa90d6f3b0887d2b43a4c6dbddd5f4a",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4189,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 134,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4323
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "scenario_id": "S016",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "fb69c5d6cba205d426ac4ba0d14482525b67ff7ee95449d0071d7ba4dea6bcd6",
+  "requested_model": "gpt-4.1",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0017",
+          "item_id": "I0017"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 748,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "You reported your Cotton vest arrived torn on 2026-09-15, one day after delivery on 2026-09-14, with photo evidence already uploaded. Innerwear is normally non-returnable, but damaged items reported within 48 hours are an exception (E2, E3, E5). The full refund, including ₹699 item price and ₹49 shipping, will be issued to your original UPI method after pickup is completed. Please confirm to schedule your return.",
+    "rules": [
+      "E1",
+      "E2",
+      "E3",
+      "E5",
+      "E6",
+      "E7",
+      "E12"
+    ]
+  },
+  "response_id": "resp_0a0090a94c905a18016aa90c7d9df887d2aaf87819f28b36b1",
+  "model": "gpt-4.1-2025-04-14",
+  "usage": {
+    "input_tokens": 4188,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 274,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4462
+  }
+}

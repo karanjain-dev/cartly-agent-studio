@@ -1,0 +1,44 @@
+[
+  {
+    "case": "S026 acceptance",
+    "expected": true,
+    "actual": true,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "Please proceed with the refund to my Cartly Wallet",
+    "judgment": {
+      "event_index": 2,
+      "pass": true,
+      "evidence": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree? / Please proceed with the refund to my Cartly Wallet",
+      "reasoning": "Support clearly states the amount (₹448), refund method (Cartly Wallet), and requests agreement before action. Customer replies 'Please proceed with the refund to my Cartly Wallet' which unambiguously accepts the proposed refund and method. The tool event confirms the refund with confirmed=true."
+    }
+  },
+  {
+    "case": "Request before amount",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "How can I help?",
+    "customer_reply": "just cancel it",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "The tool output shows the cancellation confirmed true, but the support agent never explicitly stated the action, amount, or refund method to the customer before this. The customer's message 'just cancel it' does not include acceptance of amount or refund method.",
+      "reasoning": "H5 requires the agent to explicitly state the action, amount, and refund method before the customer accepts. No agent message exists before this action with that information. Customer message 'just cancel it' does not qualify as acceptance per H5 since it lacks the refund details."
+    }
+  },
+  {
+    "case": "New condition",
+    "expected": false,
+    "actual": false,
+    "pass": true,
+    "agent_message": "I can refund ₹448 to your Cartly Wallet for the damaged bowl, with no return required. Do you agree?",
+    "customer_reply": "okay but can you also give me a coupon?",
+    "judgment": {
+      "event_index": 2,
+      "pass": false,
+      "evidence": "The support message at event_index 0 proposes a refund of ₹448 to the Cartly Wallet and asks for agreement, but the customer's reply at event_index 1 'okay but can you also give me a coupon?' is not an explicit acceptance of the refund proposal because it adds a new request.",
+      "reasoning": "According to H5, acceptance requires the customer to clearly agree to the exact proposed action and amount without additional conditions. Here, the customer adds a new condition (a coupon), so this does not count as acceptance."
+    }
+  }
+]

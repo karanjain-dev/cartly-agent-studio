@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S029",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "4b226f49e344b052f7fdd56e80a8084527eb6e95f7943a53946664dafe8d5f5d",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0087 does not belong to you according to your statement, so no details or actions on it can be provided per policy A2.",
+    "rules": [
+      "A2"
+    ]
+  },
+  "response_id": "resp_016ad727d72b6fc9016aa90d872e2887d2989d08af2369cbbd",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4540,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 58,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4598
+  }
+}

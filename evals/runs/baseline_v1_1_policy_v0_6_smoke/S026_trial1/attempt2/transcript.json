@@ -1,0 +1,287 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I recently received a bowl that I paid for in cash, but unfortunately it arrived broken. I would like to request a refund for this item. Could you please assist me with this process?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry your bowl arrived broken. I can help check your refund eligibility.\n\nPlease share your user ID and either your registered email or phone number to verify your account, along with the order ID if you have it.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "Hello, my user ID is U011 and my registered email is customer011@example.com. I do not have the order ID with me at the moment. Please let me know if you can proceed with this information. Thank you.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U011",
+      "email": "customer011@example.com",
+      "phone": null
+    },
+    "call_id": "call_1gCFCnK4xIG4CALbLqoGA4gD",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U011"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_gc3x213e2uY02Jb6xIHEVF7o",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0004",
+          "user_id": "U011",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-08",
+          "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 111, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kochi",
+            "state": "Kerala",
+            "pincode": "682001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0038",
+          "user_id": "U011",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 111, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kochi",
+            "state": "Kerala",
+            "pincode": "682001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0106",
+          "user_id": "U011",
+          "status": "Shipped",
+          "placed_date": "2026-09-05",
+          "promised_delivery_date": "2026-09-10",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 0,
+          "delivery_address": {
+            "line1": "Flat 111, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kochi",
+            "state": "Kerala",
+            "pincode": "682001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0140",
+          "user_id": "U011",
+          "status": "Returned",
+          "placed_date": "2026-09-01",
+          "promised_delivery_date": "2026-09-06",
+          "actual_delivery_date": "2026-09-06",
+          "actual_delivery_at": "2026-09-06T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 111, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kochi",
+            "state": "Kerala",
+            "pincode": "682001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0038"
+    },
+    "call_id": "call_kBtgDsNQpez5cTggeetPrOea",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0038",
+        "user_id": "U011",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "COD",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 111, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Kochi",
+          "state": "Kerala",
+          "pincode": "682001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0038",
+          "order_id": "O0038",
+          "product_name": "Ceramic serving bowl",
+          "category": "home",
+          "price": 399,
+          "quantity": 1,
+          "ordered_product_name": "Ceramic serving bowl",
+          "delivered_product_name": "Ceramic serving bowl",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0038"
+    },
+    "call_id": "call_NX7LdEsvqFBvSjARI4MyXqHb",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0038",
+          "order_id": "O0140",
+          "item_id": "I0144",
+          "user_id": "U011",
+          "amount": 598,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-08",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "agent"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified, and I found your ceramic serving bowl in order **O0038**, delivered on 13 September.\n\nYour broken bowl qualifies for an **immediate refund of ₹448**—₹399 for the bowl plus ₹49 shipping—with **no return required**. Since you paid cash on delivery, the refund will go to your **Cartly Wallet**.\n\nMay I proceed with the ₹448 refund to your Cartly Wallet?",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Yes, please proceed with the ₹448 refund to my Cartly Wallet. Thank you for your assistance.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "issue_refund",
+    "arguments": {
+      "order_id": "O0038",
+      "item_id": "I0038",
+      "reason": "damaged",
+      "confirmed": true,
+      "amount": 448
+    },
+    "call_id": "call_lwVJtX2VAGKCzCkmbWxRSamt",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "refund_id": "R0041"
+        },
+        "values": {
+          "refund_id": "R0041",
+          "order_id": "O0038",
+          "item_id": "I0038",
+          "user_id": "U011",
+          "amount": 448.0,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-15",
+          "status": "completed",
+          "method": "Cartly Wallet",
+          "authorized_by": "agent"
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "refund": {
+        "refund_id": "R0041",
+        "order_id": "O0038",
+        "item_id": "I0038",
+        "user_id": "U011",
+        "amount": 448.0,
+        "shipping_refunded": true,
+        "reason": "damaged",
+        "date": "2026-09-15",
+        "status": "completed",
+        "method": "Cartly Wallet",
+        "authorized_by": "agent"
+      }
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your **₹448 refund has been completed** to your **Cartly Wallet**, including ₹49 shipping. No return is required.\n\nRefund reference: **R0041**. I’m sorry your bowl arrived broken.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for processing the refund so promptly. I appreciate your help.",
+    "turn": 4
+  }
+]

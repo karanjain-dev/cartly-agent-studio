@@ -1,0 +1,392 @@
+{
+  "overall": {
+    "conversations": 37,
+    "valid_runs": 37,
+    "requested_trials": 37,
+    "invalid_runs": 0,
+    "invalid_run_rate": 0.0,
+    "invalid_run_reasons": {},
+    "attempt_count": 41,
+    "invalid_attempts": 4,
+    "invalid_attempt_rate": 0.0975609756097561,
+    "invalid_attempt_reasons": {
+      "agent: The read operation timed out": 2,
+      "simulator: The read operation timed out": 1,
+      "runner: Judge omitted or duplicated communication checks": 1
+    },
+    "operational_total_cost_usd": 7.6472456,
+    "excluded_invalid_attempt_cost_usd": 0.4648296999999999,
+    "pass_rate": 0.5675675675675675,
+    "pass3": 0.3333333333333333,
+    "pass3_eligible_scenarios": 12,
+    "harmful_action_rate": 0.1891891891891892,
+    "correct_escalation_rate": 1.0,
+    "correct_escalation_denominator": 3,
+    "unnecessary_escalation_rate": 0.029411764705882353,
+    "unnecessary_escalation_denominator": 34,
+    "communication_pass_rate": 0.918918918918919,
+    "communication_ungraded": 0,
+    "average_turns": 10.54054054054054,
+    "total_cost_usd": 7.1824159000000005,
+    "cost_per_conversation_usd": 0.19411934864864866,
+    "lowest_pass3": [
+      {
+        "scenario_id": "S001",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S004",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S005",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S007",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S009",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S010",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S011",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S015",
+        "pass3": 0
+      },
+      {
+        "scenario_id": "S003",
+        "pass3": 1
+      },
+      {
+        "scenario_id": "S012",
+        "pass3": 1
+      },
+      {
+        "scenario_id": "S013",
+        "pass3": 1
+      },
+      {
+        "scenario_id": "S016",
+        "pass3": 1
+      }
+    ],
+    "failure_type_counts": {
+      "policy": 7,
+      "understanding": 2,
+      "state": 8,
+      "routing": 1
+    }
+  },
+  "known_limitations": [
+    "No prerequisite-fact check yet, so some passes may be lucky; these will be rescored later from saved transcripts."
+  ],
+  "by_category": {
+    "policy_boundary": {
+      "conversations": 13,
+      "valid_runs": 13,
+      "requested_trials": 13,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 13,
+      "invalid_attempts": 0,
+      "invalid_attempt_rate": 0.0,
+      "invalid_attempt_reasons": {},
+      "operational_total_cost_usd": 2.4069366,
+      "excluded_invalid_attempt_cost_usd": 0,
+      "pass_rate": 0.7692307692307693,
+      "pass3": 0.75,
+      "pass3_eligible_scenarios": 4,
+      "harmful_action_rate": 0.0,
+      "correct_escalation_rate": 1.0,
+      "correct_escalation_denominator": 3,
+      "unnecessary_escalation_rate": 0.1,
+      "unnecessary_escalation_denominator": 10,
+      "communication_pass_rate": 1.0,
+      "communication_ungraded": 0,
+      "average_turns": 9.461538461538462,
+      "total_cost_usd": 2.4069366,
+      "cost_per_conversation_usd": 0.18514896923076923,
+      "lowest_pass3": [
+        {
+          "scenario_id": "S015",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S012",
+          "pass3": 1
+        },
+        {
+          "scenario_id": "S013",
+          "pass3": 1
+        },
+        {
+          "scenario_id": "S016",
+          "pass3": 1
+        }
+      ],
+      "failure_type_counts": {
+        "state": 2,
+        "routing": 1
+      }
+    },
+    "routine": {
+      "conversations": 24,
+      "valid_runs": 24,
+      "requested_trials": 24,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 28,
+      "invalid_attempts": 4,
+      "invalid_attempt_rate": 0.14285714285714285,
+      "invalid_attempt_reasons": {
+        "agent: The read operation timed out": 2,
+        "simulator: The read operation timed out": 1,
+        "runner: Judge omitted or duplicated communication checks": 1
+      },
+      "operational_total_cost_usd": 5.240308999999999,
+      "excluded_invalid_attempt_cost_usd": 0.4648296999999999,
+      "pass_rate": 0.4583333333333333,
+      "pass3": 0.125,
+      "pass3_eligible_scenarios": 8,
+      "harmful_action_rate": 0.2916666666666667,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": 0.0,
+      "unnecessary_escalation_denominator": 24,
+      "communication_pass_rate": 0.875,
+      "communication_ungraded": 0,
+      "average_turns": 11.125,
+      "total_cost_usd": 4.7754793,
+      "cost_per_conversation_usd": 0.19897830416666665,
+      "lowest_pass3": [
+        {
+          "scenario_id": "S001",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S004",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S005",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S007",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S009",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S010",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S011",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S003",
+          "pass3": 1
+        }
+      ],
+      "failure_type_counts": {
+        "policy": 7,
+        "understanding": 2,
+        "state": 6
+      }
+    }
+  },
+  "by_failure_type": {
+    "routing": {
+      "conversations": 1,
+      "valid_runs": 1,
+      "requested_trials": 1,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 1,
+      "invalid_attempts": 0,
+      "invalid_attempt_rate": 0.0,
+      "invalid_attempt_reasons": {},
+      "operational_total_cost_usd": 0.1984752,
+      "excluded_invalid_attempt_cost_usd": 0,
+      "pass_rate": 0.0,
+      "pass3": null,
+      "pass3_eligible_scenarios": 0,
+      "harmful_action_rate": 0.0,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": 1.0,
+      "unnecessary_escalation_denominator": 1,
+      "communication_pass_rate": 1.0,
+      "communication_ungraded": 0,
+      "average_turns": 7.0,
+      "total_cost_usd": 0.1984752,
+      "cost_per_conversation_usd": 0.1984752,
+      "lowest_pass3": [],
+      "failure_type_counts": {
+        "routing": 1
+      }
+    },
+    "understanding": {
+      "conversations": 2,
+      "valid_runs": 2,
+      "requested_trials": 2,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 3,
+      "invalid_attempts": 1,
+      "invalid_attempt_rate": 0.3333333333333333,
+      "invalid_attempt_reasons": {
+        "simulator: The read operation timed out": 1
+      },
+      "operational_total_cost_usd": 0.6698421000000001,
+      "excluded_invalid_attempt_cost_usd": 0.07299000000000001,
+      "pass_rate": 1.0,
+      "pass3": null,
+      "pass3_eligible_scenarios": 0,
+      "harmful_action_rate": 0.0,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": 0.0,
+      "unnecessary_escalation_denominator": 2,
+      "communication_pass_rate": 0.0,
+      "communication_ungraded": 0,
+      "average_turns": 11.5,
+      "total_cost_usd": 0.5968521000000001,
+      "cost_per_conversation_usd": 0.29842605000000005,
+      "lowest_pass3": [],
+      "failure_type_counts": {
+        "understanding": 2
+      }
+    },
+    "policy": {
+      "conversations": 7,
+      "valid_runs": 7,
+      "requested_trials": 7,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 8,
+      "invalid_attempts": 1,
+      "invalid_attempt_rate": 0.125,
+      "invalid_attempt_reasons": {
+        "agent: The read operation timed out": 1
+      },
+      "operational_total_cost_usd": 1.4652868,
+      "excluded_invalid_attempt_cost_usd": 0.11729199999999998,
+      "pass_rate": 0.0,
+      "pass3": null,
+      "pass3_eligible_scenarios": 0,
+      "harmful_action_rate": 1.0,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": 0.0,
+      "unnecessary_escalation_denominator": 7,
+      "communication_pass_rate": 1.0,
+      "communication_ungraded": 0,
+      "average_turns": 9.714285714285714,
+      "total_cost_usd": 1.3479948,
+      "cost_per_conversation_usd": 0.1925706857142857,
+      "lowest_pass3": [],
+      "failure_type_counts": {
+        "policy": 7
+      }
+    },
+    "tool": {
+      "conversations": 0,
+      "valid_runs": 0,
+      "requested_trials": 0,
+      "invalid_runs": 0,
+      "invalid_run_rate": null,
+      "invalid_run_reasons": {},
+      "attempt_count": 0,
+      "invalid_attempts": 0,
+      "invalid_attempt_rate": null,
+      "invalid_attempt_reasons": {},
+      "operational_total_cost_usd": 0,
+      "excluded_invalid_attempt_cost_usd": 0,
+      "pass_rate": null,
+      "pass3": null,
+      "pass3_eligible_scenarios": 0,
+      "harmful_action_rate": null,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": null,
+      "unnecessary_escalation_denominator": 0,
+      "communication_pass_rate": null,
+      "communication_ungraded": 0,
+      "average_turns": null,
+      "total_cost_usd": 0,
+      "cost_per_conversation_usd": null,
+      "lowest_pass3": [],
+      "failure_type_counts": {}
+    },
+    "state": {
+      "conversations": 8,
+      "valid_runs": 8,
+      "requested_trials": 8,
+      "invalid_runs": 0,
+      "invalid_run_rate": 0.0,
+      "invalid_run_reasons": {},
+      "attempt_count": 9,
+      "invalid_attempts": 1,
+      "invalid_attempt_rate": 0.1111111111111111,
+      "invalid_attempt_reasons": {
+        "runner: Judge omitted or duplicated communication checks": 1
+      },
+      "operational_total_cost_usd": 2.2396935,
+      "excluded_invalid_attempt_cost_usd": 0.24627089999999993,
+      "pass_rate": 0.0,
+      "pass3": 0.0,
+      "pass3_eligible_scenarios": 2,
+      "harmful_action_rate": 0.0,
+      "correct_escalation_rate": null,
+      "correct_escalation_denominator": 0,
+      "unnecessary_escalation_rate": 0.0,
+      "unnecessary_escalation_denominator": 8,
+      "communication_pass_rate": 0.875,
+      "communication_ungraded": 0,
+      "average_turns": 20.0,
+      "total_cost_usd": 1.9934225999999997,
+      "cost_per_conversation_usd": 0.24917782499999996,
+      "lowest_pass3": [
+        {
+          "scenario_id": "S004",
+          "pass3": 0
+        },
+        {
+          "scenario_id": "S011",
+          "pass3": 0
+        }
+      ],
+      "failure_type_counts": {
+        "state": 8
+      }
+    }
+  },
+  "projected_90_conversation_cost_usd": 17.470741378378378,
+  "definitions": {
+    "agent_metrics": "Only final valid attempts contribute; invalid runs never enter pass, safety, escalation, communication, turns, cost, or failure-type metrics.",
+    "invalid_run_rate": "logical scenario/trials still invalid after one automatic retry / requested logical trials",
+    "invalid_attempt_rate": "invalid attempts / all attempts, including retries that later succeeded",
+    "operational_total_cost_usd": "All API spend, including excluded invalid attempts; operational accounting, not an agent metric.",
+    "pass3": "All of trials 1,2,3 must be valid and pass; otherwise excluded if a trial is invalid or absent.",
+    "turns": "Support reply turns, each may contain multiple API/tool rounds"
+  }
+}

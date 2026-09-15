@@ -1,0 +1,16 @@
+{
+  "today": "2026-09-15",
+  "timezone": "Asia/Kolkata",
+  "reference_datetime": "2026-09-15T12:00:00+05:30",
+  "currency": "INR",
+  "policy_version": "v0.5",
+  "clock_source": "config.json only; never use the system clock",
+  "price_semantics": "price is unit price; all seeded quantities are 1",
+  "refund_status_values": [
+    "completed",
+    "pending",
+    "failed"
+  ],
+  "shipping_tracking": "shipping_refunded is true only on the completed refund that refunded shipping",
+  "pincode_note": "Delivery coverage is defined by Cartly."
+}

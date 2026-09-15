@@ -1,0 +1,210 @@
+[
+  {
+    "case": "What's your delivery pincode?",
+    "pass": true,
+    "customer_reply": "I am not sure about the delivery pincode right now. However, I want to report that the bowl I paid cash for arrived broken, and I would like to request a refund for it.",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "No opening message from customer to trigger release"
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent did not ask about order or item"
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent did not ask about condition or use"
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "No agent explanation and confirmation request yet"
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent did not ask when item arrived or when issue was reported"
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent did not ask what is wrong or if item differs from order"
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent did not ask for photo or evidence"
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent did not ask for identity verification or registered contact details"
+          }
+        ]
+      },
+      {
+        "event": "customer_reply_check",
+        "turn": 2,
+        "draft": {
+          "message": "I am not sure about the delivery pincode right now. However, I want to report that the bowl I paid cash for arrived broken, and I would like to request a refund for it.",
+          "stop_reason": "continue",
+          "used_fact_ids": [
+            "environment"
+          ]
+        },
+        "grounded": true,
+        "grounding_reason": "The reply states the customer's goal that the bowl paid for in cash arrived broken and they want a refund, which matches the customer's profile 'request' fact. The customer states they are unsure about the delivery pincode as they have not provided it yet. No unsupported facts are introduced.",
+        "support_action_status": "none",
+        "customer_intent": "request_action_or_information",
+        "end_reason": "continue",
+        "ending_reason": ""
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [],
+        "response_id": "resp_0b706b6b148aab5f016aa9291e86f887d2bce59a3239159dd1",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      }
+    ]
+  },
+  {
+    "case": "Did you get a confirmation SMS?",
+    "pass": false,
+    "customer_reply": "No, I did not receive any confirmation SMS after the purchase.",
+    "trace": [
+      {
+        "event": "fact_gate",
+        "turn": 2,
+        "decisions": [
+          {
+            "fact_id": "request",
+            "release": false,
+            "reason": "Agent did not ask anything related to customer's initial request or refund."
+          },
+          {
+            "fact_id": "order",
+            "release": false,
+            "reason": "Agent did not ask which order or item."
+          },
+          {
+            "fact_id": "condition",
+            "release": false,
+            "reason": "Agent did not ask about item condition or use."
+          },
+          {
+            "fact_id": "consent",
+            "release": false,
+            "reason": "Agent did not explain proposed action or ask for confirmation."
+          },
+          {
+            "fact_id": "delivery",
+            "release": false,
+            "reason": "Agent did not ask when item arrived or when problem was reported."
+          },
+          {
+            "fact_id": "problem",
+            "release": false,
+            "reason": "Agent did not ask what is wrong or about item difference."
+          },
+          {
+            "fact_id": "photo",
+            "release": false,
+            "reason": "Agent did not ask for photo or evidence."
+          },
+          {
+            "fact_id": "credentials",
+            "release": false,
+            "reason": "Agent did not ask to verify identity or request registered contact details."
+          }
+        ]
+      },
+      {
+        "event": "customer_reply_check",
+        "turn": 2,
+        "draft": {
+          "message": "No, I did not receive any confirmation SMS after the purchase.",
+          "stop_reason": "continue",
+          "used_fact_ids": [
+            "environment"
+          ]
+        },
+        "grounded": true,
+        "grounding_reason": "The reply is consistent with the customer's profile and released facts; the customer stating they did not receive any confirmation SMS is supported by their profile information.",
+        "support_action_status": "none",
+        "customer_intent": "other",
+        "end_reason": "continue",
+        "ending_reason": ""
+      },
+      {
+        "turn": 2,
+        "released_fact_ids": [],
+        "response_id": "resp_04eda5f90d4b842c016aa92927546c87d2bd5f422b9f7b3615",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "stop_reason": "continue"
+      }
+    ]
+  },
+  {
+    "case": "S028 old attempt 1 natural closing",
+    "pass": false,
+    "agent_message": "Your kurta return has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe refund includes the ₹99 pickup-fee deduction; the ₹49 shipping fee is not refunded.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The reply acknowledges the return arrangement described by support and does not contradict any known facts in the profile or released facts.",
+      "support_action_status": "completed",
+      "customer_intent": "close",
+      "end_reason": "continue",
+      "ending_reason": "Customer thanks the agent and indicates no further requests but does not explicitly end conversation."
+    }
+  },
+  {
+    "case": "S028 old attempt 2 natural closing",
+    "pass": false,
+    "agent_message": "Your kurta return has been created, and **pickup is scheduled**.\n\n- **Return reference:** T0013\n- **Refund:** ₹1,400, after the ₹99 pickup fee\n- **Method:** Original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe ₹49 shipping fee is not refundable.",
+    "customer_reply": "Thank you for arranging the return. That is all.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The reply acknowledges the scheduled return and refund details as provided by the support message, aligning with the customer's goal to return the kurta and receive a refund. It does not state any unsupported facts.",
+      "support_action_status": "offered_or_pending",
+      "customer_intent": "close",
+      "end_reason": "continue",
+      "ending_reason": "The customer thanks the agent and indicates no further requests, but does not explicitly end the conversation or confirm receipt of refund, so the conversation can continue."
+    }
+  },
+  {
+    "case": "S026 acceptance must continue",
+    "pass": true,
+    "customer_reply": "Yes, please go ahead and issue the refund to my Cartly Wallet now.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The customer's reply agreeing to the proposed refund action matches the released facts about the order and refund details provided by support.",
+      "support_action_status": "offered_or_pending",
+      "customer_intent": "accept_proposal",
+      "end_reason": "continue",
+      "ending_reason": ""
+    }
+  },
+  {
+    "case": "S035 acceptance must continue",
+    "pass": true,
+    "customer_reply": "Yes, please create the return and arrange the pickup.",
+    "judgment": {
+      "grounded": true,
+      "grounding_reason": "The draft reply accepts the agent's proposed return and pickup arrangement for order O0040, referencing the wrong size item and the refund amount and method previously stated by support, all supported by the released facts from the profile and conversation.",
+      "support_action_status": "offered_or_pending",
+      "customer_intent": "accept_proposal",
+      "end_reason": "continue",
+      "ending_reason": ""
+    }
+  }
+]

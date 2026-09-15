@@ -1,0 +1,65 @@
+{
+  "scenario_id": "S003",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "bef1e1f220cc295b72cbf7553cb2521a2e747897ce8ed98997b4fabf4067f7b4",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "cancelled",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0075"
+        },
+        "values": {
+          "status": "Cancelled"
+        }
+      },
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0075",
+          "item_id": null
+        },
+        "values": {
+          "reason": "cancellation",
+          "amount": 2548,
+          "shipping_refunded": true,
+          "method": "Card",
+          "status": "completed"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 2548,
+      "method": "Card",
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "The order O0075 is in Packed state and can be cancelled with a full refund of item price plus shipping fee to the original payment method. The user confirmed the item is unused and will confirm the action.",
+    "rules": [
+      "C1",
+      "E7",
+      "E12",
+      "H4"
+    ]
+  },
+  "response_id": "resp_09b4d298b5529c41016aa90d5273bc87d2b3a8fca8234505d5",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4409,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 269,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4678
+  }
+}

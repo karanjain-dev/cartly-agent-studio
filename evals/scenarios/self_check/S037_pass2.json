@@ -1,0 +1,36 @@
+{
+  "scenario_id": "S037",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "cc73cd24b3275ab6dc377c10fedc3881b213f638bd2152988cc62589283e627a",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The user reported a wrong size issue but the delivered item matches the ordered size and is not damaged, making this a change of mind refund. Change of mind refunds require the item to be unused, which it is, but the refund is the item price minus a ₹99 pickup fee and shipping is not refunded. However, the user is requesting a refund due to wrong size. The policy defines wrong item as a different product, size, color, or quantity than ordered. Since size matches ordered size, this is a fit issue and the refund qualifies as change of mind. Since the user did not explicitly confirm to proceed with the refund and the exact amount and method were not offered for confirmation, no refund is issued now.",
+    "rules": [
+      "E4",
+      "E11",
+      "H4",
+      "G1",
+      "G3"
+    ]
+  },
+  "response_id": "resp_00d8e4a25062094f016aa90d93dcb087d28170b044d0bc7b56",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4187,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 212,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4399
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "scenario_id": "S017",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "dad03e36839d124ae7a11eb65d6d7512150f1459eabc21146a779bb5d201ed02",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0019",
+          "item_id": "I0019"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The customer reported a damaged innerwear item (cotton vest) within 48 hours of delivery, with photo evidence uploaded. Innerwear is usually non-returnable except when damaged or wrong. Return window is valid (day 3 after delivery). Refund will be issued automatically after pickup completion as per policy. No immediate refund is issued because the item price is over ₹500.",
+    "rules": [
+      "E1",
+      "E2",
+      "E3",
+      "E5",
+      "E6",
+      "E9",
+      "H1"
+    ]
+  },
+  "response_id": "resp_092ef8e55feddeb4016aa90d6bb93087d28ed993964457543b",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 3744,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 224,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 3968
+  }
+}

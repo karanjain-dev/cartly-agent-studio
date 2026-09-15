@@ -1,0 +1,151 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_098046a6df200fcf016aa9217a5af087d2a78123379907d616",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item specifically."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not request confirmation after explaining the action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent expressed sympathy but did not explicitly ask what is wrong or if the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not request a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent asked for user ID or registered email/phone number to verify identity."
+      }
+    ]
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_004e603828685010016aa92183fcbc87d296a8c51a62ba5ec6",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent explicitly identifies and confirms the order ID and item, directly asking for confirmation relevant to that order."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent does not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet asked for explicit consent after explaining the refund action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": true,
+        "reason": "Agent asks specifically how many days ago the item arrived, directly requesting delivery timing information."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent acknowledges the item is broken and addresses the eligibility for a refund due to damage, effectively asking about what is wrong."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent does not request a photo or evidence in the latest message."
+      }
+    ]
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_011a30ddca3f05ef016aa921a530d887d28a9b60db1304036c",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "Customer explicitly consented after agent explained the refund amount and payment method."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence in the conversation."
+      }
+    ]
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "delivery",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_01364df6c2ce051b016aa921b5b35087d2b7e450d4db8b0515",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

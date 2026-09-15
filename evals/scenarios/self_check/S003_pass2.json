@@ -1,0 +1,65 @@
+{
+  "scenario_id": "S003",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "bef1e1f220cc295b72cbf7553cb2521a2e747897ce8ed98997b4fabf4067f7b4",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "cancelled",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0075"
+        },
+        "values": {
+          "status": "Cancelled"
+        }
+      },
+      {
+        "table": "refunds",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0075",
+          "item_id": null
+        },
+        "values": {
+          "reason": "cancellation",
+          "amount": 2548,
+          "shipping_refunded": true,
+          "method": "Card",
+          "status": "completed"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 2548,
+      "method": "Card",
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "Order O0075 is in Packed state and can be cancelled with a full refund of item price plus shipping to original payment method. Total refund is 2499+49=2548 INR by Card. User confirmed they want cancellation.",
+    "rules": [
+      "C1",
+      "Cancellation full refund to original payment method including shipping fee",
+      "H4: refund amount from database",
+      "G1 confirmation required"
+    ]
+  },
+  "response_id": "resp_015c7944d09b40d5016aa90d52bed887d2a8fd72e05181374c",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4409,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 271,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4680
+  }
+}

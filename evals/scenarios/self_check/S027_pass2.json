@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S027",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "87149c31f26213736103c0ee0e799b60907ee75be139b914e84180c8b3ddebcc",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0085 is in Placed state, so address change is allowed only if the new address pincode is serviceable. The requested address pincode 171001 is unserviceable per data, so address update is not possible.",
+    "rules": [
+      "D1",
+      "D2"
+    ]
+  },
+  "response_id": "resp_0ef48438971cc74c016aa90d85a3f087d2893ec781b991b03f",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4199,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 96,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4295
+  }
+}

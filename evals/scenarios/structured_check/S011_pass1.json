@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S011",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "59c58c576e09f4e95195ae065a6f2f29ec3b4b857ce5ff1c948a60dc3efc8a48",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "outcome_type": "decline_no_change",
+    "order_id": "O0077",
+    "item_id": null,
+    "reason": null,
+    "refund_amount": null,
+    "refund_method": null,
+    "shipping_refunded": false,
+    "escalation_rule": null
+  },
+  "response_id": "resp_01acc078d68546ab016aa910cb5bf887d2899fd9b9ec458bde",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4649,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 50,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4699
+  }
+}

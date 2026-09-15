@@ -1,0 +1,175 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I'm not sure what exactly is wrong with the size. Can you help me understand the issue before we proceed?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft message asks about the issue with the size but the customer's problem details (wrong size received) are not yet revealed per the trigger conditions and hence the information about the problem is not confirmed and not grounded.",
+    "end_reason": "continue",
+    "ending_reason": "The message seeks clarification about the size issue and does not end the conversation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I think something is wrong with the size of my kurta. I want my money back.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message aligns with the customer's opening statement and uses the allowed fact 'request' indicating dissatisfaction with the size of the kurta and a desire for a refund.",
+    "end_reason": "continue",
+    "ending_reason": "The message expresses the customer's issue and intent but does not conclude the conversation or confirm resolution."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_05ddee926b05a421016aa92837023887d2a66f3524f43ee5b1",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not explicitly asked for which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not inquire about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not explained any action or asked for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent asked specifically if the size was different from what was ordered or just did not fit, which satisfies the reveal condition."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requested user ID, registered email or phone number, and order ID to verify account."
+      }
+    ]
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "Yes, the kurta I received was size L instead of the size M I ordered. My user ID is U013 and my registered email is customer013@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "problem"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately uses facts from the customer profile such as the size problem (received size L instead of M), user ID (U013), and registered email (customer013@example.com). No unsupported facts are introduced.",
+    "end_reason": "continue",
+    "ending_reason": "The reply provides requested information but does not indicate that the refund process or conversation is complete, so continuing is appropriate."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_0c8b0dd8773bb379016aa92844b2a087d2a0dcf51f403ffffe",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent confirms order ID O0040 and item details (kurta), matching the reveal condition."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet asked for explicit confirmation from the customer."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked about item arrival date or when the issue was reported."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent has not requested any photo or evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please create the return and arrange the pickup.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order",
+        "problem",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply aligns with the customer's stated issue about the wrong kurta size, their user ID and email, and agrees to the proposed return and pickup arrangement with the specified refund amount and method as explained by support in the conversation.",
+    "end_reason": "goal_met",
+    "ending_reason": "The customer agrees clearly to proceed with the return and pickup arrangement, which satisfies their stated goal of getting their money back for the wrong-sized kurta."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "problem",
+      "request"
+    ],
+    "response_id": "resp_060e7cc2e91ab597016aa9285b99c487d28c9c9bace40fbf4d",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "goal_met"
+  }
+]

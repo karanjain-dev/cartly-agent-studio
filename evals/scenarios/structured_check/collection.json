@@ -1,0 +1,11 @@
+{
+  "scenario_sha256": "fac4906e8cb37fc44a9d351e2c2cfd39bbe275563203454917e0284883104704",
+  "model": "gpt-4.1-mini",
+  "completed_calls": 80,
+  "errors": [],
+  "coverage": {
+    "distinct_users": 23,
+    "distinct_orders": 37,
+    "orders_used_more_than_twice": []
+  }
+}

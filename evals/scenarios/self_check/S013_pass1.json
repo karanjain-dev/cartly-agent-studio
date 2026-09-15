@@ -1,0 +1,50 @@
+{
+  "scenario_id": "S013",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "89eb03abcd273c2e694d0c9a213eb485cd842c3fc8d97fc57e3271d7d001096a",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0005",
+          "item_id": "I0005"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The Wireless headphones order O0005 is defective and within the 7-day electronics return window. A photo evidence is uploaded as required. Return pickup is scheduled; refund will process after pickup completion as per policy E5.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E13",
+      "H1"
+    ]
+  },
+  "response_id": "resp_0577bae3e6abcbdf016aa90d63e2fc87d281a79e875dc49ccc",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4590,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 127,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4717
+  }
+}

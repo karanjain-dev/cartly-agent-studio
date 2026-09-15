@@ -1,0 +1,9 @@
+{
+  "agent_date_questions": [],
+  "method": "Reviewed all support messages in each final valid transcript. None asks for today, delivery date, or days since delivery.",
+  "transcripts": [
+    "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_policy_v0_6_smoke/S026_trial1/attempt2/transcript.json",
+    "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_policy_v0_6_smoke/S028_trial1/attempt1/transcript.json",
+    "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_policy_v0_6_smoke/S035_trial1/attempt2/transcript.json"
+  ]
+}

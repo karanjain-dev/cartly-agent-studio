@@ -1,0 +1,406 @@
+[
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time to check. Let me know when you’re ready; I won’t make any changes without your confirmation.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I changed my mind about my kurta. Can I return it?",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "I can help check whether it’s eligible. Change-of-mind returns require the item to be unused and within its return window. A ₹99 pickup fee applies, and shipping isn’t refunded.\n\nPlease share your user ID, registered email or phone number, and order ID. Is the kurta unused?",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "Yes, the kurta has not been worn or used.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "Thanks for confirming. Please share your user ID and either your registered email or phone number so I can verify your account. If you have the order ID, please include it too.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time to check. When you have your user ID and registered email or phone number, I can verify your account. If you can’t find the order ID, I can look up your orders after verification.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U022 and my registered email is customer022@example.com.",
+    "turn": 5
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_vxDdTmLuXqCFWspNaicYgWgP",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_fYvJFCxnhXIt3zVbDnqeBQw6",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0015",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-08-30",
+          "promised_delivery_date": "2026-09-04",
+          "actual_delivery_date": "2026-09-04",
+          "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0049",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-06",
+          "promised_delivery_date": "2026-09-11",
+          "actual_delivery_date": "2026-09-11",
+          "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0083",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0117",
+          "user_id": "U022",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_E7SyPc9NKUqI1Ilim7N8n6hW",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0015",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-08-30",
+        "promised_delivery_date": "2026-09-04",
+        "actual_delivery_date": "2026-09-04",
+        "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0015",
+          "order_id": "O0015",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_ojiDwrAhFU47fSnHbHpXPy4V",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified. I found the cotton kurta in order **O0015**, delivered on **4 September**.\n\nIts 10-day return window ended on **14 September**. Since today is 15 September, I’m sorry, it’s no longer eligible for a change-of-mind return, even though it’s unused.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for verifying. I understand the kurta is unused but the 10-day return period has just ended yesterday, so I’m sorry it cannot be accepted for a change-of-mind return now.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome, and thank you for understanding.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for explaining. I understand that since the 10-day return window ended yesterday, my unused kurta cannot be returned for a change of mind. I appreciate your help in verifying this.",
+    "turn": 7
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome—glad I could clarify the return policy for you.",
+    "turn": 7
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming everything. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 8
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Happy to help.",
+    "turn": 8
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 9
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome, and thank you for understanding.",
+    "turn": 9
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 10
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. I’m glad I could clarify this for you.",
+    "turn": 10
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming everything. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 11
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome, and thank you for understanding.",
+    "turn": 11
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your assistance and confirmation. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 12
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Take care!",
+    "turn": 12
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your assistance and confirmation. I understand that the unused kurta cannot be returned for a change of mind since the 10-day return window ended yesterday. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 13
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome—happy to help clarify.",
+    "turn": 13
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+    "turn": 14
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Thank you for understanding.",
+    "turn": 14
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+    "turn": 15
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Take care!",
+    "turn": 15
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+    "turn": 16
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome!",
+    "turn": 16
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming the return policy with me. I appreciate your help and patience.",
+    "turn": 17
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome—glad I could help.",
+    "turn": 17
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your understanding and assistance. I appreciate your help in clarifying the return policy for my kurta.",
+    "turn": 18
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Take care!",
+    "turn": 18
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+    "turn": 19
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome!",
+    "turn": 19
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and patience. I understand the return policy now and appreciate your confirmation.",
+    "turn": 20
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Glad I could clarify it for you.",
+    "turn": 20
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 20
+  }
+]

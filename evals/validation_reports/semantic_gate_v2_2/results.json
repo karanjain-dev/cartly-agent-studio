@@ -1,0 +1,146 @@
+[
+  {
+    "question": "Is the size you received different from what you ordered?",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true,
+    "decisions": [
+      {
+        "fact_id": "request",
+        "release": false,
+        "reason": "No opening message from customer yet, only agent's first question."
+      },
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not explained the proposed action and asked for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when item arrived or when problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "Agent explicitly asked if the size received differs from the size ordered, matching reveal condition."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for a photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": false,
+        "reason": "Agent did not ask to verify identity or for registered contact details."
+      }
+    ]
+  },
+  {
+    "question": "Did we send a different size, or does it just not fit?",
+    "expected_release": true,
+    "actual_release": true,
+    "pass": true,
+    "decisions": [
+      {
+        "fact_id": "request",
+        "release": false,
+        "reason": "fact is about the initial problem, release only on opening message which is not the current context"
+      },
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "agent did not ask about the order or item specifically"
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "agent did not ask about condition or use yet"
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "agent did not ask for confirmation after explaining an action"
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "agent did not ask when item arrived or when problem was reported"
+      },
+      {
+        "fact_id": "problem",
+        "release": true,
+        "reason": "agent asked if the size sent is different or does not fit, directly corresponding to the fact's reveal condition"
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "agent did not ask for photo or evidence"
+      },
+      {
+        "fact_id": "credentials",
+        "release": false,
+        "reason": "agent did not ask for identity verification or contact details"
+      }
+    ]
+  },
+  {
+    "question": "What's the problem?",
+    "expected_release": false,
+    "actual_release": false,
+    "pass": true,
+    "decisions": [
+      {
+        "fact_id": "request",
+        "release": true,
+        "reason": "This is the opening message describing the problem, appropriate to release now."
+      },
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining an action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when item arrived or when problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "Agent's question 'What's the problem?' is too generic and does not specifically ask if delivered item differs from order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "Agent did not ask for photo or evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": false,
+        "reason": "Agent did not ask to verify identity or request registered contact details."
+      }
+    ]
+  }
+]

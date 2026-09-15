@@ -1,0 +1,1143 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Could you please provide me with your new address details so I can update the shipping information for your order?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft requests the customer's new address details, but the address is present only in the hidden facts and is revealed only upon the agent asking for it, which is what the draft does. However, the customer's reply is not provided here; only the draft of the agent's message is given. Therefore, no customer reply is provided to check for grounding.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Could you please provide me with your new address details so that I can update the delivery information for your order?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": false,
+    "grounding_reason": "The draft asks for new address details, which the customer has not yet provided and are only revealed upon agent's request according to profile trigger and reveal conditions.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I would like to update the delivery address for my order to a new one. Could you please guide me on how to provide the new address details to you for this change?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer message aligns with the profile request to send the order to a new address, without inventing any new facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_024dba67951c07a0016aa9340d874087d2a60cebb4c2c0146b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent asked to provide the new address but did not ask for the new address value itself."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requested the user ID and registered email or phone for verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please provide your user ID and either your registered email address or phone number.",
+        "source_quote": "\"user_id\": \"U013\", \"email\": \"customer013@example.com\""
+      },
+      {
+        "question": "Please provide the order ID.",
+        "source_quote": ""
+      },
+      {
+        "question": "Please provide the full new address: address line 1, address line 2 (if applicable), city, state, pincode, and country.",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "Please provide the order ID.",
+      "Please provide the full new address: address line 1, address line 2 (if applicable), city, state, pincode, and country."
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please provide the order ID.",
+      "Please provide the full new address: address line 1, address line 2 (if applicable), city, state, pincode, and country."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not specifically ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about item condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not explicitly ask for the new address yet; only requested user to send it when ready."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "When you’re ready, send your user ID, registered email or phone number, order ID, and full new address.",
+        "source_quote": "\"user_id\": \"U013\", \"email\": \"customer013@example.com\""
+      },
+      {
+        "question": "If you can’t find the order ID, I can help locate the order after verifying your account.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "If you can’t find the order ID, I can help locate the order after verifying your account."
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "If you can’t find the order ID, I can help locate the order after verifying your account."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item; the latest message invites the customer to come back with details, but does not request order or item information."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining an action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent did not ask for the new address; they only said no changes have been made and to come back with details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Thanks for your help. I will check the order ID and get back to you with the details soon.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer reply is consistent with the profile and released facts. It acknowledges the need to check the order ID before providing details, matching the profile's expected behavior and the conversation context.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "The customer states they will check and return soon; no completion or refusal has occurred yet.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 4,
+    "reason": "The customer states they will check and return soon; no completion or refusal has occurred yet."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0ec27685fd4c447b016aa93426f6d087d2b36d2f16a431751f",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining any proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not explicitly asked for the new address; agent is waiting for customer to send details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "Thank you for understanding. I will check the order ID and get back to you soon with all the required details for the address update.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message aligns with the user's stated intent to check the order ID and provide details later, which is consistent with the revealed request and conversation context.",
+    "support_action_status": "none",
+    "customer_intent": "close",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 5,
+    "reason": ""
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_05ba7e329772d97d016aa9342f2f1887d282d2d9fd28b439b8",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item specifically."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about the condition or usage of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not requested confirmation after explaining a proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not asked for the new address yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "I appreciate your assistance. I will check the order ID and gather the full new address details, then share them with you for the update.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply aligns with the customer's previous messages about needing to check the order ID and prepare address details, which is consistent with the profile.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0dc6eca832e90413016aa93437bb5487d285a728247c76b3a9",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 7,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining a proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent did not yet ask for the new address; they invited the customer to send details when ready but did not specifically request the new address now."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 7,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 7,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 8,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No request for confirmation after explaining the proposed action has been made by the agent."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent did not explicitly ask for the new address in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 8,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 8,
+    "draft": {
+      "message": "I understand and will check the order ID and new address when I have the details to proceed with updating my delivery address.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accurately reflects the customer's stated need to check and confirm the order ID and new address details before proceeding, consistent with the conversation and profile facts revealed so far.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The customer is indicating intent to check details before continuing; no resolution or refusal yet.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 8,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0fd574e27b01a1b9016aa93447724887d2b920534c3579dc94",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 9,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item specifically."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for explicit confirmation after explaining an action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not asked for the new address yet; they only invited the customer to share details when ready."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 9,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "\"My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 9,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 10,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use in the latest message."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not ask for the new address in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 10,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 10,
+    "draft": {
+      "message": "I understand; I will check the order ID and new address details when ready to proceed with updating my delivery address. Thank you for your assistance.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer states readiness to check the order ID and new address details, consistent with the profile fact 'Please send my order to my new address.' No unsupported facts are introduced.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The customer acknowledges the need to check details and wishes to continue later, indicating no conclusion or refusal.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 10,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_05a9caa6a2998b72016aa93456842487d283e1fca3daab7d9a",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 11,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not asked which order or item specifically."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not asked for confirmation after explaining the proposed action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent has not asked for the new address details yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 11,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 11,
+    "draft": {
+      "message": "Thank you for your assistance. I will check the order ID and gather the full new address details, then share them with you for the update.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message is consistent with the customer's own statements in the conversation and aligns with the customer's revealed request to provide new address details later.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 11,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0aed800c63afbe24016aa9345de4a487d2a2ebf8c5c72505f9",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 12,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not asked for the new address details yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 12,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 12,
+    "draft": {
+      "message": "I will check my order ID and the new address details, then share them with you for the update.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message aligns with the customer's stated intention in the profile to check the order ID and new address details before sharing them; no unsupported facts are added.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 12,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0c86c207496d5753016aa9346650c487d286d7f6f0a393f43b",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 13,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item specifically in their latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent has not asked about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not asked for explicit confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not yet asked for the new address details, just stated they will check once details are shared."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 13,
+    "factual_questions": [
+      {
+        "question": "Could you please share your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "Could you please share your new delivery address?"
+    ]
+  },
+  {
+    "turn": 13,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Could you please share your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 14,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent has not asked which order or item yet, only asked to check details."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not inquire about condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not explained any proposed action or requested explicit confirmation yet."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent has not asked for the new address details yet, only reminded to check and provide later."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 14,
+    "factual_questions": [
+      {
+        "question": "Did you get a confirmation SMS?",
+        "source_quote": ""
+      },
+      {
+        "question": "What is your delivery pincode?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "turn": 14,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Did you get a confirmation SMS?",
+      "What is your delivery pincode?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 15,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not ask for the new address yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 15,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 15,
+    "draft": {
+      "message": "I understand I need to check the order ID and new address details before proceeding. I will provide all the required information as soon as possible for the update.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply only acknowledges the need to check order ID and new address details, which is consistent with the released facts and conversation.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 15,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_098c7199319ff4e3016aa93479e61887d2b9d5b3d7b3fa8f69",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 16,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask for order ID or item details in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about item condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for explicit confirmation of proposed action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not ask for the new address details yet, only asked to send details when ready."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 16,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 16,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 17,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item in the latest message."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use in the latest message."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining the action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not ask for the new address in the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 17,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 17,
+    "draft": {
+      "message": "I understand. I will check the order ID and the full new address details and provide them as soon as possible for the update.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply only acknowledges the need to check the order ID and new address details before proceeding, which aligns with the customer's repeated statements and does not introduce any unsupported facts.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "The customer is indicating readiness to provide information later; the conversation continues until the required details are provided and verified.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 17,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_050ccb8612bba216016aa93489e75487d2b2fddef29ea3f7ac",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 18,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or usage."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not asked for explicit confirmation after explaining a proposed action with details."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent has not asked for the new address details yet."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 18,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 18,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 19,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "Agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent did not ask about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent did not ask for confirmation after explaining any action."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "Agent did not ask for the new address."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 19,
+    "factual_questions": [
+      {
+        "question": "What is your new delivery address?",
+        "source_quote": "My new delivery address is {\"line1\": \"Flat 302, Lake View Apartments\", \"line2\": \"Near the main post office\", \"city\": \"Bengaluru\", \"state\": \"Karnataka\", \"pincode\": \"560001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "turn": 19,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your new delivery address?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 20,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item in the latest message or previously; the message only offers help in finding details."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the condition or use of the item."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No agent message asking for explicit confirmation after explaining an action, amount, or payment method."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent did not explicitly ask for the new address details; they only offered general help with finding details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 20,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 20,
+    "draft": {
+      "message": "I have noted that I need to check the order ID and the full new address details before you can update the delivery address. I will provide all the required information as soon as possible for the update. Thank you for your assistance.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request",
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message accurately reflects the customer's repeated statements about needing to check the order ID and address details before proceeding, consistent with the conversation history and allowed facts.",
+    "support_action_status": "none",
+    "customer_intent": "other",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 20,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0f7b7305b66d1cd4016aa934a2312c87d28cf7fb444ef56a78",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "turn": 20,
+    "forced_stop": "turn_limit"
+  }
+]

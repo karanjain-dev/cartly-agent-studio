@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S001",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "0a5e3c886782e175fc089e45e7bc60a9fb04f34273a1f8655599e539dda10b7d",
+  "requested_model": "gpt-4.1",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0011",
+          "item_id": "I0011"
+        },
+        "values": {
+          "reason": "change of mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "You are requesting to return the Cotton kurta from order O0011. The item was delivered on 2026-09-05 and your request is on 2026-09-15, within the 10-day return window for clothing. You stated the item is unused, which is required for a change-of-mind return. The refund will be ₹1,400 (item price ₹1,499 minus a ₹99 pickup fee), to your original UPI payment method, after pickup. Shipping is not refunded for change-of-mind returns.",
+    "rules": [
+      "E1",
+      "E4",
+      "E5",
+      "E7",
+      "H4"
+    ]
+  },
+  "response_id": "resp_07f6f539b067dad1016aa90c71a8ac87d2b45f74e335a0e364",
+  "model": "gpt-4.1-2025-04-14",
+  "usage": {
+    "input_tokens": 4662,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 271,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4933
+  }
+}

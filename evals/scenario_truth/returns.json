@@ -1,0 +1,64 @@
+[
+  {
+    "return_id": "T0001",
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "return_id": "T0002",
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "return_id": "T0003",
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "return_id": "T0004",
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "return_id": "T0005",
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "return_id": "T0006",
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "return_id": "T0007",
+    "edge_case": []
+  },
+  {
+    "return_id": "T0008",
+    "edge_case": []
+  },
+  {
+    "return_id": "T0009",
+    "edge_case": []
+  },
+  {
+    "return_id": "T0010",
+    "edge_case": []
+  },
+  {
+    "return_id": "T0011",
+    "edge_case": []
+  },
+  {
+    "return_id": "T0012",
+    "edge_case": []
+  }
+]

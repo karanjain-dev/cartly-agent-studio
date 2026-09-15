@@ -1,0 +1,50 @@
+{
+  "scenario_id": "S016",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "b494da0950f1b718157244c53abc379f3c1963ebb005e842f17d354fc52f1d60",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0017",
+          "item_id": "I0017"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The item is damaged, reported within the 10-day return window, with photo evidence uploaded. A return pickup will be scheduled and refund will be processed after pickup as per policy E3 and E5.",
+    "rules": [
+      "E1",
+      "E2",
+      "E3",
+      "E5",
+      "E6",
+      "E13"
+    ]
+  },
+  "response_id": "resp_0f0f84c1940f158f016aa90d6a43e487d2bcfdcaec9ea33d5b",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4209,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 176,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4385
+  }
+}

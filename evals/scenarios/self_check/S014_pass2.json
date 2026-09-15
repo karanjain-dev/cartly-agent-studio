@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S014",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "aeee196d7f610c4f1bb5fab74f5cdd6cb9b7c310082e4f34fbf496eaa719283a",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0012",
+          "item_id": "I0012"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The kurta from order O0012 is eligible for a change-of-mind return as it was delivered within 10 days, unused, and the user explicitly consented. The refund will be item price minus ₹99 pickup fee, no shipping refund. Return pickup is scheduled, refund issued after pickup per policy.",
+    "rules": [
+      "E1",
+      "E4",
+      "E8",
+      "E9",
+      "E11",
+      "G1"
+    ]
+  },
+  "response_id": "resp_04cc1110e39ffe11016aa90d66ce8c87d29ab6fc979d693293",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4508,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 164,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4672
+  }
+}

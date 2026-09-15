@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S005",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "8da9d5eb6c9e6aaaa88ccafe5fbd727be6bb527fccc37041ed4a87fb85b41eec",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "outcome_type": "return",
+    "order_id": "O0037",
+    "item_id": "I0037",
+    "reason": "damaged",
+    "refund_amount": 399,
+    "refund_method": "Cartly Wallet",
+    "shipping_refunded": true,
+    "escalation_rule": null
+  },
+  "response_id": "resp_0e5224f97bc3ac6f016aa910c6134887d29f97ff38e1917bc8",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4707,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 52,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4759
+  }
+}

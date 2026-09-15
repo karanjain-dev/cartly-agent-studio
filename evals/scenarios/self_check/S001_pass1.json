@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S001",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "201d13924f61b5756823546a86cba2c79106cf6890a3ce24a445dd04df0c4238",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0011",
+          "item_id": "I0011"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "Kurta delivered 10 days ago is still within the 10-day return window. It was unused, so change-of-mind return is allowed with a refund of item price minus ₹99 pickup fee (₹1499 - ₹99 = ₹1400). Return pickup scheduled and refund will be issued after pickup as per policy E4 and E5.",
+    "rules": [
+      "E1",
+      "E4",
+      "E5",
+      "E8",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0654e486939f3575016aa90d4e20bc87d2867a7be5055a406e",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4683,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 239,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4922
+  }
+}

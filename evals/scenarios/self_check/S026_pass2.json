@@ -1,0 +1,51 @@
+{
+  "scenario_id": "S026",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "468103f083f9319e73c28ac541591be3291ca6d5f36978defe432cb9341c1625",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0038",
+          "item_id": "I0038"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The user reports the ceramic serving bowl (order O0038, COD payment) arrived broken. The item was delivered 2 days ago, within the 10-day return window for home goods. It is a damaged item so a full refund including shipping applies. The item price (₹399) is below ₹500, so an immediate refund is allowed, but the user has no photo evidence uploaded which is not required for items under ₹2000. Since the payment was COD, refund is to Cartly Wallet. Immediate refund requires agent confirmation. If agent proceeds with return scheduling instead (usual process), the refund happens after pickup per policy E5; immediate refund is also allowed for damaged items under ₹500. The agent must explain and get user confirmation of refund via Cartly Wallet of ₹399 plus ₹49 shipping fee. The user agreed to confirm after explanation. User also has not uploaded photo evidence, but it is not mandatory under ₹2000 value.",
+    "rules": [
+      "E1",
+      "E2",
+      "E3",
+      "E5",
+      "E7",
+      "E9",
+      "H4"
+    ]
+  },
+  "response_id": "resp_03a9dd9390af5d33016aa90d81d60c87d2a5a5b88959dc851c",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4409,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 278,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4687
+  }
+}

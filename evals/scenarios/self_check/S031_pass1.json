@@ -1,0 +1,52 @@
+{
+  "scenario_id": "S031",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "bfdf989d94cfc5107110c885e69d943d9910ad06f1498453c5afd30a60d6501e",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0035",
+          "item_id": "I0035"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The headphones were delivered on 2026-09-13 and reported damaged on 2026-09-15, within the 7-day electronics return window. The item value is above ₹2,000 and evidence photo is uploaded. As per policy, a return pickup is scheduled and refund will be automatic after the pickup. The electric shock confirms the item is defective/damaged. User must confirm the pickup scheduling to proceed.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E9",
+      "E13",
+      "H1",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0f312a12a2e3f5e1016aa90d8a4d5487d28fe928f8a6258021",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4326,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 240,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4566
+  }
+}

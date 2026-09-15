@@ -1,0 +1,379 @@
+{
+  "reference_date": "2026-09-15",
+  "timezone": "Asia/Kolkata",
+  "record_counts": {
+    "users": 40,
+    "orders": 150,
+    "order_items": 154,
+    "refunds": 40,
+    "returns": 12
+  },
+  "violation_count": 54,
+  "violations": [
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0073",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0074",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0075",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0076",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0077",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0078",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0079",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0080",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0085",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0086",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0089",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0090",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0093",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0094",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0095",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0096",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0097",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0100",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0101",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0102",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0103",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0104",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0107",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0108",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0109",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0110",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0111",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0114",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0115",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0116",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0117",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0118",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0121",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0122",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0123",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0124",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0125",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0128",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0129",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0130",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0131",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0132",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0135",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0136",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0137",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0138",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0139",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0142",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0143",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0144",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0145",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0146",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0149",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    },
+    {
+      "check": 2,
+      "table": "orders",
+      "record_id": "O0150",
+      "message": ".promised_delivery_date: 2026-09-18 is after fixed today 2026-09-15"
+    }
+  ],
+  "edge_case_counts": {
+    "A2_similar_name_other_owner": 6,
+    "C1_D1_Placed": 4,
+    "C1_Packed": 4,
+    "C2_Out_for_delivery": 4,
+    "C2_Shipped": 4,
+    "D2_unserviceable_address": 4,
+    "E10_3_cancellations_only": 24,
+    "E10_exactly_2": 22,
+    "E10_exactly_3": 24,
+    "E11_color_differs": 4,
+    "E11_color_matches": 4,
+    "E11_size_differs": 4,
+    "E11_size_matches": 4,
+    "E12_shipping_already_refunded": 10,
+    "E1_clothing_day_10": 4,
+    "E1_clothing_day_11": 4,
+    "E1_clothing_day_7": 4,
+    "E1_clothing_day_8": 4,
+    "E1_electronics_day_10": 4,
+    "E1_electronics_day_11": 4,
+    "E1_electronics_day_7": 4,
+    "E1_electronics_day_8": 4,
+    "E2_innerwear_after_48h": 4,
+    "E2_innerwear_within_48h": 4,
+    "E2_perishables_after_48h": 4,
+    "E2_perishables_within_48h": 4,
+    "E2_personalized_after_48h": 4,
+    "E2_personalized_within_48h": 4,
+    "E5_damaged_under_500": 4,
+    "E6_above_2000_no_photo": 4,
+    "E6_above_2000_photo": 4,
+    "E6_below_2000_no_photo": 4,
+    "E6_below_2000_photo": 4,
+    "E7_COD_eligible": 4,
+    "E9_H2_cumulative_over_5000": 14,
+    "E9_H2_prior_plus_claim_crosses_5000": 10,
+    "E9_cancellation_exempt_over_5000": 4,
+    "F1_exactly_5_days_late": 4,
+    "F1_over_5_days_late": 4
+  }
+}

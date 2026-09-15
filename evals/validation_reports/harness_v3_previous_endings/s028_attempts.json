@@ -1,0 +1,50 @@
+[
+  {
+    "attempt": 1,
+    "source": "runs/baseline_v1_harness_v2_smoke/S028_trial1/attempt1",
+    "last_three_messages": [
+      {
+        "role": "support",
+        "content": "Thanks for clarifying. This is a **change-of-mind return**, so I can’t process ₹2,000. The applicable refund is:\n\n- Recorded item price: ₹1,499\n- Pickup fee: −₹99\n- **Refund: ₹1,400**; the ₹49 shipping fee isn’t refundable.\n\nYour kurta was delivered on 13 September 2026, so its return window runs through **23 September 2026**. Please confirm today’s date so I can check eligibility.\n\nIf it’s within that window, **do you agree to a return pickup with ₹1,400 automatically refunded to your original UPI payment method once pickup is completed?** Please reply with an explicit yes if you accept.",
+        "turn": 4
+      },
+      {
+        "role": "customer",
+        "content": "Today is 20 September 2026, so yes, it is within the return window. I agree to the return pickup and the refund of ₹1,400 to my original UPI payment method. Yes.",
+        "turn": 5
+      },
+      {
+        "role": "support",
+        "content": "Your kurta return has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe refund includes the ₹99 pickup-fee deduction; the ₹49 shipping fee is not refunded.",
+        "turn": 5
+      }
+    ],
+    "end_reason": "Customer attempted to stop without a terminal event",
+    "stop_reason": null,
+    "error_origin": "simulator"
+  },
+  {
+    "attempt": 2,
+    "source": "runs/baseline_v1_harness_v2_smoke/S028_trial1/attempt2",
+    "last_three_messages": [
+      {
+        "role": "support",
+        "content": "Thank you for confirming the **₹1,400 refund**.\n\nBefore scheduling pickup, I need to verify the return window. Your kurta was delivered on **13 September 2026**, so its 10-day return window ends **23 September 2026**, inclusive.\n\n**Please confirm today’s date in IST.** If eligible, I’ll schedule the return; the ₹1,400 will be refunded automatically to your original UPI payment method after pickup.",
+        "turn": 8
+      },
+      {
+        "role": "customer",
+        "content": "Today is 21 September 2026 in IST.",
+        "turn": 9
+      },
+      {
+        "role": "support",
+        "content": "Your kurta return has been created, and **pickup is scheduled**.\n\n- **Return reference:** T0013\n- **Refund:** ₹1,400, after the ₹99 pickup fee\n- **Method:** Original UPI payment method\n- **Timing:** Automatically after pickup is completed\n\nThe ₹49 shipping fee is not refundable.",
+        "turn": 9
+      }
+    ],
+    "end_reason": "Customer attempted to stop without a terminal event",
+    "stop_reason": null,
+    "error_origin": "simulator"
+  }
+]

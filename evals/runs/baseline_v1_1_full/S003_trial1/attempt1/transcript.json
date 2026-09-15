@@ -1,0 +1,316 @@
+[
+  {
+    "role": "customer",
+    "content": "I would like to cancel my order as I no longer need it. Please proceed with the cancellation.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Please share your user ID, registered email or phone number, and the order ID you’d like to cancel. I’ll check its status and confirm the refund details before proceeding.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U014 and my registered email is customer014@example.com. However, I do not have the order ID with me at the moment. Could you please help me locate it using my details?",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U014",
+      "email": "customer014@example.com",
+      "phone": null
+    },
+    "call_id": "call_gLSpfsvIvF6TKADVyZeS8JRt",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U014"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_I81HdiFnNq0jSVcQ2yMkFyvt",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0007",
+          "user_id": "U014",
+          "status": "Delivered",
+          "placed_date": "2026-09-02",
+          "promised_delivery_date": "2026-09-07",
+          "actual_delivery_date": "2026-09-07",
+          "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0041",
+          "user_id": "U014",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0075",
+          "user_id": "U014",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0109",
+          "user_id": "U014",
+          "status": "Shipped",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0143",
+          "user_id": "U014",
+          "status": "Packed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 114, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "New Delhi",
+            "state": "Delhi",
+            "pincode": "110001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0075"
+    },
+    "call_id": "call_8csDYiROdmL2K6iTzPIojYt5",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0075",
+        "user_id": "U014",
+        "status": "Packed",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "Card",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 114, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0079",
+          "order_id": "O0075",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 2499,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0109"
+    },
+    "call_id": "call_qhc8hwqX8zFGf46Df3DwjMZC",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0109",
+        "user_id": "U014",
+        "status": "Shipped",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "UPI",
+        "shipping_fee": 79,
+        "delivery_address": {
+          "line1": "Flat 114, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0113",
+          "order_id": "O0109",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 299,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0143"
+    },
+    "call_id": "call_C9eGnvtqZ7w9d2J8r2MNXxGZ",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0143",
+        "user_id": "U014",
+        "status": "Packed",
+        "placed_date": "2026-09-13",
+        "promised_delivery_date": "2026-09-18",
+        "actual_delivery_date": null,
+        "actual_delivery_at": null,
+        "payment_method": "Card",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 114, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "New Delhi",
+          "state": "Delhi",
+          "pincode": "110001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0147",
+          "order_id": "O0143",
+          "product_name": "Engraved photo frame",
+          "category": "personalized",
+          "price": 2499,
+          "quantity": 1,
+          "ordered_product_name": "Engraved photo frame",
+          "delivered_product_name": null,
+          "ordered_quantity": 1,
+          "delivered_quantity": null,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your details are verified. I found these three undelivered orders, all placed on 13 September:\n\n| Order ID | Item | Status |\n|---|---|---|\n| O0075 | Wireless headphones | Packed—can be cancelled |\n| O0109 | Cotton kurta, Blue, size M | Shipped—cannot be cancelled |\n| O0143 | Engraved photo frame | Packed—can be cancelled |\n\nEither packed order qualifies for a full **₹2,548 refund, including shipping, to your original payment card**. For the shipped kurta, you can refuse delivery or request a return after delivery, subject to eligibility.\n\nWhich order would you like to cancel? I haven’t cancelled anything yet.",
+    "turn": 2
+  }
+]

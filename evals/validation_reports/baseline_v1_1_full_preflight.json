@@ -1,0 +1,15 @@
+{
+  "run_name": "baseline_v1_1_full",
+  "reference_datetime": "2026-09-15T12:00:00+05:30",
+  "usage_spend_before_usd": 1.99,
+  "credit_balance_before_usd": 18.01,
+  "minimum_balance_usd": 14,
+  "balance_check_passed": true,
+  "auto_reload_enabled": false,
+  "balance_source": "https://platform.openai.com/settings/organization/billing",
+  "usage_source": "https://platform.openai.com/usage",
+  "tests_passed": 140,
+  "dev_scenarios": 30,
+  "trials_per_scenario": 3,
+  "frozen_input_manifest": "evaluation/protected_before_full.json"
+}

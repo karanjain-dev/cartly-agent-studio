@@ -1,0 +1,248 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I would like to return my kurta and get a refund please. Could you guide me through the return process?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft message uses the customer's own request fact about returning the kurta and asking for refund, which is consistent with the customer's goal and revealed facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0166c7981cf24a09016aa92e78846c87d285cc616c980c3468",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "Agent requested the order ID and item, which matches the reveal condition for the order fact."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "Agent asked for use or condition only if it is a fit or preference issue, which has not been explicitly raised yet."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "Agent has not yet explained the proposed action or asked for explicit confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent has not asked about when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "Agent requested user ID and registered contact details to verify identity, matching reveal condition."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "Please share your user ID and either your registered email or phone number so I can verify your account.",
+        "source_quote": "\"user_id\": \"U018\", \"email\": \"customer018@example.com\""
+      },
+      {
+        "question": "Please share the order ID for the kurta, if available.",
+        "source_quote": "The order I am asking about is O0011"
+      },
+      {
+        "question": "Why you’d like to return it.",
+        "source_quote": "I want to return my kurta and get my money back."
+      },
+      {
+        "question": "If it’s a fit or preference issue, please also confirm whether it’s unused.",
+        "source_quote": "The item has not been worn or used."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U018, and my registered email is customer018@example.com. The order ID for the kurta is O0011. I want to return it because I did not like the fit, and it is unused.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer reply uses user ID and email from credentials, order ID from released facts, and states the return reason and item condition as unused according to allowed and revealed facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0772c5cb347923a1016aa92e849f8087d2af3dfbd82ee7e1b0",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "Agent mentioned the item is unused and fit-related, effectively asking about condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "Agent explicitly asked for confirmation to proceed after explaining the return action, refund amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "Agent did not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "When did the item arrive?",
+        "source_quote": "The item arrived on 2026-09-05."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please proceed with the return pickup and refund as you described.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "consent",
+        "credentials",
+        "order",
+        "request",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply accurately references offered refund amount, payment method, order ID, and item condition as provided in the conversation and profile, and consents to proceed as per the customer's stated behavior.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "event": "terminal_rephrase",
+    "turn": 3,
+    "reason": ""
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "condition",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0756161f7fe809c2016aa92e9a5b6487d28df470cc450fa2b1",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported; the fact is not revealed based on the latest message."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "Thank you for arranging the return pickup and refund. I appreciate your help.",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "condition",
+        "consent",
+        "credentials",
+        "order",
+        "request",
+        "environment"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft reply references only information confirmed in the conversation such as the return pickup arrangement, refund amount, and order details which are consistent with the released and hidden facts provided by the customer and stated by support.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "Customer thanks support and acknowledges completion of return pickup and refund as arranged by support.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "condition",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b6cbe1af911ce94016aa92eab41ec87d28391eacc20ec6ae4",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "stop_reason": "customer_ended"
+  }
+]

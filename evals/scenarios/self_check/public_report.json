@@ -1,0 +1,207 @@
+{
+  "completed_calls": 80,
+  "disagreement_calls": 54,
+  "disagreeing_scenarios": 29,
+  "categories": {
+    "routine": {
+      "dev": 8,
+      "heldout": 3
+    },
+    "policy_boundary": {
+      "dev": 7,
+      "heldout": 3
+    },
+    "rule_interactions": {
+      "dev": 5,
+      "heldout": 1
+    },
+    "adversarial": {
+      "dev": 6,
+      "heldout": 1
+    },
+    "vague": {
+      "dev": 2,
+      "heldout": 1
+    },
+    "uncovered": {
+      "dev": 2,
+      "heldout": 1
+    }
+  },
+  "disagreements": [
+    {
+      "scenario_id": "S002",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S005",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refunded \u2192 return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S006",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S007",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "return_scheduled \u2192 escalated, return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S008",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S011",
+      "split": "dev",
+      "passes": "1",
+      "difference": "refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S012",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S013",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 return_scheduled"
+    },
+    {
+      "scenario_id": "S014",
+      "split": "heldout",
+      "passes": "1",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S015",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "declined \u2192 return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S016",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S017",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S018",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "declined \u2192 return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S019",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S020",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "declined \u2192 coupon_issued; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S022",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 refunded; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S023",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 return_scheduled"
+    },
+    {
+      "scenario_id": "S024",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refunded \u2192 return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S025",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S026",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refunded \u2192 declined, return_scheduled; refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S029",
+      "split": "dev",
+      "passes": "2",
+      "difference": "database change fields differ"
+    },
+    {
+      "scenario_id": "S030",
+      "split": "dev",
+      "passes": "2",
+      "difference": "database change fields differ"
+    },
+    {
+      "scenario_id": "S031",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 return_scheduled"
+    },
+    {
+      "scenario_id": "S032",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "database change fields differ"
+    },
+    {
+      "scenario_id": "S033",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    },
+    {
+      "scenario_id": "S035",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "refund amount/method/timing differs"
+    },
+    {
+      "scenario_id": "S038",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 declined"
+    },
+    {
+      "scenario_id": "S039",
+      "split": "dev",
+      "passes": "1, 2",
+      "difference": "escalated \u2192 declined"
+    },
+    {
+      "scenario_id": "S040",
+      "split": "heldout",
+      "passes": "1, 2",
+      "difference": "Details withheld"
+    }
+  ]
+}

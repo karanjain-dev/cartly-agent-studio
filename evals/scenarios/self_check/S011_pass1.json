@@ -1,0 +1,36 @@
+{
+  "scenario_id": "S011",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "4345d410e647a6d91faad10f6cde7851702f92fe70a42368f31d6ea242c7c9fd",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": {
+      "amount": 0,
+      "method": null,
+      "timing": "immediate"
+    },
+    "no_other_changes": true,
+    "explanation": "Order O0077 is in Shipped status and cannot be cancelled as per policy C2. User can refuse delivery or return after delivery.",
+    "rules": [
+      "C2"
+    ]
+  },
+  "response_id": "resp_0063fee06bdfda4e016aa90d617d7087d2b4640716679c4d5c",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4525,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 95,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4620
+  }
+}

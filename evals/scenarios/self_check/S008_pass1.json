@@ -1,0 +1,39 @@
+{
+  "scenario_id": "S008",
+  "pass": 1,
+  "split": "heldout",
+  "input_sha256": "9ba52a4c15b71d850fd52e100a40b6321d412bd7365e45bd1f06e41715cebe3d",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "escalated",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The user claims a wrong item received (color differs), order O0043 delivered on 2026-09-13 and reported on 2026-09-15, thus within the 10-day return window for clothing. The item price is 1499 (above ₹2000 threshold is false), so no photo evidence is required by policy E6. However, the user has not uploaded any photo and cannot provide one now. Refund history was not shown but there is no reason to escalate for history. Agent can proceed with return and refund if no photo is required. However, the user did not confirm explicitly any action or refund yet (per policy G1). The agent must first clarify the exact action, amount, and method and get explicit confirmation before issuing refund or return. Since it is a wrong item case with item price 1499, full refund including shipping (₹49) to original payment method (UPI) applies. Pending user's explicit confirmation, the next step is to offer return and refund. Since user has expressed the request and problem, policy requires no photo for items below ₹2000, so no escalation needed for evidence. Thus now we wait for user confirmation. Since request is clear, no ambiguity. No immediate refund as item price is above ₹500, so return must be created first. Hence no change done now. The proper next step is to state the refund amount (1499 plus 49 shipping = 1548 INR) to be refunded by UPI after return pickup is scheduled and wait for user consent. Without that, action cannot proceed. So for this adjudication, escalate with rule G1 to wait for user confirmation.",
+    "rules": [
+      "E1 (return window for clothing 10 days)",
+      "E2 (not non-returnable category)",
+      "E3 (full refund for wrong item including shipping)",
+      "E5 (refund after pickup since item value > ₹500)",
+      "E6 (photo evidence required only if item value > ₹2000; here not required)",
+      "E7 (refund method original payment method)",
+      "E11 (wrong item definition applies since color differs)",
+      "G1 (explicit confirmation required before Tier 2/3 actions)"
+    ]
+  },
+  "response_id": "resp_0b240719961e09c3016aa90d5b391087d2bc5b2d443058be47",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4653,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 493,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 5146
+  }
+}

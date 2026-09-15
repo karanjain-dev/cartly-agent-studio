@@ -1,0 +1,54 @@
+{
+  "scenario_id": "S018",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "7255a50915cf97d97f7beb689a67c0a044053e5ed3ca674484f46fc34ba044d0",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0033",
+          "item_id": "I0033"
+        },
+        "values": {
+          "reason": "damaged",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": null,
+      "method": null,
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The wireless headphones were delivered broken, reported within the 7-day electronics return window. Per policy E3 and E5, a full refund including shipping can be issued, but since the item price is above ₹500 and no photo evidence was provided (requirement E6 applies for price > ₹2000, but this item is ₹2499 so evidence photo is required), photo evidence is missing and cannot be uploaded now. Without evidence, we cannot proceed with an immediate refund. Hence, per policy, we schedule a return pickup first and refund will be processed after pickup completion. User consent for scheduling return and refund is needed before proceeding.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E13",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0e97fb432d5d1e43016aa90d6eb5c487d28efca0bb40c4d47b",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 3999,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 295,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4294
+  }
+}

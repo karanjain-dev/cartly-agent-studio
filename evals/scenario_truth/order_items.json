@@ -1,0 +1,1436 @@
+[
+  {
+    "item_id": "I0001",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_7"
+    ]
+  },
+  {
+    "item_id": "I0002",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_7"
+    ]
+  },
+  {
+    "item_id": "I0003",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_7"
+    ]
+  },
+  {
+    "item_id": "I0004",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_7"
+    ]
+  },
+  {
+    "item_id": "I0005",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_8"
+    ]
+  },
+  {
+    "item_id": "I0006",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_8"
+    ]
+  },
+  {
+    "item_id": "I0007",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_8"
+    ]
+  },
+  {
+    "item_id": "I0008",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_8"
+    ]
+  },
+  {
+    "item_id": "I0009",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_10"
+    ]
+  },
+  {
+    "item_id": "I0010",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_10"
+    ]
+  },
+  {
+    "item_id": "I0011",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_10"
+    ]
+  },
+  {
+    "item_id": "I0012",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_10"
+    ]
+  },
+  {
+    "item_id": "I0013",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_11"
+    ]
+  },
+  {
+    "item_id": "I0014",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E1_electronics_day_11"
+    ]
+  },
+  {
+    "item_id": "I0015",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_11"
+    ]
+  },
+  {
+    "item_id": "I0016",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": [
+      "E1_clothing_day_11"
+    ]
+  },
+  {
+    "item_id": "I0017",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_innerwear_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0018",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_innerwear_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0019",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_innerwear_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0020",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_innerwear_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0021",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_perishables_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0022",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_perishables_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0023",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_perishables_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0024",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_perishables_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0025",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_personalized_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0026",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_personalized_within_48h"
+    ]
+  },
+  {
+    "item_id": "I0027",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E2_personalized_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0028",
+    "is_unused": true,
+    "claim_reason": "wrong_item",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The delivered item differs from my order.",
+    "edge_case": [
+      "E2_personalized_after_48h"
+    ]
+  },
+  {
+    "item_id": "I0029",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E6_below_2000_no_photo"
+    ]
+  },
+  {
+    "item_id": "I0030",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E6_below_2000_no_photo"
+    ]
+  },
+  {
+    "item_id": "I0031",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E6_below_2000_photo"
+    ]
+  },
+  {
+    "item_id": "I0032",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E6_below_2000_photo"
+    ]
+  },
+  {
+    "item_id": "I0033",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E6_above_2000_no_photo"
+    ]
+  },
+  {
+    "item_id": "I0034",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E6_above_2000_no_photo"
+    ]
+  },
+  {
+    "item_id": "I0035",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E6_above_2000_photo"
+    ]
+  },
+  {
+    "item_id": "I0036",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E6_above_2000_photo"
+    ]
+  },
+  {
+    "item_id": "I0037",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E5_damaged_under_500",
+      "E7_COD_eligible"
+    ]
+  },
+  {
+    "item_id": "I0038",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E5_damaged_under_500",
+      "E7_COD_eligible"
+    ]
+  },
+  {
+    "item_id": "I0039",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong size.",
+    "edge_case": [
+      "E11_size_differs"
+    ]
+  },
+  {
+    "item_id": "I0040",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong size.",
+    "edge_case": [
+      "E11_size_differs"
+    ]
+  },
+  {
+    "item_id": "I0041",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong size.",
+    "edge_case": [
+      "E11_size_matches"
+    ]
+  },
+  {
+    "item_id": "I0042",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong size.",
+    "edge_case": [
+      "E11_size_matches"
+    ]
+  },
+  {
+    "item_id": "I0043",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong color.",
+    "edge_case": [
+      "E11_color_differs"
+    ]
+  },
+  {
+    "item_id": "I0044",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong color.",
+    "edge_case": [
+      "E11_color_differs"
+    ]
+  },
+  {
+    "item_id": "I0045",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong color.",
+    "edge_case": [
+      "E11_color_matches"
+    ]
+  },
+  {
+    "item_id": "I0046",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "Wrong color.",
+    "edge_case": [
+      "E11_color_matches"
+    ]
+  },
+  {
+    "item_id": "I0047",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0048",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0049",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0050",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_cumulative_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0051",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "item_id": "I0052",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "item_id": "I0053",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "item_id": "I0054",
+    "is_unused": true,
+    "claim_reason": "defective",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item does not function as described.",
+    "edge_case": [
+      "E9_H2_prior_plus_claim_crosses_5000",
+      "E12_shipping_already_refunded"
+    ]
+  },
+  {
+    "item_id": "I0055",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0056",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0057",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0058",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0059",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0060",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0061",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0062",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0063",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0064",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0065",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0066",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0067",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0068",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_exactly_3"
+    ]
+  },
+  {
+    "item_id": "I0069",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0070",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0071",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0072",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0073",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0074",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0075",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0076",
+    "is_unused": true,
+    "claim_reason": "damaged",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "The item arrived damaged.",
+    "edge_case": [
+      "E10_3_cancellations_only"
+    ]
+  },
+  {
+    "item_id": "I0077",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C1_D1_Placed",
+      "E9_cancellation_exempt_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0078",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C1_D1_Placed",
+      "E9_cancellation_exempt_over_5000"
+    ]
+  },
+  {
+    "item_id": "I0079",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C1_Packed"
+    ]
+  },
+  {
+    "item_id": "I0080",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C1_Packed"
+    ]
+  },
+  {
+    "item_id": "I0081",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C2_Shipped"
+    ]
+  },
+  {
+    "item_id": "I0082",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C2_Shipped"
+    ]
+  },
+  {
+    "item_id": "I0083",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C2_Out_for_delivery"
+    ]
+  },
+  {
+    "item_id": "I0084",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "C2_Out_for_delivery"
+    ]
+  },
+  {
+    "item_id": "I0085",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_exactly_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0086",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_exactly_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0087",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_over_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0088",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_over_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0089",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "D2_unserviceable_address"
+    ]
+  },
+  {
+    "item_id": "I0090",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "D2_unserviceable_address"
+    ]
+  },
+  {
+    "item_id": "I0091",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "A2_similar_name_other_owner",
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0092",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "A2_similar_name_other_owner",
+      "E10_exactly_2"
+    ]
+  },
+  {
+    "item_id": "I0093",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0094",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0095",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0096",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_undelivered_over_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0097",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0098",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0099",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0100",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0101",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0102",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0103",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_undelivered_over_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0104",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0105",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0106",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0107",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0108",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0109",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0110",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_undelivered_exactly_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0111",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0112",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0113",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0114",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0115",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0116",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0117",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": [
+      "F1_undelivered_exactly_5_days_late"
+    ]
+  },
+  {
+    "item_id": "I0118",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0119",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0120",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0121",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0122",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0123",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0124",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0125",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0126",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0127",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0128",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0129",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0130",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0131",
+    "is_unused": true,
+    "claim_reason": "change_of_mind",
+    "claim_reported_at": "2026-09-15T12:00:00+05:30",
+    "user_request": "I changed my mind; the item is unused.",
+    "edge_case": []
+  },
+  {
+    "item_id": "I0132",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0133",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0134",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0135",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0136",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0137",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0138",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0139",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0140",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0141",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0142",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0143",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0144",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0145",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0146",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0147",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0148",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0149",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0150",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0151",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0152",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0153",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  },
+  {
+    "item_id": "I0154",
+    "is_unused": true,
+    "claim_reason": null,
+    "claim_reported_at": null,
+    "user_request": null,
+    "edge_case": []
+  }
+]

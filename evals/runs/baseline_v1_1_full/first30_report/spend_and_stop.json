@@ -1,0 +1,476 @@
+{
+  "run_name": "baseline_v1_1_full",
+  "status": "stopped_by_user",
+  "reference_timestamp": "2026-09-15T12:00:00+05:30",
+  "timestamp_note": "Project reference timestamp, not a wall-clock stop time.",
+  "original_intended_conversations": 90,
+  "reported_conversations": 30,
+  "reported_distinct_scenarios": 10,
+  "completed_conversations": 37,
+  "extra_completed_conversations": 7,
+  "interrupted_conversations": 3,
+  "not_started_conversations": 50,
+  "stop_method": "SIGTERM to the identified evaluation process; process termination verified.",
+  "scope_note": "First 30 completed conversations at the 30/90 progress checkpoint: the first 10 dev scenarios, three trials each. Later completions are retained outside this report.",
+  "interrupted_metric_treatment": "User-interrupted attempts are not graded and do not enter agent or invalid-attempt metrics. Their recorded API cost is included in total run spend.",
+  "heldout_run": false,
+  "protected_files_unchanged": true,
+  "protected_file_differences": [],
+  "costs_usd": {
+    "first30": 6.009283999999999,
+    "extra_completed": 1.6379616000000001,
+    "user_interrupted": 0.22832819999999998,
+    "all_recorded_run_cost": 7.8755738
+  },
+  "billing_observation": {
+    "source": "https://platform.openai.com/settings/organization/billing",
+    "credit_before_usd": 18.01,
+    "credit_after_usd": 10.14,
+    "displayed_balance_decrease_usd": 7.87,
+    "auto_reload": false,
+    "note": "Read from authenticated billing UI. Balance is rounded to cents; organization activity and billing latency can affect reconciliation."
+  },
+  "cost_note": "Recorded response usage priced at saved model rates, not an invoice. Timed-out or interrupted requests may incur charges without returning usage.",
+  "attempt_inventory": [
+    {
+      "scenario_id": "S001",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.11729199999999998,
+      "recorded_api_calls": 41,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S001_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S001",
+      "trial_number": 1,
+      "attempt": "attempt2",
+      "scope": "first30",
+      "recorded_cost_usd": 0.3157741999999999,
+      "recorded_api_calls": 66,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S001_trial1/attempt2"
+    },
+    {
+      "scenario_id": "S001",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.06510990000000001,
+      "recorded_api_calls": 23,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S001_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S001",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.06639959999999998,
+      "recorded_api_calls": 23,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S001_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S003",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.07299000000000001,
+      "recorded_api_calls": 15,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S003_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S003",
+      "trial_number": 1,
+      "attempt": "attempt2",
+      "scope": "first30",
+      "recorded_cost_usd": 0.48911380000000015,
+      "recorded_api_calls": 86,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S003_trial1/attempt2"
+    },
+    {
+      "scenario_id": "S003",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.0282768,
+      "recorded_api_calls": 17,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S003_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S003",
+      "trial_number": 2,
+      "attempt": "attempt2",
+      "scope": "first30",
+      "recorded_cost_usd": 0.1696589,
+      "recorded_api_calls": 42,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S003_trial2/attempt2"
+    },
+    {
+      "scenario_id": "S003",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.1077383,
+      "recorded_api_calls": 30,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S003_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S004",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.16629579999999997,
+      "recorded_api_calls": 75,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S004_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S004",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.24627089999999993,
+      "recorded_api_calls": 74,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S004_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S004",
+      "trial_number": 2,
+      "attempt": "attempt2",
+      "scope": "first30",
+      "recorded_cost_usd": 0.15643379999999998,
+      "recorded_api_calls": 85,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S004_trial2/attempt2"
+    },
+    {
+      "scenario_id": "S004",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.40689119999999984,
+      "recorded_api_calls": 78,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S004_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S005",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.20766029999999996,
+      "recorded_api_calls": 40,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S005_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S005",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.14680240000000003,
+      "recorded_api_calls": 34,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S005_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S005",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.13831730000000003,
+      "recorded_api_calls": 28,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S005_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S007",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.2896333,
+      "recorded_api_calls": 64,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S007_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S007",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.3443747999999999,
+      "recorded_api_calls": 59,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S007_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S007",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.13644900000000001,
+      "recorded_api_calls": 34,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S007_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S009",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.18318950000000003,
+      "recorded_api_calls": 63,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S009_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S009",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.0627732,
+      "recorded_api_calls": 22,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S009_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S009",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.0852767,
+      "recorded_api_calls": 28,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S009_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S010",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.23658099999999999,
+      "recorded_api_calls": 55,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S010_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S010",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.11965839999999998,
+      "recorded_api_calls": 40,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S010_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S010",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.09522430000000001,
+      "recorded_api_calls": 32,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S010_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S011",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.28259350000000005,
+      "recorded_api_calls": 94,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S011_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S011",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.2352875,
+      "recorded_api_calls": 92,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S011_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S011",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.26824260000000005,
+      "recorded_api_calls": 98,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S011_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S012",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.20202289999999998,
+      "recorded_api_calls": 43,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S012_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S012",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.09832970000000002,
+      "recorded_api_calls": 30,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S012_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S012",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.12068579999999998,
+      "recorded_api_calls": 27,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S012_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S013",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.14339629999999998,
+      "recorded_api_calls": 22,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S013_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S013",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.09923649999999999,
+      "recorded_api_calls": 17,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S013_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S013",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "first30",
+      "recorded_cost_usd": 0.10530379999999999,
+      "recorded_api_calls": 18,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S013_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S015",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.2229258000000001,
+      "recorded_api_calls": 90,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S015_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S015",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.19139450000000002,
+      "recorded_api_calls": 78,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S015_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S015",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.2547524,
+      "recorded_api_calls": 107,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S015_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S016",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.3936797,
+      "recorded_api_calls": 74,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S016_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S016",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.08855890000000001,
+      "recorded_api_calls": 27,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S016_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S016",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.28817509999999996,
+      "recorded_api_calls": 70,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S016_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S018",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "extra_completed",
+      "recorded_cost_usd": 0.1984752,
+      "recorded_api_calls": 37,
+      "has_result": true,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S018_trial1/attempt1"
+    },
+    {
+      "scenario_id": "S018",
+      "trial_number": 2,
+      "attempt": "attempt1",
+      "scope": "user_interrupted",
+      "recorded_cost_usd": 0.1275229,
+      "recorded_api_calls": 27,
+      "has_result": false,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S018_trial2/attempt1"
+    },
+    {
+      "scenario_id": "S018",
+      "trial_number": 3,
+      "attempt": "attempt1",
+      "scope": "user_interrupted",
+      "recorded_cost_usd": 0.0636504,
+      "recorded_api_calls": 19,
+      "has_result": false,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S018_trial3/attempt1"
+    },
+    {
+      "scenario_id": "S019",
+      "trial_number": 1,
+      "attempt": "attempt1",
+      "scope": "user_interrupted",
+      "recorded_cost_usd": 0.0371549,
+      "recorded_api_calls": 11,
+      "has_result": false,
+      "path": "/Users/karanjain/Desktop/cartly-agent/runs/baseline_v1_1_full/S019_trial1/attempt1"
+    }
+  ]
+}

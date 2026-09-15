@@ -1,0 +1,466 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I would like to return my kurta and get a refund. Could you please guide me through the return process?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help you check the kurta’s return eligibility and refund amount. Please share:\n\n- Your user ID and either your registered email or phone number for verification.\n- The order ID, if available.\n- The reason for returning it. If it’s a change of mind or fit preference, please also confirm whether it’s unused.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "Hello, my user ID is U018 and my registered email is customer018@example.com. Unfortunately, I don't have the order ID with me. I want to return the kurta because it doesn't fit well, and I confirm that it is unused.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U018",
+      "email": "customer018@example.com",
+      "phone": null
+    },
+    "call_id": "call_ghS2AQSZ1KokFoTFWVF8QEgd",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U018"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_fLofYjH8q6egHw6IQe6ZFE8b",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0011",
+          "user_id": "U018",
+          "status": "Delivered",
+          "placed_date": "2026-08-31",
+          "promised_delivery_date": "2026-09-05",
+          "actual_delivery_date": "2026-09-05",
+          "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 118, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pincode": "700001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0045",
+          "user_id": "U018",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 118, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pincode": "700001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0079",
+          "user_id": "U018",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 118, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pincode": "700001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0113",
+          "user_id": "U018",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-05",
+          "promised_delivery_date": "2026-09-10",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 118, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pincode": "700001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0147",
+          "user_id": "U018",
+          "status": "Returned",
+          "placed_date": "2026-08-25",
+          "promised_delivery_date": "2026-08-30",
+          "actual_delivery_date": "2026-08-30",
+          "actual_delivery_at": "2026-08-30T12:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 118, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Kolkata",
+            "state": "West Bengal",
+            "pincode": "700001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0011"
+    },
+    "call_id": "call_fUYqWW1QiVt7EJgOLVRTvpfb",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0011",
+        "user_id": "U018",
+        "status": "Delivered",
+        "placed_date": "2026-08-31",
+        "promised_delivery_date": "2026-09-05",
+        "actual_delivery_date": "2026-09-05",
+        "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 118, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "700001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0011",
+          "order_id": "O0011",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0011"
+    },
+    "call_id": "call_2FCHHaQGiZce5K5weHxleDqK",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0040",
+          "order_id": "O0147",
+          "item_id": "I0151",
+          "user_id": "U018",
+          "amount": 928,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-01",
+          "status": "completed",
+          "method": "Cartly Wallet",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0045"
+    },
+    "call_id": "call_xcHhaNlubAW7s8fNeJv0PB7N",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0045",
+        "user_id": "U018",
+        "status": "Delivered",
+        "placed_date": "2026-09-08",
+        "promised_delivery_date": "2026-09-13",
+        "actual_delivery_date": "2026-09-13",
+        "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 118, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Kolkata",
+          "state": "West Bengal",
+          "pincode": "700001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0045",
+          "order_id": "O0045",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": false
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your account is verified. I found two orders for a **blue cotton kurta, size M**:\n\n- **O0011** — delivered on **5 September 2026**\n- **O0045** — delivered on **13 September 2026**\n\nWhich one would you like to return? Also, please confirm: did you receive the size you ordered but find it didn’t fit, or did you receive a different size?\n\nBoth orders are within the 10-day return window today; today is the last eligible day for O0011.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check:\n- Your order history or delivery confirmation for the **order ID or delivery date**.\n- The kurta’s size label—both orders were for **size M**.\n\nOnce you’ve checked, tell me which order it is and whether the size received matches.\n\n**Timing reminder:** Today, **15 September**, is the last eligible return day for O0011, delivered on 5 September. O0045, delivered on 13 September, is eligible through **23 September**.\n\nI haven’t started a return yet.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—please check and let me know when you have the details. I haven’t started a return.\n\nJust keep in mind that **today, 15 September, is the last eligible return day for the kurta delivered on 5 September**.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 5
+  },
+  {
+    "role": "support",
+    "content": "Of course—please check first. When you have the order ID or delivery date and the size shown on the kurta’s label, share them here so we can continue.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "Understood. No return has been started—please share the details once you’ve checked.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "I understand. I will check the order details and the size label on the kurta, then get back to you with the information.",
+    "turn": 7
+  },
+  {
+    "role": "support",
+    "content": "Thank you. Once you share those details, I’ll help with the next steps. Please remember that today, **15 September**, is the last eligible return day for the order delivered on **5 September**.",
+    "turn": 7
+  },
+  {
+    "role": "customer",
+    "content": "Thanks for your help so far. I will check the order details and size label on the kurta and get back to you soon. I appreciate the reminder about the return window.",
+    "turn": 8
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Once you have the details, send them here and I’ll help you with the next steps.",
+    "turn": 8
+  },
+  {
+    "role": "customer",
+    "content": "I have verified that the kurta delivered on 5 September 2026 is within the last eligible day for return today, 15 September 2026. Please confirm if this is the order you want to return and if the size label matches what you ordered, so I can proceed with initiating your return and refund.",
+    "turn": 9
+  },
+  {
+    "role": "support",
+    "content": "Our records show that **order O0011** contains the blue cotton kurta, **size M**, delivered on **5 September 2026**. Today is its last eligible return day.\n\nPlease confirm:\n1. Is **O0011** the order you want to return?\n2. Does the kurta’s label show **M**, or a different size?\n\nNo return or refund has been initiated yet.",
+    "turn": 9
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 10
+  },
+  {
+    "role": "support",
+    "content": "Understood—please check your order details and the kurta’s size label. No return has been started. If it’s the order delivered on 5 September, please get back to us today to stay within its return window.",
+    "turn": 10
+  },
+  {
+    "role": "customer",
+    "content": "I confirm that I want to return order O0011, and the kurta’s label shows size M as ordered. Please proceed with initiating the return and refund process.",
+    "turn": 11
+  },
+  {
+    "role": "support",
+    "content": "Your unused kurta in **order O0011** is eligible for a fit-preference return today.\n\nI can arrange pickup with this refund:\n- Item value: **₹1,499**\n- Pickup fee: **₹99**\n- **Refund: ₹1,400** to your original **UPI payment method**\n- The **₹49 shipping fee is not refundable**\n\nThe system will process the refund automatically once pickup is completed.\n\n**Do you confirm that I should create this return on these terms?**",
+    "turn": 11
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 12
+  },
+  {
+    "role": "support",
+    "content": "No problem—I’ll wait for your confirmation. No return has been created.\n\nPlease note that **today, 15 September, is the last eligible return day for O0011**.",
+    "turn": 12
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 13
+  },
+  {
+    "role": "support",
+    "content": "Understood—no return has been created. If anything about the **₹1,400 refund** or **₹99 pickup fee** is unclear, I can explain it before you decide.",
+    "turn": 13
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for explaining. I confirm that you can proceed with creating the return and refund for ₹1,400 to my original UPI payment method with the ₹99 pickup fee deducted.",
+    "turn": 14
+  },
+  {
+    "role": "tool",
+    "tool_name": "create_return",
+    "arguments": {
+      "order_id": "O0011",
+      "item_id": "I0011",
+      "reason": "change_of_mind",
+      "confirmed": true,
+      "amount": 1400
+    },
+    "call_id": "call_0j4avx5NbSPvLJ3Ej4RcYX06",
+    "turn": 14,
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "return_id": "T0013"
+        },
+        "values": {
+          "return_id": "T0013",
+          "order_id": "O0011",
+          "item_id": "I0011",
+          "pickup_status": "scheduled",
+          "created_at": "2026-09-15T12:00:00+05:30",
+          "completed_at": null,
+          "reason": "change_of_mind"
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "return": {
+        "return_id": "T0013",
+        "order_id": "O0011",
+        "item_id": "I0011",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "change_of_mind"
+      },
+      "refund_amount": 1400.0,
+      "refund_method": "UPI",
+      "refund_timing": "automatically after pickup completes"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your return for the kurta in **order O0011** has been created, and pickup is scheduled.\n\n- **Return ID:** T0013\n- **Refund:** ₹1,400 to your original UPI payment method, after the ₹99 pickup fee deduction\n- **Timing:** The refund will be processed automatically once pickup is completed.\n\nPlease keep the unused kurta ready for pickup.",
+    "turn": 14
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for confirming. I appreciate your help in arranging the return and refund.",
+    "turn": 15
+  }
+]

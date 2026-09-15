@@ -1,0 +1,52 @@
+{
+  "scenario_id": "S004",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "ad93f1331616fc15d6e74d750d779f2bb2d3ad2804594a5f2a9de5c92414e39d",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "address_updated",
+    "changes": [
+      {
+        "table": "orders",
+        "operation": "update",
+        "key": {
+          "order_id": "O0074"
+        },
+        "values": {
+          "delivery_address": {
+            "line1": "Flat 302, Lake View Apartments",
+            "line2": "Near the main post office",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "pincode": "560001",
+            "country": "India"
+          }
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0074 is in Placed state, so address change is allowed (D1). New address pincode 560001 is serviceable (D2). Address changed after user confirmation (D3).",
+    "rules": [
+      "D1",
+      "D2",
+      "D3"
+    ]
+  },
+  "response_id": "resp_02ef5e26283f206b016aa90d55283487d290d51b91ee7885c7",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4491,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 0
+    },
+    "output_tokens": 208,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4699
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "scenario_id": "S033",
+  "pass": 2,
+  "split": "heldout",
+  "input_sha256": "f6f44040ccea10b5c7dde8e1e65115ce2854c5a9b9a04a1b3677cb2ee44cad8c",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "Order O0079 is Out for delivery and not eligible for cancellation per policy C2. User can refuse delivery or return after delivery. User was offered to return or refuse delivery. Cancellation is declined.",
+    "rules": [
+      "C2",
+      "G3"
+    ]
+  },
+  "response_id": "resp_03fc160bad084609016aa90d8e0da487d2ab6ba0411f41a8e1",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4667,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 72,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4739
+  }
+}

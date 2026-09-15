@@ -1,0 +1,207 @@
+[
+  {
+    "role": "customer",
+    "content": "I would like to update the delivery address for my order to a new one. Could you please guide me on how to provide the new address details to you for this change?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Delivery addresses can only be changed while an order is in the **Placed** state.\n\nPlease provide:\n- Your **user ID** and either your **registered email address or phone number**\n- The **order ID**\n- The full new address: **address line 1, address line 2 (if applicable), city, state, pincode, and country**\n\nI’ll verify your account, check the order’s status and the new pincode’s serviceability, then ask you to confirm the full address before making any change.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—take your time. When you’re ready, send your user ID, registered email or phone number, order ID, and full new address.\n\nIf you can’t find the order ID, I can help locate the order after verifying your account. Address changes are only available while the order is in the **Placed** state.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—come back when you have the details, and I’ll help you check whether the address can still be changed. No changes have been made.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Thanks for your help. I will check the order ID and get back to you with the details soon.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Send the details when you’re ready, and I’ll help check whether we can update the address.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for understanding. I will check the order ID and get back to you soon with all the required details for the address update.",
+    "turn": 5
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! When you have the details, send them here and we’ll pick up from there.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I appreciate your assistance. I will check the order ID and gather the full new address details, then share them with you for the update.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Once you have the details, send them here and I’ll check whether the address change is still possible.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 7
+  },
+  {
+    "role": "support",
+    "content": "No problem—check when you can, and we can continue once you have the details.",
+    "turn": 7
+  },
+  {
+    "role": "customer",
+    "content": "I understand and will check the order ID and new address when I have the details to proceed with updating my delivery address.",
+    "turn": 8
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Share the details when you’re ready, and I’ll check whether the address can still be updated.",
+    "turn": 8
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 9
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—feel free to return when you have the details. No address change has been made.",
+    "turn": 9
+  },
+  {
+    "role": "customer",
+    "content": "I understand; I will check the order ID and new address details when ready to proceed with updating my delivery address. Thank you for your assistance.",
+    "turn": 10
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! We can continue when you have the details ready.",
+    "turn": 10
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your assistance. I will check the order ID and gather the full new address details, then share them with you for the update.",
+    "turn": 11
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Share the details when you’re ready, and I’ll help with the next steps.",
+    "turn": 11
+  },
+  {
+    "role": "customer",
+    "content": "I will check my order ID and the new address details, then share them with you for the update.",
+    "turn": 12
+  },
+  {
+    "role": "support",
+    "content": "Sounds good. Once you share the details, I’ll check whether the address can be changed.",
+    "turn": 12
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 13
+  },
+  {
+    "role": "support",
+    "content": "No problem—we can continue once you’ve checked the details.",
+    "turn": 13
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 14
+  },
+  {
+    "role": "support",
+    "content": "That’s okay. If you’re unsure where to find a detail, let me know which one and I’ll help.",
+    "turn": 14
+  },
+  {
+    "role": "customer",
+    "content": "I understand I need to check the order ID and new address details before proceeding. I will provide all the required information as soon as possible for the update.",
+    "turn": 15
+  },
+  {
+    "role": "support",
+    "content": "Understood—send the details when you’re ready, and I’ll check whether the address update is still available.",
+    "turn": 15
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 16
+  },
+  {
+    "role": "support",
+    "content": "No problem. We can continue when you have the details ready.",
+    "turn": 16
+  },
+  {
+    "role": "customer",
+    "content": "I understand. I will check the order ID and the full new address details and provide them as soon as possible for the update.",
+    "turn": 17
+  },
+  {
+    "role": "support",
+    "content": "Sounds good—share the details when you’re ready, and I’ll help from there.",
+    "turn": 17
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 18
+  },
+  {
+    "role": "support",
+    "content": "No problem—we can continue once you’ve checked. No address changes have been made.",
+    "turn": 18
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 19
+  },
+  {
+    "role": "support",
+    "content": "That’s okay. If you need help finding a particular detail, let me know which one.",
+    "turn": 19
+  },
+  {
+    "role": "customer",
+    "content": "I have noted that I need to check the order ID and the full new address details before you can update the delivery address. I will provide all the required information as soon as possible for the update. Thank you for your assistance.",
+    "turn": 20
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Once you have the details, I’ll check whether the address can be updated and ask for your confirmation before making any changes.",
+    "turn": 20
+  },
+  {
+    "role": "customer",
+    "content": "###STOP###",
+    "turn": 20
+  }
+]

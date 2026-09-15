@@ -1,0 +1,89 @@
+{
+  "outcome_pass": false,
+  "matching_acceptable_state": null,
+  "harmful_action": false,
+  "harmful_details": [],
+  "escalated": false,
+  "expected_escalation": false,
+  "escalation_correct": null,
+  "unnecessary_escalation": false,
+  "communication_pass": true,
+  "communication_checks": {
+    "communication": [
+      {
+        "index": 0,
+        "pass": true,
+        "evidence": "Once pickup is completed, the system will automatically refund **₹1,548**—₹1,499 for the kurta plus ₹49 shipping—to your original UPI payment method."
+      },
+      {
+        "index": 1,
+        "pass": true,
+        "evidence": "the system will automatically refund **₹1,548**—₹1,499 for the kurta plus ₹49 shipping—to your original UPI payment method."
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "evidence": "Once pickup is completed, the system will automatically refund **₹1,548**—₹1,499 for the kurta plus ₹49 shipping—to your original UPI payment method."
+      }
+    ],
+    "authorization": [],
+    "clarification": [
+      {
+        "fact_id": "problem",
+        "pass": true,
+        "evidence": "Was the kurta a different size from what you ordered, or did the ordered size arrive but not fit as expected?\n\n... \nYes, the kurta I received was size L instead of the size M I ordered."
+      }
+    ]
+  },
+  "failure_type": "policy",
+  "unhandled_tool_errors": [],
+  "reference_outcome": {
+    "outcome_type": "return",
+    "order_id": "O0040",
+    "item_id": "I0040",
+    "reason": "wrong_item",
+    "refund_amount": 1548,
+    "refund_method": "UPI",
+    "shipping_refunded": true,
+    "escalation_rule": null
+  },
+  "actual_changes": [],
+  "run_error": null,
+  "confirmation_checks": [],
+  "status": "valid_run",
+  "run_name": "baseline_v1_1_policy_v0_6_smoke",
+  "scenario_id": "S035",
+  "scenario_split": "dev",
+  "trial_number": 1,
+  "agent_model_requested": "gpt-6-astra",
+  "agent_model": "gpt-6-astra",
+  "simulator_model_requested": "gpt-4.1-mini",
+  "simulator_model": "gpt-4.1-mini-2025-04-14",
+  "prompt_version": "agent_v1.1",
+  "policy_version": "v0.6",
+  "current_date": "2026-09-15",
+  "harness_version": "v3",
+  "data_version": "sha256:9e8917b431f0c69919d5b13d379755ddb4ccb1e7bbaa6b4c07fa66eab33facc4",
+  "tool_mode": "unguarded",
+  "reasoning_effort": "high",
+  "timestamp": "2026-09-15T12:00:00+05:30",
+  "judge_model": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "stop_reason": "goal_met",
+  "error_origin": null,
+  "category": "vague",
+  "turns": 2,
+  "api_cost_usd": 0.0574954,
+  "cost_by_role": {
+    "agent": 0.050951,
+    "simulator": 0.005189600000000001,
+    "judge": 0.0013548000000000002
+  },
+  "api_call_counts": {
+    "agent": 6,
+    "simulator": 10,
+    "judge": 1
+  },
+  "attempt_number": 1
+}

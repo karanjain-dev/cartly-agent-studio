@@ -1,0 +1,32 @@
+{
+  "scenario_id": "S038",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "a102604cc1a9eb5d526f165bf78ed64f4b500e16a1c5d491fbd454df43a87701",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The policy does not provide for direct exchanges. Only returns or refunds are allowed. For change of mind returns, the item must be unused, and a return can be scheduled followed by a refund. The user explicitly rejected refund or repurchase. Since such an exchange is not covered by policy, it is declined.",
+    "rules": [
+      "E11"
+    ]
+  },
+  "response_id": "resp_0521825796086c37016aa90d9654dc87d29dd43e633c690848",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4502,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 106,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4608
+  }
+}

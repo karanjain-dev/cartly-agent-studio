@@ -1,0 +1,53 @@
+{
+  "scenario_id": "S028",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "eb649994826affe4f16c6e03eb33b683da58e24b13e2d043fd3bd27819354e6c",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0011",
+          "item_id": "I0011"
+        },
+        "values": {
+          "reason": "change_of_mind",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": {
+      "amount": 1400,
+      "method": "UPI",
+      "timing": "after_pickup"
+    },
+    "no_other_changes": true,
+    "explanation": "The Cotton kurta from order O0011 was delivered on 2026-09-05, and the user reported the return on 2026-09-15, which is day 10, within the 10-day return window for clothing. The item is unused, so this is a change of mind return, which refunds item price minus ₹99 pickup fee, equals ₹1499 - 99 = ₹1400. Refund will be after pickup completion. Shipping is not refunded for change of mind.",
+    "rules": [
+      "E1",
+      "E4",
+      "E5",
+      "E7",
+      "H4"
+    ]
+  },
+  "response_id": "resp_0bf6a52817edeecd016aa90d86911c87d29690785a94e43d7e",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4744,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 271,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 5015
+  }
+}

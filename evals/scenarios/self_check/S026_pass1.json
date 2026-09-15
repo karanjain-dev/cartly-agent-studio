@@ -1,0 +1,39 @@
+{
+  "scenario_id": "S026",
+  "pass": 1,
+  "split": "dev",
+  "input_sha256": "468103f083f9319e73c28ac541591be3291ca6d5f36978defe432cb9341c1625",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "declined",
+    "changes": [],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The item is a Ceramic serving bowl (category: home) delivered on 2026-09-13, reported broken on 2026-09-15. The claim is for damaged item, which requires photo evidence for item value above ₹2000 (this item costs ₹399, so evidence is not mandatory). However, the return window for most categories is 10 days from delivery day 0; the request is within window. But the payment was COD; shipping is not refunded. Agent can create return for pickup and refund. However, no prior return or refund exists for this order. The user says the item arrived broken, so this is a damaged item. Thus, a full refund including shipping applies, but shipping fee (₹49) is refunded only once per order and does not count now, but for COD shipping refunds go to Cartly Wallet. The refund amount is ₹399 (price) plus ₹49 shipping, total ₹448, refunded to Cartly Wallet after return. After explaining this, user confirmation is needed. But user states no photo available, which is acceptable below ₹2000. No problem with refund authority. So the agent can create a return and refund. However, the user has not yet explicitly confirmed. Since the user asked outright for refund without confirmation yet, the next step is to restate the exact action, amount and payment method and ask for explicit yes. Until then, no change is made. Hence resolution is decline (no change) now, waiting for confirmation.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E7",
+      "E9",
+      "E12",
+      "G1",
+      "H4"
+    ]
+  },
+  "response_id": "resp_0a667b6b158c7347016aa90d81849487d2a8db59d573c16c07",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4409,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 387,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4796
+  }
+}

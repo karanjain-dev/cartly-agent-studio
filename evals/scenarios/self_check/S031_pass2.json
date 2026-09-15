@@ -1,0 +1,51 @@
+{
+  "scenario_id": "S031",
+  "pass": 2,
+  "split": "dev",
+  "input_sha256": "bfdf989d94cfc5107110c885e69d943d9910ad06f1498453c5afd30a60d6501e",
+  "requested_model": "gpt-4.1-mini",
+  "status": "completed",
+  "decision": {
+    "resolution": "return_scheduled",
+    "changes": [
+      {
+        "table": "returns",
+        "operation": "insert",
+        "key": {
+          "order_id": "O0035",
+          "item_id": "I0035"
+        },
+        "values": {
+          "reason": "defective",
+          "pickup_status": "scheduled"
+        }
+      }
+    ],
+    "refund": null,
+    "no_other_changes": true,
+    "explanation": "The headphones from order O0035 delivered 2 days ago are defective and caused electric shock, reported within 48 hours, photo evidence is uploaded, so a return pickup is scheduled per policy. Refund will be issued after pickup.",
+    "rules": [
+      "E1",
+      "E3",
+      "E5",
+      "E6",
+      "E10",
+      "E13",
+      "G1"
+    ]
+  },
+  "response_id": "resp_0855a3419312941b016aa90d8af02087d292481d35c83a8c3b",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "usage": {
+    "input_tokens": 4326,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cached_tokens": 1920
+    },
+    "output_tokens": 195,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4521
+  }
+}

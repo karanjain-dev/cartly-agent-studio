@@ -1,0 +1,356 @@
+[
+  {
+    "role": "customer",
+    "content": "Could you please let me know the date of delivery and the condition of the kurta? This will help me confirm if it is eligible for return.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can check the delivery date and help confirm return eligibility. Please share:\n\n- Your user ID and registered email or phone number for verification.\n- The order ID, if available.\n- The kurta’s current condition—unused, worn, or damaged—and your reason for returning it.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem—please check when you’re ready. I’ll need your user ID and registered email or phone to look up the delivery date. If you can’t find the order ID, I can help locate the order after verification.\n\nPlease also check the kurta’s condition and let me know why you’d like to return it.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "Of course—take your time. Come back with the details when you’re ready, and I’ll help check whether the kurta is eligible for return.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I have changed my mind about my kurta and would like to return it. The item has not been worn or used, so I believe it is in good condition for a return.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "Thanks for confirming the kurta is unused. For a change-of-mind return, the refund is the item’s price minus a ₹99 pickup fee; shipping is not refunded.\n\nPlease share your user ID and either your registered email or phone number so I can verify your account and check the delivery date. Include the order ID if you have it.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 5
+  },
+  {
+    "role": "support",
+    "content": "No problem—check when you’re ready. To look up the order, I’ll need your user ID and either your registered email or phone number. The order ID is optional.\n\nReturn eligibility depends on the delivery date, so please get back to me soon to avoid missing the return window.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Please let me know when you have the user ID and registered email or phone number ready, and I will help you check the delivery date and confirm if your kurta can be returned.",
+    "turn": 6
+  },
+  {
+    "role": "support",
+    "content": "Sorry for the confusion—I’m Cartly support, so I’ll need **your user ID and registered email or phone number** to verify your account. Once you share those, I can check the delivery date and whether your unused kurta is eligible for return.",
+    "turn": 6
+  },
+  {
+    "role": "customer",
+    "content": "Hello, I am providing my user ID as U022 and my registered email as customer022@example.com. The kurta has not been worn or used, so it is in good condition. Please check if I can return it based on this information.",
+    "turn": 7
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U022",
+      "email": "customer022@example.com",
+      "phone": null
+    },
+    "call_id": "call_to68rjYruqJ2XzpIHrEKiPJJ",
+    "turn": 7,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U022"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_lm5r2Wz152sSjaFLmjkahCHj",
+    "turn": 7,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0015",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-08-30",
+          "promised_delivery_date": "2026-09-04",
+          "actual_delivery_date": "2026-09-04",
+          "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0049",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-06",
+          "promised_delivery_date": "2026-09-11",
+          "actual_delivery_date": "2026-09-11",
+          "actual_delivery_at": "2026-09-11T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0083",
+          "user_id": "U022",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0117",
+          "user_id": "U022",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 122, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_I5jnXGz9L8hrzTscLRqKWMW2",
+    "turn": 7,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0015",
+        "user_id": "U022",
+        "status": "Delivered",
+        "placed_date": "2026-08-30",
+        "promised_delivery_date": "2026-09-04",
+        "actual_delivery_date": "2026-09-04",
+        "actual_delivery_at": "2026-09-04T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 122, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0015",
+          "order_id": "O0015",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0015"
+    },
+    "call_id": "call_rTsPs6tCfAa6XBuGALnqP4fo",
+    "turn": 7,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0005",
+          "order_id": "O0049",
+          "item_id": "I0051",
+          "user_id": "U022",
+          "amount": 3099,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-09-13",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your **Cotton kurta (order O0015)** was delivered on **4 September 2026**.\n\nClothing has a **10-day return window**, with delivery counted as day 0, so the last eligible day was **14 September 2026**. Today is 15 September, which is day 11.\n\nAlthough you’ve confirmed the kurta is unused, it is unfortunately **no longer eligible for a change-of-mind return** because the return window has closed.",
+    "turn": 7
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for checking this for me. I understand that the return window has closed, so I will not be able to return the kurta now.",
+    "turn": 8
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome, and thank you for understanding. Please let me know if there’s anything else I can help with.",
+    "turn": 8
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for checking this for me. I understand that the return window has closed, so I will not be able to return the kurta now.",
+    "turn": 9
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. Thank you for understanding.",
+    "turn": 9
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for checking this for me. I understand that the return window has closed, so I will not be able to return the kurta now.",
+    "turn": 10
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome. I’m here if you need help with anything else.",
+    "turn": 10
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and confirmation. I appreciate the clarity on the return policy and will keep this in mind for future purchases.",
+    "turn": 11
+  },
+  {
+    "role": "support",
+    "content": "You’re very welcome. I’m glad I could clarify the policy for you.",
+    "turn": 11
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for the clear information. I appreciate your help.",
+    "turn": 12
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Happy to help.",
+    "turn": 12
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and confirmation. I appreciate the clarity on the return policy and will keep this in mind for future purchases.",
+    "turn": 13
+  },
+  {
+    "role": "support",
+    "content": "You’re very welcome. I’m glad the explanation was helpful.",
+    "turn": 13
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and confirmation. I appreciate the clarity on the return policy and will keep this in mind for future purchases.",
+    "turn": 14
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome, and thank you for shopping with Cartly.",
+    "turn": 14
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and confirmation. I appreciate the clarity on the return policy and will keep this in mind for future purchases.",
+    "turn": 15
+  },
+  {
+    "role": "support",
+    "content": "You’re welcome! Glad I could help clarify.",
+    "turn": 15
+  },
+  {
+    "role": "customer",
+    "content": "Thank you for your help and confirmation. I appreciate the clarity on the return policy and will keep this in mind for future purchases.",
+    "turn": 16
+  }
+]
