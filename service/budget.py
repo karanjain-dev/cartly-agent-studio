@@ -28,10 +28,14 @@ class BudgetedTransport:
         if not limit.is_finite() or not spent.is_finite() or limit < 0 or spent < 0:
             raise ValueError("Budget values must be finite and non-negative")
         with repo.connect() as conn:
-            conn.execute("INSERT INTO api_budgets VALUES (%s,%s,%s) ON CONFLICT DO NOTHING", (budget_id, limit, spent))
-            row = conn.execute("SELECT * FROM api_budgets WHERE budget_id=%s", (budget_id,)).fetchone()
+            conn.execute("INSERT INTO api_budgets(budget_id,limit_usd,spent_usd,carried_over_usd) VALUES (%s,%s,%s,%s) ON CONFLICT DO NOTHING", (budget_id, limit, spent, spent))
+            row = conn.execute("SELECT * FROM api_budgets WHERE budget_id=%s FOR UPDATE", (budget_id,)).fetchone()
             if row["limit_usd"] != limit:
                 raise ValueError("Stored budget differs from configuration; reconcile explicitly rather than resetting spending")
+            # Re-reading the retiring site's allowance can only consume more
+            # allowance, never erase calls already charged on this backend.
+            if spent > row["carried_over_usd"]:
+                conn.execute("UPDATE api_budgets SET spent_usd=spent_usd+%s,carried_over_usd=%s WHERE budget_id=%s", (spent-row["carried_over_usd"], spent, budget_id))
 
     def __call__(self, body):
         # Conservative UTF-8 byte upper bound plus protocol allowance; reserve

@@ -22,6 +22,10 @@ def test_budget_survives_reconstruction_and_charges_usage(repo):
     with repo.connect() as c:
         row = c.execute("SELECT * FROM api_budgets WHERE budget_id=%s", (key,)).fetchone()
     assert row["spent_usd"] == Decimal("1.0015")
+    BudgetedTransport(repo, lambda _: RAW, initial_spent="1.2", budget_id=key)
+    with repo.connect() as c:
+        row = c.execute("SELECT * FROM api_budgets WHERE budget_id=%s", (key,)).fetchone()
+    assert row["spent_usd"] == Decimal("1.2015")
 
 
 def test_unknown_failure_retains_reservation(repo):
