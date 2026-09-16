@@ -1,13 +1,14 @@
-# Cartly — one local codebase
+# Cartly — one shared codebase
 
 The website and terminal now call the **same Python agent and guarded service**.
 Python owns conversations, policy decisions, tools, approvals, and PostgreSQL state.
 The website displays messages and activity and forwards requests; it has no agent,
 policy calculator, or world-data copy.
 
-**Deployment status:** this consolidation is local only. The public site still
-runs its previously published version. No GitHub push or production switch was
-performed. Choose a Python/PostgreSQL host before publishing this frontend.
+**Deployment status:** live at [Cartly Agent Studio](https://cartly-agent-studio.karan-jain-iitbhu.chatgpt.site).
+Sites hosts the UI and forwarding routes; Railway hosts the shared Python backend
+and PostgreSQL. The desktop folder is the GitHub checkout. See
+[deployment details and verification](service/DEPLOYMENT.md).
 
 ## Start the product
 
@@ -119,10 +120,11 @@ node scripts/run-framework.mjs build
 These service/browser checks use real PostgreSQL and recorded model replies.
 They test integration and safeguards, not live Astra accuracy.
 
-Before a future public switch, configure the Python host and database, real
-authentication/rate limits and a shared spending cap. The former hosted $3 D1
-budget is archived with that runtime; it is **not** implemented in this local
-Python prototype. The local agent has persisted turn and model-call limits.
+The hosted demo enforces a shared $3 API allowance in PostgreSQL, including the
+old site's spending. New sessions and restarts do not reset it. Local development
+has persisted turn/model-call limits; the production entrypoint adds the dollar
+budget. Identity verification uses synthetic demo credentials, not real customer
+login. Railway is currently on trial hosting.
 
 ---
 

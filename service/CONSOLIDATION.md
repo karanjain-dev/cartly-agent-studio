@@ -1,6 +1,9 @@
 # Local consolidation verification
 
-This change has not been deployed or pushed. The public site remains on its
+Historical record of the local consolidation stage, before deployment. The
+subsequent [production rollout](DEPLOYMENT.md) supersedes hosting status below.
+
+At this stage, the change had not been deployed or pushed. The public site remained on its
 previous release. The existing Git history now belongs to the desktop project
 root, with the UI under `website/` and Python packages at the root.
 

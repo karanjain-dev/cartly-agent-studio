@@ -15,8 +15,9 @@ The frontend can stream `/web/chat` from Python without interpreting its tool ca
 All product behavior is in the parent `service/` and `cartly/` packages.
 All evaluations are at the project root; `website/evals/` no longer exists.
 
-This is a **local** migration. Do not deploy these routes before configuring a
-reachable authenticated Python backend. The already-published site is unchanged.
+This UI is published at https://cartly-agent-studio.karan-jain-iitbhu.chatgpt.site
+and forwards to the authenticated Python backend on Railway. Runtime bindings
+are configured as server-side values in Sites. See `../service/DEPLOYMENT.md`.
 Existing Sites/D1 migration history is retained for rollback, but this UI no
 longer reads or writes D1 business state.
 

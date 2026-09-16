@@ -3,6 +3,42 @@
 The website stays on its existing Sites URL. The same Python backend used locally
 runs as a Docker service, with a separate persistent PostgreSQL service.
 
+## Published rollout
+
+- Website: https://cartly-agent-studio.karan-jain-iitbhu.chatgpt.site (Sites version 5).
+- Backend: https://cartly-api-production.up.railway.app (Railway, PostgreSQL persistent volume).
+- GitHub: https://github.com/karanjainiitbhu/cartly-agent-studio.
+- Deployed runtime source: `30e9324fb3c2214234752f1af1b5aaa8a3a44c14`.
+- Website release commit: `6a02fb13bd882336df75b6618bc42b5414211d7d`
+  (website-rooted release preserving the existing Sites history).
+- Railway uses the account's trial; no paid plan was purchased.
+
+The backend was uploaded from committed runtime source. A GitHub push alone
+does not deploy it. Future releases must rebuild/upload the backend and publish
+the website when its source changes; never upload ignored local secrets or data.
+
+## Verification
+
+- 51 service tests passed; frontend proxy checks, typecheck and production build passed.
+- Hosted `/health` returned 200 with PostgreSQL storage and guarded mode.
+- An unauthenticated session request was rejected; the authenticated session and
+  policy endpoint worked.
+- One explicitly approved live synthetic U018/O0011 chat verified identity and
+  used three tools. Astra asked for the unused-item condition control. The smoke
+  driver recorded that condition, requested the exact proposal and approved it
+  through the same service endpoints used by the UI.
+- Execution before approval was blocked. Approval created one return with a
+  ₹1,400 UPI refund due after pickup. Retrying created no duplicate return.
+  Pickup was not completed and no refund was issued by this test.
+- Recorded model cost for the live smoke: $0.073134. This is one integration
+  smoke test, not an accuracy evaluation or a browser interaction test.
+- The old site's final allowance usage was $0.9607375, with no pending reservation.
+  That amount was carried forward into the shared $3 budget. Increasing a later
+  carryover only adds the difference; it never erases new backend spending.
+
+Local test evidence is retained in ignored `.cartly-service/production-live-smoke.json`
+and `.cartly-service/production-approval-smoke.json`. These artifacts are not published.
+
 ## Backend
 
 Deploy the repository root using `Dockerfile` and `railway.json`. The image copies

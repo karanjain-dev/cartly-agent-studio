@@ -10,7 +10,8 @@ world fixtures remain the v0 evaluation baseline. This service wraps its guarded
 business tools. It never imports the reference calculator or hidden scenario truth.
 The local website and terminal now use this same service. Start both with
 `.venv-service/bin/python scripts/dev.py --enable-model` from the repository root.
-The public website still uses its previously deployed runtime until hosting is chosen.
+The public website uses this same service, hosted with PostgreSQL on Railway.
+See [deployment details](DEPLOYMENT.md) for hosting, allowance and verification.
 The active product instructions live in `prompts/current.md`; `service/prompt.py`
 adds the configured date and the policy saved with the conversation's sandbox.
 
@@ -69,8 +70,8 @@ Try: `I want to return my kurta, order O0011.`
 
 When asked about use, enter `/unused O0011 I0011 yes`. Then ask it to prepare the
 return. Read the proposal and enter `/accept` to approve its exact terms, or
-`/decline` to refuse. `/quit` exits. The new agent instructions live in
-`service/prompts/agent_v0.1.md`; the original `agent_v1.1.md` is untouched.
+`/decline` to refuse. `/quit` exits. The active agent instructions live in
+`prompts/current.md`; the original `agent_v1.1.md` is untouched.
 
 To enable the same agent through `POST /v1/chat`, start `serve --enable-model`.
 Without that flag, model calls are disabled. Sessions are limited to 20 customer
