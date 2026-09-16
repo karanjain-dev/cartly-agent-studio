@@ -7,7 +7,7 @@ from datetime import date, datetime, timedelta
 from decimal import Decimal
 
 from cartly.tools import ACCESS_ERROR, REASONS
-from service.engine import GuardedEngine
+from service.guardrails import GuardedEngine
 from service.errors import ServiceError
 
 ACTIONS = {"return": "create_return", "immediate_refund": "issue_refund", "cancel": "cancel_order",

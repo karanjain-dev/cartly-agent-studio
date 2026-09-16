@@ -3,7 +3,7 @@ import argparse
 import json
 from uuid import uuid4
 
-from service.core import CartlyService
+from service.approval_flow import CartlyService
 from service.local import repository, operator_key, STATE_DIR
 from service.repository import load_seed
 from service.playground import ensure_playground, shared_world_id

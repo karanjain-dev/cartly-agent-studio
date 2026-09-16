@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 from psycopg.types.json import Jsonb
 
 from service.api import create_app
-from service.core import CartlyService
+from service.approval_flow import CartlyService
 from service.errors import ServiceError
 from service.repository import digest, load_seed
 from service.tests.conftest import approve, login

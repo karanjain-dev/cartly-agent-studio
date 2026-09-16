@@ -47,9 +47,9 @@ flowchart TD
   CLI["service/__main__.py: terminal chat"] --> Agent
   API --> Agent["service/agent.py: Terra and saved conversation"]
   Prompt["prompts/current.md + config date + sandbox policy.md"] --> Agent
-  Agent --> Core["service/core.py: identity, proposals, approvals, execution"]
+  Agent --> Core["service/approval_flow.py: identity, proposals, approvals, execution"]
   Core --> Rules["service/policy.py: operational decisions"]
-  Core --> Engine["service/engine.py + cartly/tools.py: guarded tools"]
+  Core --> Engine["service/guardrails.py + cartly/tools.py: guarded tools"]
   Core --> DB["service/repository.py: PostgreSQL and audit"]
   DB --> API
 ```
@@ -75,9 +75,9 @@ unused-item assertion. The customer then continues chatting and reviews the prop
 | `policy.md` | Canonical policy, saved into each sandbox when it is created. |
 | `data/` | Canonical seed world; tools never edit these files. |
 | `service/agent.py` | Shared Terra tool loop and persistent conversation memory. |
-| `service/core.py` | Identity, exact proposals, approval invalidation, atomic execution and retries. |
+| `service/approval_flow.py` | Identity, exact proposals, approval invalidation, atomic execution and retries. |
 | `service/policy.py` | Operational eligibility rules. |
-| `cartly/tools.py`, `service/engine.py` | Business tools and always-guarded service wrapper. |
+| `cartly/tools.py`, `service/guardrails.py` | Business tools and always-guarded service wrapper. |
 | `service/web.py`, `service/api.py` | Browser views/streaming and authenticated HTTP routes. |
 | `service/repository.py`, `service/migrations/` | Database persistence and audit history. |
 | `website/` | UI and thin HTTP proxy only. |

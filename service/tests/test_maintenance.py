@@ -3,7 +3,7 @@ from uuid import uuid4
 import psycopg
 import pytest
 
-from service.core import CartlyService
+from service.approval_flow import CartlyService
 from service.maintenance import export_backup, prune, records, restore_to_empty_schema
 from service.playground import ensure_playground, shared_world_id
 from service.repository import Repository

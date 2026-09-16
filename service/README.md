@@ -193,9 +193,9 @@ historical test failures.
 | File | What it does |
 | --- | --- |
 | `api.py` | HTTP routes, strict request schemas and customer/operator access |
-| `core.py` | Sessions, proposals, approvals, idempotent action execution |
+| `approval_flow.py` | Sessions, proposals, approvals, idempotent action execution |
 | `policy.py` | Operational policy decisions and exact customer quotes |
-| `engine.py` | Adapter for the existing guarded Cartly tool implementation |
+| `guardrails.py` | Adapter for the existing guarded Cartly tool implementation |
 | `repository.py` | PostgreSQL transactions, seed import and audit chain |
 | `migrations/` | Versioned SQL schema, constraints and agent memory |
 | `agent.py` | Terra conversation loop, persistent context and restricted tool registry |

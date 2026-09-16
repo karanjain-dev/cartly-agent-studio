@@ -7,7 +7,7 @@ import psycopg
 from psycopg.types.json import Jsonb
 
 from cartly.tools import ACCESS_ERROR, TOOLS, WRITES, ToolError
-from service.engine import GuardedEngine
+from service.guardrails import GuardedEngine
 from service.errors import ServiceError
 from service.policy import decide, action_arguments, proposal_text
 from service.repository import digest

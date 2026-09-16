@@ -3,7 +3,7 @@ from uuid import uuid4
 
 import pytest
 
-from service.core import CartlyService
+from service.approval_flow import CartlyService
 from service.repository import Repository, load_seed
 
 

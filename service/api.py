@@ -7,7 +7,7 @@ from fastapi.responses import JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 
-from service.core import CartlyService
+from service.approval_flow import CartlyService
 from service.errors import ServiceError
 
 

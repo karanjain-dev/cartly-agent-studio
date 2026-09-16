@@ -140,7 +140,7 @@ payment and courier systems.
 | Prompt and policy | [`prompts/current.md`](prompts/current.md), [`policy.md`](policy.md) | Product instructions and business rules. |
 | Agent | [`service/agent.py`](service/agent.py) | Terra conversation loop, memory, and tool requests. |
 | Decisions | [`service/policy.py`](service/policy.py) | Deterministic eligibility and financial decisions. |
-| Safety boundary | [`service/core.py`](service/core.py), [`service/engine.py`](service/engine.py) | Proposals, approvals, rechecks, and guarded actions. |
+| Safety boundary | [`service/approval_flow.py`](service/approval_flow.py), [`service/guardrails.py`](service/guardrails.py) | Proposals, approvals, rechecks, and guarded actions. |
 | Tools | [`cartly/tools.py`](cartly/tools.py) | Identity, order, refund, return, coupon, and escalation operations. |
 | Storage | [`service/repository.py`](service/repository.py), `service/migrations/` | PostgreSQL state, constraints, transactions, and audit history. |
 | API | [`service/api.py`](service/api.py), [`service/web.py`](service/web.py) | HTTP endpoints and safe activity snapshots. |
