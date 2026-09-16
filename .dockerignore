@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!service/
+!service/**
+!cartly/
+!cartly/**
+!data/
+!data/*.json
+!policy.md
+!prompts/
+!prompts/current.md
+**/__pycache__/
+**/*.pyc
+service/tests/
+service/tests/**
