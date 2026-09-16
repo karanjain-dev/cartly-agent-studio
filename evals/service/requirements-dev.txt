@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest==9.1.1
+# Optional local PostgreSQL binaries. Use CARTLY_DATABASE_URL on other platforms.
+pgserver==0.1.4

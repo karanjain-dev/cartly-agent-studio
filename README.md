@@ -1,6 +1,6 @@
-# Cartly Agent Studio
+# Cartly Customer Support
 
-A hosted demonstration of the existing Cartly support agent. Visitors chat as one of three synthetic customers and see actual policy inclusion, tool calls, results, session context, and database changes alongside the conversation.
+A hosted demonstration of Cartly's guarded support flow. Visitors choose one of three synthetic customers, select a supported request, review the exact policy-backed resolution, and explicitly approve it before any synthetic order change is made.
 
 ## Evaluation project
 
@@ -12,19 +12,21 @@ GitHub stores the evaluation source and evidence. It does not run paid evaluatio
 
 ## What runs
 
-- The exact `agent_v1.1` prompt with policy v0.8, reference date from the original configuration, model `gpt-6-astra`, and high reasoning effort.
-- All 13 callable tools from the policy table, in unguarded baseline mode. The TypeScript implementation is checked against the original Python implementation with 895 calls across 216 sequences.
-- A fresh synthetic world per conversation. SQLite stores each conversation behind an opaque, HttpOnly session cookie. Reset replaces that session's world, identity, history, and changes.
+- The guided request flow computes eligibility, amount, payment method, timing, and rules from the synthetic order values. The customer never supplies the amount used for an action.
+- A stored proposal contains the exact terms and a SHA-256 terms hash. Acceptance requires that same proposal; execution recalculates the decision before calling the action tool.
+- A fresh synthetic world per conversation. SQLite stores each conversation behind an opaque, HttpOnly session cookie. Reset replaces that session's world, proposal, and changes.
+- The older free-form agent route remains read-only. It cannot call a return, refund, cancellation, address update, or coupon tool; order-changing work is available only through the proposal flow.
 - No simulator, scenario truth, heldout scenarios, grader, or reference calculator is loaded at runtime. The original project remains the evaluation source of truth.
-- Session history is sent with subsequent agent requests. There is no separate long-term memory service. The activity view shows observable events and tool results, not private model reasoning.
 
 ## Files
 
-- `app/page.tsx`, `app/globals.css`: responsive chat workspace, activity/context/changes panels, demo customer selection, policy dialog, and conversation download.
+- `app/page.tsx`, `app/globals.css`: responsive guided support workspace, request selection, exact-terms approval dialog, demo customer selection, policy dialog, and visible activity.
 - `app/api/session/route.ts`: create, retrieve, and reset isolated sessions.
-- `app/api/chat/route.ts`: validate requests, serialize turns, and stream activity to the browser.
+- `app/api/proposal/route.ts`: creates a policy-backed proposal, validates acceptance of its exact terms, rechecks it, and executes the approved action.
+- `lib/guarded-flow.ts`: deterministic policy decisions, proposal terms, acceptance binding, final recheck, and action dispatch.
+- `app/api/chat/route.ts`: legacy read-only conversational lookup route. It cannot execute order-changing tools.
 - `app/api/policy/route.ts`: serve the exact policy for inspection.
-- `lib/agent.ts`: model loop, tool dispatch, live events, usage accounting, and shared spending allowance.
+- `lib/agent.ts`: read-only model loop, live events, usage accounting, and shared spending allowance.
 - `lib/tools.ts`: equivalent implementation of the baseline support tools.
 - `lib/session.ts`: session persistence and browser-safe snapshots.
 - `lib/reference/`: unchanged world values, policy/prompt, tool schemas, and hashes of the original inputs. These imports stay on the server.
@@ -40,10 +42,10 @@ Use the checked-in package scripts to install dependencies, start the developmen
 
 ## Demo
 
-Choose a customer, draft a request with a starter button, then send it. Use the displayed demo credentials when asked to verify. Expand activity steps to inspect arguments/results. Context shows what was actually read; Changes shows successful writes. New conversation starts over. Download exports the visible transcript and activity.
+Choose a customer, request a return, cancellation, or late-delivery coupon, then select **Review my resolution**. Cartly displays the exact action, amount, method, and timing. The customer must open the approval dialog and choose **I agree to these terms** before the server executes anything. Activity shows the order lookup, policy decision, stored proposal, acceptance, final recheck, and resulting synthetic change.
 
 The page exposes `get_conversation_activity` and `draft_customer_message` in browsers supporting WebMCP. Drafting does not send a message or spend API credit.
 
 ## Limits
 
-20 customer turns per conversation, 20 tool rounds per turn, 3,000 characters per message. This keeps the existing unguarded baseline behavior, including its known policy failures. Refunds and human handoffs affect synthetic session records only. There is no real payment, pickup, or staff notification. No prerequisite-fact grading is added. Sessions persist for demonstrations; this is not a production customer-data system.
+Refunds, returns, coupons, and human handoffs affect synthetic session records only. There is no real payment, pickup, or staff notification. The site is a product prototype, not a production customer-data system.

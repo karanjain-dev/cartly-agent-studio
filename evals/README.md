@@ -1,5 +1,10 @@
 # Cartly evaluations
 
+**New practical increment:** [Cartly service v0.1](service/README.md) adds a local
+PostgreSQL API, stored customer approvals, guarded actions, and replayable audit
+events. Run `.venv-service/bin/python -m service demo` for the zero-cost walkthrough.
+The evaluation baseline described below remains unchanged.
+
 This folder contains the evaluation project behind the Cartly prototype: fictional customers, world records, customer simulation, the support agent, tools, a reference calculator, and saved experiments. It is independent of the website runtime. The website does not load scenarios, expected answers, or checker feedback.
 
 ## Latest measurement: stress_v1

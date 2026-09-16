@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cartly — Agent Studio",
-  description: "Try Cartly customer support and follow every policy lookup, tool call, and session change.",
+  title: "Cartly — Customer Support",
+  description: "Review a policy-backed support resolution and approve exact terms before Cartly changes an order.",
   other: {
     "codex-preview": "development",
   },

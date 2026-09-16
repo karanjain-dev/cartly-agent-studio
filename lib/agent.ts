@@ -1,6 +1,6 @@
 import policy from './reference/policy.json';
 import schemas from './reference/tool-schema.json';
-import {CartlyTools,clone,changes} from './tools';
+import {CartlyTools,clone,changes,WRITES} from './tools';
 import {runtime,persist,Session,snapshot,Event,setBusy} from './session';
 const labels:Record<string,string>={verify_user:'Verify customer identity',get_order:'Fetch order details',list_orders:'Look up customer orders',search_policy:'Search the support policy',check_serviceability:'Check delivery coverage',get_refund_history:'Check refund history',check_evidence:'Check uploaded evidence',update_address:'Update delivery address',cancel_order:'Cancel the order',create_return:'Create a return pickup',issue_refund:'Issue the refund',issue_coupon:'Issue a ₹100 coupon',escalate_to_human:'Queue a human handoff'};
 function cost(u:any){const input=u.input_tokens||0,cached=u.input_tokens_details?.cached_tokens||0,write=u.input_tokens_details?.cache_write_tokens||0;return ((input-cached-write)*10+cached+write*12.5+(u.output_tokens||0)*50)/1e6}
@@ -14,7 +14,7 @@ export async function runAgent(id:string,s:Session,message:string,emit:(e:any)=>
  await persist(id,s);
  try{for(let round=0;round<20;round++){
   if(signal.aborted)throw Error('The connection was interrupted. Start a new conversation to continue.');
-  const body={model:'gpt-6-astra',input:s.input,instructions:policy.prompt,tools:schemas,parallel_tool_calls:false,max_output_tokens:8192,reasoning:{effort:'high'},store:false,include:['reasoning.encrypted_content']};
+  const body={model:'gpt-6-astra',input:s.input,instructions:policy.prompt+'\n\nYou can read policy and order facts, but you cannot execute returns, refunds, cancellations, address changes, or coupons. Tell the customer to use the exact proposal and approval controls in the Cartly app.',tools:(schemas as any[]).filter(tool=>!WRITES.has(tool.name)),parallel_tool_calls:false,max_output_tokens:8192,reasoning:{effort:'high'},store:false,include:['reasoning.encrypted_content']};
   const payload=JSON.stringify(body);
   // Every input byte bounds at most one token; use the highest configured input rate.
   const reserve=new TextEncoder().encode(payload).length*12.5/1e6+8192*50/1e6;
@@ -33,7 +33,7 @@ export async function runAgent(id:string,s:Session,message:string,emit:(e:any)=>
   for(const item of raw.output||[]){if(item.type==='function_call')calls.push(item);if(item.type==='message'){const text=(item.content||[]).filter((c:any)=>c.type==='output_text').map((c:any)=>c.text).join('');if(text){said=true;s.messages.push({role:'assistant',content:text});emit({type:'message',data:{role:'assistant',content:text}})}}}
   if(!calls.length){if(!said)throw Error('The agent returned no message. Start a new conversation to continue.');await persist(id,s);emit({type:'snapshot',data:snapshot(s)});return}
   for(const call of calls){let args:any;try{args=JSON.parse(call.arguments)}catch{args={invalid_json:call.arguments}}const event=activity('tool',labels[call.name]||call.name,call.name,{arguments:args},'running');await persist(id,s);
-   const before=clone(tools.state),result=tools.call(call.name,args),delta=changes(before,tools.state);s.state=tools.state;s.verified=tools.verified;s.calls++;s.toolLog.push(tools.logs[tools.logs.length-1]);
+   const before=clone(tools.state),result=WRITES.has(call.name)?{ok:false,error:{message:'This action requires an exact proposal and customer approval in the Cartly app.'}}:tools.call(call.name,args),delta=changes(before,tools.state);s.state=tools.state;s.verified=tools.verified;s.calls++;if(!WRITES.has(call.name))s.toolLog.push(tools.logs[tools.logs.length-1]);
    s.input.push({type:'function_call_output',call_id:call.call_id,output:JSON.stringify(result)});
    if(result.ok&&call.name==='get_order'&&!s.seenOrders.includes(args.order_id))s.seenOrders.push(args.order_id);
    update(event,result.ok?'complete':'error',{arguments:args,...result});if(delta.length)activity('state','Save session changes',`${delta.length} change${delta.length===1?'':'s'} applied to this demo session`,delta);

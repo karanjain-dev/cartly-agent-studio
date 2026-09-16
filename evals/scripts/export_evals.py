@@ -11,14 +11,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / 'website/evals'
-FOLDERS = ['cartly', 'data', 'evaluation', 'prompts', 'runs', 'scenario_truth',
+FOLDERS = ['cartly', 'service', 'data', 'evaluation', 'prompts', 'runs', 'scenario_truth',
            'scenarios', 'scripts', 'simulation', 'tests']
 
 
 def main():
     if not (ROOT/'website/.git').exists():
         raise SystemExit('Run this exporter from the desktop authoring project, not the exported copy.')
-    files = [ROOT/'policy.md', ROOT/'README.md']
+    files = [ROOT/'policy.md', ROOT/'README.md', ROOT/'.gitignore']
     files += [p for name in FOLDERS for p in (ROOT/name).rglob('*')
               if p.is_file() and '__pycache__' not in p.parts
               and p.name != '.DS_Store' and not p.name.startswith('.env')]
