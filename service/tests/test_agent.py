@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from service.agent import PersistentAgent, schemas
+from service.agent import PersistentAgent, schemas, service_state
 from service.core import CartlyService
 from service.errors import ServiceError
 from service.tests.conftest import login
@@ -86,3 +86,67 @@ def test_full_demo_and_state_replay(repo):
     assert result["model_calls"] == 0
     assert result["replay"]["pass"]
     assert result["replay"]["database_changes"] == 4  # Return, completed pickup, refund, Returned order.
+
+
+def state_from(body):
+    return json.loads(body["input"][0]["content"].split("\n", 1)[1])
+
+
+def test_cancel_accept_execute_then_chat_receives_saved_result(repo, sandbox):
+    wid, s = sandbox
+    token = login(s, wid, "U014")
+    seen = []
+    def transport(body):
+        seen.append(body)
+        if len(seen) == 1:
+            return response(name="propose_action", args={"intent": "cancel", "order_id": "O0143"})
+        state = state_from(body)
+        assert state["orders"][0]["status"] == "Cancelled"
+        assert state["proposals"][0]["status"] == "executed"
+        refund = state["proposals"][0]["result"]["refund"]
+        assert (refund["amount"], refund["method"], refund["status"]) == (2548, "Card", "completed")
+        assert state["refunds"] == [refund]
+        return response(text="Your cancellation and ₹2,548 Card refund are recorded as completed.")
+    p = PersistentAgent(s, transport).reply(token, "Cancel O0143", "one")["result"]["proposal"]
+    assert s.accept(token, p["proposal_id"], p["terms_hash"], True, "accept")["ok"]
+    assert s.execute(token, p["proposal_id"], "execute")["ok"]
+    result = PersistentAgent(CartlyService(repo), transport).reply(token, "hey", "two")
+    assert result["ok"]
+    assert s.tool(token, "get_order", {"order_id": "O0143"})["result"]["order"]["status"] == "Cancelled"
+    assert s.execute(token, p["proposal_id"], "retry")["replayed"]
+    assert len([r for r in repo.snapshot(wid)["refunds"] if r["order_id"] == "O0143"]) == 1
+    assert not state_from(seen[0])["proposals"]
+    assert len([m for m in seen[1]["input"] if m.get("role") == "developer"]) == 1
+
+
+def test_next_turn_refreshes_return_and_automatic_refund_state(repo, sandbox):
+    wid, s = sandbox
+    token = login(s, wid)
+    assert s.assert_unused(token, "O0011", "I0011", True, "condition")["ok"]
+    request = {"intent": "return", "order_id": "O0011", "item_id": "I0011", "reason": "change_of_mind"}
+    p = s.propose(token, request, "quote")["result"]["proposal"]
+    assert s.accept(token, p["proposal_id"], p["terms_hash"], True, "accept")["ok"]
+    result = s.execute(token, p["proposal_id"], "execute")["result"]
+    seen = []
+    def transport(body):
+        seen.append(state_from(body))
+        return response(text="Here is the saved status.")
+    assert PersistentAgent(s, transport).reply(token, "Status?", "one")["ok"]
+    assert seen[0]["returns"][0]["pickup_status"] == "scheduled"
+    assert seen[0]["refunds"] == []
+    assert s.pickup(token, result["return"]["return_id"], "pickup")["ok"]
+    assert PersistentAgent(CartlyService(repo), transport).reply(token, "Status now?", "two")["ok"]
+    assert seen[1]["returns"][0]["pickup_status"] == "completed"
+    assert seen[1]["refunds"][0]["amount"] == 1400
+    assert seen[1]["orders"][0]["status"] == "Returned"
+
+
+def test_service_context_excludes_unverified_and_other_customer_records(repo, sandbox):
+    wid, s = sandbox
+    token = login(s, wid, "U014")
+    assert s.propose(token, {"intent": "cancel", "order_id": "O0143"}, "quote")["ok"]
+    p = s.view(token)["result"]["proposals"][0]
+    world = repo.snapshot(wid)
+    for uid in [None, "U018"]:
+        state = service_state({"verified_user_id": uid, "proposals": [p]}, world)
+        assert all(state[key] == [] for key in ["orders", "refunds", "returns", "proposals"])

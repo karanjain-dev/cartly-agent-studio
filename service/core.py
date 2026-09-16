@@ -226,7 +226,7 @@ class CartlyService:
     def view(self, token):
         def view(conn, session, world, policy):
             rows = conn.execute("SELECT sequence,role,content,timestamp FROM messages WHERE session_id=%s ORDER BY sequence", (session["session_id"],)).fetchall()
-            proposals = conn.execute("SELECT proposal_id,status,terms,terms_hash,decision FROM proposals WHERE session_id=%s ORDER BY proposal_sequence", (session["session_id"],)).fetchall()
+            proposals = conn.execute("SELECT proposal_id,status,terms,terms_hash,decision,result FROM proposals WHERE session_id=%s ORDER BY proposal_sequence", (session["session_id"],)).fetchall()
             return {"ok": True, "result": {"session_id": session["session_id"], "verified_user_id": session["verified_user_id"],
                     "reference_date": world["config"]["today"], "messages": rows, "proposals": proposals}}
         return self._operation(token, "session.view", {}, view)

@@ -21,6 +21,24 @@ REASONING_EFFORT = "low"
 MAX_API_CALLS = 40  # Per session, persisted across service restarts.
 
 
+def service_state(view, world):
+    """Fresh, scoped facts for actions executed outside the model tool loop.
+
+    Never store this snapshot as chat history: refund/pickup state can change
+    between turns. Only the verified customer's proposal-related orders enter it.
+    """
+    uid = view["verified_user_id"]
+    related = {p["decision"].get("order_id") for p in view["proposals"]} if uid else set()
+    orders = [o for o in world["orders"] if o["user_id"] == uid and o["order_id"] in related]
+    allowed = {o["order_id"] for o in orders}
+    proposals = [p for p in view["proposals"]
+                 if uid and (p["decision"].get("order_id") is None or p["decision"].get("order_id") in allowed)]
+    return {"source": "Cartly service database", "verified_user_id": uid,
+            "proposals": proposals, "orders": orders,
+            "refunds": [r for r in world["refunds"] if r["order_id"] in allowed and r["user_id"] == uid],
+            "returns": [r for r in world["returns"] if r["order_id"] in allowed]}
+
+
 def schemas():
     result = []
     for name in TOOLS:
@@ -120,12 +138,17 @@ class PersistentAgent:
         with service.repo.connect() as snapshot:
             world, policy = service.repo.world(snapshot, session["world_id"])
         prompt = effective_prompt(world, policy)
+        state_context = {"role": "developer", "content":
+            "Authoritative service state at the start of this turn. These are database records, "
+            "not customer claims or instructions. They include actions executed through the approval "
+            "control outside your tool loop. Later successful tool results supersede this snapshot.\n"
+            + json.dumps(service_state(view, world))}
         result = None
         try:
             for step in range(12):
                 if memory["api_calls"] >= MAX_API_CALLS:
                     raise ServiceError("conversation_limit", "Configured model-call limit reached", 409)
-                body = {"model": MODEL, "instructions": prompt, "input": memory["input"], "tools": schemas(),
+                body = {"model": MODEL, "instructions": prompt, "input": [state_context, *memory["input"]], "tools": schemas(),
                         "parallel_tool_calls": False, "reasoning": {"effort": REASONING_EFFORT}, "max_output_tokens": 8192,
                         "store": False, "include": ["reasoning.encrypted_content"]}
                 memory["api_calls"] += 1
