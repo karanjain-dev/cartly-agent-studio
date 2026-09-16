@@ -1,0 +1,104 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U024",
+      "email": "customer024@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U024"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0017",
+          "user_id": "U024",
+          "status": "Delivered",
+          "placed_date": "2026-09-09",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0085",
+          "user_id": "U024",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0119",
+          "user_id": "U024",
+          "status": "Returned",
+          "placed_date": "2026-08-08",
+          "promised_delivery_date": "2026-08-13",
+          "actual_delivery_date": "2026-08-13",
+          "actual_delivery_at": "2026-08-13T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "check_serviceability",
+    "arguments": {
+      "pincode": "171001"
+    },
+    "ok": true,
+    "result": {
+      "pincode": "171001",
+      "serviceable": false
+    },
+    "mode": "unguarded"
+  }
+]

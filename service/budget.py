@@ -10,6 +10,11 @@ from service.errors import ServiceError
 
 D = Decimal
 
+INPUT_RATE = D("2")
+CACHED_INPUT_RATE = D("0.2")
+CACHE_WRITE_RATE = D("2.5")
+OUTPUT_RATE = D("12")
+
 
 def usage_cost(usage):
     details = usage.get("input_tokens_details", {})
@@ -18,7 +23,8 @@ def usage_cost(usage):
     written = details.get("cache_creation_tokens", details.get("cache_write_tokens", 0))
     if any(not isinstance(v, int) or v < 0 for v in (inputs, outputs, cached, written)) or cached + written > inputs:
         raise ValueError("Invalid model usage")
-    return (D(inputs-cached-written)*10 + D(cached) + D(written)*D("12.5") + D(outputs)*50)/1_000_000
+    return (D(inputs-cached-written)*INPUT_RATE + D(cached)*CACHED_INPUT_RATE
+            + D(written)*CACHE_WRITE_RATE + D(outputs)*OUTPUT_RATE)/1_000_000
 
 
 class BudgetedTransport:
@@ -44,7 +50,7 @@ class BudgetedTransport:
         output_bound = body.get("max_output_tokens")
         if body.get("model") != MODEL or input_bound > 272000 or not isinstance(output_bound, int) or not 0 < output_bound <= 8192:
             raise ServiceError("budget_request_limit", "Request exceeds the demo's configured model limits", 409)
-        reserve = (D(input_bound)*D("12.5") + D(output_bound)*50)/1_000_000
+        reserve = (D(input_bound)*CACHE_WRITE_RATE + D(output_bound)*OUTPUT_RATE)/1_000_000
         rid = str(uuid4())
         with self.repo.connect() as conn:
             budget = conn.execute("SELECT * FROM api_budgets WHERE budget_id=%s FOR UPDATE", (self.id,)).fetchone()

@@ -18,6 +18,9 @@ from evaluation.judge import judge
 from evaluation.scorecard import scorecard,KNOWN_LIMITATIONS
 from evaluation.environment import build_agent_prompt, reference_environment, policy_version
 
+AGENT_PROFILES={'gpt-6-astra':{'reasoning_effort':'high'},
+                'gpt-5.6-terra':{'reasoning_effort':'low'}}
+
 
 def write(path,value):path.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 
@@ -69,14 +72,15 @@ def run_conversation(scenario,trial,folder,run_name,model,*,customer_model='gpt-
     policy=(ROOT/'policy.md').read_text()
     prompt=(ROOT/'prompts/agent_v1.1.md').read_text()
     assert prompt==build_agent_prompt(before['config'],policy)
-    agent=SupportAgent(session,prompt,model,recorder)
+    reasoning_effort=AGENT_PROFILES[model]['reasoning_effort']
+    agent=SupportAgent(session,prompt,model,recorder,reasoning_effort=reasoning_effort)
     transcript=[];error=None;stop_reason=None;stage='simulator';error_origin=None
     tags={'run_name':run_name,'scenario_id':scenario['scenario_id'],'scenario_split':scenario['split'],
           'trial_number':trial,'agent_model_requested':model,'agent_model':None,'simulator_model_requested':customer_model,
           'simulator_reasoning_effort':'none' if customer_model=='gpt-5.6-luna' else None,
           'simulator_model':None,'prompt_version':'agent_v1.1','policy_version':policy_version(policy),
           'current_date':before['config']['today'],'harness_version':'v3','harness_revision':'v3.2',
-          'data_version':data_version(),'tool_mode':'unguarded','reasoning_effort':'high','timestamp':session.timestamp}
+          'data_version':data_version(),'tool_mode':'unguarded','reasoning_effort':reasoning_effort,'timestamp':session.timestamp}
     write(folder/'metadata.json',tags);write(folder/'initial_state.json',before)
     def checkpoint():
         write(folder/'transcript.json',transcript);write(folder/'tool_log.json',session.logs)
@@ -175,7 +179,7 @@ def main():
     p.add_argument('--run-name',required=True);p.add_argument('--scenarios',nargs='+')
     p.add_argument('--trials',type=int,default=3);p.add_argument('--heldout',action='store_true')
     p.add_argument('--workers',type=int,default=1,choices=range(1,5))
-    p.add_argument('--agent-model',default='gpt-6-astra')
+    p.add_argument('--agent-model',default='gpt-5.6-terra',choices=sorted(AGENT_PROFILES))
     p.add_argument('--customer-model',default='gpt-4.1-mini',choices=sorted(RATES))
     p.add_argument('--max-attempts',type=int,default=2,choices=[1,2])
     args=p.parse_args()
@@ -186,7 +190,6 @@ def main():
     except ValueError as exc:p.error(str(exc))
     available=json.loads((ROOT/'evaluation/available_models.json').read_text())['models']
     if args.agent_model not in available:p.error('Agent model is not in the API-key model inventory')
-    if args.agent_model!='gpt-6-astra':p.error('This baseline pins gpt-6-astra; model changes need a separate baseline configuration')
     if args.customer_model not in available:p.error('Customer model is not in the API-key model inventory')
     original=protected_hashes();out=ROOT/'runs'/args.run_name
     out.mkdir(parents=True,exist_ok=False)

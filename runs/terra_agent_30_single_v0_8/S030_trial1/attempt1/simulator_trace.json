@@ -1,0 +1,336 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I need to cancel my order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released cancellation request and introduces no unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting cancellation, and no cancellation completion or final resolution has been provided.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_058fd495aa24edd3016aaa76909e2087d2b7ab1c5b4b9677c7",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests verification details, not which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action, exact amount, or payment method and has not requested confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The required confirmation event has not occurred."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email address or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U015"
+      },
+      {
+        "question": "What is your registered email address?",
+        "source_quote": "customer015@example.com"
+      },
+      {
+        "question": "What is your phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your phone number?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests identity details and discusses whether cancellation is possible, but does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not explain a proposed cancellation, exact amount, and payment method or ask for confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The conversation has not reached a confirmation request after explaining the cancellation and refund."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My user ID is U015 and my registered email is customer015@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied customer credentials, U015 and customer015@example.com, and makes no unsupported customer-specific claims.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing verification details so support can check and potentially cancel the order; the cancellation has not been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0aacea61db20a93a016aaa76a068e887d2b9fddf2712a23d38",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which order the customer wants to cancel."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action with an exact amount and payment method, nor asked for confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The agent has not asked for confirmation after restating the cancellation and refund."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Which order do you want to cancel?",
+        "source_quote": "The order I am asking about is O0076 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "O0076, please cancel it.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer identifies order O0076, which is supplied in the released facts and conversation as the order eligible for cancellation.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer requests cancellation, but support has not yet stated that cancellation was completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_018dabfa34e5184a016aaa76afef7087d299d65c0fa93ccdd1",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explains the cancellation, exact full refund amount, and original Card payment method, then asks for confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The customer has not complained about repeating themselves, and the stated behavior requires that event before confirmation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "Yes, please proceed with cancelling O0076 and refunding the full ₹2,548 to my original Card payment method. I’ve already repeated myself once.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft confirms the proposed cancellation and refund for order O0076 using the amount and payment method stated by support. The brief complaint about repeating oneself is permitted by the active behavior rule.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer accepts the proposed cancellation and refund, but support has not yet stated that the action was completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0c538e2d5aa3fc7b016aaa76bd789487d2a0c7210cbbcec9fa",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message confirms cancellation and refund but does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "The customer complained about repeating themselves and explicitly confirmed after the cancellation and refund were restated."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "consent",
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only a stop marker; it makes no unsupported customer-specific claims. Support has explicitly completed the cancellation and refund for O0076.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested cancellation and refund were completed, and the draft requests ending the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "behavior_0",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b81f1ad7230bac6016aaa76c9d8f087d2a5d64196415e4921",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

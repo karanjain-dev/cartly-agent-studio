@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U002",
+      "email": "customer002@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U002"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0087"
+    },
+    "ok": false,
+    "error": {
+      "message": "order or item unavailable for this session"
+    },
+    "mode": "unguarded"
+  }
+]

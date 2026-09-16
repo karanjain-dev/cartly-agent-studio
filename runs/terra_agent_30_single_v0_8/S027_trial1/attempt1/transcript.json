@@ -1,0 +1,165 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I’d like to move my delivery to my address in Shimla, please. Could you help arrange that?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Please verify your account by sharing your user ID and either the registered email address or phone number.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "No problem. Once you have your user ID and either the email address or phone number registered on the account, send them here and I can check whether the delivery address can be changed.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U024, and my registered email address is customer024@example.com.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U024",
+      "email": "customer024@example.com",
+      "phone": null
+    },
+    "call_id": "call_TZWR1FYyFU0aUmNK82dEeOHW",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U024"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks—your account is verified. Please share the full Shimla delivery address, including:\n\n- House/building and street\n- Area/locality\n- City\n- State\n- Pincode\n- Country\n\nI’ll check whether the pincode is serviceable and whether the order is still eligible for an address change.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 4
+  },
+  {
+    "role": "support",
+    "content": "That’s fine. Send the complete new address when you have it. I’ll then check the pincode’s serviceability and confirm whether the delivery can still be updated.",
+    "turn": 4
+  },
+  {
+    "role": "customer",
+    "content": "The full address is 12, Oakwood Lane, Near Ridge Road, Shimla, Himachal Pradesh 171001, India.",
+    "turn": 5
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_pvx0gTsJ7RjYRaIdZLYI3ti4",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0017",
+          "user_id": "U024",
+          "status": "Delivered",
+          "placed_date": "2026-09-09",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0085",
+          "user_id": "U024",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0119",
+          "user_id": "U024",
+          "status": "Returned",
+          "placed_date": "2026-08-08",
+          "promised_delivery_date": "2026-08-13",
+          "actual_delivery_date": "2026-08-13",
+          "actual_delivery_at": "2026-08-13T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_serviceability",
+    "arguments": {
+      "pincode": "171001"
+    },
+    "call_id": "call_Pl2WGkihtzk3TMR5qnv41Xpe",
+    "turn": 5,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "pincode": "171001",
+      "serviceable": false
+    }
+  },
+  {
+    "role": "support",
+    "content": "The Shimla pincode **171001** isn’t currently serviceable, so I can’t update the eligible placed order to that address.  \n\nIf you have another address with a serviceable pincode, share the full address and I can check it.",
+    "turn": 5
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Please leave the delivery address unchanged.",
+    "turn": 6
+  }
+]

@@ -73,7 +73,7 @@ def test_stream_proposal_confirmation_and_database_changes(repo, sandbox):
     frames = [json.loads(line) for line in first.text.splitlines()]
     state = [f["data"] for f in frames if f["type"] == "snapshot"][-1]
     assert state["condition"] and state["proposal"] is None
-    assert state["cost"] == pytest.approx(0.00105)
+    assert state["cost"] == pytest.approx(0.00024)
     assert any(e["type"] == "guardrail" for e in state["events"])
     assert len([f for f in frames if f["type"] == "snapshot"]) >= 4
     condition = {**state["condition"], "unused": True}

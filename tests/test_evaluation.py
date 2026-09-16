@@ -125,6 +125,7 @@ class EvaluationTests(unittest.TestCase):
         self.correct_return();self.assertEqual(apply_changes(self.before,changes(self.before,self.session.state)),self.session.state)
     def test_cost_includes_cached_and_reasoning_output(self):
         self.assertAlmostEqual(cost('gpt-6-astra',{'input_tokens':1000,'input_tokens_details':{'cached_tokens':200,'cache_write_tokens':100},'output_tokens':100}),.01345)
+        self.assertAlmostEqual(cost('gpt-5.6-terra',{'input_tokens':1000,'input_tokens_details':{'cached_tokens':200,'cache_write_tokens':100},'output_tokens':100}),.00289)
         self.assertAlmostEqual(cost('gpt-4.1-mini-2025-04-14',{'input_tokens':1000,'output_tokens':100}),.00056)
     def test_pass3_requires_actual_three_trials(self):
         base={'scenario_id':'S001','trial_number':1,'category':'routine','outcome_pass':True,'harmful_action':False,'expected_escalation':False,'escalation_correct':None,'unnecessary_escalation':False,'communication_pass':True,'api_cost_usd':1,'turns':3,'failure_type':None}

@@ -1,0 +1,25 @@
+{
+  "run_name": "terra_agent_30_single_v0_8",
+  "scenario_id": "S004",
+  "scenario_split": "dev",
+  "trial_number": 1,
+  "agent_model_requested": "gpt-5.6-terra",
+  "agent_model": "gpt-5.6-terra",
+  "simulator_model_requested": "gpt-5.6-luna",
+  "simulator_reasoning_effort": "none",
+  "simulator_model": "gpt-5.6-luna",
+  "prompt_version": "agent_v1.1",
+  "policy_version": "v0.8",
+  "current_date": "2026-09-15",
+  "harness_version": "v3",
+  "harness_revision": "v3.2",
+  "data_version": "sha256:2d87e859909152918cb131bf4a955c06d7d64f029c1e173533e897aadac3ccfe",
+  "tool_mode": "unguarded",
+  "reasoning_effort": "low",
+  "timestamp": "2026-09-15T12:00:00+05:30",
+  "judge_model": [
+    "gpt-4.1-mini-2025-04-14"
+  ],
+  "stop_reason": "customer_ended",
+  "error_origin": null
+}

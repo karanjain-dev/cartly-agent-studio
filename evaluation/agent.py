@@ -6,10 +6,10 @@ from evaluation.state import changes
 from simulation.model_client import ModelError
 
 class SupportAgent:
-    def __init__(self, session, prompt, model, recorder, *, transport=request):
+    def __init__(self, session, prompt, model, recorder, *, reasoning_effort='high', transport=request):
         if session.guarded:raise ValueError('Baseline requires unguarded tools')
         self.session=session;self.prompt=prompt;self.model=model;self.recorder=recorder
-        self.transport=transport;self.input=[];self.resolved_models=set();self.turns=0
+        self.transport=transport;self.reasoning_effort=reasoning_effort;self.input=[];self.resolved_models=set();self.turns=0
 
     def reply(self, customer_text, transcript):
         if self.turns>=20:raise ModelError('Agent conversation turn limit reached')
@@ -20,7 +20,7 @@ class SupportAgent:
         for round_no in range(20):
             body={'model':self.model,'input':self.input,'instructions':self.prompt,
                   'tools':schemas(),'parallel_tool_calls':False,'max_output_tokens':8192,
-                  'reasoning':{'effort':'high'},'store':False,'include':['reasoning.encrypted_content']}
+                  'reasoning':{'effort':self.reasoning_effort},'store':False,'include':['reasoning.encrypted_content']}
             raw=self.transport('responses',body)
             self.recorder('agent',body,raw)
             self.resolved_models.add(raw['model'])

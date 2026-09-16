@@ -1,0 +1,162 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I changed my mind about my kurta and would like to know whether I can return it. Could you please check the return options for me?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released return request and does not introduce unsupported order, item, delivery, or policy details.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to check the return options; no action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0dda4103530c517d016aaa75c740b487d2b63e9bff1054f22e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asks for identity and registered contact details, not which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not request confirmation after explaining a proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email address or phone number for verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U022, and my registered email address is customer022@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied customer credentials, which are allowed facts, and does not assert any unsupported order or return details.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer provided the requested identification details so support can check the return options; the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0079aa99b3b1f9c0016aaa75d16c6087d2b7b65ea2069e1b4a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent stated the order and item but did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation of a proposed action with an exact amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent stated delivery and current dates but did not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "environment",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker and does not assert any unsupported customer-specific facts.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "The support agent has definitively refused the return after the stated eligibility decision, and the customer has no further request.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_014fda07f2c21043016aaa75e3726c87d287344cc31c808f76",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

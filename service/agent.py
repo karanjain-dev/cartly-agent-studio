@@ -16,7 +16,8 @@ from service.errors import ServiceError
 from service.repository import digest, ROOT
 from service.prompt import effective_prompt
 
-MODEL = "gpt-6-astra"
+MODEL = "gpt-5.6-terra"
+REASONING_EFFORT = "low"
 MAX_API_CALLS = 40  # Per session, persisted across service restarts.
 
 
@@ -123,7 +124,7 @@ class PersistentAgent:
                 if memory["api_calls"] >= MAX_API_CALLS:
                     raise ServiceError("conversation_limit", "Configured model-call limit reached", 409)
                 body = {"model": MODEL, "instructions": prompt, "input": memory["input"], "tools": schemas(),
-                        "parallel_tool_calls": False, "reasoning": {"effort": "high"}, "max_output_tokens": 8192,
+                        "parallel_tool_calls": False, "reasoning": {"effort": REASONING_EFFORT}, "max_output_tokens": 8192,
                         "store": False, "include": ["reasoning.encrypted_content"]}
                 memory["api_calls"] += 1
                 self._save(conn, memory, sid)

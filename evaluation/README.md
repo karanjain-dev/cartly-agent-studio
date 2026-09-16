@@ -10,7 +10,11 @@ python3 -B -m evaluation.run --run-name another_smoke --scenarios S028 S035 S026
 
 A new run name is required; existing artifacts cannot be overwritten. Without `--scenarios`, the runner selects all 30 dev scenarios. The default is three trials. A named heldout ID is rejected unless `--heldout` is passed explicitly. No full run is started by installation or tests.
 
-The baseline pins `gpt-6-astra` with high reasoning effort, all 13 existing callable tools (12 policy-table rows), and unguarded tools. The saved system prompt `prompts/agent_v1.1.md` contains the role sentence, today’s IST date read from config, the complete v0.6 policy, and its one-line environment changelog. It contains no scenario metadata, examples, or grader feedback. The previous v1 prompt remains archived unchanged. Policy version metadata comes from the policy title; world-data config remains unchanged.
+Model comparison runs support the saved Astra/high profile and the current
+Terra/low profile. Both use all 13 existing callable tools (12 policy-table rows)
+in unguarded mode. The system prompt is generated from the unchanged
+`prompts/agent_v1.1.md` contract and current locked policy; it contains no
+scenario metadata, examples, or grader feedback.
 
 `available_models.json` records the API-key model inventory. Every conversation records the actual API response model name. The simulator uses `gpt-4.1-mini`; a separate GPT-4.1-mini judge checks communication and transcript-based confirmation/clarification. It never decides business eligibility or outcome correctness.
 
@@ -50,7 +54,7 @@ Correct escalation rate uses conversations that require escalation as its denomi
 
 Cost estimates use recorded API usage, including reasoning output, cached input and cache-write tokens, at published standard USD rates. Agent, semantic-gate/simulator, and judge costs are all included. These are token-usage estimates, not invoices; taxes and account discounts are excluded. The 90-conversation projection is the observed smoke mean multiplied by 90 and is based on only three scenarios.
 
-Sources: [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-4.1-mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
+Sources: [Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), [Astra](https://developers.openai.com/api/docs/models/gpt-6-astra), [GPT-4.1-mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini).
 
 ## Tests
 
@@ -88,3 +92,11 @@ python3 -B -m evaluation.run --run-name luna_customer_30_single --customer-model
 ```
 
 Selects all 30 dev scenarios with one attempt each. The support agent remains GPT-6 Astra and the independent judge remains GPT-4.1 mini. Luna handles customer speech and customer fact/grounding checks, using reasoning effort `none` to fit the existing small JSON response budgets. Requested and resolved models are saved in each attempt.
+
+## Terra model-change evaluation
+
+`runs/terra_agent_30_single_v0_8/REPORT.md` compares the current
+`gpt-5.6-terra`/low agent with the saved Astra/high run. It uses all 30 dev
+scenarios once, the unchanged Luna customer, policy v0.8, and the existing grader.
+Raw results remain untouched; `REVIEW.json` separately assigns the four observed
+disagreements to the agent, fake customer, or checker.

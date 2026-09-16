@@ -1,0 +1,316 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I’d like to return my kurta and receive a refund, please. Could you help me start the return process?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states the customer's released request to return the kurta and receive a refund, without adding unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting that support start the return and refund process; no action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_002c1dc37f8ea11f016aaa751aff8087d2b049e36db641f507",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not asked which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action, exact amount, and payment method or requested confirmation afterward."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent has not asked when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the registered user ID and registered email address or phone number for account verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U018, and my registered email address is customer018@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The user ID and registered email address are supplied in the profile credentials, and the draft answers the verification request directly.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "Verification is provided, but the return and refund have not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_089a6f514097acda016aaa75271e8c87d2aeebddd806bf794a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which order should be used for the return, directly satisfying the reveal condition."
+      },
+      {
+        "fact_id": "condition",
+        "release": true,
+        "reason": "The agent asks whether the item is a change-of-mind return or damaged, defective, or incorrect, which asks about its condition."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action with an exact amount and payment method before requesting confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Which order should I start the return for?",
+        "source_quote": "The order I am asking about is O0011 and the item is Cotton kurta."
+      },
+      {
+        "question": "Please confirm whether this is a change-of-mind return or whether the item is damaged, defective, or incorrect.",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "Please confirm whether this is a change-of-mind return or whether the item is damaged, defective, or incorrect."
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "Please confirm whether this is a change-of-mind return or whether the item is damaged, defective, or incorrect."
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent asks the customer to identify the order, not to confirm a proposed action with an amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "Which order did the kurta come from—O0011 or O0045?",
+        "source_quote": "The order I am asking about is O0011 and the item is Cotton kurta."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "It’s order O0011, the Cotton kurta. The item hasn’t been worn or used. I’d like to return it and receive a refund, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the released order, item, condition, and return/refund request facts. It does not assert the unrevealed delivery date or invent a damage/change-of-mind classification.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer identifies the order and requests a return and refund, but support has not yet completed the return or refund.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "condition",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0833b85d75f29305016aaa753c25c087d2b14a99bd341e878a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explains the proposed pickup and refund amount/payment method, then explicitly asks whether to schedule it."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "Yes, please schedule the return pickup and refund ₹1,400 to my original UPI payment method.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "consent",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer accepts the support agent's stated pickup and refund proposal, including the quoted ₹1,400 amount and original UPI method; the order is supported by the released order fact.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer is authorizing the proposed return pickup and refund, but support has not yet confirmed that either action was completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "condition",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_003ca4b0825a2d4d016aaa754b652087d292bdbcbfcfb5ee90",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The latest message concerns return pickup and refund details; it does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "condition",
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only a stop marker, which asserts no unsupported customer-specific facts. Support has confirmed that the return pickup was scheduled and the ₹1,400 refund will be processed to the original UPI method after pickup.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested return pickup has been scheduled and the refund arrangement has been completed by support; the stop marker appropriately ends the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "condition",
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0890ae4f9b8c7d42016aaa7556ac4887d2b26289715c993a74",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

@@ -1,0 +1,250 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, my headphones arrived broken, and I’d like a refund, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states the customer's released request that the headphones arrived broken and that they want a refund.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting a refund, and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0469b32bce79ee83016aaa75ee518887d295ea51ef15f5b148",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asks for identity and registered contact details, not which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action, exact amount, and payment method are explained or presented for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent states the headphones arrived broken but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not ask for a photo or other evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email address or phone number for identity and account verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U040, and my registered email address is customer040@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft provides the user ID and registered email address exactly as supplied in the profile, in response to support's request.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided the requested credentials, but the refund has not been completed and the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0573361ea7324630016aaa75f8654487d2a983e623d4870e71",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent identifies the item but does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask whether the item was worn, used, or about its condition."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent explains the return and refund but does not ask the customer to confirm the proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent states the item is damaged but does not ask what is wrong or whether it differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": true,
+        "reason": "The agent explicitly asks the customer to upload a photo showing the damage."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I’m unable to upload or provide a photo during this conversation. Is there another way to proceed with the refund?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "photo"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only states the released fact that the customer cannot provide a photo and asks how to proceed; it does not assert unsupported order, payment, amount, or delivery details.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking for an alternative way to proceed, and no refund or return has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "photo",
+      "request"
+    ],
+    "response_id": "resp_0e9cea9bc2a2b09f016aaa760e9e4887d2a68888af9b300b50",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The message explains the return and refund details but does not ask for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The message does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The message refers to a damaged item but does not ask what is wrong or whether it differs from the order."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "I understand. I’m unable to provide a photo during this conversation, so I can’t proceed with the refund right now.",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "photo",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately reflects the customer's released inability to provide a photo and the support-stated requirement that the refund cannot proceed without one.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "Support has definitively refused the refund route after the required evidence was unavailable and pressure steps are exhausted; the customer acknowledges this limitation.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "photo",
+      "request"
+    ],
+    "response_id": "resp_0ad5f73d36c17dbc016aaa761918cc87d2a28d34cf1c7370f7",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

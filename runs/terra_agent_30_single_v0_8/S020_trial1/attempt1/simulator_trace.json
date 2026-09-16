@@ -1,0 +1,220 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "My parcel was late, and I’d like a coupon as compensation, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released request for compensation after a late parcel and does not add unsupported facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting a coupon; no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0ffb8b30ff51c605016aaa761e670487d2b3f1846adbc33491",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of the proposed action after explaining it."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests identity verification using the registered user ID and registered email address or phone number."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U020, and my registered email address is customer020@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft provides the user ID and registered email address exactly as supplied in the profile, directly answering the support verification request.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "Verification has been provided, but the coupon has not yet been confirmed or issued.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_08a3a69c4ad4edb0016aaa76293b3c87d2bf129eb5e0062316",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent identified and discussed order O0081 but did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation of a proposed action with an explained amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent stated the delivery date but did not ask when it arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I understand. Could you please check whether any goodwill coupon or other compensation is available for the five-day delay?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only refers to the stated five-day delay and asks whether goodwill compensation is available; it does not assert any unsupported customer-specific facts.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking for an additional compensation check, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Accepting a proposal or requesting a next step must continue the conversation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_075168769ab34c7e016aaa7637589487d2858d3ab974bc61cb",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message discusses coupon eligibility and compensation, not which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of a proposed action with an explained amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The message refers to a five-day delay but does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "I understand. Thank you for checking.",
+      "stop_reason": "refused",
+      "used_fact_ids": []
+    },
+    "grounded": true,
+    "grounding_reason": "The draft is a supported acknowledgment and thanks; it introduces no unsupported customer-specific facts.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "The customer gives a clear closing after support definitively refused compensation and all pressure steps are exhausted.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0978f9a57d9d0680016aaa7640a26087d2abbb2b53f618f52e",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

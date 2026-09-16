@@ -1,0 +1,245 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to exchange my kurta directly for a larger size. I don’t want a refund or to place a new order.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "Cartly doesn’t currently offer direct exchanges. If the kurta is eligible, I can help arrange a return/refund instead; you could then place a new order for the larger size.\n\nTo check eligibility, please verify your account with your user ID and either your registered email address or phone number, and share the order ID.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U010 and my registered email is customer010@example.com. I don’t have the order ID available, and I’d still prefer a direct size exchange rather than a refund and new order.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U010",
+      "email": "customer010@example.com",
+      "phone": null
+    },
+    "call_id": "call_Hrh64J3Rtc87L2KtaEoJZHVL",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U010"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_IacmwmyglkP1xqsgbkJ0ihYT",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0003",
+          "user_id": "U010",
+          "status": "Delivered",
+          "placed_date": "2026-09-03",
+          "promised_delivery_date": "2026-09-08",
+          "actual_delivery_date": "2026-09-08",
+          "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 110, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0037",
+          "user_id": "U010",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 110, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0105",
+          "user_id": "U010",
+          "status": "Returned",
+          "placed_date": "2026-08-22",
+          "promised_delivery_date": "2026-08-27",
+          "actual_delivery_date": "2026-08-27",
+          "actual_delivery_at": "2026-08-27T12:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 99,
+          "delivery_address": {
+            "line1": "Flat 110, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0139",
+          "user_id": "U010",
+          "status": "Cancelled",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 110, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Lucknow",
+            "state": "Uttar Pradesh",
+            "pincode": "226001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks, you’re verified. I found two delivered orders that may contain the kurta:\n\n- **O0003** — delivered 8 Sep 2026  \n- **O0037** — delivered 13 Sep 2026  \n\nDirect size exchanges aren’t available. If you tell me which order contains the kurta, I can check whether a change-of-mind return is eligible and quote the refund amount.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "It’s order O0003, the Cotton kurta. I still want a direct exchange for a larger size, not a refund and new order.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0003"
+    },
+    "call_id": "call_XduDi9jIrIvO5nzj745AhLoE",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0003",
+        "user_id": "U010",
+        "status": "Delivered",
+        "placed_date": "2026-09-03",
+        "promised_delivery_date": "2026-09-08",
+        "actual_delivery_date": "2026-09-08",
+        "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 110, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Lucknow",
+          "state": "Uttar Pradesh",
+          "pincode": "226001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0003",
+          "order_id": "O0003",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Direct exchange of the Cotton kurta in order O0003 for a larger size, with no refund and no new order.",
+      "facts_found": "User U010 verified. Order O0003 belongs to the user and is Delivered on 2026-09-08. Item I0003 is Cotton kurta, clothing, ₹1,499, ordered and delivered size M, blue, quantity 1. Today is 2026-09-15.",
+      "rule_triggered": "A3: the policy does not cover direct exchanges, so the request must be escalated rather than inventing a rule.",
+      "what_user_was_told": "The request for a direct exchange is being sent for review because direct exchanges are not covered by the stated policy; return/refund eligibility has not been initiated.",
+      "order_id": "O0003",
+      "item_id": "I0003"
+    },
+    "call_id": "call_yceMkxDWG0Nf1dnCwodigQF5",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U010",
+          "order_id": "O0003",
+          "item_id": "I0003",
+          "user_request": "Direct exchange of the Cotton kurta in order O0003 for a larger size, with no refund and no new order.",
+          "facts_found": "User U010 verified. Order O0003 belongs to the user and is Delivered on 2026-09-08. Item I0003 is Cotton kurta, clothing, ₹1,499, ordered and delivered size M, blue, quantity 1. Today is 2026-09-15.",
+          "rule_triggered": "A3: the policy does not cover direct exchanges, so the request must be escalated rather than inventing a rule.",
+          "what_user_was_told": "The request for a direct exchange is being sent for review because direct exchanges are not covered by the stated policy; return/refund eligibility has not been initiated."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U010",
+        "order_id": "O0003",
+        "item_id": "I0003",
+        "facts_found": "User U010 verified. Order O0003 belongs to the user and is Delivered on 2026-09-08. Item I0003 is Cotton kurta, clothing, ₹1,499, ordered and delivered size M, blue, quantity 1. Today is 2026-09-15.",
+        "rule_triggered": "A3: the policy does not cover direct exchanges, so the request must be escalated rather than inventing a rule.",
+        "what_user_was_told": "The request for a direct exchange is being sent for review because direct exchanges are not covered by the stated policy; return/refund eligibility has not been initiated."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I’ve sent your request for a direct exchange of the Cotton kurta in order **O0003** for review. Direct exchanges aren’t covered by the available policy, so I can’t promise or arrange one myself.\n\nNo return or refund has been started.",
+    "turn": 3
+  }
+]

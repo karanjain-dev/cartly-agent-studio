@@ -1,0 +1,197 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I’m requesting a refund because the headphones were defective when they arrived. Please let me know what information you need from me to process it.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only states the customer's released refund request and defect claim, both supported by the profile and released facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting refund processing information; no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_033c3ee9ecdb67f0016aaa75c6aab887d2bf99bf3a94ddc532",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent refers to the headphone order but does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action, exact amount, and payment method are explained or presented for confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent mentions a defective-item refund but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not ask for a photo or other evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the Cartly user ID and registered email address or phone number for verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your Cartly user ID?",
+        "source_quote": "U012"
+      },
+      {
+        "question": "What is your registered email address or phone number?",
+        "source_quote": "customer012@example.com"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My Cartly user ID is U012, and my registered email address is customer012@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft provides the user ID and registered email address, both supplied in the profile and requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing verification information; the refund has not yet been processed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0e2c60b44131034e016aaa75d2654887d2942e5224d34e1ec5",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks for the order ID for the headphones."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action, exact amount, and payment method or requested confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent refers to a defective-item claim but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not ask for a photo or other evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "What is the order ID for the headphones?",
+        "source_quote": "The order I am asking about is O0005 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "The order ID is O0005. The item is the wireless headphones.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the order ID and item, both supplied in the released facts and directly requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided the requested order details, but the refund has not yet been processed or completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_07585c4fb10caac9016aaa75e1043c87d2a9bb4b0f6e56ff37",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

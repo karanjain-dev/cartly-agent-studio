@@ -1,0 +1,198 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U024",
+      "email": "customer024@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U024"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0017",
+          "user_id": "U024",
+          "status": "Delivered",
+          "placed_date": "2026-09-09",
+          "promised_delivery_date": "2026-09-14",
+          "actual_delivery_date": "2026-09-14",
+          "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0085",
+          "user_id": "U024",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0119",
+          "user_id": "U024",
+          "status": "Returned",
+          "placed_date": "2026-08-08",
+          "promised_delivery_date": "2026-08-13",
+          "actual_delivery_date": "2026-08-13",
+          "actual_delivery_at": "2026-08-13T12:00:00+05:30",
+          "payment_method": "Card",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 124, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0017"
+    },
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0017",
+        "user_id": "U024",
+        "status": "Delivered",
+        "placed_date": "2026-09-09",
+        "promised_delivery_date": "2026-09-14",
+        "actual_delivery_date": "2026-09-14",
+        "actual_delivery_at": "2026-09-14T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 124, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Chandigarh",
+          "state": "Chandigarh",
+          "pincode": "160017",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0017",
+          "order_id": "O0017",
+          "product_name": "Cotton vest",
+          "category": "innerwear",
+          "price": 699,
+          "quantity": 1,
+          "ordered_product_name": "Cotton vest",
+          "delivered_product_name": "Cotton vest",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": null
+    },
+    "ok": true,
+    "result": {
+      "refunds": [
+        {
+          "refund_id": "R0032",
+          "order_id": "O0119",
+          "item_id": "I0123",
+          "user_id": "U024",
+          "amount": 2578,
+          "shipping_refunded": true,
+          "reason": "damaged",
+          "date": "2026-08-15",
+          "status": "completed",
+          "method": "Card",
+          "authorized_by": "system_after_pickup"
+        }
+      ],
+      "qualifying_count": 1,
+      "cancellation_count": 0,
+      "window_days": 90
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "create_return",
+    "arguments": {
+      "order_id": "O0017",
+      "item_id": "I0017",
+      "reason": "damaged",
+      "confirmed": true,
+      "amount": 748
+    },
+    "ok": true,
+    "result": {
+      "return": {
+        "return_id": "T0013",
+        "order_id": "O0017",
+        "item_id": "I0017",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "damaged"
+      },
+      "refund_amount": 748.0,
+      "refund_method": "UPI",
+      "refund_timing": "automatically after pickup completes"
+    },
+    "mode": "unguarded"
+  }
+]

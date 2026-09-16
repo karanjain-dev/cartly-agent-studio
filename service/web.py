@@ -14,6 +14,7 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 
 from service.agent import MODEL, PersistentAgent
+from service.budget import usage_cost
 from service.errors import ServiceError
 from service.prompt import prompt_info
 from service.repository import digest, load_seed
@@ -111,10 +112,8 @@ def snapshot(service, token, ready=False):
     for row in rows:
         if row["event_type"] == "model.response":
             u = row["result"].get("result", {}).get("usage", {})
-            details = u.get("input_tokens_details", {})
-            cached = details.get("cached_tokens", 0)
-            written = details.get("cache_creation_tokens", details.get("cache_write_tokens", 0))
-            cost += ((u.get("input_tokens", 0) - cached - written) * 10 + cached + written * 12.5 + u.get("output_tokens", 0) * 50) / 1_000_000
+            if "input_tokens" in u and "output_tokens" in u:
+                cost += float(usage_cost(u))
     info = prompt_info(world, policy)
     return {"demo": next((k for k, v in DEMOS.items() if v == s["principal_id"]), "return"),
             "messages": [{"role": "user" if m["role"] == "customer" else "assistant", "content": m["content"]} for m in messages],

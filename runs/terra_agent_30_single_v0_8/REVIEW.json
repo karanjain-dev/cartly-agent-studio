@@ -1,0 +1,39 @@
+{
+  "method": "Manual transcript audit of every raw failure and communication failure; raw grader files were not changed.",
+  "raw_outcome_passes": 27,
+  "raw_valid_runs": 30,
+  "raw_outcome_accuracy": 0.9,
+  "reviewed_agent_passes": 28,
+  "reviewed_agent_accuracy": 0.9333333333333333,
+  "cases": [
+    {
+      "scenario_id": "S023",
+      "owner": "AGENT",
+      "raw_outcome_pass": false,
+      "reviewed_agent_pass": false,
+      "finding": "Terra selected O0057 from the order list even though the hidden requested order was O0060. It should have asked which bowl/order the customer meant."
+    },
+    {
+      "scenario_id": "S030",
+      "owner": "CHECKER",
+      "raw_outcome_pass": true,
+      "raw_communication_pass": false,
+      "reviewed_agent_pass": true,
+      "finding": "The checker rejected the immediate-timing requirement even though the agent said the cancellation refund had been issued, which communicates completed immediate action."
+    },
+    {
+      "scenario_id": "S031",
+      "owner": "FAKE CUSTOMER",
+      "raw_outcome_pass": false,
+      "reviewed_agent_pass": true,
+      "finding": "The agent asked for the order ID, satisfying the hidden fact's reveal condition, but the simulated customer said it was unsure. Terra then followed G6 by escalating without guessing an order."
+    },
+    {
+      "scenario_id": "S039",
+      "owner": "AGENT",
+      "raw_outcome_pass": false,
+      "reviewed_agent_pass": false,
+      "finding": "Terra escalated the instalment request without asking which order was affected, leaving the escalation order_id null instead of O0007."
+    }
+  ]
+}

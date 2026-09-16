@@ -1,0 +1,254 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I no longer need my order, so please cancel it.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only repeats the customer's released cancellation request and contains no unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting cancellation, and no support action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_07b66728bf747987016aaa751af16c87d29a14cbe0d0aff273",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent has not asked which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action, exact amount, and payment method or asked for confirmation."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email address or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U014, and my registered email address is customer014@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft provides the user ID and registered email address, both supplied in the customer profile and directly requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided verification details, but cancellation has not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0c369a0878d523df016aaa7526e13c87d2ae477d591bbb321a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks which order the customer wants to cancel, directly satisfying the reveal condition."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it has been used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation after explaining a proposed action, exact amount, and payment method."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Please cancel order O0075, the wireless headphones.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft identifies order O0075 and wireless headphones, both explicitly supplied in the released facts and conversation.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting cancellation; support has not yet confirmed that the cancellation is completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0ac1238e974c1717016aaa7537358487d297a3283fc6138004",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explains the cancellation, exact ₹2,548 refund, original Card payment method, and asks the customer to confirm by replying yes."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "yes",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer is confirming the proposed cancellation and full ₹2,548 refund to the original Card payment method, as requested by the consent condition. No unsupported customer-specific fact is asserted.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer accepted the proposed cancellation and refund, but support has not yet stated that the cancellation or refund was completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0b203adf7605ef47016aaa754403c087d2b14175dc038c3029",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message confirms cancellation and refund; it does not ask about the item's condition or whether it was used."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "order",
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker, which makes no unsupported customer-specific factual claims. Support has explicitly stated that order O0075 was cancelled and the full ₹2,548 refund was issued to the Card payment method.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested cancellation and refund were completed, and the draft requests stopping the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0a549c3d09c79edb016aaa755220ec87d2a9923f7f1ee38f5d",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

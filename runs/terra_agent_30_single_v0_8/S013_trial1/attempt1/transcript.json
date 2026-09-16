@@ -1,0 +1,301 @@
+[
+  {
+    "role": "customer",
+    "content": "Hello, I’m requesting a refund because the headphones were defective when they arrived. Please let me know what information you need from me to process it.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help with that. Please provide your Cartly user ID and either the registered email address or phone number. Once verified, I’ll check the headphone order and eligibility for a defective-item refund.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My Cartly user ID is U012, and my registered email address is customer012@example.com.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U012",
+      "email": "customer012@example.com",
+      "phone": null
+    },
+    "call_id": "call_VMYzQ8t3dMfq92XtWZJJrmy4",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U012"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_fhXhHfNscTJiBl1xOuqVNvBe",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0005",
+          "user_id": "U012",
+          "status": "Delivered",
+          "placed_date": "2026-09-02",
+          "promised_delivery_date": "2026-09-07",
+          "actual_delivery_date": "2026-09-07",
+          "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 112, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0039",
+          "user_id": "U012",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 112, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0073",
+          "user_id": "U012",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 112, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0107",
+          "user_id": "U012",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 29,
+          "delivery_address": {
+            "line1": "Flat 112, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0141",
+          "user_id": "U012",
+          "status": "Delivered",
+          "placed_date": "2026-08-31",
+          "promised_delivery_date": "2026-09-05",
+          "actual_delivery_date": "2026-09-05",
+          "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+          "payment_method": "COD",
+          "shipping_fee": 0,
+          "delivery_address": {
+            "line1": "Flat 112, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Chandigarh",
+            "state": "Chandigarh",
+            "pincode": "160017",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks—you’re verified. I see multiple orders, so please tell me the order ID for the headphones (for example, `O0005`). Then I’ll check the item details and process options for the defective-item claim.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "The order ID is O0005. The item is the wireless headphones.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0005"
+    },
+    "call_id": "call_OUzYzTcFo0BHglXyCQ3ql5zR",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0005",
+        "user_id": "U012",
+        "status": "Delivered",
+        "placed_date": "2026-09-02",
+        "promised_delivery_date": "2026-09-07",
+        "actual_delivery_date": "2026-09-07",
+        "actual_delivery_at": "2026-09-07T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 112, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Chandigarh",
+          "state": "Chandigarh",
+          "pincode": "160017",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0005",
+          "order_id": "O0005",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 1999,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0005"
+    },
+    "call_id": "call_0X5HBG69k6vNaIp8S3dF3Ptq",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "check_evidence",
+    "arguments": {
+      "order_id": "O0005",
+      "item_id": "I0005"
+    },
+    "call_id": "call_gdK3OHK6b7xN9dcRo35F84OX",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order_id": "O0005",
+      "item_id": "I0005",
+      "evidence_photo_uploaded": true
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Refund for defective Wireless headphones on order O0005.",
+      "facts_found": "Verified user U012. Order O0005 belongs to U012 and is Delivered on 2026-09-07 IST. Item I0005 Wireless headphones is electronics, price ₹1,999; shipping fee ₹49; payment method UPI. Today is 2026-09-15 IST, 8 calendar days after delivery. Evidence photo is uploaded. Refund history shows 0 qualifying return/damage refunds in the last 90 days and no prior refunds on this order.",
+      "rule_triggered": "H1: damage/defective claims outside the category return window must be escalated. Electronics have a 7-day return window (E1); this claim is 8 days after delivery.",
+      "what_user_was_told": "I explained that the standard 7-day electronics return window ended on 2026-09-14 and that I am escalating the defective-item claim for review.",
+      "order_id": "O0005",
+      "item_id": "I0005"
+    },
+    "call_id": "call_Aj323Um7YRVFjvaCjVsiO4fC",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U012",
+          "order_id": "O0005",
+          "item_id": "I0005",
+          "user_request": "Refund for defective Wireless headphones on order O0005.",
+          "facts_found": "Verified user U012. Order O0005 belongs to U012 and is Delivered on 2026-09-07 IST. Item I0005 Wireless headphones is electronics, price ₹1,999; shipping fee ₹49; payment method UPI. Today is 2026-09-15 IST, 8 calendar days after delivery. Evidence photo is uploaded. Refund history shows 0 qualifying return/damage refunds in the last 90 days and no prior refunds on this order.",
+          "rule_triggered": "H1: damage/defective claims outside the category return window must be escalated. Electronics have a 7-day return window (E1); this claim is 8 days after delivery.",
+          "what_user_was_told": "I explained that the standard 7-day electronics return window ended on 2026-09-14 and that I am escalating the defective-item claim for review."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U012",
+        "order_id": "O0005",
+        "item_id": "I0005",
+        "facts_found": "Verified user U012. Order O0005 belongs to U012 and is Delivered on 2026-09-07 IST. Item I0005 Wireless headphones is electronics, price ₹1,999; shipping fee ₹49; payment method UPI. Today is 2026-09-15 IST, 8 calendar days after delivery. Evidence photo is uploaded. Refund history shows 0 qualifying return/damage refunds in the last 90 days and no prior refunds on this order.",
+        "rule_triggered": "H1: damage/defective claims outside the category return window must be escalated. Electronics have a 7-day return window (E1); this claim is 8 days after delivery.",
+        "what_user_was_told": "I explained that the standard 7-day electronics return window ended on 2026-09-14 and that I am escalating the defective-item claim for review."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I checked order **O0005**: the Wireless headphones were delivered on **7 September 2026**. Electronics have a **7-calendar-day** return window, which ended on **14 September**.\n\nBecause this defective-item claim is outside that window, I’ve escalated it for review. Your uploaded photo has been included with the case.",
+    "turn": 3
+  }
+]

@@ -21,18 +21,18 @@ def test_budget_survives_reconstruction_and_charges_usage(repo):
     BudgetedTransport(repo, lambda _: RAW, initial_spent="0", budget_id=key)
     with repo.connect() as c:
         row = c.execute("SELECT * FROM api_budgets WHERE budget_id=%s", (key,)).fetchone()
-    assert row["spent_usd"] == Decimal("1.0015")
+    assert row["spent_usd"] == Decimal("1.00032")
     BudgetedTransport(repo, lambda _: RAW, initial_spent="1.2", budget_id=key)
     with repo.connect() as c:
         row = c.execute("SELECT * FROM api_budgets WHERE budget_id=%s", (key,)).fetchone()
-    assert row["spent_usd"] == Decimal("1.2015")
+    assert row["spent_usd"] == Decimal("1.20032")
 
 
 def test_unknown_failure_retains_reservation(repo):
     key = str(uuid4())
     def broken(_):
         raise ServiceError("network", "Unavailable", 502)
-    t = BudgetedTransport(repo, broken, limit="0.5", budget_id=key)
+    t = BudgetedTransport(repo, broken, limit="0.15", budget_id=key)
     with pytest.raises(ServiceError, match="Unavailable"):
         t(BODY)
     with pytest.raises(ServiceError, match="allowance"):
@@ -45,7 +45,7 @@ def test_concurrent_calls_cannot_oversubscribe(repo):
         started.set()
         assert release.wait(10)
         return RAW
-    t = BudgetedTransport(repo, slow, limit="0.5", budget_id=str(uuid4()))
+    t = BudgetedTransport(repo, slow, limit="0.15", budget_id=str(uuid4()))
     with ThreadPoolExecutor(2) as pool:
         first = pool.submit(t, BODY)
         assert started.wait(5)

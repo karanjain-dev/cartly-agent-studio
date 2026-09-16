@@ -1,0 +1,257 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "My headphones do not function, and I’d like a refund, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft restates the customer's supplied refund request and does not add unsupported facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting a refund, and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0231ca817826b0e1016aaa75bab16887d2a7c97e0c3e462cd2",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent requests the order ID and identifies the item being checked."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action with exact amount and payment method is explained, and confirmation is not requested."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The agent does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The agent does not request a photo or other evidence."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent requests the user ID and registered email address or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U008"
+      },
+      {
+        "question": "What is your registered email address or phone number?",
+        "source_quote": "customer008@example.com"
+      },
+      {
+        "question": "What is your order ID?",
+        "source_quote": "The order I am asking about is O0001 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U008, my registered email address is customer008@example.com, and the order ID is O0001. The item is the wireless headphones.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied credentials and released order/item facts without adding unsupported claims.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer provided the requested identification and order details; refund eligibility and options still need to be checked.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_01b496cc5864bc12016aaa75c6803c87d2a24513079d9c9e58",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The message does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "The agent explains the pickup action, exact refund amount, and UPI method, then asks whether to schedule it."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The message does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The message states eligibility but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The message does not ask for a photo or other evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please schedule the return pickup and refund ₹2,048 to my original UPI method.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The customer accepts the support-proposed pickup and refund amount/method. The draft does not claim the amount was paid, and all referenced order details are supported.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer is authorizing the proposed return pickup and refund; support has not yet completed the action.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_064a0c61564ab943016aaa75d829a087d29b9f8894f32d5eed",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The latest message does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "problem",
+        "release": false,
+        "reason": "The latest message confirms pickup and refund details but does not ask what is wrong or whether the item differs from the order."
+      },
+      {
+        "fact_id": "photo",
+        "release": false,
+        "reason": "The latest message does not ask for a photo or other evidence."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker and no unsupported customer-specific claims. Support has stated that the return pickup was scheduled and the refund will be processed automatically after pickup.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested return pickup has been scheduled, and the automatic refund process has been confirmed; the stop marker appropriately ends the conversation.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0285af1c0baaf268016aaa75e3c4e087d298da5b00183e331a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

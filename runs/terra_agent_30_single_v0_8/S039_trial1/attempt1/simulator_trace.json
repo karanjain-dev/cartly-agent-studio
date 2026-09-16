@@ -1,0 +1,220 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I’d like to convert the payment for my order into monthly instalments. Could you please help me with that?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only states the customer's released request to convert the order payment into monthly instalments and asks for help.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting assistance, and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0eab3e9560c09a72016aaa77254ef887d2b6a6916a73007941",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation after explaining a proposed action."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": false,
+        "reason": "The agent did not request identity verification or registered contact details."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "I understand. Is there any alternative way to arrange monthly instalments for this order?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only refers to the customer's already-stated request and asks for an alternative; it introduces no unsupported customer-specific facts.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking about an alternative after support refused the requested payment conversion, so the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Accepting a proposal or requesting a next step must continue the conversation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_09782b18467627d1016aaa77303fcc87d2846124b254d0c1d4",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not explain a proposed action and request confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent did not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests identity verification using the user ID and registered email address or phone number."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U014"
+      },
+      {
+        "question": "What is your registered email address?",
+        "source_quote": "customer014@example.com"
+      },
+      {
+        "question": "What is your registered phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your registered phone number?"
+    ]
+  },
+  {
+    "turn": 3,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your registered phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests identity details, not which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not explain a proposed action, exact amount, and payment method or request confirmation."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "My user ID is U014 and my registered email is customer014@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the user ID and registered email, both supplied in the customer profile and requested by support.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing the requested verification details so support can investigate availability; no resolution or completed action has been reported.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_06655e0a9c44f320016aaa774776b887d29ab80cc81801cfcf",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

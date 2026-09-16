@@ -1,0 +1,340 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, I’d like to move my delivery to my address in Shimla, please. Could you help arrange that?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft only restates the customer's released request to move the delivery to Shimla and asks for assistance.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting help and the action has not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0463c18ba6492c6e016aaa7655bb3c87d2adf8318a5c0f428a",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests account verification, not which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action, exact amount, and payment method were explained for confirmation."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent does not ask for the new address."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No refusal has occurred."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email address or phone number for account verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U024"
+      },
+      {
+        "question": "What is your registered email address?",
+        "source_quote": "customer024@example.com"
+      },
+      {
+        "question": "What is your registered phone number?",
+        "source_quote": ""
+      }
+    ],
+    "unknown_questions": [
+      "What is your registered phone number?"
+    ]
+  },
+  {
+    "turn": 2,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is your registered phone number?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests account credentials, not which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not explain a proposed action and request confirmation."
+      },
+      {
+        "fact_id": "address",
+        "release": false,
+        "reason": "The agent says the delivery address can be checked but does not ask the customer to provide the new address."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "There has been no refusal regarding serviceability."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "My user ID is U024, and my registered email address is customer024@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the user ID and registered email address, both supplied in the customer profile.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing requested verification details so support can check whether the delivery address can be changed; no action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0f71d4084dbdf283016aaa7666f34887d2bf68d36a16de7f41",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent asks for the delivery address, not which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "No proposed action, exact amount, and payment method are explained for confirmation."
+      },
+      {
+        "fact_id": "address",
+        "release": true,
+        "reason": "The agent explicitly asks for the full new Shimla delivery address."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The agent has not refused to serve the address."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [
+      {
+        "question": "What is the full Shimla delivery address, including house/building and street, area/locality, city, state, pincode, and country?",
+        "source_quote": "The requested address is {\"line1\": \"12, Oakwood Lane\", \"line2\": \"Near Ridge Road\", \"city\": \"Shimla\", \"state\": \"Himachal Pradesh\", \"pincode\": \"171001\", \"country\": \"India\"}"
+      }
+    ],
+    "unknown_questions": [
+      "What is the full Shimla delivery address, including house/building and street, area/locality, city, state, pincode, and country?"
+    ]
+  },
+  {
+    "turn": 4,
+    "stop_reason": "continue",
+    "unknown_questions": [
+      "What is the full Shimla delivery address, including house/building and street, area/locality, city, state, pincode, and country?"
+    ]
+  },
+  {
+    "event": "fact_gate",
+    "turn": 5,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation after explaining a proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No refusal has occurred; the agent only says it will check serviceability and update eligibility."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 5,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 5,
+    "draft": {
+      "message": "The full address is 12, Oakwood Lane, Near Ridge Road, Shimla, Himachal Pradesh 171001, India.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "address"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the full Shimla address, which is supplied in the released facts and allowed fact IDs.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer provided the requested address, but support has not yet confirmed serviceability or completed the address change.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 5,
+    "released_fact_ids": [
+      "address",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_03eca9179f24e17b016aaa7679fcac87d28cc014d52e4da3a6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 6,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message does not ask which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message does not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of a proposed action with the required details."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "The agent has refused the requested address change because the pincode is not serviceable."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 6,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 6,
+    "draft": {
+      "message": "I understand. Please leave the delivery address unchanged.",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "behavior_0"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accepts the stated refusal and does not add unsupported customer-specific facts.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "close",
+    "end_reason": "refused",
+    "ending_reason": "The requested address change was definitively refused because the Shimla pincode is not serviceable, and the customer accepts that resolution.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 6,
+    "released_fact_ids": [
+      "address",
+      "behavior_0",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_09b1c9ce4efe2e36016aaa7689099487d2b7dc8f89a1d3e0f6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]

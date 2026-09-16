@@ -1,0 +1,183 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hi, I’d like to exchange my kurta directly for a larger size. I don’t want a refund or to place a new order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately states the customer's released request for a direct size exchange and preference not to receive a refund or place a new order.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting an exchange; no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_05038e0ee5e9a686016aaa771404f487d28effca7a2c1f0a83",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent requests the order ID but does not ask which order or item is involved."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation of a proposed action with an exact amount and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent does not ask when the item arrived or when the problem was reported."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests identity verification using the registered user ID and email or phone number."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U010"
+      },
+      {
+        "question": "What is your registered email address or phone number?",
+        "source_quote": "customer010@example.com"
+      },
+      {
+        "question": "What is the order ID?",
+        "source_quote": "The order I am asking about is O0003 and the item is Cotton kurta."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U010 and my registered email is customer010@example.com. I don’t have the order ID available, and I’d still prefer a direct size exchange rather than a refund and new order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft uses the supplied credentials and restates the customer's released preference for a direct size exchange; it does not invent unsupported order details.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has not accepted the refund/return alternative, and support has not completed an action or escalation.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_002021124962519e016aaa772134ec87d29252e5dc77d5384c",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent asks the customer to identify which order contains the kurta, directly satisfying the condition."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent has not asked about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not requested confirmation after explaining a specific action, exact amount, and payment method."
+      },
+      {
+        "fact_id": "delivery",
+        "release": false,
+        "reason": "The agent has not asked when the item arrived or when the problem was reported."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Which order contains the kurta?",
+        "source_quote": "The order I am asking about is O0003 and the item is Cotton kurta."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "It’s order O0003, the Cotton kurta. I still want a direct exchange for a larger size, not a refund and new order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order",
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply identifies order O0003 and the Cotton kurta, and reiterates the customer's stated preference for a direct exchange rather than a refund and new order; all are supported by released facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has clarified the order and maintained the exchange request, but no action has been completed and the conversation should continue.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_037ab69b27faeb17016aaa7730a64487d2a8ca7245a30d4459",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  }
+]

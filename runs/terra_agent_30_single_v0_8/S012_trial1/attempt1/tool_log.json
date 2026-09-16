@@ -1,0 +1,111 @@
+[
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U008",
+      "email": "customer008@example.com",
+      "phone": null
+    },
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U008"
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0001"
+    },
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0001",
+        "user_id": "U008",
+        "status": "Delivered",
+        "placed_date": "2026-09-03",
+        "promised_delivery_date": "2026-09-08",
+        "actual_delivery_date": "2026-09-08",
+        "actual_delivery_at": "2026-09-08T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 108, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Ahmedabad",
+          "state": "Gujarat",
+          "pincode": "380001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0001",
+          "order_id": "O0001",
+          "product_name": "Wireless headphones",
+          "category": "electronics",
+          "price": 1999,
+          "quantity": 1,
+          "ordered_product_name": "Wireless headphones",
+          "delivered_product_name": "Wireless headphones",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": null,
+          "ordered_color": null,
+          "delivered_size": null,
+          "delivered_color": null,
+          "evidence_photo_uploaded": true
+        }
+      ]
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "get_refund_history",
+    "arguments": {
+      "order_id": "O0001"
+    },
+    "ok": true,
+    "result": {
+      "refunds": [],
+      "qualifying_count": 0,
+      "cancellation_count": 0,
+      "window_days": 90,
+      "order_refunds": []
+    },
+    "mode": "unguarded"
+  },
+  {
+    "timestamp": "2026-09-15T12:00:00+05:30",
+    "tool_name": "create_return",
+    "arguments": {
+      "order_id": "O0001",
+      "item_id": "I0001",
+      "reason": "defective",
+      "confirmed": true,
+      "amount": 2048
+    },
+    "ok": true,
+    "result": {
+      "return": {
+        "return_id": "T0013",
+        "order_id": "O0001",
+        "item_id": "I0001",
+        "pickup_status": "scheduled",
+        "created_at": "2026-09-15T12:00:00+05:30",
+        "completed_at": null,
+        "reason": "defective"
+      },
+      "refund_amount": 2048.0,
+      "refund_method": "UPI",
+      "refund_timing": "automatically after pickup completes"
+    },
+    "mode": "unguarded"
+  }
+]

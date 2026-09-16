@@ -63,8 +63,8 @@ verified. A changed applied migration is rejected.
 ```
 
 This command opts in to paid model calls. It uses the existing `OPENAI_API_KEY`
-environment variable or local `.env`, and the same `gpt-6-astra` model with high
-reasoning. It does not run the simulated customer or any evaluation suite.
+environment variable or local `.env`, and `gpt-5.6-terra` with low reasoning.
+It does not run the simulated customer or any evaluation suite.
 
 Try: `I want to return my kurta, order O0011.`
 
@@ -173,7 +173,7 @@ historical test failures.
 | `engine.py` | Adapter for the existing guarded Cartly tool implementation |
 | `repository.py` | PostgreSQL transactions, seed import and audit chain |
 | `migrations/` | Versioned SQL schema, constraints and agent memory |
-| `agent.py` | Astra conversation loop, persistent context and restricted tool registry |
+| `agent.py` | Terra conversation loop, persistent context and restricted tool registry |
 | `prompts/agent_v0.1.md` | New service protocol instructions, combined with the locked policy |
 | `local.py`, `__main__.py` | Local setup, server and terminal commands |
 | `demo.py`, `replay.py` | Zero-cost practical walkthrough and saved-state verification |

@@ -1,0 +1,124 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to convert the payment for my order into monthly instalments. Could you please help me with that?",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry, but Cartly’s support policy doesn’t cover converting an existing order payment into monthly instalments. I’m unable to make that change.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I understand. Is there any alternative way to arrange monthly instalments for this order?",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer asks whether there is an alternative way to arrange monthly instalments for an existing order.",
+      "facts_found": "No order details were accessed or provided. Cartly policy does not cover payment conversion or instalment alternatives.",
+      "rule_triggered": "A3: policy does not cover this situation; do not invent a rule and escalate.",
+      "what_user_was_told": "I will have this checked by a support specialist because our policy does not specify any instalment alternatives.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_M7P1vNYwYw4FoHMZtQ88J3Hq",
+    "turn": 2,
+    "changes": [],
+    "ok": false,
+    "error": {
+      "message": "verification required"
+    }
+  },
+  {
+    "role": "support",
+    "content": "I can have this checked, but first please verify your account by sharing your user ID and either the registered email address or phone number.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "No problem. Once you have your user ID and either your registered email or phone number, send them here and I can look into whether a monthly-instalment option is available.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U014 and my registered email is customer014@example.com.",
+    "turn": 4
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U014",
+      "email": "customer014@example.com",
+      "phone": null
+    },
+    "call_id": "call_NwXyFy3yCNKjhlPDakYWqm1E",
+    "turn": 4,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U014"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer asks whether there is an alternative way to arrange monthly instalments for an existing order.",
+      "facts_found": "Customer identity verified: user ID U014 with registered email. No specific order ID or order details were provided or accessed. Cartly policy does not cover payment conversion or instalment alternatives.",
+      "rule_triggered": "A3: policy does not cover this situation; do not invent a rule and escalate.",
+      "what_user_was_told": "I will have this checked by a support specialist because our policy does not specify any instalment alternatives.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_PjM1lffnLrp19O3lSot9ndr5",
+    "turn": 4,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U014",
+          "order_id": null,
+          "item_id": null,
+          "user_request": "Customer asks whether there is an alternative way to arrange monthly instalments for an existing order.",
+          "facts_found": "Customer identity verified: user ID U014 with registered email. No specific order ID or order details were provided or accessed. Cartly policy does not cover payment conversion or instalment alternatives.",
+          "rule_triggered": "A3: policy does not cover this situation; do not invent a rule and escalate.",
+          "what_user_was_told": "I will have this checked by a support specialist because our policy does not specify any instalment alternatives."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U014",
+        "order_id": null,
+        "item_id": null,
+        "facts_found": "Customer identity verified: user ID U014 with registered email. No specific order ID or order details were provided or accessed. Cartly policy does not cover payment conversion or instalment alternatives.",
+        "rule_triggered": "A3: policy does not cover this situation; do not invent a rule and escalate.",
+        "what_user_was_told": "I will have this checked by a support specialist because our policy does not specify any instalment alternatives."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Thanks—your account is verified. I’ve passed your request to a support specialist to check whether any monthly-instalment alternative is available for your order.",
+    "turn": 4
+  }
+]

@@ -1,0 +1,215 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "Hello, my order still hasn’t arrived, and I’d like something for the delay. Could you please check this and let me know what compensation is available?",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft accurately restates the customer's released request and does not assert any unreleased order-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is asking support to check the delayed order and provide compensation information; no action has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_0c6ad249a1642edd016aaa75995e3887d2a4bda30731c24837",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent has not explained a proposed action requiring confirmation."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requests the user ID and registered email address or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "U031"
+      },
+      {
+        "question": "What is your registered email address or phone number?",
+        "source_quote": "customer031@example.com"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U031, and my registered email address is customer031@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the provided user ID and registered email address, both supported by the profile and requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is providing verification details so support can check compensation eligibility; no resolution has been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0166529d5b386946016aaa75a44f6487d29322a6db421e99c6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The message identifies the order and compensation but does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "It does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": true,
+        "reason": "It explains the proposed action and exact ₹100 coupon amount, then asks whether to proceed."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "Yes, please proceed with the ₹100 Cartly coupon for this delayed order.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply only accepts the support agent’s proposed ₹100 Cartly coupon and does not assert any unsupported customer-specific facts.",
+    "support_action_status": "offered_or_pending",
+    "customer_intent": "accept_proposal",
+    "end_reason": "continue",
+    "ending_reason": "The customer accepts the proposed coupon, but support has not yet stated that it was issued; the action remains pending.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0565182265d5d5c7016aaa75b2207487d289c7d1f7f4374af2",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The latest message confirms a coupon for order O0092 but does not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The latest message does not ask about the item's condition or use."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "###STOP###",
+      "stop_reason": "goal_met",
+      "used_fact_ids": [
+        "request",
+        "credentials",
+        "consent"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft contains only the stop marker, and the support message confirms that the ₹100 Cartly coupon was issued. No unsupported customer-specific facts are asserted.",
+    "support_action_status": "completed",
+    "customer_intent": "close",
+    "end_reason": "customer_ended",
+    "ending_reason": "The requested compensation was completed: support issued the ₹100 Cartly coupon for the delayed order.",
+    "proposed_end_reason": "goal_met"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "consent",
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_06156cd0e15aa11d016aaa75be949487d289b57c261435c8f8",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "customer_ended"
+  }
+]

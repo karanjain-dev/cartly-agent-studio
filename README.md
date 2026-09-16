@@ -18,7 +18,7 @@ Dependencies are installed on this laptop. From this folder:
 .venv-service/bin/python scripts/dev.py --enable-model
 ```
 
-Open http://127.0.0.1:5173. This explicitly enables paid Astra calls using the
+Open http://127.0.0.1:5173. This explicitly enables paid Terra calls using the
 existing server-side key. Omit `--enable-model` to inspect the UI and policy
 without allowing model calls. If port 8010 is occupied, add `--api-port 8011`.
 Ctrl-C stops both processes. Data survives restart.
@@ -42,7 +42,7 @@ flowchart TD
   UI["website/app/page.tsx: chat, condition, approval, activity"] --> Proxy["website/app/api + lib/session.ts: HTTP forwarding"]
   Proxy --> API["service/api.py + web.py: authenticated API and streamed activity"]
   CLI["service/__main__.py: terminal chat"] --> Agent
-  API --> Agent["service/agent.py: Astra and saved conversation"]
+  API --> Agent["service/agent.py: Terra and saved conversation"]
   Prompt["prompts/current.md + config date + sandbox policy.md"] --> Agent
   Agent --> Core["service/core.py: identity, proposals, approvals, execution"]
   Core --> Rules["service/policy.py: operational decisions"]
@@ -52,8 +52,8 @@ flowchart TD
 ```
 
 1. The customer sends text. The Python agent saves it and loads conversation history.
-2. Astra receives the current prompt, policy, date, and restricted tools.
-3. Python executes requested read/decision tools and returns their results to Astra.
+2. Terra receives the current prompt, policy, date, and restricted tools.
+3. Python executes requested read/decision tools and returns their results to Terra.
 4. An allowed action becomes an exact stored proposal. Only the customer's
    approval control authorizes execution; a chat message is not that control.
 5. Python rechecks eligibility and approval, commits once, and records an audit event.
@@ -71,7 +71,7 @@ unused-item assertion. The customer then continues chatting and reviews the prop
 | `service/prompt.py` | Combines that file, config date and sandbox policy; fingerprints the exact text. |
 | `policy.md` | Canonical policy, saved into each sandbox when it is created. |
 | `data/` | Canonical seed world; tools never edit these files. |
-| `service/agent.py` | Shared Astra tool loop and persistent conversation memory. |
+| `service/agent.py` | Shared Terra tool loop and persistent conversation memory. |
 | `service/core.py` | Identity, exact proposals, approval invalidation, atomic execution and retries. |
 | `service/policy.py` | Operational eligibility rules. |
 | `cartly/tools.py`, `service/engine.py` | Business tools and always-guarded service wrapper. |
@@ -118,7 +118,7 @@ node scripts/run-framework.mjs build
 ```
 
 These service/browser checks use real PostgreSQL and recorded model replies.
-They test integration and safeguards, not live Astra accuracy.
+They test integration and safeguards, not live model accuracy.
 
 The hosted demo enforces a shared $3 API allowance in PostgreSQL, including the
 old site's spending. New sessions and restarts do not reset it. Local development

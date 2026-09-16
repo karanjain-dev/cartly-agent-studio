@@ -12,6 +12,8 @@ runs as a Docker service, with a separate persistent PostgreSQL service.
 - Website release commit: `6a02fb13bd882336df75b6618bc42b5414211d7d`
   (website-rooted release preserving the existing Sites history).
 - Railway uses the account's trial; no paid plan was purchased.
+- Current support model: `gpt-5.6-terra` with low reasoning. The prompt, policy,
+  tools, data, approval flow, and database guardrails are unchanged.
 
 The backend was uploaded from committed runtime source. A GitHub push alone
 does not deploy it. Future releases must rebuild/upload the backend and publish
@@ -35,6 +37,10 @@ the website when its source changes; never upload ignored local secrets or data.
 - The old site's final allowance usage was $0.9607375, with no pending reservation.
   That amount was carried forward into the shared $3 budget. Increasing a later
   carryover only adds the difference; it never erases new backend spending.
+
+The original deployment smoke above used Astra before the model change. The
+subsequent 30-case Terra evaluation is recorded in
+`runs/terra_agent_30_single_v0_8/REPORT.md`.
 
 Local test evidence is retained in ignored `.cartly-service/production-live-smoke.json`
 and `.cartly-service/production-approval-smoke.json`. These artifacts are not published.

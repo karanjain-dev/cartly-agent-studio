@@ -1,0 +1,114 @@
+[
+  {
+    "role": "customer",
+    "content": "My headphones gave me an electric shock while I was using them. I need help with this urgently.",
+    "turn": 1
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer reports headphones gave them an electric shock while in use and requests urgent help.",
+      "facts_found": "Safety issue reported. No affected order has been identified or confirmed.",
+      "rule_triggered": "G2/G6: reported electrical hazard requires immediate escalation; affected order is unconfirmed.",
+      "what_user_was_told": "We are escalating this urgently and asked the customer to share the order ID if available.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_9k2aGc7nrQZUDyvU5WbFmUhf",
+    "turn": 1,
+    "changes": [],
+    "ok": false,
+    "error": {
+      "message": "verification required"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Please stop using the headphones immediately and unplug/disconnect them. If you have any injury or ongoing symptoms, seek urgent medical help.\n\nI’ll escalate this as an electrical-safety issue. To identify the affected purchase, please provide your user ID and your registered email address or phone number, plus the order ID if you have it.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "I'm not sure; I'd need to check.",
+    "turn": 2
+  },
+  {
+    "role": "support",
+    "content": "That’s okay—please don’t use or charge the headphones again.\n\nTo get this safety issue escalated without guessing the order, please send your user ID and either the registered email address or phone number.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U008, and my registered email is customer008@example.com.",
+    "turn": 3
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U008",
+      "email": "customer008@example.com",
+      "phone": null
+    },
+    "call_id": "call_zaP7evvCYAPMRwIQ6ipjcED1",
+    "turn": 3,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U008"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "escalate_to_human",
+    "arguments": {
+      "user_request": "Customer reports headphones gave them an electric shock while in use and requests urgent help.",
+      "facts_found": "Customer verified as U008. Safety issue reported. Customer is unsure which order is affected; no order is being guessed or confirmed.",
+      "rule_triggered": "G2/G6: reported electrical hazard requires immediate escalation; customer is unsure of the affected order, so escalate without an order.",
+      "what_user_was_told": "Customer was told to stop using or charging the headphones and that the electrical-safety report is being escalated urgently.",
+      "order_id": null,
+      "item_id": null
+    },
+    "call_id": "call_3qs6oMCBKalDMvJqitUslnVz",
+    "turn": 3,
+    "changes": [
+      {
+        "table": "escalations",
+        "operation": "insert",
+        "key": {
+          "escalation_id": "H0001"
+        },
+        "values": {
+          "escalation_id": "H0001",
+          "user_id": "U008",
+          "order_id": null,
+          "item_id": null,
+          "user_request": "Customer reports headphones gave them an electric shock while in use and requests urgent help.",
+          "facts_found": "Customer verified as U008. Safety issue reported. Customer is unsure which order is affected; no order is being guessed or confirmed.",
+          "rule_triggered": "G2/G6: reported electrical hazard requires immediate escalation; customer is unsure of the affected order, so escalate without an order.",
+          "what_user_was_told": "Customer was told to stop using or charging the headphones and that the electrical-safety report is being escalated urgently."
+        }
+      }
+    ],
+    "ok": true,
+    "result": {
+      "escalation": {
+        "escalation_id": "H0001",
+        "user_id": "U008",
+        "order_id": null,
+        "item_id": null,
+        "facts_found": "Customer verified as U008. Safety issue reported. Customer is unsure which order is affected; no order is being guessed or confirmed.",
+        "rule_triggered": "G2/G6: reported electrical hazard requires immediate escalation; customer is unsure of the affected order, so escalate without an order.",
+        "what_user_was_told": "Customer was told to stop using or charging the headphones and that the electrical-safety report is being escalated urgently."
+      },
+      "status": "queued_in_memory"
+    }
+  },
+  {
+    "role": "support",
+    "content": "Your electrical-safety report has been escalated urgently. Please keep the headphones unplugged and do not use or charge them.",
+    "turn": 3
+  }
+]

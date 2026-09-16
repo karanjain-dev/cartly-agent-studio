@@ -1,0 +1,225 @@
+[
+  {
+    "role": "customer",
+    "content": "Hi, I’d like to return this kurta. It should appear unused enough to qualify for the return.",
+    "turn": 1
+  },
+  {
+    "role": "support",
+    "content": "I can help check the return eligibility. Please share your user ID and either the registered email address or phone number, along with the order ID.\n\nFor a change-of-mind return, the kurta must be unused.",
+    "turn": 1
+  },
+  {
+    "role": "customer",
+    "content": "My user ID is U019 and my registered email is customer019@example.com. I don’t have the order ID available right now. I did wear the kurta to a wedding, but it isn’t damaged.",
+    "turn": 2
+  },
+  {
+    "role": "tool",
+    "tool_name": "verify_user",
+    "arguments": {
+      "user_id": "U019",
+      "email": "customer019@example.com",
+      "phone": null
+    },
+    "call_id": "call_NG9MU7lowayWz9ubzkqRVtEj",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "verified": true,
+      "user_id": "U019"
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "list_orders",
+    "arguments": {},
+    "call_id": "call_s0vsVjuonR8M2Ari7oM0loWu",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "orders": [
+        {
+          "order_id": "O0012",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-31",
+          "promised_delivery_date": "2026-09-05",
+          "actual_delivery_date": "2026-09-05",
+          "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0046",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-09-08",
+          "promised_delivery_date": "2026-09-13",
+          "actual_delivery_date": "2026-09-13",
+          "actual_delivery_at": "2026-09-13T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0080",
+          "user_id": "U019",
+          "status": "Out for delivery",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "Card",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0114",
+          "user_id": "U019",
+          "status": "Placed",
+          "placed_date": "2026-09-13",
+          "promised_delivery_date": "2026-09-18",
+          "actual_delivery_date": null,
+          "actual_delivery_at": null,
+          "payment_method": "COD",
+          "shipping_fee": 79,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        },
+        {
+          "order_id": "O0148",
+          "user_id": "U019",
+          "status": "Delivered",
+          "placed_date": "2026-08-24",
+          "promised_delivery_date": "2026-08-29",
+          "actual_delivery_date": "2026-08-29",
+          "actual_delivery_at": "2026-08-29T12:00:00+05:30",
+          "payment_method": "UPI",
+          "shipping_fee": 49,
+          "delivery_address": {
+            "line1": "Flat 119, Ashoka Residency",
+            "line2": "Near the main post office",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "pincode": "411001",
+            "country": "India"
+          },
+          "coupon_issued": false,
+          "coupon_amount": 0
+        }
+      ]
+    }
+  },
+  {
+    "role": "tool",
+    "tool_name": "get_order",
+    "arguments": {
+      "order_id": "O0012"
+    },
+    "call_id": "call_O2JpkWIckVq7dGj8gSw5dLls",
+    "turn": 2,
+    "changes": [],
+    "ok": true,
+    "result": {
+      "order": {
+        "order_id": "O0012",
+        "user_id": "U019",
+        "status": "Delivered",
+        "placed_date": "2026-08-31",
+        "promised_delivery_date": "2026-09-05",
+        "actual_delivery_date": "2026-09-05",
+        "actual_delivery_at": "2026-09-05T12:00:00+05:30",
+        "payment_method": "UPI",
+        "shipping_fee": 49,
+        "delivery_address": {
+          "line1": "Flat 119, Ashoka Residency",
+          "line2": "Near the main post office",
+          "city": "Pune",
+          "state": "Maharashtra",
+          "pincode": "411001",
+          "country": "India"
+        },
+        "coupon_issued": false,
+        "coupon_amount": 0
+      },
+      "items": [
+        {
+          "item_id": "I0012",
+          "order_id": "O0012",
+          "product_name": "Cotton kurta",
+          "category": "clothing",
+          "price": 1499,
+          "quantity": 1,
+          "ordered_product_name": "Cotton kurta",
+          "delivered_product_name": "Cotton kurta",
+          "ordered_quantity": 1,
+          "delivered_quantity": 1,
+          "ordered_size": "M",
+          "ordered_color": "Blue",
+          "delivered_size": "M",
+          "delivered_color": "Blue",
+          "evidence_photo_uploaded": true
+        }
+      ]
+    }
+  },
+  {
+    "role": "support",
+    "content": "I found the Cotton kurta in order **O0012**. Because it has been worn, it isn’t eligible for a change-of-mind return—the item must be unused.",
+    "turn": 2
+  },
+  {
+    "role": "customer",
+    "content": "I understand, but I’d still like to request the return. Is there any exception or alternative you can offer?",
+    "turn": 3
+  },
+  {
+    "role": "support",
+    "content": "I’m sorry, but I can’t make an exception to the unused-item requirement for a change-of-mind return. Since the kurta was worn and is not damaged or defective, it isn’t eligible for return. No alternative goodwill credit or discount is available under policy.",
+    "turn": 3
+  },
+  {
+    "role": "customer",
+    "content": "Understood. Thanks for checking.",
+    "turn": 4
+  }
+]

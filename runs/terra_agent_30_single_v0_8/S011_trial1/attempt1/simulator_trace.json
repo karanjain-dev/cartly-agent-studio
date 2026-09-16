@@ -1,0 +1,235 @@
+[
+  {
+    "event": "fact_gate",
+    "turn": 1,
+    "decisions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 1,
+    "draft": {
+      "message": "I’d like to cancel my order now, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "request"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft restates the customer's released cancellation request and contains no unsupported customer-specific facts.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is requesting cancellation, and no support action has yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 1,
+    "released_fact_ids": [
+      "request"
+    ],
+    "response_id": "resp_07bd471b9580b50c016aaa759953ac87d28589ba76fb79a866",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 2,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": false,
+        "reason": "The agent did not ask which order or item."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or use."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not explain a proposed action, amount, and payment method or request confirmation."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "No refusal has occurred."
+      },
+      {
+        "fact_id": "credentials",
+        "release": true,
+        "reason": "The agent explicitly requested the user ID and registered email address or phone number for identity verification."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 2,
+    "factual_questions": [
+      {
+        "question": "What is your user ID?",
+        "source_quote": "user_id"
+      },
+      {
+        "question": "What is your registered email address or phone number?",
+        "source_quote": "email"
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 2,
+    "draft": {
+      "message": "My user ID is U016, and my registered email address is customer016@example.com.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "credentials"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft states the supplied user ID and registered email address, which are supported by the customer profile and requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer has provided the requested verification details; cancellation has not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 2,
+    "released_fact_ids": [
+      "credentials",
+      "request"
+    ],
+    "response_id": "resp_0db42e8834d453b3016aaa75a6104487d287adf1203d85db7f",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 3,
+    "decisions": [
+      {
+        "fact_id": "order",
+        "release": true,
+        "reason": "The agent explicitly asks which order the customer wants to cancel."
+      },
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent does not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent does not ask for confirmation after explaining a proposed action, amount, and payment method."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": false,
+        "reason": "The agent has not refused the cancellation."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 3,
+    "factual_questions": [
+      {
+        "question": "Which order you want to cancel?",
+        "source_quote": "The order I am asking about is O0077 and the item is Wireless headphones."
+      }
+    ],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 3,
+    "draft": {
+      "message": "I’d like to cancel order O0077, the wireless headphones order, please.",
+      "stop_reason": "continue",
+      "used_fact_ids": [
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The draft identifies order O0077 and the Wireless headphones, both supplied in the released facts and requested by support.",
+    "support_action_status": "none",
+    "customer_intent": "request_action_or_information",
+    "end_reason": "continue",
+    "ending_reason": "The customer is answering which order to cancel; cancellation has not yet been completed.",
+    "proposed_end_reason": "continue",
+    "ending_override_reason": "Support has not completed an action, given a final refusal, or completed escalation."
+  },
+  {
+    "turn": 3,
+    "released_fact_ids": [
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_0f29b114d69cdb12016aaa75b57a1487d2930ca443a8aa7cac",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "continue"
+  },
+  {
+    "event": "fact_gate",
+    "turn": 4,
+    "decisions": [
+      {
+        "fact_id": "condition",
+        "release": false,
+        "reason": "The agent did not ask about the item's condition or whether it was used."
+      },
+      {
+        "fact_id": "consent",
+        "release": false,
+        "reason": "The agent did not ask for confirmation of a proposed action with the required details."
+      },
+      {
+        "fact_id": "behavior_0",
+        "release": true,
+        "reason": "The agent clearly explained that the order cannot be cancelled now, which is the stated refusal event."
+      }
+    ]
+  },
+  {
+    "event": "customer_answerability",
+    "turn": 4,
+    "factual_questions": [],
+    "unknown_questions": []
+  },
+  {
+    "event": "customer_reply_check",
+    "turn": 4,
+    "draft": {
+      "message": "I understand. I’ll refuse delivery or return the headphones after they’re delivered.",
+      "stop_reason": "refused",
+      "used_fact_ids": [
+        "behavior_0",
+        "order"
+      ]
+    },
+    "grounded": true,
+    "grounding_reason": "The reply accepts the stated cancellation resolution and refers only to the released order/item and the supported refusal/return options.",
+    "support_action_status": "final_refusal",
+    "customer_intent": "other",
+    "end_reason": "refused",
+    "ending_reason": "Support has clearly refused cancellation because the order was shipped, and the customer accepts the available alternatives.",
+    "proposed_end_reason": "refused"
+  },
+  {
+    "turn": 4,
+    "released_fact_ids": [
+      "behavior_0",
+      "credentials",
+      "order",
+      "request"
+    ],
+    "response_id": "resp_027dd873dc0ec448016aaa75c0b91487d29326ea8bff7c3aa6",
+    "model": "gpt-5.6-luna",
+    "stop_reason": "refused"
+  }
+]
