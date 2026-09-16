@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {backend,cookieId,sessionCookie} from '../lib/session';
-import {GET as getSession} from '../app/api/session/route';
+import {GET as getSession,POST as createSession} from '../app/api/session/route';
 import {POST as chat} from '../app/api/chat/route';
 import {PATCH as approve} from '../app/api/proposal/route';
 
@@ -29,6 +29,13 @@ assert.equal(text.includes(token),false);
 assert.equal(text.includes('server-only-key'),false);
 assert.match(created.headers.get('Set-Cookie')!,/HttpOnly/);
 console.log('PASS: session token excluded from browser-readable response');
+
+calls=[];
+const newCustomer=await createSession(request('POST',{demo:'U201'}));
+assert.equal(newCustomer.status,200);
+assert.deepEqual(JSON.parse(calls[0].body),{demo:'U201'});
+assert.equal((await createSession(request('POST',{demo:42}))).status,400);
+console.log('PASS: new demo customers forwarded to server validation');
 
 calls=[];
 assert.equal((await chat(request('POST',{message:'hello'},'https://evil.test'))).status,403);

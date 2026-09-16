@@ -15,9 +15,19 @@ runs as a Docker service, with a separate persistent PostgreSQL service.
 - Current support model: `gpt-5.6-terra` with low reasoning. The prompt, policy,
   tools, data, approval flow, and database guardrails are unchanged.
 
-The backend was uploaded from committed runtime source. A GitHub push alone
-does not deploy it. Future releases must rebuild/upload the backend and publish
-the website when its source changes; never upload ignored local secrets or data.
+The live Railway service is `cartly-api`, connected to GitHub `main` for deployment.
+The older, unexposed `cartly-agent-studio` Railway service is not the website's API;
+it has no production secrets and its startup reports missing configuration.
+Do not copy secrets into it or use its failed deployment to assess the live API.
+The website must also be published through Sites when frontend source changes.
+Never upload ignored local secrets or local databases.
+
+The shared-playground update uses `<CARTLY_WORLD>-shared-web-v1` in the same
+PostgreSQL instance. It starts fresh by explicit user choice. Old isolated worlds
+remain stored and their website sessions are archived. New conversations reuse
+the shared world; only their chat/approval state is new. The additional 20 customers
+and 100 orders are inserted once from `service/demo_data/playground_v1.json`, under
+the world lock with audit entries. Restarts preserve all later mutations.
 
 ## Verification
 

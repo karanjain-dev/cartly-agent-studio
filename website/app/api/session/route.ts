@@ -10,5 +10,5 @@ async function create(req:Request,demo='return'){
 export async function GET(req:Request){return cookieId(req)?forward(req,'/web/session'):create(req)}
 export async function POST(req:Request){
   if(!sameOrigin(req))return jsonError('This request must come from the Cartly website.',403);
-  try{const body:any=await req.json();if(!['return','cancel','delay'].includes(body.demo))return jsonError('Choose a valid demo customer.');return create(req,body.demo)}catch{return jsonError('Invalid request.')}
+  try{const body:any=await req.json();if(typeof body.demo!=='string'||body.demo.length>32)return jsonError('Choose a valid demo customer.');return create(req,body.demo)}catch{return jsonError('Invalid request.')}
 }

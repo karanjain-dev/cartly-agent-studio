@@ -15,6 +15,30 @@ See [deployment details](DEPLOYMENT.md) for hosting, allowance and verification.
 The active product instructions live in `prompts/current.md`; `service/prompt.py`
 adds the configured date and the policy saved with the conversation's sandbox.
 
+## Shared website playground
+
+The website now uses one durable world, `<configured world>-shared-web-v1`.
+New conversation creates only a chat/session; it does not reset orders, returns,
+refunds or coupons. Visitors who select the same demo customer share that
+customer's business history, while their chat messages and approvals stay private
+to each conversation. Existing isolated browser demos are archived and readable;
+start a new conversation to enter the fresh shared playground. Their old,
+potentially conflicting refunds are not merged.
+
+`service/demo_data/playground_v1.json` adds 20 customers (U201–U220), 100 orders
+(O2001–O2100), and 100 items (I2001–I2100). Each customer has two cancellable orders,
+two delivered orders and one shipment. Delivery windows, payment methods, evidence,
+size mismatches and late-delivery eligibility vary. All dates use the fixed config
+date. `service/playground.py` imports this once with audited inserts and a database
+lock; a restart never restores modified orders. The frozen `data/` and eval
+scenarios remain unchanged. Combined shared data has 74 customers and 266 orders;
+the website selector exposes the original three demo customers plus the 20 new ones.
+Browse the selected customer's orders to see IDs, products, status and refunds.
+
+Verification: service tests cover a refund persisting into a second browser
+session and across service reconstruction, a blocked repeat action, foreign-order
+protection, concurrent/idempotent fixture import, fixture validity, and audit replay.
+
 ## Try the first working increment
 
 From the project root (the desktop folder is now the Git checkout):

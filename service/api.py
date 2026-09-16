@@ -143,5 +143,5 @@ def create_app(repository, operator_key, world_id="development", model_transport
         return repository.verify_audit(world_id)
 
     from service.web import install
-    install(app, service, operator, customer, model_transport)
+    install(app, service, operator, customer, model_transport, world_id)
     return app

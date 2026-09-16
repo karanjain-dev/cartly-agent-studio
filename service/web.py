@@ -7,7 +7,6 @@ import json
 from contextlib import contextmanager
 from queue import Queue
 from threading import Thread
-from uuid import uuid4
 
 from fastapi import Depends, Header
 from fastapi.responses import StreamingResponse
@@ -17,9 +16,9 @@ from service.agent import MODEL, PersistentAgent
 from service.budget import usage_cost
 from service.errors import ServiceError
 from service.prompt import prompt_info
-from service.repository import digest, load_seed
+from service.repository import digest
+from service.playground import DEMOS, catalog, ensure_playground
 
-DEMOS = {"return": "U018", "cancel": "U014", "delay": "U031"}
 
 
 def require_ok(response):
@@ -78,7 +77,7 @@ def public_event(row):
             "status": "complete" if result.get("ok") else "error", "data": data}
 
 
-def snapshot(service, token, ready=False):
+def snapshot(service, token, ready=False, shared_world_id=None):
     repo = service.repo
     with repo.connect() as conn:
         s = session_row(conn, token)
@@ -115,16 +114,24 @@ def snapshot(service, token, ready=False):
             if "input_tokens" in u and "output_tokens" in u:
                 cost += float(usage_cost(u))
     info = prompt_info(world, policy)
+    archived = shared_world_id is not None and s["world_id"] != shared_world_id
+    demo_orders = [{"order_id": o["order_id"], "status": o["status"], "payment_method": o["payment_method"],
+                    "items": [{"item_id": i["item_id"], "product_name": i["product_name"], "price": i["price"]}
+                              for i in world["order_items"] if i["order_id"] == o["order_id"]],
+                    "refunded": sum(r["amount"] for r in world["refunds"] if r["order_id"] == o["order_id"] and r["status"] == "completed")}
+                   for o in world["orders"] if o["user_id"] == s["principal_id"]]
     return {"demo": next((k for k, v in DEMOS.items() if v == s["principal_id"]), "return"),
+            "customers": catalog(), "demoOrders": demo_orders, "archived": archived,
             "messages": [{"role": "user" if m["role"] == "customer" else "assistant", "content": m["content"]} for m in messages],
             "events": events, "turns": memory["turns"] if memory else 0, "cost": cost,
             "verifiedUser": s["verified_user_id"], "orders": orders,
             "items": [i for i in world["order_items"] if i["order_id"] in {o["order_id"] for o in orders}],
             "changes": [c for r in rows for c in r["changes"]], "toolCalls": sum(r["event_type"].startswith("tool.") or r["event_type"] in {"policy.decide", "proposal.create"} for r in rows),
-            "model": MODEL, "ended": bool(memory and memory["turns"] >= 20), "busy": not unlocked,
+            "model": MODEL, "ended": archived or bool(memory and memory["turns"] >= 20), "busy": not unlocked,
             "ready": ready, "date": world["config"]["today"], "proposal": proposal, "condition": condition,
             "promptSource": info["promptSource"], "promptHash": info["promptHash"], "policyTitle": info["policyTitle"],
-            "notice": "Isolated PostgreSQL sandbox. API costs are estimates using the recorded baseline rates."}
+            "notice": ("This earlier isolated demo is archived. Start a new conversation to use shared customer records."
+                       if archived else "Shared demo records: order changes persist across conversations and visitors. No real transactions.")}
 
 
 class WebBody(BaseModel):
@@ -151,25 +158,32 @@ class Condition(WebBody):
     unused: StrictBool
 
 
-def install(app, service, operator, customer, transport):
+def install(app, service, operator, customer, transport, world_id):
     # Every browser bridge request authenticates the website server. The
     # browser receives only an opaque HttpOnly session cookie from that server.
     private = [Depends(operator)]
+    world_id = world_id + "-shared-web-v1"
     ready = transport is not None
+    def current_snapshot(auth):
+        return snapshot(service, auth, ready, world_id)
+
+    def require_current(auth):
+        with service.repo.connect() as conn:
+            if session_row(conn, auth)["world_id"] != world_id:
+                raise ServiceError("archived_demo", "Start a new conversation to use shared customer records", 409)
 
     @app.post("/web/session", dependencies=private)
     def new_session(body: Demo):
         if body.demo not in DEMOS:
             raise ServiceError("invalid_demo", "Choose a valid demo customer")
-        wid = "web-" + uuid4().hex
-        service.repo.seed(wid)
-        u = next(u for u in load_seed()["users"] if u["user_id"] == DEMOS[body.demo])
-        auth = require_ok(service.login(wid, u["user_id"], email=u["email"]))["token"]
-        return {"token": auth, "snapshot": snapshot(service, auth, ready)}
+        ensure_playground(service.repo, world_id)
+        u = next(u for u in catalog() if u["id"] == body.demo)
+        auth = require_ok(service.login(world_id, u["user"], email=u["email"]))["token"]
+        return {"token": auth, "snapshot": current_snapshot(auth)}
 
     @app.get("/web/session", dependencies=private)
     def get_session(auth=Depends(customer)):
-        return snapshot(service, auth, ready)
+        return current_snapshot(auth)
 
     @app.get("/web/policy", dependencies=private)
     def policy(auth=Depends(customer)):
@@ -180,13 +194,14 @@ def install(app, service, operator, customer, transport):
 
     @app.post("/web/chat", dependencies=private)
     def chat(body: Chat, auth=Depends(customer), idempotency_key: str = Header(min_length=1, max_length=128)):
+        require_current(auth)
         if not ready:
             raise ServiceError("model_disabled", "Live model calls are disabled. Start with --enable-model to opt in", 503)
         with service.repo.connect() as conn:
             session_row(conn, auth)
         queue = Queue()
         def progress():
-            queue.put({"type": "snapshot", "data": {**snapshot(service, auth, ready), "busy": True}})
+            queue.put({"type": "snapshot", "data": {**current_snapshot(auth), "busy": True}})
         def run():
             try:
                 result = PersistentAgent(service, transport).reply(auth, body.message, idempotency_key, progress)
@@ -198,7 +213,7 @@ def install(app, service, operator, customer, transport):
                 queue.put({"type": "error", "message": "The reply was interrupted. Reload to see saved activity."})
             finally:
                 try:
-                    queue.put({"type": "snapshot", "data": snapshot(service, auth, ready)})
+                    queue.put({"type": "snapshot", "data": current_snapshot(auth)})
                 finally:
                     queue.put(None)
         Thread(target=run, daemon=True).start()
@@ -210,14 +225,16 @@ def install(app, service, operator, customer, transport):
 
     @app.patch("/web/proposal", dependencies=private)
     def approve(body: Approval, auth=Depends(customer), idempotency_key: str = Header(min_length=1, max_length=100)):
+        require_current(auth)
         with idle_conversation(service, auth):
             require_ok(service.accept(auth, body.proposalId, body.termsHash, body.accept, "accept:" + idempotency_key))
             if body.accept:
                 require_ok(service.execute(auth, body.proposalId, "execute:" + idempotency_key))
-        return snapshot(service, auth, ready)
+        return current_snapshot(auth)
 
     @app.post("/web/condition", dependencies=private)
     def condition(body: Condition, auth=Depends(customer), idempotency_key: str = Header(min_length=1, max_length=128)):
+        require_current(auth)
         with idle_conversation(service, auth):
             require_ok(service.assert_unused(auth, **body.model_dump(), key=idempotency_key))
-        return snapshot(service, auth, ready)
+        return current_snapshot(auth)

@@ -94,9 +94,62 @@ def test_stream_proposal_confirmation_and_database_changes(repo, sandbox):
     assert replay.status_code == 200
     assert len(replay.json()["changes"]) == 1
     assert all(PROMPT_PATH.read_text() in b["instructions"] for b in payloads)
-    # A new isolated browser sandbox must not inherit the return or messages.
-    _, fresh = session(c, headers)
+    # A new chat has private messages but shares the saved order history.
+    h3, fresh = session(c, headers)
     assert fresh["changes"] == [] and fresh["messages"] == []
+    verify(c, h3)
+    existing = call(c, h3, "get_order", {"order_id": "O0011"})
+    assert existing["ok"]
+    blocked = c.post("/v1/proposals", headers={**h3, "Idempotency-Key": "repeat-return"},
+                     json={"intent": "return", "order_id": "O0011", "reason": "damaged"}).json()
+    assert not blocked["ok"] or not blocked["result"].get("proposal")
+
+
+def test_shared_cancellation_survives_new_session_and_restart(repo, sandbox):
+    wid, _ = sandbox
+    c, headers = client(repo, wid)
+    h, initial = session(c, headers, "U201")
+    assert len(initial["customers"]) == 23
+    assert len(initial["demoOrders"]) == 5
+    assert call(c, h, "verify_user", {"user_id": "U201", "email": "customer201@example.com"})["ok"]
+    quote = c.post("/v1/proposals", headers={**h, "Idempotency-Key": "quote"},
+                   json={"intent": "cancel", "order_id": "O2001"}).json()
+    p = quote["result"]["proposal"]
+    result = c.patch("/web/proposal", headers={**h, "Idempotency-Key": "accept"},
+                     json={"proposalId": p["proposal_id"], "termsHash": p["terms_hash"], "accept": True})
+    assert result.status_code == 200, result.text
+    c2, headers2 = client(repo, wid)
+    h2, fresh = session(c2, headers2, "U201")
+    assert fresh["messages"] == []
+    order = next(o for o in fresh["demoOrders"] if o["order_id"] == "O2001")
+    assert order["status"] == "Cancelled" and order["refunded"] == 1299
+    assert call(c2, h2, "verify_user", {"user_id": "U201", "email": "customer201@example.com"})["ok"]
+    again = c2.post("/v1/proposals", headers={**h2, "Idempotency-Key": "quote-again"},
+                    json={"intent": "cancel", "order_id": "O2001"}).json()
+    assert not again["ok"] or not again["result"].get("proposal")
+    from service.replay import replay
+    world = repo.snapshot(wid + "-shared-web-v1")
+    assert len([r for r in world["refunds"] if r["order_id"] == "O2001"]) == 1
+    assert len([o for o in world["orders"] if o["user_id"] == "U201"]) == 5
+    assert replay(repo, wid + "-shared-web-v1")["pass"]
+    other, other_state = session(c2, headers2, "U202")
+    assert all(o["order_id"] != "O2001" for o in other_state["demoOrders"])
+    assert call(c2, other, "verify_user", {"user_id": "U202", "email": "customer202@example.com"})["ok"]
+    assert not call(c2, other, "get_order", {"order_id": "O2001"})["ok"]
+
+
+def test_old_isolated_session_is_readable_but_cannot_mutate(repo, sandbox):
+    wid, s = sandbox
+    from service.tests.conftest import login
+    c, headers = client(repo, wid)
+    token = login(s, wid)
+    h = {**headers, "Authorization": "Bearer " + token}
+    state = c.get("/web/session", headers=h).json()
+    assert state["archived"] and state["ended"]
+    for path, data in [("/web/chat", {"message": "Cancel it"}),
+                       ("/web/condition", {"order_id": "O0011", "item_id": "I0011", "unused": True})]:
+        r = c.post(path, headers={**h, "Idempotency-Key": "archived"}, json=data)
+        assert r.status_code == 409 and r.json()["error"]["code"] == "archived_demo"
 
 
 def test_multiple_change_of_mind_conditions_remain_visible(repo, sandbox):
