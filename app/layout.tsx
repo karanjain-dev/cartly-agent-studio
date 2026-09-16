@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Cartly — Customer Support",
-  description: "Review a policy-backed support resolution and approve exact terms before Cartly changes an order.",
+  description: "Chat with Cartly, see live guardrail checks and tool calls, and approve exact proposals before any order changes.",
   other: {
     "codex-preview": "development",
   },

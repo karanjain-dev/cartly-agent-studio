@@ -1,51 +1,73 @@
-# Cartly Customer Support
+# Cartly Agent Studio
 
-A hosted demonstration of Cartly's guarded support flow. Visitors choose one of three synthetic customers, select a supported request, review the exact policy-backed resolution, and explicitly approve it before any synthetic order change is made.
+A natural-language customer support chatbot with visible guardrails and exact proposal approval. Talk to GPT-6 Astra, watch real tool calls and server checks, then approve an action inside the conversation. All customers and transactions are synthetic.
 
-## Evaluation project
+## Try the product
 
-The complete evaluation project is stored in [`evals/`](evals/README.md): policies, prompts, fictional world data, scenarios, simulator, reference calculator, tools, tests and saved transcripts. The guide explains how cases are created and how outcomes are checked.
+1. Choose a demo customer and type a request, such as “I'd like to return the kurta in O0011.”
+2. The agent asks for verification and any missing details. The demo credentials are shown above the chat.
+3. **Activity** shows actual model requests, tool arguments/results, policy checks and blocked actions. Expand any step to see its data. **Context** shows verified identity, history and orders read. **Changes** shows resulting database changes.
+4. The agent prepares an exact proposal with the action, amount, refund method and timing. Review it and press **Accept and proceed**, or decline and keep chatting.
+5. The server rechecks eligibility before executing. Its result appears in chat and is included in subsequent conversation memory.
 
-The newest suite is [`stress_v1`](evals/scenarios/stress_v1.json). Read its [separate accuracy report](evals/runs/stress_v1_baseline/REPORT.md), including precheck skips, observation-only cases, checker errors and transcript-reviewed results. These scores do not mix in the original dev or heldout cases.
+A typed “yes” remains a chat message. Execution requires the approval button bound to the exact displayed terms. Any new message invalidates an unexecuted proposal. Duplicate clicks or retries cannot execute the same proposal twice.
 
-GitHub stores the evaluation source and evidence. It does not run paid evaluations automatically, and the website does not load hidden facts or expected answers. New evaluation fixtures do not modify the live demo's runtime database.
+## How the hosted flow works
 
-## What runs
+```text
+Customer message
+  → /api/chat
+  → GPT-6 Astra + policy + conversation history
+  → read tools / decide_policy
+  → live tool results and guardrail events
+  → agent asks a question or calls propose_action
+  → exact proposal appears inside chat
+  → customer accepts
+  → /api/proposal checks session, proposal ID, terms hash and revision
+  → eligibility recalculated against the latest stored session
+  → action executes once; result and changes saved
+  → conversation continues with that result in memory
+```
 
-- The guided request flow computes eligibility, amount, payment method, timing, and rules from the synthetic order values. The customer never supplies the amount used for an action.
-- A stored proposal contains the exact terms and a SHA-256 terms hash. Acceptance requires that same proposal; execution recalculates the decision before calling the action tool.
-- A fresh synthetic world per conversation. SQLite stores each conversation behind an opaque, HttpOnly session cookie. Reset replaces that session's world, proposal, and changes.
-- The older free-form agent route remains read-only. It cannot call a return, refund, cancellation, address update, or coupon tool; order-changing work is available only through the proposal flow.
-- No simulator, scenario truth, heldout scenarios, grader, or reference calculator is loaded at runtime. The original project remains the evaluation source of truth.
+The model cannot call mutation tools directly. Even a fabricated call with `confirmed=true` is rejected. Read tools enforce identity and ownership. Proposal execution enforces return windows, category restrictions, evidence, refund history, cumulative limits, shipping rules, duplicate protection, cancellation states, address eligibility and coupon eligibility. Amounts and payment methods come from database values.
+
+The unused-item statement comes from the conversation and is reconfirmed explicitly in change-of-mind proposal terms. This is a customer assertion, not independently observed evidence. Escalation routing still depends on the agent following the policy; its tool requires the G3 summary.
 
 ## Files
 
-- `app/page.tsx`, `app/globals.css`: responsive guided support workspace, request selection, exact-terms approval dialog, demo customer selection, policy dialog, and visible activity.
-- `app/api/session/route.ts`: create, retrieve, and reset isolated sessions.
-- `app/api/proposal/route.ts`: creates a policy-backed proposal, validates acceptance of its exact terms, rechecks it, and executes the approved action.
-- `lib/guarded-flow.ts`: deterministic policy decisions, proposal terms, acceptance binding, final recheck, and action dispatch.
-- `app/api/chat/route.ts`: legacy read-only conversational lookup route. It cannot execute order-changing tools.
-- `app/api/policy/route.ts`: serve the exact policy for inspection.
-- `lib/agent.ts`: read-only model loop, live events, usage accounting, and shared spending allowance.
-- `lib/tools.ts`: equivalent implementation of the baseline support tools.
-- `lib/session.ts`: session persistence and browser-safe snapshots.
-- `lib/reference/`: unchanged world values, policy/prompt, tool schemas, and hashes of the original inputs. These imports stay on the server.
-- `db/schema.ts`, `drizzle/`: SQLite session and shared spending tables plus migration.
-- `tests/`: Python-to-TypeScript tool parity and a deterministic agent-loop check that makes no API requests.
-- `.openai/hosting.json`: the existing Sites project and storage binding. No credentials belong here.
+| File | Responsibility |
+| --- | --- |
+| `app/page.tsx`, `app/globals.css` | Chat, inline proposal card, live activity, context, changes, demo selection and policy dialog. |
+| `app/api/chat/route.ts` | Same-origin chat endpoint, session lock and streamed events. |
+| `lib/agent.ts` | Astra tool loop, history, canonical proposal messages, usage accounting and spending gate. |
+| `lib/chat-contract.ts` | Restricted agent tool schemas and hosted interaction instructions. |
+| `lib/guarded-flow.ts` | Deterministic decisions, check events, proposals, acceptance, revalidation and action execution. |
+| `app/api/proposal/route.ts` | Customer-only approval/rejection endpoint; locks before reading the latest session. |
+| `lib/tools.ts` | Existing baseline tool implementation, called through the guarded hosted wrapper. |
+| `lib/session.ts`, `app/api/session/route.ts` | Durable isolated sessions, reset and browser-safe snapshots. |
+| `lib/reference/` | Policy, world data and original tool schemas; loaded only on the server. |
+| `db/schema.ts`, `drizzle/` | Hosted SQLite session and shared API-spending tables. |
+| `tests/agent-flow.ts` | Mocked multi-turn integration, guardrail, approval, concurrency and budget tests. |
+| `tests/run.mjs` | Runs those tests and regenerates independent Python-tool parity expectations. |
 
-## Runtime configuration
+Run `node tests/run.mjs` to test without making OpenAI API requests. It requires Python 3 for the baseline parity fixtures. Run the checked-in build/dev scripts for the website.
 
-Set `OPENAI_API_KEY` as a server-side secret in Sites. `DEMO_BUDGET_USD` sets a shared lifetime allowance, defaulting to $3 across all visitors. A new conversation does not reset spending. Each request first reserves a conservative maximum cost; the website pauses if insufficient allowance remains. The displayed API cost uses response usage at the baseline's configured rates. Unknown-cost interruptions conservatively consume their reservation. This is a prototype budget control, not an OpenAI account billing limit.
+The hosted service uses a TypeScript wrapper and Sites SQLite storage. The separate Python/PostgreSQL service remains in the desktop project and the `evals/service/` export. The website does not call that local service. Each hosted conversation has its own synthetic world; separate conversations do not share order changes.
 
-Use the checked-in package scripts to install dependencies, start the development server, and build. Apply the generated SQLite migration for local development. Publish through the Sites build/package/version/deploy workflow; the production migration is included in the artifact.
+## Evaluation project
 
-## Demo
+The complete evaluation project is in [evals/](evals/README.md): policies, prompts, fictional data, scenarios, simulator, reference calculator, tests and saved transcripts. Its guide explains case creation and grading.
 
-Choose a customer, request a return, cancellation, or late-delivery coupon, then select **Review my resolution**. Cartly displays the exact action, amount, method, and timing. The customer must open the approval dialog and choose **I agree to these terms** before the server executes anything. Activity shows the order lookup, policy decision, stored proposal, acceptance, final recheck, and resulting synthetic change.
+The [stress suite report](evals/runs/stress_v1_baseline/REPORT.md) distinguishes precheck skips, observation-only cases, checker errors and transcript-reviewed results. Those historical scores do not evaluate this new guarded chat wrapper. No new paid evaluation run was started for this UI change.
 
-The page exposes `get_conversation_activity` and `draft_customer_message` in browsers supporting WebMCP. Drafting does not send a message or spend API credit.
+The runtime never imports the simulator, scenario truth, expected outcomes, grader or reference calculator. Policy v0.8, world data and evaluation prompts remain unchanged; the hosted chat contract is a separate application instruction layer.
 
-## Limits
+## Hosting, cost and limits
 
-Refunds, returns, coupons, and human handoffs affect synthetic session records only. There is no real payment, pickup, or staff notification. The site is a product prototype, not a production customer-data system.
+The existing Sites project uses a protected server-side `OPENAI_API_KEY`. `DEMO_BUDGET_USD` sets a shared lifetime allowance, default $3 across visitors; resetting a conversation does not reset spending. The server reserves a conservative request estimate and settles against API usage. Unknown-cost interruptions consume the reservation conservatively. This is an application allowance, not an API-account billing limit.
+
+Sessions persist behind an opaque HttpOnly cookie. Simultaneous chat and approval requests serialize using the stored session lock. Actions, tool logs, visible messages and proposals persist together in the session payload.
+
+Refunds, returns, coupons and escalations create demo records only. There is no real payment, pickup, evidence-upload flow or staff notification. Activity displays observable events, never private model reasoning.
+
+Supporting browsers expose read-only `get_conversation_activity` and draft-only `draft_customer_message` WebMCP tools. Drafting never sends a message or approves a proposal.

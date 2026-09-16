@@ -1,167 +1,52 @@
-"use client"
-
-import { useEffect, useMemo, useState } from 'react'
-import { AlertCircle, ArrowRight, BadgeCheck, BookOpen, Check, ChevronRight, CircleDollarSign, Clock3, FileText, PackageCheck, RefreshCw, ShieldCheck, Ticket, X } from 'lucide-react'
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-
-type Activity = { id: string; type: string; title: string; detail?: string; data?: unknown; status?: string }
-type Proposal = { id: string; status: string; terms: string; termsHash: string; decision: { action?: string; amount?: number; method?: string; timing?: string; explanation: string; rules: string[] } }
-type Snapshot = { demo: string; verifiedUser: string | null; orders: any[]; items: any[]; events: Activity[]; proposal: Proposal | null; notice: string; changes: any[]; toolCalls: number; busy?: boolean; date?: string }
-
-const demos = [
-  { id: 'return', name: 'Siddharth Jain', user: 'U018', order: 'O0011', defaultKind: 'return', description: 'Return an unused kurta' },
-  { id: 'cancel', name: 'Dev Patel', user: 'U014', order: 'O0075', defaultKind: 'cancel', description: 'Cancel a packed order' },
-  { id: 'delay', name: 'Simran Kaur', user: 'U031', order: 'O0092', defaultKind: 'coupon', description: 'Request a late-delivery coupon' },
-]
-const blank: Snapshot = { demo: 'return', verifiedUser: null, orders: [], items: [], events: [], proposal: null, notice: '', changes: [], toolCalls: 0 }
-const actionLabels: Record<string, string> = { create_return: 'Create return pickup', issue_refund: 'Issue immediate refund', cancel_order: 'Cancel order', issue_coupon: 'Issue ₹100 coupon' }
-
-export default function Home() {
-  const [state, setState] = useState<Snapshot>(blank)
-  const [loading, setLoading] = useState(true)
-  const [working, setWorking] = useState(false)
-  const [error, setError] = useState('')
-  const [kind, setKind] = useState<'return' | 'cancel' | 'coupon'>('return')
-  const [orderId, setOrderId] = useState('O0011')
-  const [reason, setReason] = useState<'change_of_mind' | 'damaged' | 'defective' | 'wrong_item'>('change_of_mind')
-  const [unused, setUnused] = useState(false)
-  const [policyOpen, setPolicyOpen] = useState(false)
-  const [policy, setPolicy] = useState('')
-  const [confirmOpen, setConfirmOpen] = useState(false)
-
-  const demo = demos.find(item => item.id === state.demo) || demos[0]
-  const order = state.orders.find(item => item.order_id === orderId)
-  const item = state.items.find(item => item.order_id === orderId)
-  const canReview = !!order && !working && !state.proposal && (kind !== 'return' || (item && (reason !== 'change_of_mind' || unused)))
-
-  async function request(path: string, init?: RequestInit) {
-    const response = await fetch(path, init)
-    const body = await response.json()
-    if (!response.ok) throw new Error(body.error || 'Something went wrong. Please try again.')
-    setState(body)
-    return body as Snapshot
-  }
-
-  async function refresh() {
-    const response = await fetch('/api/session')
-    const body = await response.json()
-    if (!response.ok) throw new Error(body.error || 'Could not start this session.')
-    setState(body)
-    return body as Snapshot
-  }
-
-  useEffect(() => { refresh().catch(error => setError(error.message)).finally(() => setLoading(false)) }, [])
-
-  async function chooseDemo(id: string) {
-    const selected = demos.find(item => item.id === id) || demos[0]
-    setWorking(true); setError(''); setConfirmOpen(false)
-    try {
-      await request('/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ demo: id }) })
-      setKind(selected.defaultKind as any); setOrderId(selected.order); setReason('change_of_mind'); setUnused(false)
-    } catch (error: any) { setError(error.message) } finally { setWorking(false) }
-  }
-
-  async function review() {
-    if (!canReview) return
-    setWorking(true); setError('')
-    try {
-      await request('/api/proposal', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind, orderId, itemId: item?.item_id, reason: kind === 'return' ? reason : undefined, unused }) })
-    } catch (error: any) { setError(error.message) } finally { setWorking(false) }
-  }
-
-  async function respond(accept: boolean) {
-    if (!state.proposal) return
-    setWorking(true); setError(''); setConfirmOpen(false)
-    try {
-      await request('/api/proposal', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proposalId: state.proposal.id, termsHash: state.proposal.termsHash, accept }) })
-    } catch (error: any) { setError(error.message) } finally { setWorking(false) }
-  }
-
-  async function openPolicy() {
-    setPolicyOpen(true)
-    if (policy) return
-    try { const response = await fetch('/api/policy'); const body = await response.json(); setPolicy(body.policy || '') } catch { setPolicy('The policy could not be loaded.') }
-  }
-
-  const orderItems = useMemo(() => state.items.filter(item => item.order_id === orderId), [state.items, orderId])
-
-  return <main className="support-shell">
-    <header className="support-header">
-      <a className="wordmark" href="/"><span className="wordmark-mark">c</span>cartly</a>
-      <div className="header-right"><span className="secure-label"><ShieldCheck size={15}/>Protected checkout actions</span><Button variant="ghost" onClick={openPolicy}><BookOpen size={16}/>Policy v0.8</Button></div>
-    </header>
-
-    <section className="support-hero">
-      <div><p className="kicker">CUSTOMER SUPPORT</p><h1>Get help, then approve the exact outcome.</h1><p className="hero-copy">Cartly calculates every amount from the order, shows the terms clearly, and waits for your approval before changing anything.</p></div>
-      <div className="reference-card"><Clock3 size={19}/><div><span>Reference date</span><strong>{state.date || '2026-09-15'} · IST</strong></div></div>
-    </section>
-
-    <section className="account-bar">
-      <div className="account-identity"><span className="identity-icon"><BadgeCheck size={20}/></span><div><span className="label">SIGNED-IN DEMO CUSTOMER</span><strong>{demo.name}</strong><small>{demo.user} · synthetic data only</small></div></div>
-      <Select value={state.demo} onValueChange={chooseDemo} disabled={working || loading}><SelectTrigger className="demo-select" aria-label="Choose demo customer"><SelectValue /></SelectTrigger><SelectContent>{demos.map(item => <SelectItem key={item.id} value={item.id}>{item.name} · {item.description}</SelectItem>)}</SelectContent></Select>
-    </section>
-
-    <div className="support-grid">
-      <section className="request-panel">
-        <div className="section-heading"><div><p className="kicker">STEP 1</p><h2>Tell us what you need</h2></div><Button variant="outline" size="sm" onClick={() => chooseDemo(state.demo)} disabled={working}><RefreshCw size={15}/>Start over</Button></div>
-
-        <div className="field-group"><Label>What can we help with?</Label><RadioGroup className="choice-grid" value={kind} onValueChange={(value: any) => { setKind(value); setUnused(false) }} disabled={working || !!state.proposal}>
-          <Label className="choice-card" htmlFor="return"><RadioGroupItem id="return" value="return"/><span><PackageCheck size={19}/><strong>Return or refund</strong><small>For a delivered item</small></span></Label>
-          <Label className="choice-card" htmlFor="cancel"><RadioGroupItem id="cancel" value="cancel"/><span><X size={19}/><strong>Cancel order</strong><small>Before dispatch</small></span></Label>
-          <Label className="choice-card" htmlFor="coupon"><RadioGroupItem id="coupon" value="coupon"/><span><Ticket size={19}/><strong>Late delivery</strong><small>Check coupon eligibility</small></span></Label>
-        </RadioGroup></div>
-
-        <div className="field-group"><Label htmlFor="order">Choose an order</Label><Select value={orderId} onValueChange={setOrderId} disabled={working || !!state.proposal}><SelectTrigger id="order"><SelectValue placeholder="Choose an order" /></SelectTrigger><SelectContent>{state.orders.map(current => <SelectItem key={current.order_id} value={current.order_id}>{current.order_id} · {current.status} · {current.payment_method}</SelectItem>)}</SelectContent></Select>{order && <div className="order-summary"><div><span>{order.status}</span><strong>{order.order_id}</strong><small>Placed {order.placed_date}</small></div><div><span>Payment</span><strong>{order.payment_method}</strong><small>Shipping ₹{order.shipping_fee}</small></div></div>}</div>
-
-        {kind === 'return' && <><div className="field-group"><Label>Item</Label>{orderItems.map(current => <div className="item-card" key={current.item_id}><div className="item-icon"><PackageCheck size={20}/></div><div><strong>{current.product_name}</strong><small>{current.category} · ₹{current.price} × {current.quantity}</small></div><span>{current.item_id}</span></div>)}</div>
-          <div className="field-group"><Label>Why are you requesting a return?</Label><RadioGroup className="reason-list" value={reason} onValueChange={(value: any) => setReason(value)} disabled={working || !!state.proposal}>
-            <Label htmlFor="mind"><RadioGroupItem id="mind" value="change_of_mind"/>Changed my mind or it does not fit</Label>
-            <Label htmlFor="damaged"><RadioGroupItem id="damaged" value="damaged"/>Item arrived damaged</Label>
-            <Label htmlFor="defective"><RadioGroupItem id="defective" value="defective"/>Item does not work as described</Label>
-            <Label htmlFor="wrong"><RadioGroupItem id="wrong" value="wrong_item"/>Received a different item, size, colour, or quantity</Label>
-          </RadioGroup></div>
-          {reason === 'change_of_mind' && <div className="condition-card"><Checkbox id="unused" checked={unused} onCheckedChange={value => setUnused(value === true)} disabled={working || !!state.proposal}/><Label htmlFor="unused"><strong>I confirm this item is unused.</strong><span>Change-of-mind returns require this confirmation.</span></Label></div>}
-        </>}
-
-        <Button className="review-button" disabled={!canReview || loading} onClick={review}>{working ? 'Checking your request…' : 'Review my resolution'}<ArrowRight size={18}/></Button>
-        {kind === 'return' && reason === 'change_of_mind' && !unused && <p className="helper-text">Confirm that the item is unused to continue.</p>}
-      </section>
-
-      <aside className="resolution-panel">
-        <div className="section-heading"><div><p className="kicker">STEP 2</p><h2>Your resolution</h2></div><CircleDollarSign className="heading-icon" size={22}/></div>
-        {!state.proposal && !state.notice && <div className="empty-resolution"><div className="empty-icon"><FileText size={28}/></div><strong>Your exact terms will appear here.</strong><p>We will show the action, amount, payment method, and timing before anything changes.</p></div>}
-        {state.notice && !state.proposal && <div className="notice-card"><AlertCircle size={20}/><div><strong>{state.notice}</strong><p>No action has been made unless it appears in the activity below.</p></div></div>}
-        {state.proposal && <div className={`proposal-card proposal-${state.proposal.status}`}>
-          <div className="proposal-status"><span>{state.proposal.status === 'executed' ? 'COMPLETED' : state.proposal.status === 'rejected' ? 'DECLINED' : 'READY FOR APPROVAL'}</span><ShieldCheck size={16}/></div>
-          <h3>{state.proposal.status === 'executed' ? 'Your request is complete' : actionLabels[state.proposal.decision.action || ''] || 'Review this request'}</h3>
-          <p>{state.proposal.status === 'executed' ? state.notice : state.proposal.decision.explanation}</p>
-          <div className="terms-box"><span>EXACT TERMS</span><strong>{state.proposal.terms}</strong></div>
-          <div className="term-grid">
-            <div><span>Amount</span><strong>{state.proposal.decision.amount !== undefined ? `₹${state.proposal.decision.amount.toFixed(2)}` : '—'}</strong></div>
-            <div><span>Method</span><strong>{state.proposal.decision.method || 'Cartly coupon'}</strong></div>
-            <div><span>When</span><strong>{state.proposal.decision.timing || 'Immediate'}</strong></div>
-          </div>
-          {state.proposal.status === 'proposed' && <div className="proposal-actions"><Button variant="outline" disabled={working} onClick={() => respond(false)}>Not now</Button><Button disabled={working} onClick={() => setConfirmOpen(true)}>Review and accept<ChevronRight size={17}/></Button></div>}
-          {state.proposal.status === 'executed' && <div className="completion-line"><Check size={17}/>Recorded in this demo session</div>}
-        </div>}
-
-        <div className="activity-heading"><TerminalIcon/><div><strong>What Cartly checked</strong><span>Visible system activity</span></div></div>
-        <div className="activity-list">{state.events.length ? state.events.slice().reverse().map(activity => <details className="activity-row" key={activity.id}><summary><span className={`activity-dot dot-${activity.type}`}/><div><strong>{activity.title}</strong><p>{activity.detail}</p></div><ChevronRight size={15}/></summary>{activity.data !== undefined && <pre>{JSON.stringify(activity.data, null, 2)}</pre>}</details>) : <p className="activity-empty">Order checks, policy decisions, approvals, and final actions will appear here.</p>}</div>
-      </aside>
-    </div>
-
-    {error && <div className="error-toast"><AlertCircle size={18}/>{error}<button onClick={() => setError('')} aria-label="Dismiss error"><X size={16}/></button></div>}
-
-    <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}><AlertDialogContent><AlertDialogHeader><AlertDialogTitle>Accept this exact resolution?</AlertDialogTitle><AlertDialogDescription>The action, amount, and method below will be applied only after you approve them.</AlertDialogDescription></AlertDialogHeader><div className="accept-terms">{state.proposal?.terms}</div><AlertDialogFooter><AlertDialogCancel>Go back</AlertDialogCancel><AlertDialogAction onClick={() => respond(true)}>I agree to these terms</AlertDialogAction></AlertDialogFooter></AlertDialogContent></AlertDialog>
-
-    <Dialog open={policyOpen} onOpenChange={setPolicyOpen}><DialogContent className="policy-dialog"><DialogHeader><DialogTitle>Cartly customer support policy</DialogTitle><DialogDescription>Policy v0.8 used by this guided flow</DialogDescription></DialogHeader><pre className="policy-text">{policy || 'Loading policy…'}</pre></DialogContent></Dialog>
-  </main>
+"use client";
+import {useEffect,useRef,useState} from 'react';
+import {ArrowUp,ArrowUpRight,BookOpen,Check,ChevronRight,CircleHelp,Copy,Database,Download,Fingerprint,Layers,LoaderCircle,MessageSquare,Package,Plus,RotateCcw,ShieldCheck,Sparkles,Terminal,Wallet,X} from 'lucide-react';
+import {Button} from '@/components/ui/button';
+import {Tabs,TabsContent,TabsList,TabsTrigger} from '@/components/ui/tabs';
+import {Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from '@/components/ui/select';
+import {Dialog,DialogContent,DialogDescription,DialogHeader,DialogTitle} from '@/components/ui/dialog';
+type Message={role:string;content:string};
+type Activity={id:string;type:string;title:string;detail?:string;data?:unknown;status?:string};
+type Proposal={id:string;termsHash:string;status:string;terms:string;decision:{action:string;amount?:number;method?:string;timing?:string;reason?:string};result?:unknown};
+type Snapshot={proposal?:Proposal|null;notice?:string;messages:Message[];events:Activity[];turns:number;cost:number;verifiedUser:string|null;orders:any[];changes:any[];toolCalls:number;model:string;demo:string;ended?:boolean;busy?:boolean;ready?:boolean;date?:string};
+const demos=[{id:'return',name:'Siddharth Jain',user:'U018',email:'customer018@example.com',order:'O0011',title:'Return an item',message:"I'd like to return the kurta in order O0011."},{id:'cancel',name:'Dev Patel',user:'U014',email:'customer014@example.com',order:'O0075',title:'Cancel an order',message:'Can you cancel order O0075 for me?'},{id:'delay',name:'Simran Kaur',user:'U031',email:'customer031@example.com',order:'O0092',title:'Check a late delivery',message:"My order O0092 still hasn't arrived. Can you help?"}];
+const empty:Snapshot={messages:[],events:[],turns:0,cost:0,verifiedUser:null,orders:[],changes:[],toolCalls:0,model:'gpt-6-astra',demo:'return'};
+const icons:any={context:Layers,policy:BookOpen,model:Sparkles,tool:Terminal,state:Database,error:CircleHelp,session:Fingerprint,guardrail:ShieldCheck,proposal:ShieldCheck,approval:ShieldCheck};
+function RichText({text}:{text:string}){return <div className="message-text">{text.split('\n').map((line,i)=><div key={i} className={!line?'text-gap':''}>{line.split(/(\*\*.*?\*\*)/g).map((part,j)=>part.startsWith('**')?<strong key={j}>{part.slice(2,-2)}</strong>:part)}</div>)}</div>}
+export default function Home(){
+ const[state,setState]=useState<Snapshot>(empty),[draft,setDraft]=useState(''),[busy,setBusy]=useState(false),[loading,setLoading]=useState(true),[error,setError]=useState(''),[tab,setTab]=useState('activity'),[policy,setPolicy]=useState(''),[policyOpen,setPolicyOpen]=useState(false),[copied,setCopied]=useState(false);
+ const end=useRef<HTMLDivElement>(null),lock=useRef(false),active=useRef<AbortController|null>(null);const demo=demos.find(d=>d.id===state.demo)||demos[0];
+ const view=useRef(state);view.current=state;
+ useEffect(()=>{
+  const context=(document as any).modelContext;if(!context?.registerTool)return;
+  const lifecycle=new AbortController();
+  const register=(tool:any)=>{try{Promise.resolve(context.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{})}catch{}};
+  register({name:'get_conversation_activity',description:'Read the current visible conversation, tool activity, and session changes.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true,untrustedContentHint:true},execute(input:unknown){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('Expected an empty object.');return view.current}});
+  register({name:'draft_customer_message',description:'Stage a customer message in the visible composer. Does not send it or call the model.',inputSchema:{type:'object',properties:{message:{type:'string',minLength:1,maxLength:3000}},required:['message'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},async execute(input:any){if(!input||typeof input.message!=='string'||!input.message.trim()||input.message.length>3000||Object.keys(input).some(k=>k!=='message'))throw Error('Provide a message between 1 and 3,000 characters.');if(lock.current||view.current.busy||view.current.ended)throw Error('The composer is unavailable.');setDraft(input.message);await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()));return{status:'drafted',message:input.message}}});
+  return()=>lifecycle.abort();
+ },[]);
+ async function refresh(){const r=await fetch('/api/session');const v:any=await r.json();if(!r.ok)throw Error(v.error||'Could not load the session.');setState(v);setBusy(!!v.busy);return v}
+ useEffect(()=>{refresh().catch(e=>setError(e.message)).finally(()=>setLoading(false));return()=>active.current?.abort()},[]);
+ useEffect(()=>{end.current?.scrollIntoView({behavior:'smooth',block:'nearest'})},[state.messages,busy]);
+ async function reset(id=state.demo){if(lock.current||busy)return;setLoading(true);setError('');try{const r=await fetch('/api/session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({demo:id})});const v:any=await r.json();if(!r.ok)throw Error(v.error);setState(v);setDraft('');setCopied(false)}catch(e:any){setError(e.message)}finally{setLoading(false)}}
+ async function send(text=draft){text=text.trim();if(!text||lock.current||busy||loading)return;lock.current=true;setBusy(true);setError('');setDraft('');const controller=new AbortController();active.current=controller;
+ try{const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text}),signal:controller.signal});if(!r.ok){const v:any=await r.json();throw Error(v.error||'The message could not be sent.')}if(!r.body)throw Error('Live activity is unavailable.');const reader=r.body.getReader(),decoder=new TextDecoder();let buffer='';while(true){const{done,value}=await reader.read();if(done)break;buffer+=decoder.decode(value,{stream:true});let pos;while((pos=buffer.indexOf('\n'))>=0){const line=buffer.slice(0,pos);buffer=buffer.slice(pos+1);if(!line.trim())continue;const e=JSON.parse(line);if(e.type==='snapshot')setState(e.data);if(e.type==='activity')setState(s=>({...s,events:[...s.events.filter(x=>x.id!==e.data.id),e.data]}));if(e.type==='message')setState(s=>({...s,messages:[...s.messages,e.data]}));if(e.type==='error')setError(e.message)}}}catch(e:any){if(e.name!=='AbortError'){setError(e.message);setDraft(text)}}finally{lock.current=false;active.current=null;setBusy(false);try{await refresh()}catch{}}}
+ async function approve(accept:boolean){const p=state.proposal;if(!p||busy||lock.current)return;lock.current=true;setBusy(true);setError('');
+  try{const r=await fetch('/api/proposal',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({proposalId:p.id,termsHash:p.termsHash,accept})});const v:any=await r.json();if(!r.ok)throw Error(v.error||'The proposal could not be processed.');setState(v)}catch(e:any){setError(e.message)}finally{lock.current=false;setBusy(false);try{await refresh()}catch{}}
+ }
+ async function openPolicy(){setPolicyOpen(true);if(!policy){try{const r=await fetch('/api/policy');const v:any=await r.json();if(!r.ok)throw Error(v.error);setPolicy(v.policy)}catch{setPolicy('The policy could not be loaded. Please try again.')}}}
+ function download(){const url=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='cartly-conversation.json';a.click();URL.revokeObjectURL(url)}
+ return <div className="studio"><header className="topbar"><a className="brand" href="/" aria-label="Cartly home"><span className="brand-mark">c<span>·</span></span><span>cartly</span><span className="brand-divider"/><span className="brand-section">Agent studio</span></a><div className="top-actions"><span className="demo-badge">Chat + approvals</span><Button variant="ghost" onClick={openPolicy}><BookOpen size={16}/>Policy v0.8<ArrowUpRight size={14}/></Button></div></header>
+ <main className="workspace"><div className="workspace-heading"><div><div className="eyebrow">CUSTOMER EXPERIENCE / LIVE WORKSPACE</div><h1>Every conversation. Every step.</h1><p>Chat naturally. Review the proposal. See every check and tool call.</p></div><Button className="new-session" variant="outline" disabled={busy||loading} onClick={()=>reset()}><Plus size={17}/>New conversation</Button></div>
+ <section className="demo-strip"><div className="strip-label"><Fingerprint size={19}/><div><strong>Your demo customer</strong><span>Synthetic account · no real transactions</span></div></div><Select value={state.demo} onValueChange={reset} disabled={busy||loading}><SelectTrigger className="customer-select" aria-label="Choose demo customer"><SelectValue/></SelectTrigger><SelectContent>{demos.map(d=><SelectItem key={d.id} value={d.id}>{d.name} · {d.order}</SelectItem>)}</SelectContent></Select><div className="credentials"><span>{demo.user}</span><span>{demo.email}</span><Button size="icon-sm" variant="ghost" aria-label="Copy verification details" onClick={async()=>{try{await navigator.clipboard.writeText(`My user ID is ${demo.user} and my registered email is ${demo.email}.`);setCopied(true)}catch{setDraft(`My user ID is ${demo.user} and my registered email is ${demo.email}.`)}}}>{copied?<Check size={14}/>:<Copy size={14}/>}</Button></div></section>
+ <div className="panels"><section className="chat-panel" aria-label="Customer conversation"><div className="panel-head"><div className="agent-icon"><Sparkles size={20}/></div><div><h2>Cartly support</h2><span>{busy?'Working on your request':state.ended?'Conversation complete':'Ready to help'}</span></div><span className="model-badge">{state.model}</span></div>
+ <div className="chat-body" role="log" aria-live="polite">{!state.messages.length?<div className="welcome"><div className="welcome-symbol"><MessageSquare size={29}/><span className="spark"><Sparkles size={14}/></span></div><h2>How can we help today?</h2><p>Ask about a return, an order, or a delivery.<br/>The activity panel follows along as the agent works.</p><div className="starter-cards">{demos.map((d,i)=><button key={d.id} disabled={busy||loading} onClick={async()=>{if(state.demo!==d.id)await reset(d.id);setDraft(d.message)}}><span className="starter-icon">{i===0?<RotateCcw size={18}/>:i===1?<Package size={18}/>:<Wallet size={18}/>}</span><span>{d.title}</span><ArrowUpRight size={15}/></button>)}</div></div>:state.messages.map((m,i)=><div key={i} className={`message ${m.role==='user'?'customer-message':'agent-message'}`}><div className="message-avatar">{m.role==='user'?demo.name.split(' ').map(n=>n[0]).join(''):<Sparkles size={16}/>}</div><div className="message-content"><div className="message-name">{m.role==='user'?'You':'Cartly'}</div><RichText text={m.content}/></div></div>)}{busy&&<div className="working-reply"><LoaderCircle size={16} className="spin"/>Cartly is working<span>Follow the activity panel →</span></div>}{state.proposal&&<section className={'proposal-card proposal-'+state.proposal.status} aria-label="Action proposal"><div className="proposal-heading"><ShieldCheck size={19}/><strong>{state.proposal.status==='proposed'?'Your approval is needed':state.proposal.status==='executed'?'Action completed':state.proposal.status==='rejected'?'You declined this proposal':'Proposal no longer active'}</strong></div><p>{state.proposal.terms}</p>{state.proposal.status==='proposed'?<><div className="proposal-actions"><Button disabled={busy||loading} onClick={()=>approve(true)}><Check size={16}/>Accept and proceed</Button><Button variant="outline" disabled={busy||loading} onClick={()=>approve(false)}>No, keep chatting</Button></div><span className="proposal-note">Approving confirms these exact terms. Sending another message replaces this proposal and requires a fresh approval.</span></>:<span className="proposal-note">{state.proposal.status==='executed'?'The approved change is saved. You can continue the conversation.':'No action will run from this card. Keep chatting to review a new proposal.'}</span>}</section>}<div ref={end}/></div>
+ {error&&<div className="error-banner" role="alert"><CircleHelp size={17}/><span>{error}</span><button aria-label="Dismiss error" onClick={()=>setError('')}><X size={15}/></button></div>}
+ <div className="composer-area">{!!state.messages.length&&!state.verifiedUser&&!busy&&<button className="verification-shortcut" onClick={()=>setDraft(`My user ID is ${demo.user} and my registered email is ${demo.email}.`)}><Fingerprint size={14}/>Use my demo verification details<ChevronRight size={14}/></button>}<form className="composer" onSubmit={e=>{e.preventDefault();send()}}><textarea aria-label="Message Cartly" value={draft} onChange={e=>setDraft(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();send()}}} placeholder={state.ended?'Start a new conversation to continue':'Message Cartly…'} rows={2} maxLength={3000} disabled={busy||loading||state.ended}/><Button type="submit" size="icon" className="send" aria-label="Send message" disabled={!draft.trim()||busy||loading||state.ended}>{busy?<LoaderCircle size={18} className="spin"/>:<ArrowUp size={20}/>}</Button></form><div className="composer-note"><ShieldCheck size={13}/><span>Demo data. Actions apply only to this session.</span><span className="enter-note">Enter to send</span></div></div></section>
+ <aside className="inspector"><div className="inspector-head"><div><span className="live-indicator"/>LIVE ACTIVITY</div><Button variant="ghost" size="icon-sm" aria-label="Download conversation and activity" onClick={download}><Download size={16}/></Button></div><Tabs value={tab} onValueChange={setTab} className="inspector-tabs"><TabsList variant="line" className="inspector-tablist"><TabsTrigger value="activity"><Terminal size={15}/>Activity{state.toolCalls>0&&<span className="count">{state.toolCalls}</span>}</TabsTrigger><TabsTrigger value="context"><Layers size={15}/>Context</TabsTrigger><TabsTrigger value="changes"><Database size={15}/>Changes</TabsTrigger></TabsList>
+ <TabsContent value="activity" className="inspector-content"><div className="activity-intro"><h3>Behind the conversation</h3><p>Live tool calls, server guardrails, approvals and saved changes.</p></div>{state.events.length?<div className="event-list">{state.events.map((e,i)=>{const Icon=icons[e.type]||Terminal;return <details key={e.id} className={`event event-${e.type} ${e.status==='running'?'event-running':''} ${e.type==='guardrail'&&(e.data as any)?.passed===false?'event-blocked':''}`}><summary><div className="event-marker">{e.status==='running'?<LoaderCircle size={15} className="spin"/>:<Icon size={15}/>}</div><div className="event-copy"><div className="event-meta">STEP {String(i+1).padStart(2,'0')}<span>{e.status==='running'?'In progress':e.status==='error'?'Needs attention':e.type==='guardrail'?(e.data as any)?.passed===false?'Blocked / ask':'Checked':'Complete'}</span></div><strong>{e.title}</strong>{e.type==='guardrail'&&(e.data as any)?.rule&&<span className="rule-tag">{(e.data as any).rule}</span>}{e.detail&&<p>{e.detail}</p>}</div><ChevronRight size={14} className="event-chevron"/></summary>{e.data!==undefined&&<pre>{JSON.stringify(e.data,null,2)}</pre>}</details>})}</div>:<div className="activity-empty"><div className="flow-nodes"><MessageSquare/><span/><Sparkles/><span/><Database/></div><strong>A clear view of the agent at work</strong><p>Send a message to see context loading, policy checks, and order actions here.</p><div className="empty-key"><BookOpen size={15}/>Policy lookups<Layers size={15}/>Session context<Terminal size={15}/>Tool results</div></div>}<div className="inspector-footnote"><CircleHelp size={14}/><span>This shows observable activity, not private model reasoning.</span></div></TabsContent>
+ <TabsContent value="context" className="inspector-content"><div className="activity-intro"><h3>What the agent has to work with</h3><p>Conversation history stays with this session.</p></div><div className="context-card"><span>IDENTITY</span><strong>{state.verifiedUser||'Not verified yet'}</strong><p>{state.verifiedUser?'Verified through the identity tool.':'The agent will ask for your demo credentials.'}</p></div><div className="context-card"><span>CONVERSATION MEMORY</span><strong>{state.messages.length} messages · {state.turns} turns</strong><p>Previous messages and tool results are sent with the next request. No long-term memory or memory-search tool is configured.</p></div><div className="context-card"><span>POLICY & ENVIRONMENT</span><strong>Policy v0.8 · Guarded chat</strong><p>{state.date||'Reference date from configuration'} · IST<br/>Full policy included with every agent request.</p><button className="text-link" onClick={openPolicy}>Read the policy <ArrowUpRight size={13}/></button></div>{state.orders.map((o:any)=><div key={o.order_id} className="context-card"><span>ORDER READ BY THE AGENT</span><strong>{o.order_id} · {o.status}</strong><p>{o.payment_method} · shipping ₹{o.shipping_fee}</p></div>)}</TabsContent>
+ <TabsContent value="changes" className="inspector-content"><div className="activity-intro"><h3>What changed</h3><p>Database changes made during this conversation.</p></div>{!state.changes.length?<div className="no-changes"><Database size={27}/><strong>No changes yet</strong><p>Returns, refunds, address updates, and handoffs will appear here after a successful action.</p></div>:state.changes.map((c,i)=><details className="change-card" key={i}><summary><Check size={15}/><strong>{c.table}</strong><span>{c.operation}</span></summary><pre>{JSON.stringify(c,null,2)}</pre></details>)}</TabsContent></Tabs><div className="session-metrics"><div><span>Tool calls</span><strong>{state.toolCalls}</strong></div><div><span>Turns</span><strong>{state.turns}<small>/20</small></strong></div><div><span>Est. API cost</span><strong>${state.cost.toFixed(3)}</strong></div></div></aside></div>
+ <footer className="workspace-footer"><span><span className="footer-dot"/>Isolated demo session</span><span>Policy v0.8 <i/> Prompt v1.1 <i/> Server-checked proposals</span></footer></main>
+ <Dialog open={policyOpen} onOpenChange={setPolicyOpen}><DialogContent className="policy-dialog"><DialogHeader><DialogTitle>Cartly customer support policy</DialogTitle><DialogDescription>Version 0.8 · the full policy given to the agent</DialogDescription></DialogHeader><pre className="policy-text">{policy||'Loading policy…'}</pre></DialogContent></Dialog></div>
 }
-
-function TerminalIcon() { return <span className="terminal-icon">›_</span> }

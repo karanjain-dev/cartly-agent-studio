@@ -1,14 +1,22 @@
 """Create independent Python-tool expectations without changing project inputs."""
 import json,sys,tempfile
 from pathlib import Path
-root=Path(__file__).resolve().parents[2];sys.path.insert(0,str(root))
+site=Path(__file__).resolve().parents[1]
+root=site.parent if (site.parent/'cartly/tools.py').exists() else site/'evals'
+sys.path.insert(0,str(root))
 from cartly.tools import CartlySession,TOOLS
 from evaluation.state import changes
-world={p.stem:json.loads(p.read_text()) for p in (root/'data').glob('*.json')}
+world=json.loads((site/'lib/reference/world.json').read_text())
+fixture=tempfile.TemporaryDirectory()
+data_dir=Path(fixture.name)/'data';data_dir.mkdir()
+for name,value in world.items():
+ (data_dir/(name+'.json')).write_text(json.dumps(value,ensure_ascii=False))
+policy_path=Path(fixture.name)/'policy.md'
+policy_path.write_text(json.loads((site/'lib/reference/policy.json').read_text())['policy'])
 cases=[]
 def case(name,calls):
  with tempfile.TemporaryDirectory() as logs:
-  s=CartlySession(log_dir=logs);out=[]
+  s=CartlySession(log_dir=logs,data_dir=data_dir,policy_path=policy_path);out=[]
   for tool,args in calls:
    before=s.state;result=s.call(tool,**args);out.append({'result':result,'changes':changes(before,s.state),'verified':s.verified_user_id})
   cases.append({'name':name,'calls':calls,'expected':out})
@@ -32,4 +40,4 @@ for o in world['orders']:
  if any(r['order_id']==o['order_id'] and r['shipping_refunded'] for r in world['refunds']) or o['payment_method']=='COD':
   items=[i for i in world['order_items'] if i['order_id']==o['order_id']]
   for i in items:case(o['order_id']+' refund '+i['item_id'],[verify(o['user_id']),['issue_refund',{'order_id':o['order_id'],'item_id':i['item_id'],'reason':'damaged','confirmed':True}]])
-p=Path(__file__).resolve().parents[1]/'.sites-runtime/parity.json';p.write_text(json.dumps(cases,ensure_ascii=False));print(f'{len(cases)} Python reference sequences prepared')
+p=site/'.sites-runtime/parity.json';p.parent.mkdir(exist_ok=True);p.write_text(json.dumps(cases,ensure_ascii=False));print(f'{len(cases)} Python reference sequences prepared')
