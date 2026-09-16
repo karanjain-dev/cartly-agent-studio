@@ -51,6 +51,10 @@ def test_agent_context_survives_reconstruction(repo, sandbox):
     contents = json.dumps(seen[1]["input"])
     assert "I want to return an item" in contents and "Which order is this about?" in contents and "O0011" in contents
     assert "Today's date is 2026-09-15 (IST)." in seen[0]["instructions"]
+    assert "Before asking a customer to use the condition control, call decide_policy" in seen[0]["instructions"]
+    exposed = {tool["name"]: tool for tool in seen[0]["tools"]}
+    assert "makes that control visible" in exposed["decide_policy"]["description"]
+    assert "exact server proposal and approval control" in exposed["propose_action"]["description"]
 
 
 def test_model_error_saved_and_not_automatically_retried(sandbox):

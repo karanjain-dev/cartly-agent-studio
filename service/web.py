@@ -107,7 +107,7 @@ def snapshot(service, token, ready=False):
             d = d.get("decision", d)
             if "customer_unused_assertion" in d.get("missing", []) and d.get("item_id") not in s["facts"]:
                 condition = {"order_id": d["order_id"], "item_id": d["item_id"]}
-            break
+                break
     cost = 0
     for row in rows:
         if row["event_type"] == "model.response":

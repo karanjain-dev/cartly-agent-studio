@@ -40,7 +40,9 @@ def schemas():
               "address": {"type": ["object", "null"], "properties": address, "required": list(address), "additionalProperties": False}}
     for name in ["decide_policy", "propose_action"]:
         result.append({"type": "function", "name": name,
-                       "description": "Read policy decision from the database" if name == "decide_policy" else "Present an exact proposal to the customer for approval; does not execute it",
+                       "description": ("Read the deterministic policy decision from the database. Call this for the exact order and item before asking for the item-condition control; its missing-fact result makes that control visible."
+                                       if name == "decide_policy" else
+                                       "Create and display the exact server proposal and approval control when required facts are available; does not execute the action."),
                        "strict": True, "parameters": {"type": "object", "properties": fields, "required": list(fields), "additionalProperties": False}})
     return result
 

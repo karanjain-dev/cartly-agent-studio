@@ -99,6 +99,25 @@ def test_stream_proposal_confirmation_and_database_changes(repo, sandbox):
     assert fresh["changes"] == [] and fresh["messages"] == []
 
 
+def test_multiple_change_of_mind_conditions_remain_visible(repo, sandbox):
+    """Recording the newest item must reveal an older unresolved condition."""
+    wid, _ = sandbox
+    c, headers = client(repo, wid)
+    h, _ = session(c, headers)
+    verify(c, h)
+    for order_id, item_id in [("O0011", "I0011"), ("O0045", "I0045")]:
+        r = c.post("/v1/decisions", headers=h, json={"intent": "return", "order_id": order_id,
+                   "item_id": item_id, "reason": "change_of_mind"})
+        assert r.status_code == 200, r.text
+        assert r.json()["result"]["missing"] == ["customer_unused_assertion"]
+    state = c.get("/web/session", headers=h).json()
+    assert state["condition"] == {"order_id": "O0045", "item_id": "I0045"}
+    recorded = c.post("/web/condition", headers={**h, "Idempotency-Key": "condition-I0045"},
+                      json={**state["condition"], "unused": True})
+    assert recorded.status_code == 200, recorded.text
+    assert recorded.json()["condition"] == {"order_id": "O0011", "item_id": "I0011"}
+
+
 def test_browser_disabled_model_and_invalid_inputs(repo, sandbox):
     c, headers = client(repo, sandbox[0])
     h, _ = session(c, headers)
