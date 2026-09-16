@@ -1,6 +1,6 @@
 declare namespace Cloudflare {
   interface Env {
-    DB?: D1Database;
-    BUCKET?: R2Bucket;
+    CARTLY_BACKEND_URL?: string;
+    CARTLY_SERVICE_KEY?: string;
   }
 }

@@ -6,6 +6,7 @@ from uuid import uuid4
 from service.core import CartlyService
 from service.local import repository, operator_key, STATE_DIR
 from service.repository import load_seed
+from service.playground import ensure_playground, shared_world_id
 
 
 def main():
@@ -23,8 +24,9 @@ def main():
         print(json.dumps(repo.seed(world), indent=2))
         print(f"Start a clean sandbox: python -m service serve --world {world}")
         return
-    if args.command != "replay":
-        repo.seed(args.world)
+    if args.command in {"setup", "serve", "chat"}:
+        args.world = shared_world_id(args.world)
+        ensure_playground(repo, args.world)
     if args.command == "setup":
         operator_key()
         state = repo.snapshot(args.world)
@@ -61,7 +63,7 @@ def main():
             parser.error("chat makes paid API calls; add --enable-model, or use demo for the $0 walkthrough")
         from service.agent import PersistentAgent, OpenAITransport, load_api_key
         s = CartlyService(repo)
-        u = next((u for u in load_seed()["users"] if u["user_id"] == args.user), None)
+        u = next((u for u in repo.snapshot(args.world)["users"] if u["user_id"] == args.user), None)
         if not u:
             parser.error("Unknown demo user")
         credentials = {"user_id": u["user_id"], "email": u["email"]}

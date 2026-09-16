@@ -10,6 +10,11 @@ DEMOS = {"return": "U018", "cancel": "U014", "delay": "U031",
          **{u["user_id"]: u["user_id"] for u in ADDITIONS["users"]}}
 
 
+def shared_world_id(configured):
+    """Retain the existing live dataset ID; never seed a second base copy."""
+    return configured if configured.endswith("-shared-web-v1") else configured + "-shared-web-v1"
+
+
 def catalog():
     users = {u["user_id"]: u for u in [*load_seed()["users"], *ADDITIONS["users"]]}
     return [{"id": key, "user": uid, "name": users[uid]["name"], "email": users[uid]["email"]}

@@ -58,3 +58,16 @@ const rejection=await approve(request('PATCH',{proposalId:'x',termsHash:'y',acce
 assert.equal(rejection.status,409);
 assert.deepEqual(await rejection.json(),{error:'Terms changed'});
 console.log('PASS: backend errors remain errors');
+
+calls=[];
+globalThis.fetch=async(input:any,init:any)=>{
+  calls.push({url:String(input),...init});
+  return init.method==='POST'?Response.json({token,snapshot:{messages:[],events:[]}}):
+    Response.json({error:{message:'Session removed'}},{status:401});
+};
+const recovered=await getSession(request());
+assert.equal(recovered.status,200);
+assert.equal(calls.length,2);
+assert.equal(calls[1].method,'POST');
+assert.match(recovered.headers.get('Set-Cookie')!,/HttpOnly/);
+console.log('PASS: deleted legacy cookie starts a fresh shared conversation');

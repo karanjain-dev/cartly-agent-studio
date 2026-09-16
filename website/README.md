@@ -18,7 +18,7 @@ All evaluations are at the project root; `website/evals/` no longer exists.
 This UI is published at https://cartly-agent-studio.karan-jain-iitbhu.chatgpt.site
 and forwards to the authenticated Python backend on Railway. Runtime bindings
 are configured as server-side values in Sites. See `../service/DEPLOYMENT.md`.
-Existing Sites/D1 migration history is retained for rollback, but this UI no
-longer reads or writes D1 business state.
+The website has no database binding. PostgreSQL on Railway is the sole product database.
+Retired database code remains available through Git history only.
 
 Checks: `node tests/run.mjs`, TypeScript typecheck, `node scripts/run-framework.mjs build`.

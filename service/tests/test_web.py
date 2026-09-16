@@ -128,10 +128,10 @@ def test_shared_cancellation_survives_new_session_and_restart(repo, sandbox):
                     json={"intent": "cancel", "order_id": "O2001"}).json()
     assert not again["ok"] or not again["result"].get("proposal")
     from service.replay import replay
-    world = repo.snapshot(wid + "-shared-web-v1")
+    world = repo.snapshot(wid)
     assert len([r for r in world["refunds"] if r["order_id"] == "O2001"]) == 1
     assert len([o for o in world["orders"] if o["user_id"] == "U201"]) == 5
-    assert replay(repo, wid + "-shared-web-v1")["pass"]
+    assert replay(repo, wid)["pass"]
     other, other_state = session(c2, headers2, "U202")
     assert all(o["order_id"] != "O2001" for o in other_state["demoOrders"])
     assert call(c2, other, "verify_user", {"user_id": "U202", "email": "customer202@example.com"})["ok"]
@@ -142,7 +142,8 @@ def test_old_isolated_session_is_readable_but_cannot_mutate(repo, sandbox):
     wid, s = sandbox
     from service.tests.conftest import login
     c, headers = client(repo, wid)
-    token = login(s, wid)
+    repo.seed(wid + "-retired")
+    token = login(s, wid + "-retired")
     h = {**headers, "Authorization": "Bearer " + token}
     state = c.get("/web/session", headers=h).json()
     assert state["archived"] and state["ended"]

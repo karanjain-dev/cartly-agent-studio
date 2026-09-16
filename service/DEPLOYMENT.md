@@ -16,15 +16,14 @@ runs as a Docker service, with a separate persistent PostgreSQL service.
   tools, data, approval flow, and database guardrails are unchanged.
 
 The live Railway service is `cartly-api`, connected to GitHub `main` for deployment.
-The older, unexposed `cartly-agent-studio` Railway service is not the website's API;
-it has no production secrets and its startup reports missing configuration.
-Do not copy secrets into it or use its failed deployment to assess the live API.
+The user removed the unused `cartly-agent-studio` Railway service. Only the live
+`cartly-api` service and PostgreSQL are required.
 The website must also be published through Sites when frontend source changes.
 Never upload ignored local secrets or local databases.
 
 The shared-playground update uses `<CARTLY_WORLD>-shared-web-v1` in the same
 PostgreSQL instance. It starts fresh by explicit user choice. Old isolated worlds
-remain stored and their website sessions are archived. New conversations reuse
+are backed up privately and removed by the administrative cleanup. New conversations reuse
 the shared world; only their chat/approval state is new. The additional 20 customers
 and 100 orders are inserted once from `service/demo_data/playground_v1.json`, under
 the world lock with audit entries. Restarts preserve all later mutations.

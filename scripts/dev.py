@@ -16,7 +16,7 @@ from service.local import operator_key
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--enable-model", action="store_true", help="Allow paid Astra calls using the existing server-side key")
+    parser.add_argument("--enable-model", action="store_true", help="Allow paid Terra calls using the existing server-side key")
     parser.add_argument("--api-port", type=int, default=8010)
     parser.add_argument("--ui-port", type=int, default=5173)
     parser.add_argument("--node", default=shutil.which("node"))

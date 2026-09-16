@@ -50,7 +50,7 @@ name and service instructions are unchanged; the instructions have moved to
 `prompts/current.md` and are inspectable through the UI.
 
 The local demo requires the approval control for actions and the item-condition
-control for an unused assertion. Every browser reset starts an isolated sandbox;
+control for an unused assertion. New conversations share durable customer/order records;
 reloading retains its conversation. Terminal/API sessions can share a world.
 
 Public deployment requires a reachable authenticated Python backend, PostgreSQL,

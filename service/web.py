@@ -162,7 +162,6 @@ def install(app, service, operator, customer, transport, world_id):
     # Every browser bridge request authenticates the website server. The
     # browser receives only an opaque HttpOnly session cookie from that server.
     private = [Depends(operator)]
-    world_id = world_id + "-shared-web-v1"
     ready = transport is not None
     def current_snapshot(auth):
         return snapshot(service, auth, ready, world_id)

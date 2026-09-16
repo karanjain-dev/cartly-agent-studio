@@ -17,13 +17,14 @@ adds the configured date and the policy saved with the conversation's sandbox.
 
 ## Shared website playground
 
-The website now uses one durable world, `<configured world>-shared-web-v1`.
+The website, HTTP API and terminal use one durable world, `<configured world>-shared-web-v1`.
+Startup resolves this ID once and does not seed a second base dataset.
 New conversation creates only a chat/session; it does not reset orders, returns,
 refunds or coupons. Visitors who select the same demo customer share that
 customer's business history, while their chat messages and approvals stay private
-to each conversation. Existing isolated browser demos are archived and readable;
-start a new conversation to enter the fresh shared playground. Their old,
-potentially conflicting refunds are not merged.
+to each conversation. Retired isolated browser datasets are exported to a private backup and removed
+from production. Their conflicting refunds are not merged. A removed conversation
+cookie starts a new chat; active shared conversations remain intact.
 
 `service/demo_data/playground_v1.json` adds 20 customers (U201–U220), 100 orders
 (O2001–O2100), and 100 items (I2001–I2100). Each customer has two cancellable orders,
@@ -206,3 +207,14 @@ historical test failures.
 Next increment: connect a UI to this API and replace demo identity matching with a
 real login provider. Then measure agent conversations against the existing evals
 using a service adapter, while preserving the old baseline scores separately.
+
+## Administrative cleanup
+
+`service/maintenance.py` is an offline administrator command, never a tool or HTTP
+endpoint. Export saves a complete logical backup with checksums. Pruning requires
+the exported retired-record fingerprint, locks the tables, removes only retired
+demo worlds, and verifies current records and all spending state are unchanged.
+Audit immutability is restored within the same transaction. A restore helper is
+tested against an empty schema. Keep backups outside Git and restrict file access.
+The retained world identifier supports isolated test databases; production has
+only one dataset. Frozen evaluation fixtures and test scenarios are not live DB copies.
