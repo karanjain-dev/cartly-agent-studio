@@ -1,73 +1,215 @@
-# Cartly Agent Studio
+# Cartly — one local codebase
 
-A natural-language customer support chatbot with visible guardrails and exact proposal approval. Talk to GPT-6 Astra, watch real tool calls and server checks, then approve an action inside the conversation. All customers and transactions are synthetic.
+The website and terminal now call the **same Python agent and guarded service**.
+Python owns conversations, policy decisions, tools, approvals, and PostgreSQL state.
+The website displays messages and activity and forwards requests; it has no agent,
+policy calculator, or world-data copy.
 
-## Try the product
+**Deployment status:** this consolidation is local only. The public site still
+runs its previously published version. No GitHub push or production switch was
+performed. Choose a Python/PostgreSQL host before publishing this frontend.
 
-1. Choose a demo customer and type a request, such as “I'd like to return the kurta in O0011.”
-2. The agent asks for verification and any missing details. The demo credentials are shown above the chat.
-3. **Activity** shows actual model requests, tool arguments/results, policy checks and blocked actions. Expand any step to see its data. **Context** shows verified identity, history and orders read. **Changes** shows resulting database changes.
-4. The agent prepares an exact proposal with the action, amount, refund method and timing. Review it and press **Accept and proceed**, or decline and keep chatting.
-5. The server rechecks eligibility before executing. Its result appears in chat and is included in subsequent conversation memory.
+## Start the product
 
-A typed “yes” remains a chat message. Execution requires the approval button bound to the exact displayed terms. Any new message invalidates an unexecuted proposal. Duplicate clicks or retries cannot execute the same proposal twice.
+Dependencies are installed on this laptop. From this folder:
 
-## How the hosted flow works
-
-```text
-Customer message
-  → /api/chat
-  → GPT-6 Astra + policy + conversation history
-  → read tools / decide_policy
-  → live tool results and guardrail events
-  → agent asks a question or calls propose_action
-  → exact proposal appears inside chat
-  → customer accepts
-  → /api/proposal checks session, proposal ID, terms hash and revision
-  → eligibility recalculated against the latest stored session
-  → action executes once; result and changes saved
-  → conversation continues with that result in memory
+```sh
+.venv-service/bin/python scripts/dev.py --enable-model
 ```
 
-The model cannot call mutation tools directly. Even a fabricated call with `confirmed=true` is rejected. Read tools enforce identity and ownership. Proposal execution enforces return windows, category restrictions, evidence, refund history, cumulative limits, shipping rules, duplicate protection, cancellation states, address eligibility and coupon eligibility. Amounts and payment methods come from database values.
+Open http://127.0.0.1:5173. This explicitly enables paid Astra calls using the
+existing server-side key. Omit `--enable-model` to inspect the UI and policy
+without allowing model calls. If port 8010 is occupied, add `--api-port 8011`.
+Ctrl-C stops both processes. Data survives restart.
 
-The unused-item statement comes from the conversation and is reconfirmed explicitly in change-of-mind proposal terms. This is a customer assertion, not independently observed evidence. Escalation routing still depends on the agent following the policy; its tool requires the G3 summary.
+For a fresh checkout, create a Python 3.12 environment, install
+`service/requirements-dev.txt`, and install the locked website dependencies using
+`node scripts/install-ci.mjs` from `website/`. Node 22+ is required.
+Set `OPENAI_API_KEY` only in the Python server environment or ignored root `.env`.
+`CARTLY_DATABASE_URL` is optional; without it the local PostgreSQL helper is used.
 
-## Files
+Terminal chat uses the very same agent:
 
-| File | Responsibility |
-| --- | --- |
-| `app/page.tsx`, `app/globals.css` | Chat, inline proposal card, live activity, context, changes, demo selection and policy dialog. |
-| `app/api/chat/route.ts` | Same-origin chat endpoint, session lock and streamed events. |
-| `lib/agent.ts` | Astra tool loop, history, canonical proposal messages, usage accounting and spending gate. |
-| `lib/chat-contract.ts` | Restricted agent tool schemas and hosted interaction instructions. |
-| `lib/guarded-flow.ts` | Deterministic decisions, check events, proposals, acceptance, revalidation and action execution. |
-| `app/api/proposal/route.ts` | Customer-only approval/rejection endpoint; locks before reading the latest session. |
-| `lib/tools.ts` | Existing baseline tool implementation, called through the guarded hosted wrapper. |
-| `lib/session.ts`, `app/api/session/route.ts` | Durable isolated sessions, reset and browser-safe snapshots. |
-| `lib/reference/` | Policy, world data and original tool schemas; loaded only on the server. |
-| `db/schema.ts`, `drizzle/` | Hosted SQLite session and shared API-spending tables. |
-| `tests/agent-flow.ts` | Mocked multi-turn integration, guardrail, approval, concurrency and budget tests. |
-| `tests/run.mjs` | Runs those tests and regenerates independent Python-tool parity expectations. |
+```sh
+.venv-service/bin/python -m service chat --user U018 --enable-model
+```
 
-Run `node tests/run.mjs` to test without making OpenAI API requests. It requires Python 3 for the baseline parity fixtures. Run the checked-in build/dev scripts for the website.
+## Follow one request
 
-The hosted service uses a TypeScript wrapper and Sites SQLite storage. The separate Python/PostgreSQL service remains in the desktop project and the `evals/service/` export. The website does not call that local service. Each hosted conversation has its own synthetic world; separate conversations do not share order changes.
+```mermaid
+flowchart TD
+  UI["website/app/page.tsx: chat, condition, approval, activity"] --> Proxy["website/app/api + lib/session.ts: HTTP forwarding"]
+  Proxy --> API["service/api.py + web.py: authenticated API and streamed activity"]
+  CLI["service/__main__.py: terminal chat"] --> Agent
+  API --> Agent["service/agent.py: Astra and saved conversation"]
+  Prompt["prompts/current.md + config date + sandbox policy.md"] --> Agent
+  Agent --> Core["service/core.py: identity, proposals, approvals, execution"]
+  Core --> Rules["service/policy.py: operational decisions"]
+  Core --> Engine["service/engine.py + cartly/tools.py: guarded tools"]
+  Core --> DB["service/repository.py: PostgreSQL and audit"]
+  DB --> API
+```
 
-## Evaluation project
+1. The customer sends text. The Python agent saves it and loads conversation history.
+2. Astra receives the current prompt, policy, date, and restricted tools.
+3. Python executes requested read/decision tools and returns their results to Astra.
+4. An allowed action becomes an exact stored proposal. Only the customer's
+   approval control authorizes execution; a chat message is not that control.
+5. Python rechecks eligibility and approval, commits once, and records an audit event.
+6. The website receives snapshots after model/tool steps. Its activity panel and
+   download contain saved observable results, never private model reasoning.
 
-The complete evaluation project is in [evals/](evals/README.md): policies, prompts, fictional data, scenarios, simulator, reference calculator, tests and saved transcripts. Its guide explains case creation and grading.
+For change-of-mind returns, a small condition control records the customer's
+unused-item assertion. The customer then continues chatting and reviews the proposal.
 
-The [stress suite report](evals/runs/stress_v1_baseline/REPORT.md) distinguishes precheck skips, observation-only cases, checker errors and transcript-reviewed results. Those historical scores do not evaluate this new guarded chat wrapper. No new paid evaluation run was started for this UI change.
+## Where everything lives
 
-The runtime never imports the simulator, scenario truth, expected outcomes, grader or reference calculator. Policy v0.8, world data and evaluation prompts remain unchanged; the hosted chat contract is a separate application instruction layer.
+| File/folder | Responsibility |
+|---|---|
+| `prompts/current.md` | The one active product instruction file. |
+| `service/prompt.py` | Combines that file, config date and sandbox policy; fingerprints the exact text. |
+| `policy.md` | Canonical policy, saved into each sandbox when it is created. |
+| `data/` | Canonical seed world; tools never edit these files. |
+| `service/agent.py` | Shared Astra tool loop and persistent conversation memory. |
+| `service/core.py` | Identity, exact proposals, approval invalidation, atomic execution and retries. |
+| `service/policy.py` | Operational eligibility rules. |
+| `cartly/tools.py`, `service/engine.py` | Business tools and always-guarded service wrapper. |
+| `service/web.py`, `service/api.py` | Browser views/streaming and authenticated HTTP routes. |
+| `service/repository.py`, `service/migrations/` | Database persistence and audit history. |
+| `website/` | UI and thin HTTP proxy only. |
+| `simulation/`, `scenarios/`, `scenario_truth/` | Customer simulator, independent answer key, and hidden evaluation fixtures. |
+| `evaluation/`, `tests/`, `runs/` | Historical experiment runner/grader, tests, and saved evidence. |
+| `service/tests/` | Current shared-backend tests, including browser-to-agent-to-approval tests. |
+| `evaluation/service_smoke.py` | Zero-model service check against the independent reference calculator. |
+| `scripts/dev.py` | Starts Python and the website with server-only connection credentials. |
 
-## Hosting, cost and limits
+Use **Policy & prompt → Full agent prompt** in the website to inspect the exact
+text for that conversation. Older `prompts/agent_*.md` files belong to recorded
+evaluations, not the current product.
 
-The existing Sites project uses a protected server-side `OPENAI_API_KEY`. `DEMO_BUDGET_USD` sets a shared lifetime allowance, default $3 across visitors; resetting a conversation does not reset spending. The server reserves a conservative request estimate and settles against API usage. Unknown-cost interruptions consume the reservation conservatively. This is an application allowance, not an API-account billing limit.
+Each browser “New conversation” starts a fresh isolated sandbox. Reloading keeps
+that sandbox and its changes. API/terminal sessions deliberately bound to the
+same world share order history. Policy snapshots preserve what governed existing
+conversations; create a new sandbox after an intentional policy version change.
 
-Sessions persist behind an opaque HttpOnly cookie. Simultaneous chat and approval requests serialize using the stored session lock. Actions, tool logs, visible messages and proposals persist together in the session payload.
+## What was consolidated
 
-Refunds, returns, coupons and escalations create demo records only. There is no real payment, pickup, evidence-upload flow or staff notification. Activity displays observable events, never private model reasoning.
+The Git repository root is now this desktop folder. Git history is retained.
+The duplicated `website/evals/`, TypeScript agent, TypeScript guarded tools and
+`website/lib/reference/` world/policy bundles were removed from active code.
+A recovery archive lives in ignored `.migration-backup/pre-consolidation.tar.gz`.
+There is no export/sync step. The former exporter stops with a helpful message.
 
-Supporting browsers expose read-only `get_conversation_activity` and draft-only `draft_customer_message` WebMCP tools. Drafting never sends a message or approves a proposal.
+Historical baseline experiments remain frozen and clearly separate: they still
+reproduce the original unguarded, in-memory agent. They are **not** a measurement
+of the new service. The independent reference calculator remains outside the
+runtime so the agent cannot see expected answers. No paid accuracy rerun was made.
+
+## Verify
+
+```sh
+.venv-service/bin/python -m pytest service/tests -q
+.venv-service/bin/python -m unittest discover -s tests -q
+.venv-service/bin/python -m evaluation.service_smoke
+cd website
+node tests/run.mjs
+node scripts/run-framework.mjs build
+```
+
+These service/browser checks use real PostgreSQL and recorded model replies.
+They test integration and safeguards, not live Astra accuracy.
+
+Before a future public switch, configure the Python host and database, real
+authentication/rate limits and a shared spending cap. The former hosted $3 D1
+budget is archived with that runtime; it is **not** implemented in this local
+Python prototype. The local agent has persisted turn and model-call limits.
+
+---
+
+# Historical evaluation record
+
+## Latest measurement: stress_v1
+
+[Read the stress-only result and transcript review](runs/stress_v1_baseline/REPORT.md). Its accuracy uses only these new cases. It does not combine them with the original dev or heldout results.
+
+The supplied specification contains **13 cases**: H01–H12 plus H08b. Eleven request a scored result; H02 and H03 ask for observation only. Prechecks exclude H05 and H06 because their requested outcomes conflict with the frozen policy's A3 escalation rule. The remaining nine graded cases and two observations each receive one conversation attempt, subject to a $3 combined API budget. See [the exact precheck decisions](runs/stress_v1_baseline/precheck.json).
+
+Measurement inputs: policy **v0.8**, `agent_v1.1` prompt, **GPT-6 Astra** agent with high reasoning, **GPT-5.6 Luna** customer with reasoning disabled, and unguarded tools. The model names actually returned by the API are in each case's `api_calls.jsonl`. All project dates come from `data/config.json`: **2026-09-15, IST**.
+
+## How these evaluations are created
+
+1. **Write a concrete customer situation.** Specify the opening message, tone, goal, facts the customer knows, when each fact may be revealed, and any pressure or refusal script. Keep expected answers and policy rules outside the customer profile.
+2. **Add fictional world records.** The stress generator appended 14 users, 16 orders and 17 items. Every earlier world record was retained unchanged. Item prices, payment methods, timestamps, evidence, and ownership live in the database; claims and customer intent stay in the scenario. The data validator found zero violations.
+3. **Define an observable answer.** An acceptable end state describes exact inserts/updates, including target order/item and return reason. Scheduled returns carry an expected future refund; they do not count as money already refunded. Declines require no business-state changes. Escalations require a saved handoff.
+4. **Check the answer before running.** `reference_inputs` translates relevant hidden facts into the existing calculator's structured interface. `simulation/reference_calculator.py` determines eligibility, amount, method and shipping. A disagreement is reported and skipped, not fixed to make the agent look better. This is a test oracle, not an agent tool.
+5. **Run an isolated conversation.** Each attempt starts a new `CartlySession` from the JSON database. Luna plays the customer, Astra sees the saved support prompt and tools, and successful tools modify only that session's memory. Twenty support turns is the limit. Nothing writes back into `data/` during a conversation.
+6. **Keep evidence and grade it.** Compare the final database delta with the expected state, check financial terms against the calculator, and inspect confirmation, clarification, communication, privacy, and forbidden actions in the transcript. Customer and checker mistakes are reported separately from agent mistakes. No agent conversation is retried to improve its score.
+
+### Customer isolation and stress scripts
+
+The customer receives only credentials, persona, goal, opening style, hidden facts and behavior rules, plus the config date. It does not receive the policy, calculator decisions, grading targets or world tables. The existing semantic fact gate, grounding checks, and terminal checks are reused.
+
+The stress runner adds two explicit adapters: it emits the supplied opening verbatim, and Luna selects scripted events by meaning (for example, “after verification”). The original simulator's keyword scheduler cannot express every supplied trigger. This changes script scheduling for the new suite; it does not change the support agent or its prompt. Deviations from the requested customer script are recorded in the final review.
+
+### What “accuracy” means here
+
+The report distinguishes exact database outcome from full conversation correctness. A full pass also requires the requested communication, valid prior consent, correct identity/targets and no forbidden action. Observations, precheck skips and incomplete attempts do not enter the graded denominator. This is one trial per case; it is not pass^3 and is not an estimate across all customer traffic.
+
+The first automated stress audit sometimes returned event IDs or policy numbers where numbered communication-requirement IDs were expected. Its raw failures remain saved. The separate transcript review records any corrected assessment, the exact evidence, and the review method; it never silently rewrites the raw results. An automatic-checker error is not evidence that the support agent failed.
+
+## Folder map
+
+| Path | Purpose |
+|---|---|
+| `policy.md` | Locked business rules; v0.8 was unchanged during this measurement. |
+| `prompts/agent_v1.1.md` | Exact saved agent system prompt, including reference date and policy. |
+| `data/` | Tool-visible users, orders, items, refunds, returns, pincodes and config. |
+| `scenario_truth/` | Hidden labels and historical fixture facts; tools never read this layer. |
+| `scenarios/scenarios.json` | Original 40 scenarios, including 30 dev and 10 heldout. Unchanged. |
+| `scenarios/stress_v1.json` | The separate 13-case stress suite, expected states and factual calculator inputs. |
+| `cartly/tools.py` | Verification, order reads, mutations, reset, logging and optional guarded mode. |
+| `simulation/customer.py`, `fact_gate.py`, `answerability.py`, `customer_checks.py` | Customer speech, fact release, grounding and ending checks. |
+| `simulation/reference_calculator.py` | Deterministic expected business outcomes. Frozen for this measurement. |
+| `simulation/model_client.py` | API client and environment-only/local-secret API-key lookup. No key is committed. |
+| `evaluation/agent.py`, `tool_schema.py` | Support-agent loop and model-facing tool definitions. |
+| `evaluation/stress.py` | Stress prechecks, isolated one-attempt runner, all-role budget accounting and raw grading. |
+| `evaluation/grader.py`, `confirmation.py`, `judge.py` | Existing state, confirmation and transcript checks used by the baseline. |
+| `evaluation/run.py`, `scorecard.py` | Original dev/heldout runner and scorecard. The stress run does not use its dev aggregation. |
+| `scripts/create_stress_v1.py` | Append-only fixture/scenario generator; refuses to regenerate an existing suite. |
+| `scripts/validate_data.py` | Referential integrity, dates, refund math, status and planted-condition validation. |
+| `scripts/dev.py` | Starts the shared Python backend and website together. |
+| `tests/` | Local calculator, tool, simulator, harness and stress-fixture regression tests. |
+| `runs/stress_v1_baseline/` | New run results, raw transcripts, tool logs, usage, review and stress-only report. |
+| Other `runs/` directories | Historical experiments, retained unchanged; not part of the new accuracy. |
+
+
+Historical README files describe their original versions. For the current stress measurement, use this document, the saved run manifest and per-case metadata.
+
+## Inspect and validate without API spending
+
+From the GitHub checkout:
+
+```sh
+cd cartly-agent
+python3 -m evaluation.stress --precheck
+python3 scripts/validate_data.py --report /tmp/cartly-stress-validation.json
+python3 -m unittest tests.test_stress tests.test_reference_calculator
+```
+
+These are local checks. They do not call a model. The relevant test run passed 23 tests. One separate historical harness test still compares the entire world-data file to its old hash; it fails after the explicitly authorized append. We have not changed that historic baseline to hide the difference. The stress preservation check instead proves each original row, frozen component and earlier run file is unchanged.
+
+For a new, unstarted measurement checkout, `python3 -m evaluation.stress --run` makes paid API calls using `OPENAI_API_KEY`. This checked-in run already exists, so that command deliberately refuses to overwrite it. Create a separately named future experiment rather than deleting these results. Do not run `create_stress_v1.py` against the already-expanded data.
+
+## Read an individual result
+
+Under `runs/stress_v1_baseline/H01/` (and each other attempted ID):
+
+- `transcript.json`: exact customer/support messages and tool events in order.
+- `tool_log.json` and `session_logs/`: every tool's arguments and result/error.
+- `initial_state.json` / `final_state.json`: exact session database before and after.
+- `api_calls.jsonl`: full model requests/responses and token usage; no authorization headers.
+- `simulator_trace.json`: fact releases, script triggers, grounding and stop judgments.
+- `metadata.json`: model, policy, prompt, data hashes, mode, split and trial.
+- `result.json`: original automatic result, including checker errors if any.
+
+The run-level `budget.json` sums agent, customer and checker usage at the saved rates. It is a usage-based estimate in USD, not the account invoice. The conservative preflight reserves the maximum next request before spending, and blocks requests that could exceed $3. `preservation_before.json` and `preservation_check.json` prove the measurement did not change frozen inputs or previous results.

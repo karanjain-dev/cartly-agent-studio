@@ -1,5 +1,0 @@
-.env
-.venv-service/
-.cartly-service/
-__pycache__/
-.pytest_cache/

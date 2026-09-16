@@ -1,1 +1,0 @@
-Cartly bootcamp started
